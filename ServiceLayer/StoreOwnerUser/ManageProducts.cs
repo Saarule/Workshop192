@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.Store_Owner_User
 {
-    class ManageProducts
+    public class ManageProducts
     {
+        public ManageProducts()
+        {
+
+        }
+        public static bool ManageProduct()
+        {
+            return false;
+        }
     }
 }
