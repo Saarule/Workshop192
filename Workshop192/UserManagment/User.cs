@@ -73,5 +73,12 @@ namespace Workshop192.UserManagment
         {
             return stores;
         }
+        public bool GetLoggedIn() {
+            return loggedIn;
+        }
+        public LinkedList<Cart> GetCarts()
+        {
+            return carts;
+        }
     }
 }

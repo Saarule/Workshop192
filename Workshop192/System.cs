@@ -14,11 +14,20 @@ namespace Workshop192
         private LinkedList<Store> stores;
         private Security security;
 
-        public System()
+        private static System instance = null;
+
+        private System()
         {
             users = new LinkedList<User>();
             stores = new LinkedList<Store>();
             security = new Security();
+        }
+
+        public static System GetInstance() {
+            if (instance == null) {
+                instance = new System();
+            }
+            return instance;
         }
 
         public bool AddUser(string userName, string password)
