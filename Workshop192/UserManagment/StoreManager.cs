@@ -7,7 +7,7 @@ using Workshop192.MarketManagment;
 
 namespace Workshop192.UserManagment
 {
-    class StoreManager : StoreOwner
+    public class StoreManager : StoreOwner
     {
         private bool[] privileges;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Workshop192.MarketManagment
 {
-    class Cart
+    public class Cart
     {
         private Store store;
         private LinkedList<Product> products;
