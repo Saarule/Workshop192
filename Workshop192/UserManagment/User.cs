@@ -34,18 +34,39 @@ namespace Workshop192.UserManagment
             this.userName = userName;
         }
 
-        public void LogIn() { }
+        public void LogIn()
+        {
+            loggedIn = true;
+        }
 
-        public void LogOut() { }
+        public void LogOut()
+        {
+            loggedIn = false;
+        }
 
-        public bool AddStore(StoreOwner store) { }
+        public void AddStore(StoreOwner store)
+        {
+            stores.AddLast(store);
+        }
 
-        public bool RemoveStore(StoreOwner store) { }
+        public bool RemoveStore(StoreOwner store)
+        {
+            return stores.Remove(store);
+        }
 
-        public bool AddCart(Cart cart) { }
+        public void AddCart(Cart cart)
+        {
+            carts.AddLast(cart);
+        }
 
-        public bool RemoveCart(Cart cart) { }
+        public bool RemoveCart(Cart cart)
+        {
+            return carts.Remove(cart);
+        }
 
-        public string GetName() { }
+        public string GetName()
+        {
+            return userName;
+        }
     }
 }

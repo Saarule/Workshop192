@@ -43,11 +43,23 @@ namespace Workshop192
             return null;
         }
 
-        public bool OpenStore(string storeName, User owner) { }
+        public void OpenStore(string storeName, User owner)
+        {
+            Store store = new Store(storeName, owner);
+            owner.AddStore(new StoreOwner(owner, store, null));
+        }
 
-        public Store GetStore(string storeName) { }
+        public Store GetStore(string storeName)
+        {
+            foreach (Store store in stores)
+                if (store.GetName() == storeName)
+                    return store;
+            return null;
+        }
 
-        public LinkedList<Store> GetAllStores() { }
+        public LinkedList<Store> GetAllStores()
+        {
+            return stores;
+        }
     }
-}
 }
