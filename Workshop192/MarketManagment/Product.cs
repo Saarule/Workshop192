@@ -12,10 +12,21 @@ namespace Workshop192.MarketManagment
         private int price;
         private string name;
 
-        public Product(int productId, int price, string name) { }
+        public Product(int productId, int price, string name)
+        {
+            this.productId = productId;
+            this.price = price;
+            this.name = name;
+        }
 
-        public int GetPrice() { }
+        public int GetPrice()
+        {
+            return price;
+        }
 
-        public string GetName() { }
+        public string GetName()
+        {
+            return name;
+        }
     }
 }

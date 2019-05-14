@@ -11,10 +11,20 @@ namespace Workshop192.MarketManagment
         private Store store;
         private LinkedList<Product> products;
 
-        public Cart(Store store) { }
+        public Cart(Store store)
+        {
+            this.store = store;
+            products = new LinkedList<Product>();
+        }
 
-        public bool AddProduct(Product product) { }
+        public void AddProduct(Product product)
+        {
+            products.AddLast(product);
+        }
 
-        public bool RemoveProduct(Product product) { }
+        public bool RemoveProduct(Product product)
+        {
+            return products.Remove(product);
+        }
     }
 }
