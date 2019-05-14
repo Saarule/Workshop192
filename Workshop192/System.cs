@@ -8,7 +8,7 @@ using Workshop192.UserManagment;
 
 namespace Workshop192
 {
-    class System
+    public class System
     {
         private LinkedList<User> users;
         private LinkedList<Store> stores;

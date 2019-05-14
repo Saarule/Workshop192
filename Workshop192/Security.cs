@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Workshop192
 {
-    class Security
+    public class Security
     {
         private Dictionary<string, string> users;
 

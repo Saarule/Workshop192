@@ -7,7 +7,7 @@ using Workshop192.MarketManagment;
 
 namespace Workshop192.UserManagment
 {
-    class User
+    public class User
     {
         private string userName;
         private bool loggedIn;
@@ -67,6 +67,11 @@ namespace Workshop192.UserManagment
         public string GetName()
         {
             return userName;
+        }
+        
+        public LinkedList<StoreOwner> GetStores()
+        {
+            return stores;
         }
     }
 }

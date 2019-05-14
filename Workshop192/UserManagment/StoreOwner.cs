@@ -7,7 +7,7 @@ using Workshop192.MarketManagment;
 
 namespace Workshop192.UserManagment
 {
-    class StoreOwner
+    public class StoreOwner
     {
         protected User user;
         protected Store store;
@@ -60,6 +60,11 @@ namespace Workshop192.UserManagment
             foreach (StoreOwner tmp in child.children)
                 ForceRemoveChild(tmp);
             return child.user.RemoveStore(child) && father.children.Remove(child);
+        }
+
+        public Store GetStore()
+        {
+            return store;
         }
     }
 }
