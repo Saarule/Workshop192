@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Workshop192.MarketManagment
 {
-    class Product
+    public class Product
     {
         private int productId;
         private int price;
@@ -17,5 +17,8 @@ namespace Workshop192.MarketManagment
         public int GetPrice() { }
 
         public string GetName() { }
+        public int GetProductID() {
+            return productId;
+        }
     }
 }

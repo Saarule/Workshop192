@@ -7,7 +7,7 @@ using Workshop192.MarketManagment;
 
 namespace Workshop192.UserManagment
 {
-    class User
+    public class User
     {
         private string userName;
         private bool loggedIn;
@@ -38,14 +38,22 @@ namespace Workshop192.UserManagment
 
         public void LogOut() { }
 
-        public bool AddStore() { }
+        public bool AddStore(StoreOwner store) { }
 
-        public bool RemoveStore() { }
+        public bool RemoveStore(StoreOwner store) { }
 
-        public bool AddCart() { }
+        public bool AddCart(Cart cart) { }
 
-        public bool RemoveCart() { }
+        public bool RemoveCart(Cart cart) { }
 
         public string GetName() { }
+
+        public bool GetLoggedIn() {
+            return loggedIn;
+        }
+        public LinkedList<Cart> GetCarts()
+        {
+            return carts;
+        }
     }
 }

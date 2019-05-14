@@ -16,7 +16,7 @@ namespace Workshop192.UserManagment
 
         public StoreOwner(User user, Store store, StoreOwner father) { }
 
-        public virtual bool AddProduct(Product product) { }
+        public virtual void AddProduct(Product product) { }
 
         public virtual bool RemoveProduct(Product product) { }
 
