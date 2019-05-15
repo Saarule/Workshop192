@@ -26,24 +26,6 @@ namespace Workshop192.MarketManagment
         {
             return products.Remove(product);
         }
-=========
-        public void AddProduct(Product product) { }
-
-        public bool RemoveProduct(Product product) { }
-
-        public LinkedList<Product> GetProductsOfCart()
-        {
-            return products;
-        }
-        public Store GetStoreOfCart()
-        {
-            return store;
-        }
-
->>>>>>>>> Temporary merge branch 2
-    }
-}
-
 
         public Store GetStore()
         {
@@ -54,3 +36,6 @@ namespace Workshop192.MarketManagment
         {
             return products;
         }
+
+    }
+}

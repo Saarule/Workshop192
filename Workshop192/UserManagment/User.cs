@@ -44,8 +44,7 @@ namespace Workshop192.UserManagment
             loggedIn = false;
         }
 
-<<<<<<<<< Temporary merge branch 1
-        public void AddStore(StoreOwner store)
+        public void AddStoreOwner(StoreOwner store)
         {
             storesOwned.AddLast(store);
         }
@@ -77,29 +76,6 @@ namespace Workshop192.UserManagment
         public string GetName()
         {
             return userName;
-=========
-        public bool AddStore(StoreOwner store) { }
-
-        public bool RemoveStore(StoreOwner store) { }
-
-        public bool AddCart(Cart cart) { }
-
-        public bool RemoveCart(Cart cart) { }
-
-        public string GetName() { }
-
-        public bool GetLoggedIn() {
-            return loggedIn;
-        }
-        public LinkedList<Cart> GetCarts()
-        {
-            return carts;
->>>>>>>>> Temporary merge branch 2
-        }
-    }
-}
-
-        public void AddStoreOwner(StoreOwner store)
         }
 
         public LinkedList<Cart> GetCarts()
@@ -120,3 +96,7 @@ namespace Workshop192.UserManagment
         public LinkedList<StoreOwner> GetStoreOwners()
         {
             return storesOwned;
+        }
+
+    }
+}
