@@ -10,6 +10,11 @@ namespace Workshop192
     {
         private Dictionary<string, string> users;
 
+        public Security()
+        {
+            users = new Dictionary<string, string>();
+        }
+
         public bool AddUser(string userName, string password)
         {
             if (users.ContainsKey(userName))

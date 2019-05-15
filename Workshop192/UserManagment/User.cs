@@ -13,7 +13,7 @@ namespace Workshop192.UserManagment
         private bool loggedIn;
         private bool admin;
         private LinkedList<Cart> carts;
-        private LinkedList<StoreOwner> stores;
+        private LinkedList<StoreOwner> storesOwned;
 
         public User()
         {
@@ -21,7 +21,7 @@ namespace Workshop192.UserManagment
             loggedIn = false;
             admin = false;
             carts = new LinkedList<Cart>();
-            stores = new LinkedList<StoreOwner>();
+            storesOwned = new LinkedList<StoreOwner>();
         }
 
         public void SetAdmin()
@@ -34,18 +34,68 @@ namespace Workshop192.UserManagment
             this.userName = userName;
         }
 
-        public void LogIn() { }
+        public void LogIn()
+        {
+            loggedIn = true;
+        }
 
-        public void LogOut() { }
+        public void LogOut()
+        {
+            loggedIn = false;
+        }
 
-        public bool AddStore() { }
+        public void AddStoreOwner(StoreOwner store)
+        {
+            storesOwned.AddLast(store);
+        }
 
-        public bool RemoveStore() { }
+        public bool RemoveStoreOwner(StoreOwner store)
+        {
+            return storesOwned.Remove(store);
+        }
 
-        public bool AddCart() { }
+        public void AddProductToCart(Product product, Store store)
+        {
+            foreach (Cart cart in carts)
+                if (cart.GetStore().Equals(store))
+                {
+                    cart.AddProduct(product);
+                    return;
+                }
+        }
 
-        public bool RemoveCart() { }
+        public bool RemoveProductFromCart(Product product)
+        {
+            foreach (Cart cart in carts)
+                foreach (Product pro in cart.GetProducts())
+                    if (pro.Equals(product))
+                        return cart.GetProducts().Remove(product);
+            return false;
+        }
 
-        public string GetName() { }
+        public string GetName()
+        {
+            return userName;
+        }
+
+        public LinkedList<Cart> GetCarts()
+        {
+            return carts;
+        }
+
+        public bool IsLoggedIn()
+        {
+            return loggedIn;
+        }
+
+        public bool IsAdmin()
+        {
+            return admin;
+        }
+
+        public LinkedList<StoreOwner> GetStoreOwners()
+        {
+            return storesOwned;
+        }
     }
 }
