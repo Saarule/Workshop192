@@ -21,8 +21,9 @@ namespace ServiceLayer.Store_Owner_User
             {
                 for (int i = 0; i < me.GetStore().GetCreator().GetStoreOwners().Count; i++) {
                     if (me.GetStore().GetCreator().GetStoreOwners().ElementAt(i).GetStore().Equals(me.GetStore())) {
-                        bool ans = CheckExist(me.GetStore().GetCreator().GetStoreOwners().ElementAt(i),user);
-                        if (ans) //true -> exist in tree - not good
+                        bool ans = false;
+                        CheckExist(me.GetStore().GetCreator().GetStoreOwners().ElementAt(i), user, ans);
+                        if (!ans) //true -> exist in tree - not good
                         {
                             return false;
                         }
@@ -34,10 +35,13 @@ namespace ServiceLayer.Store_Owner_User
             }
         }
 
-        private static bool CheckExist(StoreOwner sO,User user)
+        private static void CheckExist(StoreOwner storeOwner, User user, bool ans)
         {
-            // todo !!!!!!!!!!!!!!!!!
-            return false;
+            if (storeOwner.GetUser().Equals(user))
+                ans = true;
+            else
+                foreach (StoreOwner child in storeOwner.GetChildren())
+                    CheckExist(child, user, ans);
         }
     }
 }
