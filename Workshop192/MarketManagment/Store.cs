@@ -7,7 +7,7 @@ using Workshop192.UserManagment;
 
 namespace Workshop192.MarketManagment
 {
-    class Store
+    public class Store
     {
         private string name;
         private User creator;

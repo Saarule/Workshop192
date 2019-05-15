@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Workshop192.MarketManagment
 {
-    class Product
+    public class Product
     {
         private int productId;
         private int price;

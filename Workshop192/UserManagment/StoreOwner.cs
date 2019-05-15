@@ -7,7 +7,7 @@ using Workshop192.MarketManagment;
 
 namespace Workshop192.UserManagment
 {
-    class StoreOwner
+    public class StoreOwner
     {
         protected User user;
         protected Store store;
