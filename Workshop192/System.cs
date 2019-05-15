@@ -30,6 +30,12 @@ namespace Workshop192
             return instance;
         }
 
+        public static System Reset()
+        {
+            instance = new System();
+            return instance;
+        }
+
         public bool AddUser(string userName, string password)
         {
             if (!security.AddUser(userName, password))
@@ -70,6 +76,7 @@ namespace Workshop192
         {
             Store store = new Store(storeName, owner);
             owner.AddStoreOwner(new StoreOwner(owner, store, null));
+            stores.AddLast(store);
         }
 
         public Store GetStore(string storeName)
@@ -87,10 +94,20 @@ namespace Workshop192
 
         public bool CloseStore(Store store)
         {
+            User creator = store.GetCreator();
+            foreach (StoreOwner storeOwner in creator.GetStoreOwners())
+                if (storeOwner.GetStore().Equals(store))
+                {
+                    storeOwner.RemoveChild(storeOwner);
+                    break;
+                }
             foreach (User user in users)
                 foreach (Cart cart in user.GetCarts())
                     if (cart.GetStore() == store)
+                    {
                         user.GetCarts().Remove(cart);
+                        break;
+                    }
             return stores.Remove(store);
         }
     }

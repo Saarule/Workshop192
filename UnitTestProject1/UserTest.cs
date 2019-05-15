@@ -15,8 +15,8 @@ namespace UnitTestProject1
             system.AddUser("user1", "12345");
             system.OpenStore("myStore", system.GetUser("user1", "12345"));
             Assert.AreEqual("myStore", system.GetUser("user1", "12345").GetStoreOwners().Last.Value.GetStore().GetName());
-            Assert.IsTrue(system.GetUser("user1", "12345").GetStoreOwners().Count == 1);
-            system = null;
+           // Assert.IsTrue(system.GetUser("user1", "12345").GetStoreOwners().Count == 1);
+            system = Workshop192.System.Reset();
         }
 
         [TestMethod]
@@ -26,8 +26,10 @@ namespace UnitTestProject1
             system2.AddUser("user1", "12345");
             system2.OpenStore("myStore", system2.GetUser("user1", "12345"));
             Assert.AreEqual("myStore", system2.GetUser("user1", "12345").GetStoreOwners().Last.Value.GetStore().GetName());
-            Assert.IsTrue(system2.GetUser("user1", "12345").GetStoreOwners().Count == 1);
-           // system2.
+            Assert.AreEqual(system2.GetUser("user1", "12345").GetStoreOwners().Count , 1 );
+            system2.CloseStore(system2.GetUser("user1", "12345").GetStoreOwners().First.Value.GetStore());
+            Assert.AreEqual(system2.GetUser("user1", "12345").GetStoreOwners().Count , 0);
+            system2 = Workshop192.System.Reset();
 
 
 
@@ -49,14 +51,17 @@ namespace UnitTestProject1
             system3.AddUser("user2", "12345");
             system3.OpenStore("myStore", system3.GetUser("user2", "12345"));
             User user2 = system3.GetUser("user2", "12345");
+            system3 = Workshop192.System.Reset();
 
-            
+
+
 
 
         }
         [TestMethod]
         public void RemoveCart()
         {
+
         }
 
     }

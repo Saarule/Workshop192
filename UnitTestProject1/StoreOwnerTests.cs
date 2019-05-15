@@ -20,6 +20,7 @@ namespace UnitTestProject1
             User user2 = system.GetUser("user2", "12345");
             storeOwner.AddOwner(user2);
             Assert.IsTrue(storeOwner.GetChildren().Count == 1);
+            system = Workshop192.System.Reset();
         }
 
         [TestMethod]
@@ -34,6 +35,7 @@ namespace UnitTestProject1
             User user2 = system2.GetUser("user2", "12345");
             storeOwner.AddManager(user2,null);
             Assert.IsTrue(storeOwner.GetChildren().Count == 1);
+            system2 = Workshop192.System.Reset();
         }
 
         [TestMethod]
