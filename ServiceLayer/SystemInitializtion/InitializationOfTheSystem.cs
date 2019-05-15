@@ -34,5 +34,9 @@ namespace ServiceLayer
         {
             //TODO...
         }
+        public bool IsInitialized()
+        {
+            return isInitialized;
+        }
     }
 }
