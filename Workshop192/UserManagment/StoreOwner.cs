@@ -59,7 +59,7 @@ namespace Workshop192.UserManagment
         {
             foreach (StoreOwner tmp in child.children)
                 ForceRemoveChild(tmp);
-            return child.user.RemoveStoreOwner(child) && father.children.Remove(child);
+            return child.user.RemoveStoreOwner(child) && (father == null || father.children.Remove(child));
         }
 
         public User GetUser()

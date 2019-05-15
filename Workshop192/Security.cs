@@ -29,5 +29,12 @@ namespace Workshop192
                 return true;
             return false;
         }
+
+        public bool RemoveUser(string userName)
+        {
+            if (!users.ContainsKey(userName))
+                return false;
+            return users.Remove(userName);
+        }
     }
 }

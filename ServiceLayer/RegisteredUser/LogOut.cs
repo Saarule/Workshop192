@@ -15,7 +15,7 @@ namespace ServiceLayer.RegisteredUser
         }
         public static bool Logout(User user)
         {
-            if (user.GetLoggedIn() == true)
+            if (user.IsLoggedIn())
             {
                 user.LogOut();
                 return true;

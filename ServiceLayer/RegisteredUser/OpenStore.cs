@@ -16,7 +16,7 @@ namespace ServiceLayer.RegisteredUser
         }
         public static bool OpenS(User user , string storeName)
         {
-            if (user.GetLoggedIn() == false)
+            if (user.IsLoggedIn() == false)
                 return false;
             else
             {

@@ -52,6 +52,20 @@ namespace Workshop192
             return null;
         }
 
+        public bool RemoveUser(User user)
+        {
+            if (!security.RemoveUser(user.GetName()))
+                return false;
+            foreach (StoreOwner storeOwner in user.GetStoreOwners())
+            {
+                if (!storeOwner.ForceRemoveChild(storeOwner))
+                    return false;
+                if (storeOwner.GetFather() == null && !CloseStore(storeOwner.GetStore()))
+                    return false;
+            }
+            return true;
+        }
+
         public void OpenStore(string storeName, User owner)
         {
             Store store = new Store(storeName, owner);
@@ -69,6 +83,15 @@ namespace Workshop192
         public LinkedList<Store> GetAllStores()
         {
             return stores;
+        }
+
+        public bool CloseStore(Store store)
+        {
+            foreach (User user in users)
+                foreach (Cart cart in user.GetCarts())
+                    if (cart.GetStore() == store)
+                        user.GetCarts().Remove(cart);
+            return stores.Remove(store);
         }
     }
 }
