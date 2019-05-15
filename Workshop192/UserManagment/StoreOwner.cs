@@ -81,5 +81,10 @@ namespace Workshop192.UserManagment
         {
             return father;
         }
+
+        public Store GetStore()
+        {
+            return store;
+        }
     }
 }
