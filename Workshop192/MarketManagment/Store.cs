@@ -29,5 +29,9 @@ namespace Workshop192.MarketManagment
         {
             return name;
         }
+        public User GetUser()
+        {
+            return creator;
+        }
     }
 }

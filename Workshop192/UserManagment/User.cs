@@ -55,5 +55,9 @@ namespace Workshop192.UserManagment
         {
             return carts;
         }
+        public LinkedList<StoreOwner> GetStore()
+        {
+            return stores;
+        }
     }
 }

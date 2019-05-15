@@ -7,7 +7,7 @@ using Workshop192.MarketManagment;
 
 namespace Workshop192.UserManagment
 {
-    class StoreOwner
+    public class StoreOwner
     {
         protected User user;
         protected Store store;
@@ -28,6 +28,17 @@ namespace Workshop192.UserManagment
 
         public virtual bool RemoveChild(StoreOwner child) { }
 
+        public Store GetStore() {
+            return store;
+        }
+        public User GetUser()
+        {
+            return user;
+        }
+        public LinkedList<StoreOwner> GetChildren()
+        {
+            return children;
+        }
         public bool ForceRemoveChild(StoreOwner child) { }
     }
 }

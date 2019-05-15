@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.StoreManagerUser
 {
-    class StoreManagerTriesCommand
+    public class StoreManagerTriesCommand
     {
+        public StoreManagerTriesCommand()
+        {
+
+        }
+        public static bool TryCommand(StoreManagerUser SM , int Command) 
+        {
+            return false;
+
+
+        }
+
     }
 }
