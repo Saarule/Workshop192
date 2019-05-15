@@ -16,7 +16,7 @@ namespace ServiceLayer.Store_Owner_User
         }
         public static bool ManageProduct(Product pro, StoreOwner so, string option)
         {
-            if (so.GetUser().GetLoggedIn() == false)
+            if (so.GetUser().IsLoggedIn() == false)
                 return false;
             else
             {
@@ -24,7 +24,7 @@ namespace ServiceLayer.Store_Owner_User
                 {
                     for (int j = 0; j < so.GetStore().GetProducts().Count; j++)
                     {
-                        if (so.GetStore().GetProducts().ElementAt(j).GetProductID() == pro.GetProductID())
+                        if (so.GetStore().GetProducts().ElementAt(j).GetId() == pro.GetId())
                         {
                             //so.GetStore().GetProducts().Find(so.GetStore().GetProducts().ElementAt(j)).Value = pro;
                             so.EditProduct(so.GetStore().GetProducts().ElementAt(j), pro);

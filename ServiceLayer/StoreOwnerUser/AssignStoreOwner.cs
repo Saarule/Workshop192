@@ -15,13 +15,13 @@ namespace ServiceLayer.Store_Owner_User
         }
         public static bool AssignStOwn(StoreOwner me , User user)
         {
-            if (me.GetUser().GetLoggedIn() == false)
+            if (me.GetUser().IsLoggedIn() == false)
                 return false;
             else
             {
-                for (int i = 0; i < me.GetStore().GetUser().GetStore().Count; i++) {
-                    if (me.GetStore().GetUser().GetStore().ElementAt(i).GetStore().Equals(me.GetStore())) {
-                        bool ans = CheckExist(me.GetStore().GetUser().GetStore().ElementAt(i),user);
+                for (int i = 0; i < me.GetStore().GetCreator().GetStoreOwners().Count; i++) {
+                    if (me.GetStore().GetCreator().GetStoreOwners().ElementAt(i).GetStore().Equals(me.GetStore())) {
+                        bool ans = CheckExist(me.GetStore().GetCreator().GetStoreOwners().ElementAt(i),user);
                         if (ans) //true -> exist in tree - not good
                         {
                             return false;
@@ -37,6 +37,7 @@ namespace ServiceLayer.Store_Owner_User
         private static bool CheckExist(StoreOwner sO,User user)
         {
             // todo !!!!!!!!!!!!!!!!!
+            return false;
         }
     }
 }

@@ -24,11 +24,11 @@ namespace ServiceLayer.Guest
             {
                 for(int i = 0; i < carts.Count; i++)
                 {
-                    for(int j = 0; j < carts.ElementAt(i).GetProductsOfCart().Count; j++)
+                    for(int j = 0; j < carts.ElementAt(i).GetProducts().Count; j++)
                     {
-                        if (carts.ElementAt(i).GetProductsOfCart().ElementAt(j).GetProductID() == p.GetProductID())
+                        if (carts.ElementAt(i).GetProducts().ElementAt(j).GetId() == p.GetId())
                         {
-                            carts.ElementAt(i).GetProductsOfCart().Remove(carts.ElementAt(i).GetProductsOfCart().ElementAt(j));
+                            carts.ElementAt(i).GetProducts().Remove(carts.ElementAt(i).GetProducts().ElementAt(j));
                             return true;
                         }
                     }
@@ -38,11 +38,11 @@ namespace ServiceLayer.Guest
             {
                 for (int i = 0; i < carts.Count; i++)
                 {
-                    for (int j = 0; j < carts.ElementAt(i).GetProductsOfCart().Count; j++)
+                    for (int j = 0; j < carts.ElementAt(i).GetProducts().Count; j++)
                     {
-                        if (carts.ElementAt(i).GetProductsOfCart().ElementAt(j).GetProductID() == p.GetProductID())
+                        if (carts.ElementAt(i).GetProducts().ElementAt(j).GetId() == p.GetId())
                         {
-                            carts.ElementAt(i).GetProductsOfCart().Find(carts.ElementAt(i).GetProductsOfCart().ElementAt(j)).Value = p;
+                            carts.ElementAt(i).GetProducts().Find(carts.ElementAt(i).GetProducts().ElementAt(j)).Value = p;
                             return true;
                         }
                     }

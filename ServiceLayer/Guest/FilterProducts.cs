@@ -24,8 +24,5 @@ namespace ServiceLayer.Guest
             return FilteredProducts;
         }
             
-
-        }
-
     }
 }

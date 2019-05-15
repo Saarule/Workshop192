@@ -19,10 +19,10 @@ namespace ServiceLayer.Guest
             Store StorePerCart;
             for (int i = 0; i < carts.Count; i++)
             {
-                StorePerCart = carts.ElementAt(i).GetStoreOfCart();
+                StorePerCart = carts.ElementAt(i).GetStore();
                 for (int j = 0; j < StorePerCart.GetProducts().Count; j++)
                 {
-                    if (StorePerCart.GetProducts().ElementAt(j).GetProductID() == p.GetProductID())
+                    if (StorePerCart.GetProducts().ElementAt(j).GetId() == p.GetId())
                     {
                         user.GetCarts().ElementAt(i).AddProduct(p);
                         return true;
@@ -44,7 +44,7 @@ namespace ServiceLayer.Guest
             for (int i = 0; i < Workshop192.System.GetInstance().GetAllStores().Count; i++) {
                 for(int j = 0; j < Workshop192.System.GetInstance().GetAllStores().ElementAt(i).GetProducts().Count; j++)
                 {
-                    if (Workshop192.System.GetInstance().GetAllStores().ElementAt(i).GetProducts().ElementAt(j).GetProductID() == p.GetProductID()) {
+                    if (Workshop192.System.GetInstance().GetAllStores().ElementAt(i).GetProducts().ElementAt(j).GetId() == p.GetId()) {
                         return Workshop192.System.GetInstance().GetAllStores().ElementAt(i);
                     }
                 }
