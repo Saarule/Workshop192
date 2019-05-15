@@ -46,7 +46,7 @@ namespace Workshop192
         public void OpenStore(string storeName, User owner)
         {
             Store store = new Store(storeName, owner);
-            owner.AddStore(new StoreOwner(owner, store, null));
+            owner.AddStoreOwner(new StoreOwner(owner, store, null));
         }
 
         public Store GetStore(string storeName)

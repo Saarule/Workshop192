@@ -26,5 +26,15 @@ namespace Workshop192.MarketManagment
         {
             return products.Remove(product);
         }
+
+        public Store GetStore()
+        {
+            return store;
+        }
+
+        public LinkedList<Product> GetProducts()
+        {
+            return products;
+        }
     }
 }

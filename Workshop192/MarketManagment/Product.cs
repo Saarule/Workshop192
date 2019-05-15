@@ -28,5 +28,10 @@ namespace Workshop192.MarketManagment
         {
             return name;
         }
+
+        public int GetId()
+        {
+            return productId;
+        }
     }
 }
