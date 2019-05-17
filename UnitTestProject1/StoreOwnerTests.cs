@@ -12,8 +12,8 @@ namespace UnitTestProject1
         public void AddOwner()
         {
             Workshop192.System system = Workshop192.System.GetInstance();
-            system.AddUser("user1", "12345");
-            system.AddUser("user2", "12345");
+            system.Register("user1", "12345");
+            system.Register("user2", "12345");
             system.OpenStore("myStore", system.GetUser("user1", "12345"));
             User user = system.GetUser("user1", "12345");
             StoreOwner storeOwner = user.GetStoreOwners().First.Value;
@@ -27,8 +27,8 @@ namespace UnitTestProject1
         public void AddManager()
         {
             Workshop192.System system2 = Workshop192.System.GetInstance();
-            system2.AddUser("user1", "12345");
-            system2.AddUser("user2", "12345");
+            system2.Register("user1", "12345");
+            system2.Register("user2", "12345");
             system2.OpenStore("myStore", system2.GetUser("user1", "12345"));
             User user = system2.GetUser("user1", "12345");
             StoreOwner storeOwner = user.GetStoreOwners().First.Value;

@@ -17,9 +17,13 @@ namespace Workshop192.MarketManagment
             products = new LinkedList<Product>();
         }
 
-        public void AddProduct(Product product)
+        public bool AddProduct(Product product)
         {
+            foreach (Product p in products)
+                if (p.Equals(product))
+                    return false;
             products.AddLast(product);
+            return true;
         }
 
         public bool RemoveProduct(Product product)

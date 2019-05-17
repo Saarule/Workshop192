@@ -9,73 +9,79 @@ namespace Workshop192.UserManagment
 {
     public class User
     {
-        private string userName;
-        private bool loggedIn;
-        private bool admin;
+        private UserState state;
         private LinkedList<Cart> carts;
-        private LinkedList<StoreOwner> storesOwned;
 
         public User()
         {
-            userName = "";
-            loggedIn = false;
-            admin = false;
+            state = null;
             carts = new LinkedList<Cart>();
-            storesOwned = new LinkedList<StoreOwner>();
         }
 
-        public void SetAdmin()
+        public bool LogIn(UserState state)
         {
-            admin = true;
+            if (this.state != null)
+                return false;
+            this.state = state;
+            carts = state.GetCarts();
+            return true;
         }
 
-        public void Register(string userName)
+        public bool LogOut()
         {
-            this.userName = userName;
+            if (state == null)
+                return false;
+            carts = new LinkedList<Cart>();
+            state = null;
+            return true;
         }
 
-        public void LogIn()
+        public bool SetAdmin()
         {
-            loggedIn = true;
+            if (state == null)
+                return false;
+            return state.SetAdmin();
         }
 
-        public void LogOut()
+        public bool AddStoreOwner(StoreOwner store)
         {
-            loggedIn = false;
-        }
-
-        public void AddStoreOwner(StoreOwner store)
-        {
-            storesOwned.AddLast(store);
+            if (state == null)
+                return false;
+            return state.AddStoreOwner(store);
         }
 
         public bool RemoveStoreOwner(StoreOwner store)
         {
-            return storesOwned.Remove(store);
+            if (state == null)
+                return false;
+            return state.RemoveStoreOwner(store);
         }
 
-        public void AddProductToCart(Product product, Store store)
+        public bool AddProductToCart(Product product, Store store)
         {
             foreach (Cart cart in carts)
                 if (cart.GetStore().Equals(store))
                 {
-                    cart.AddProduct(product);
-                    return;
+                    return cart.AddProduct(product);
                 }
+            carts.AddLast(new Cart(store));
+            return carts.Last.Value.AddProduct(product);
         }
 
         public bool RemoveProductFromCart(Product product)
         {
             foreach (Cart cart in carts)
-                foreach (Product pro in cart.GetProducts())
-                    if (pro.Equals(product))
-                        return cart.GetProducts().Remove(product);
+                foreach (Product p in cart.GetProducts())
+                    if (p.Equals(product))
+                        return cart.RemoveProduct(product);
             return false;
         }
 
-        public string GetName()
+        public string GetUserName()
         {
-            return userName;
+            if (state == null)
+                return "";
+            return state.GetUserName();
         }
 
         public LinkedList<Cart> GetCarts()
@@ -83,20 +89,25 @@ namespace Workshop192.UserManagment
             return carts;
         }
 
-        public bool IsLoggedIn()
-        {
-            return loggedIn;
-        }
-
         public bool IsAdmin()
         {
-            return admin;
+            if (state == null)
+                return false;
+            return state.GetAdmin();
         }
 
         public LinkedList<StoreOwner> GetStoreOwners()
         {
-            return storesOwned;
+            if (state == null)
+                return null;
+            return state.GetStoreOwners();
         }
 
+        public StoreOwner GetStoreOwner(Store store)
+        {
+            if (state == null)
+                return null;
+            return state.GetStoreOwner(store);
+        }
     }
 }

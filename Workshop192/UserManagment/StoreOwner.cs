@@ -9,12 +9,12 @@ namespace Workshop192.UserManagment
 {
     public class StoreOwner
     {
-        protected User user;
+        protected UserState user;
         protected Store store;
         protected LinkedList<StoreOwner> children;
         protected StoreOwner father;
 
-        public StoreOwner(User user, Store store, StoreOwner father)
+        public StoreOwner(UserState user, Store store, StoreOwner father)
         {
             this.user = user;
             this.store = store;
@@ -40,14 +40,24 @@ namespace Workshop192.UserManagment
             return true;
         }
 
-        public virtual void AddOwner(User user)
+        public virtual bool AddOwner(UserState user)
         {
-            children.AddLast(new StoreOwner(user, store, this));
+            if (CheckUserExists(user))
+                return false;
+            StoreOwner owner = new StoreOwner(user, store, this);
+            user.AddStoreOwner(owner);
+            children.AddLast(owner);
+            return true;
         }
 
-        public virtual void AddManager(User user, bool[] privileges)
+        public virtual bool AddManager(UserState user, bool[] privileges)
         {
-            children.AddLast(new StoreManager(user, store, this, privileges));
+            if (CheckUserExists(user))
+                return false;
+            StoreOwner owner = new StoreManager(user, store, this, privileges);
+            user.AddStoreOwner(owner);
+            children.AddLast(owner);
+            return true;
         }
 
         public virtual bool RemoveChild(StoreOwner child)
@@ -62,7 +72,7 @@ namespace Workshop192.UserManagment
             return child.user.RemoveStoreOwner(child) && (father == null || father.children.Remove(child));
         }
 
-        public User GetUser()
+        public UserState GetUser()
         {
             return user;
         }
@@ -80,6 +90,27 @@ namespace Workshop192.UserManagment
         public StoreOwner GetFather()
         {
             return father;
+        }
+
+        public bool CheckUserExists(UserState user)
+        {
+            bool exist = false;
+            StoreOwner storeOwner = this;
+            while (storeOwner.father != null)
+                storeOwner = storeOwner.father;
+            CheckUserExists2(storeOwner, user, exist);
+            return exist;
+        }
+
+        public void CheckUserExists2(StoreOwner storeOwner, UserState user, bool exist)
+        {
+            if (exist || storeOwner.GetUser().Equals(user))
+            {
+                exist = true;
+                return;
+            }
+            foreach (StoreOwner s in storeOwner.children)
+                CheckUserExists2(s, user, exist);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace UnitTestProject1
         public void AddStore()
         {
             Workshop192.System system = Workshop192.System.GetInstance();
-            system.AddUser("user1", "12345");
+            system.Register("user1", "12345");
             system.OpenStore("myStore", system.GetUser("user1", "12345"));
             Assert.AreEqual("myStore", system.GetUser("user1", "12345").GetStoreOwners().Last.Value.GetStore().GetName());
            // Assert.IsTrue(system.GetUser("user1", "12345").GetStoreOwners().Count == 1);
@@ -23,7 +23,7 @@ namespace UnitTestProject1
         public void RemoveStore()
         {
             Workshop192.System system2 = Workshop192.System.GetInstance();
-            system2.AddUser("user1", "12345");
+            system2.Register("user1", "12345");
             system2.OpenStore("myStore", system2.GetUser("user1", "12345"));
             Assert.AreEqual("myStore", system2.GetUser("user1", "12345").GetStoreOwners().Last.Value.GetStore().GetName());
             Assert.AreEqual(system2.GetUser("user1", "12345").GetStoreOwners().Count , 1 );
@@ -39,7 +39,7 @@ namespace UnitTestProject1
         public void AddCart()
         {
             Workshop192.System system3 = Workshop192.System.GetInstance();
-            system3.AddUser("user1", "12345");
+            system3.Register("user1", "12345");
             system3.OpenStore("myStore", system3.GetUser("user1", "12345"));
             User user1 = system3.GetUser("user1", "12345");
             StoreOwner storeOwner = user1.GetStoreOwners().First.Value;
@@ -48,7 +48,7 @@ namespace UnitTestProject1
             storeOwner.AddProduct(product1);
             Assert.IsTrue(storeOwner.GetStore().GetProducts().Count == 1);
 
-            system3.AddUser("user2", "12345");
+            system3.Register("user2", "12345");
             system3.OpenStore("myStore", system3.GetUser("user2", "12345"));
             User user2 = system3.GetUser("user2", "12345");
             system3 = Workshop192.System.Reset();

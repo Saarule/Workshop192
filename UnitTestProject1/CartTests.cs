@@ -13,7 +13,7 @@ namespace UnitTestProject1
         public void AddProductTest()
         {
             Workshop192.System system = Workshop192.System.GetInstance();
-            system.AddUser("user1", "12345");
+            system.Register("user1", "12345");
             system.OpenStore("myStore", system.GetUser("user1", "12345"));
             User user = system.GetUser("user1", "12345");
             StoreOwner storeOwner = user.GetStoreOwners().First.Value;
@@ -32,7 +32,7 @@ namespace UnitTestProject1
         public void RemoveProductTest()
         {
             Workshop192.System system = Workshop192.System.GetInstance();
-            system.AddUser("user3", "12345");
+            system.Register("user3", "12345");
             system.OpenStore("myStore", system.GetUser("user3", "12345"));
             User user = system.GetUser("user3", "12345");
             StoreOwner storeOwner = user.GetStoreOwners().First.Value;
@@ -59,7 +59,7 @@ namespace UnitTestProject1
         public void EditProduct()
         {
             Workshop192.System system = Workshop192.System.GetInstance();
-            system.AddUser("user4", "12345");
+            system.Register("user4", "12345");
             system.OpenStore("myStore2", system.GetUser("user4", "12345"));
             User user = system.GetUser("user4", "12345");
             StoreOwner storeOwner = user.GetStoreOwners().First.Value;

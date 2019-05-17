@@ -10,7 +10,7 @@ namespace Workshop192
 {
     public class System
     {
-        private LinkedList<User> users;
+        private LinkedList<UserState> users;
         private LinkedList<Store> stores;
         private Security security;
 
@@ -18,7 +18,7 @@ namespace Workshop192
 
         private System()
         {
-            users = new LinkedList<User>();
+            users = new LinkedList<UserState>();
             stores = new LinkedList<Store>();
             security = new Security();
         }
@@ -36,31 +36,30 @@ namespace Workshop192
             return instance;
         }
 
-        public bool AddUser(string userName, string password)
+        public bool Register(string userName, string password)
         {
             if (!security.AddUser(userName, password))
                 return false;
-            User user = new User();
-            user.Register(userName);
+            UserState user = new UserState(userName);
             users.AddLast(user);
             return true;
         }
 
-        public User GetUser(string userName, string password)
+        public UserState GetUser(string userName, string password)
         {
             if (!security.ValidatePassword(userName, password))
                 return null;
-            foreach (User user in users)
-                if (user.GetName() == userName)
+            foreach (UserState user in users)
+                if (user.GetUserName() == userName)
                 {
                     return user;
                 }
             return null;
         }
 
-        public bool RemoveUser(User user)
+        public bool RemoveUser(UserState user)
         {
-            if (!security.RemoveUser(user.GetName()))
+            if (!security.RemoveUser(user.GetUserName()))
                 return false;
             foreach (StoreOwner storeOwner in user.GetStoreOwners())
             {
@@ -72,7 +71,7 @@ namespace Workshop192
             return true;
         }
 
-        public void OpenStore(string storeName, User owner)
+        public void OpenStore(string storeName, UserState owner)
         {
             Store store = new Store(storeName, owner);
             owner.AddStoreOwner(new StoreOwner(owner, store, null));
@@ -101,7 +100,7 @@ namespace Workshop192
                     storeOwner.RemoveChild(storeOwner);
                     break;
                 }
-            foreach (User user in users)
+            foreach (UserState user in users)
                 foreach (Cart cart in user.GetCarts())
                     if (cart.GetStore() == store)
                     {

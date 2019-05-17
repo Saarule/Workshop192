@@ -26,7 +26,7 @@ namespace ServiceLayer
             return false;
         }
         private void CreateAdmin(string username, string password) {
-            system.AddUser(username, password);
+            system.Register(username, password);
             system.GetUser(username, password).Register(username);
             system.GetUser(username, password).SetAdmin();
         }

@@ -11,7 +11,7 @@ namespace Workshop192.UserManagment
     {
         private bool[] privileges;
 
-        public StoreManager(User user, Store store, StoreOwner father, bool[] privileges) : base(user, store, father)
+        public StoreManager(UserState user, Store store, StoreOwner father, bool[] privileges) : base(user, store, father)
         {
             this.privileges = privileges;
         }
@@ -36,16 +36,18 @@ namespace Workshop192.UserManagment
             return false;
         }
 
-        public override void AddOwner(User user)
+        public override bool AddOwner(UserState user)
         {
             if (privileges[3])
-                base.AddOwner(user);
+                return base.AddOwner(user);
+            return false;
         }
 
-        public override void AddManager(User user, bool[] privileges)
+        public override bool AddManager(UserState user, bool[] privileges)
         {
             if (privileges[4])
-                base.AddManager(user, privileges);
+                return base.AddManager(user, privileges);
+            return false;
         }
 
         public override bool RemoveChild(StoreOwner child)

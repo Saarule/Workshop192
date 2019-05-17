@@ -10,13 +10,11 @@ namespace Workshop192.MarketManagment
     public class Store
     {
         private string name;
-        private User creator;
         private LinkedList<Product> products;
 
-        public Store(string name, User creator)
+        public Store(string name)
         {
             this.name = name;
-            this.creator = creator;
             products = new LinkedList<Product>();
         }
 
@@ -28,11 +26,6 @@ namespace Workshop192.MarketManagment
         public string GetName()
         {
             return name;
-        }
-
-        public User GetCreator()
-        {
-            return creator;
         }
     }
 }

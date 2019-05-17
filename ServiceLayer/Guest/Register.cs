@@ -14,7 +14,7 @@ namespace ServiceLayer.Guest
         }
         public static bool Registertion(string username, string password)
         {
-            if (Workshop192.System.GetInstance().GetUser(username, password).IsLoggedIn() == false && Workshop192.System.GetInstance().GetUser(username, password).GetName().Equals(""))
+            if (Workshop192.System.GetInstance().GetUser(username, password).IsLoggedIn() == false && Workshop192.System.GetInstance().GetUser(username, password).GetUserName().Equals(""))
             {
                 Workshop192.System.GetInstance().GetUser(username, password).Register(username);
                 return true;
