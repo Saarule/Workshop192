@@ -51,7 +51,7 @@ namespace Workshop192
             return proxy.CollectFromAccount(accountId, sum);
         }
 
-        private bool CheckProductsavailability(LinkedList<Cart> carts)
+        public bool CheckProductsavailability(LinkedList<Cart> carts)
         {
             LinkedList<Cart> tmp = new LinkedList<Cart>();
             foreach (Cart cart in carts)

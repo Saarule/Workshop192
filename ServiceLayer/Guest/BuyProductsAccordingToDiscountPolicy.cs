@@ -8,5 +8,6 @@ namespace ServiceLayer.Guest
 {
     class BuyProductsAccordingToDiscountPolicy
     {
+        // not this version
     }
 }

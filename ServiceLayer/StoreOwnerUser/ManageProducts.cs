@@ -11,29 +11,29 @@ namespace ServiceLayer.Store_Owner_User
     public class ManageProducts
     {
         // use case 4.1 - Manage Products 
-        public static bool ManageProduct(Product product, StoreOwner userOwner,string option)
+        public static bool ManageProduct(User user , Product product, Store store ,string option)
         {
-            if (userOwner == null) 
+            if (user.GetState()  == null) 
                 return false;
             else
             {
                 if (option.Equals("edit"))
                 {
-                    for (int j = 0; j < userOwner.GetStore().GetProducts().Count; j++)
+                    for (int j = 0; j < user.GetState().GetOwner(store).GetStore().GetProducts().Count; j++)
                     {
-                        if (userOwner.GetStore().GetProducts().ElementAt(j).GetId() == product.GetId())
+                        if (user.GetState().GetOwner(store).GetStore().GetProducts().ElementAt(j).GetId() == product.GetId())
                         {
-                            return userOwner.EditProduct(userOwner.GetStore().GetProducts().ElementAt(j), product);
+                            return user.GetState().GetOwner(store).EditProduct(user.GetState().GetOwner(store).GetStore().GetProducts().ElementAt(j), product);
                         }
                     }
                 }
                 else if (option.Equals("add"))
                 {
-                    return userOwner.AddProduct(product);
+                    return user.GetState().GetOwner(store).AddProduct(product);
                 }
                 else if (option.Equals("delete"))
                 {
-                    return userOwner.RemoveProduct(product);
+                    return user.GetState().GetOwner(store).RemoveProduct(product);
                 }
                 return false;
             }

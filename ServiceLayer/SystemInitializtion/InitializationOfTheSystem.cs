@@ -8,7 +8,8 @@ using Workshop192;
 namespace ServiceLayer
 {
     public class InitializationOfTheSystem
-    {   
+    {
+        // use case 1.1 - Initialization of the system
         public void Initalize() {
             Workshop192.System system = Workshop192.System.GetInstance();
             MoneyCollectionSystemReal real = ConnectExternalMoneyCollectionSystems();
