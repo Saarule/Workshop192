@@ -56,7 +56,6 @@
     <Compile Include="Guest\WatchAndEdit.cs" />
     <Compile Include="RegisteredUser\LogOut.cs" />
     <Compile Include="RegisteredUser\OpenStore.cs" />
-    <Compile Include="StoreManagerUser\StoreManagerTriesCommand.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreManager.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreOwner.cs" />
     <Compile Include="StoreOwnerUser\ManageProducts.cs" />
