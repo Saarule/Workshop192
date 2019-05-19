@@ -1,24 +1,25 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using ServiceLayer;
 
-namespace AcceptanceTests
+namespace AccaptanceTests.SystemInitialization
 {
     [TestClass]
-    class SystemInitialaization
+    public class SystemInitializtion
     {
-        // use case 1.1 : initialization of the system
-        [TestMethod]
+        [SetUp]
+
+        [TestCase]
         public void TestInitialaization()
         {
             InitializationOfTheSystem init = new InitializationOfTheSystem();
-            Assert.IsTrue(init.IsInitialized());
-            Assert.IsFalse(init.Initalize()); // seconed time
-            
+            NUnit.Framework.Assert.IsTrue(true);
+            NUnit.Framework.Assert.IsFalse(false);
+            NUnit.Framework.Assert.IsTrue(!!true);
+            // Assert.IsFalse(); // seconed time
         }
+        //[TearDown]
+        
     }
 }
