@@ -3,26 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Workshop192.UserManagment;
 
 namespace ServiceLayer.Guest
 {
     public class Register
     {
-        public Register()
+        public static bool Registration(string username, string password, User user)
         {
-              
-        }
-        public static bool Registertion(string username, string password)
-        {
-            if (Workshop192.System.GetInstance().GetUser(username, password).IsLoggedIn() == false && Workshop192.System.GetInstance().GetUser(username, password).GetUserName().Equals(""))
+            if (user.GetState() == null) // if the user logged in will return false 
             {
-                Workshop192.System.GetInstance().GetUser(username, password).Register(username);
-                return true;
+                // if the user registerd will return false , otherwise true
+                return Workshop192.System.GetInstance().Register(username, password);
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }
