@@ -83,9 +83,9 @@ namespace Workshop192
             return stores;
         }
 
-        public bool RemoveUser(User user)
+        public bool RemoveUser(UserState user)
         {
-            if (user.GetState() == null)
+            if (user == null)
                 return false;
             if (!security.RemoveUser(user.GetUserName()))
                 return false;
@@ -93,13 +93,21 @@ namespace Workshop192
             {
                 if (!storeOwner.ForceRemoveChild(storeOwner))
                     return false;
-                if (storeOwner.GetFather() == null && !CloseStore(storeOwner.GetStore()))
+                if (storeOwner.GetFather() == null && !RemoveStore(storeOwner.GetStore()))
                     return false;
             }
             return true;
         }
 
-        public bool CloseStore(Store store)
+        public bool CloseStore(Store store, UserState user)
+        {
+            StoreOwner owner = user.GetOwner(store);
+            if (owner == null || owner.GetFather() != null)
+                return false;
+            return owner.ForceRemoveChild(owner) && RemoveStore(store);
+        }
+
+        private bool RemoveStore(Store store)
         {
             foreach (UserState user in users)
                 foreach (Cart cart in user.GetCarts())
