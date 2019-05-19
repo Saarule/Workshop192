@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayerTests", "UnitTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccaptanceTests", "AccaptanceTests\AccaptanceTests.csproj", "{B0079E11-95E9-48A1-A4B6-6E286A04C653}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayerUnitTests", "DomainLayerUnitTests\DomainLayerUnitTests.csproj", "{087C512C-609B-47BD-A061-910344A8F12A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B0079E11-95E9-48A1-A4B6-6E286A04C653}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0079E11-95E9-48A1-A4B6-6E286A04C653}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0079E11-95E9-48A1-A4B6-6E286A04C653}.Release|Any CPU.Build.0 = Release|Any CPU
+		{087C512C-609B-47BD-A061-910344A8F12A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087C512C-609B-47BD-A061-910344A8F12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087C512C-609B-47BD-A061-910344A8F12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087C512C-609B-47BD-A061-910344A8F12A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
