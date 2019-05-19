@@ -60,6 +60,10 @@
       <Project>{3460562a-e8d6-4335-b018-4875640959bf}</Project>
       <Name>ServiceLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UnitTestProject1\DomainLayerTests.csproj">
+      <Project>{cfa7da86-3c6e-4347-a9b0-605541a0178d}</Project>
+      <Name>DomainLayerTests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Workshop192\DomainLayer.csproj">
       <Project>{0db1192a-15dd-405e-8f42-fe910f491968}</Project>
       <Name>DomainLayer</Name>

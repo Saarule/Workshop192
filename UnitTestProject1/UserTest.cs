@@ -5,6 +5,8 @@ using Workshop192.UserManagment;
 
 namespace UnitTestProject1
 {
+    
+    
     [TestClass]
     public class UserTest
     {
@@ -53,16 +55,10 @@ namespace UnitTestProject1
             User user2 = system3.GetUser("user2", "12345");
             system3 = Workshop192.System.Reset();
 
-
-
-
-
-        }
-        [TestMethod]
-        public void RemoveCart()
-        {
-
-        }
+            
+            
+            
+            
 
     }
 }
