@@ -7,13 +7,14 @@ using Workshop192.UserManagment;
 
 namespace ServiceLayer.Guest
 {
+    // use case 2.3 - Log In
     public class LogIn
     {
         public static bool Login(string username, string password, User user)
         {
-            if (Workshop192.System)
+            if (user.GetState() == null) // if the user logged in will return false
             {
-                // if the user registerd will return false , otherwise true
+                // if the user not registerd will return false , otherwise true
                 return user.LogIn(Workshop192.System.GetInstance().GetUser(username,password));
             }
             return false; 

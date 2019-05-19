@@ -10,19 +10,10 @@ namespace ServiceLayer.RegisteredUser
 {
     public class OpenStore
     {
-        public OpenStore()
+        // use case 3.1 - Open Store
+        public static bool openStore(string storeName, User user)
         {
-
-        }
-        public static bool OpenS(User user , string storeName)
-        {
-            if (user.IsLoggedIn() == false)
-                return false;
-            else
-            {
-                Workshop192.System.GetInstance().OpenStore(storeName,user);
-                return true;
-            }
+           return Workshop192.System.GetInstance().OpenStore(storeName, user.GetState());
         }
 
     }

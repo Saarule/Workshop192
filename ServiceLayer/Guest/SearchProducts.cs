@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.Guest
 {
+    // use case 2.5 - Search Products
     public class SearchProducts
     {
-        public SearchProducts(string input)
-        {
-            
-        }
         public static LinkedList<Workshop192.MarketManagment.Product> Search(string input)
         {
-            LinkedList<Workshop192.MarketManagment.Product> FoundProducts=new LinkedList<Workshop192.MarketManagment.Product>();
+            LinkedList<Workshop192.MarketManagment.Product> FoundProducts = new LinkedList<Workshop192.MarketManagment.Product>();
             Workshop192.MarketManagment.Store CurrentStore;
-
             LinkedList<Workshop192.MarketManagment.Store> AllStores = Workshop192.System.GetInstance().GetAllStores();
+
             for (int i = 0; i < AllStores.Count; i++)
             {
                 CurrentStore = AllStores.ElementAt(i);
@@ -29,8 +26,6 @@ namespace ServiceLayer.Guest
                 }
             }
             return FoundProducts;
-
         }
-
     }
 }

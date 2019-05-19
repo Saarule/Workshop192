@@ -7,6 +7,7 @@ using Workshop192.UserManagment;
 
 namespace ServiceLayer.Guest
 {
+    // use case 2.2 - Register
     public class Register
     {
         public static bool Registration(string username, string password, User user)

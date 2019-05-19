@@ -9,19 +9,11 @@ namespace ServiceLayer.RegisteredUser
 {
     public class LogOut
     {
-        public LogOut()
-        {
-
-        }
+        // use case 3.1 - Log Out
         public static bool Logout(User user)
         {
-            if (user.IsLoggedIn())
-            {
-                user.LogOut();
-                return true;
-            }
-            return false;
-
+            // if the user not logged in will return false
+            return user.LogOut();
         }
     }
 }

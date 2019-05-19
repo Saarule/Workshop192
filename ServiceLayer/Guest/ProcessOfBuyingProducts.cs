@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.Guest
 {
+    // use case 2.8 - Process of buying policy
     class ProcessOfBuyingProducts
     {
     }
