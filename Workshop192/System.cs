@@ -108,6 +108,26 @@ namespace Workshop192
             return null;
         }
 
+        public bool AddStoreOwner(User user, Store store, string userName)
+        {
+            return user.AddStoreOwner(store, GetUser(userName));
+        }
+
+        public bool AddStoreManager(User user, Store store, string userName, bool[] privileges)
+        {
+            if (privileges.Length != 6)
+                return false;
+            return user.AddStoreManager(store, GetUser(userName), privileges);
+        }
+
+        private UserState GetUser(string userName)
+        {
+            foreach (UserState user in users)
+                if (user.GetUserName() == userName)
+                    return user;
+            return null;
+        }
+
         public bool OpenStore(string storeName, UserState user)
         {
             if (user == null)
