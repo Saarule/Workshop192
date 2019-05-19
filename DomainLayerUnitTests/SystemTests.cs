@@ -42,7 +42,7 @@ namespace DomainLayerUnitTests
         [Test]
         public void RemoveStore_StoreCountDecreasedByOne_ReturnsTrue()
         {
-            //system.(); 
+            //TODO Check store is removed properly
         }
         
         [OneTimeTearDown]

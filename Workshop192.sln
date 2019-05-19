@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer", "Workshop192\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{3460562A-E8D6-4335-B018-4875640959BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayerTests", "UnitTestProject1\DomainLayerTests.csproj", "{CFA7DA86-3C6E-4347-A9B0-605541A0178D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccaptanceTests", "AccaptanceTests\AccaptanceTests.csproj", "{B0079E11-95E9-48A1-A4B6-6E286A04C653}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayerUnitTests", "DomainLayerUnitTests\DomainLayerUnitTests.csproj", "{087C512C-609B-47BD-A061-910344A8F12A}"
@@ -27,10 +25,6 @@ Global
 		{3460562A-E8D6-4335-B018-4875640959BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3460562A-E8D6-4335-B018-4875640959BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3460562A-E8D6-4335-B018-4875640959BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CFA7DA86-3C6E-4347-A9B0-605541A0178D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFA7DA86-3C6E-4347-A9B0-605541A0178D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFA7DA86-3C6E-4347-A9B0-605541A0178D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFA7DA86-3C6E-4347-A9B0-605541A0178D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B0079E11-95E9-48A1-A4B6-6E286A04C653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B0079E11-95E9-48A1-A4B6-6E286A04C653}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0079E11-95E9-48A1-A4B6-6E286A04C653}.Release|Any CPU.ActiveCfg = Release|Any CPU
