@@ -12,8 +12,8 @@ namespace ServiceLayer
         // use case 1.1 - Initialization of the system
         public void Initalize() {
             Workshop192.System system = Workshop192.System.GetInstance();
-            MoneyCollectionSystemReal real = ConnectExternalMoneyCollectionSystems();
-            system.ConnectMoneyCollectionSystem(real);
+            system.ConnectMoneyCollectionSystem(ConnectExternalMoneyCollectionSystems());
+            system.ConnectDeliverySystem(ConnectExternalDeliverySystems());
             if (system.GetUser("admin", "admin") == null)
             {
                 system.Register("admin", "admin");
@@ -24,6 +24,11 @@ namespace ServiceLayer
         private MoneyCollectionSystemReal ConnectExternalMoneyCollectionSystems()
         {
             return new MoneyCollectionSystemReal();
+        }
+
+        private DeliverySystemReal ConnectExternalDeliverySystems()
+        {
+            return new DeliverySystemReal();
         }
     }
 }

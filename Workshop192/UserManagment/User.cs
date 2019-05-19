@@ -95,6 +95,11 @@ namespace Workshop192.UserManagment
             return carts;
         }
 
+        public void ResetCarts()
+        {
+            carts = new LinkedList<Cart>();
+        }
+
         public bool IsAdmin()
         {
             if (state == null)
