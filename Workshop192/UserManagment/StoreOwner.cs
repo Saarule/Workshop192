@@ -49,7 +49,7 @@ namespace Workshop192.UserManagment
             if (CheckUserExists(user))
                 return false;
             StoreOwner owner = new StoreOwner(user, store, this);
-            user.AddStoreOwner(owner);
+            user.GetStoreOwners().AddLast(owner);
             children.AddLast(owner);
             return true;
         }
@@ -59,17 +59,13 @@ namespace Workshop192.UserManagment
             if (CheckUserExists(user))
                 return false;
             StoreOwner owner = new StoreManager(user, store, this, privileges);
-            user.AddStoreOwner(owner);
+            user.GetStoreOwners().AddLast(owner);
             children.AddLast(owner);
             return true;
         }
 
         public virtual bool RemoveChild(StoreOwner child)
         {
-            bool ans = false;
-            CheckUserExists2(child, user, false);
-            if (!ans)
-                return false;
             return ForceRemoveChild(child);
         }
 
@@ -77,7 +73,7 @@ namespace Workshop192.UserManagment
         {
             foreach (StoreOwner tmp in child.children)
                 ForceRemoveChild(tmp);
-            return child.user.RemoveStoreOwner(child) && (father == null || father.children.Remove(child));
+            return child.user.GetStoreOwners().Remove(child) && (father == null || father.children.Remove(child));
         }
 
         public UserState GetUser()

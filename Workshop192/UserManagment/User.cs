@@ -43,18 +43,25 @@ namespace Workshop192.UserManagment
             return state.SetAdmin();
         }
 
-        public bool AddStoreOwner(StoreOwner store)
+        public bool AddStoreOwner(Store store, UserState user)
         {
             if (state == null)
                 return false;
-            return state.AddStoreOwner(store);
+            return state.AddStoreOwner(store, user);
         }
 
-        public bool RemoveStoreOwner(StoreOwner store)
+        public bool AddStoreManager(Store store, UserState user, bool[] privileges)
         {
             if (state == null)
                 return false;
-            return state.RemoveStoreOwner(store);
+            return state.AddStoreManager(store, user, privileges);
+        }
+
+        public bool RemoveStoreOwner(Store store, UserState user)
+        {
+            if (state == null)
+                return false;
+            return state.RemoveStoreOwner(store, user);
         }
 
         public bool AddProductToCart(Product product, Store store)

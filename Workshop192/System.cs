@@ -57,15 +57,15 @@ namespace Workshop192
             return null;
         }
 
-        public bool OpenStore(string storeName, User user)
+        public bool OpenStore(string storeName, UserState user)
         {
-            if (user.GetState() == null)
+            if (user == null)
                 return false;
             foreach (Store s in stores)
                 if (s.GetName().Equals(storeName))
                     return false;
             Store store = new Store(storeName);
-            user.GetState().AddStoreOwner(new StoreOwner(user.GetState(), store, null));
+            user.GetStoreOwners().AddLast(new StoreOwner(user, store, null));
             stores.AddLast(store);
             return true;
         }

@@ -35,17 +35,37 @@ namespace Workshop192.UserManagment
             return storeOwners;
         }
 
-        public bool AddStoreOwner(StoreOwner store)
+        public bool AddStoreOwner(Store store, UserState user)
         {
-            if (storeOwners.Contains(store))
+            StoreOwner s = GetOwner(store);
+            if (s == null)
                 return false;
-            storeOwners.AddLast(store);
-            return true;
+            return s.AddOwner(user);
         }
 
-        public bool RemoveStoreOwner(StoreOwner store)
+        public bool AddStoreManager(Store store, UserState user, bool[] privileges)
         {
-            return storeOwners.Remove(store);
+            StoreOwner s = GetOwner(store);
+            if (s == null)
+                return false;
+            return s.AddManager(user, privileges);
+        }
+
+        public bool RemoveStoreOwner(Store store, UserState user)
+        {
+            StoreOwner s = GetOwner(store);
+            if (s == null)
+                return false;
+            StoreOwner owner = null;
+            foreach (StoreOwner so in s.GetChildren())
+                if (so.GetUser().Equals(user))
+                {
+                    owner = so;
+                    break;
+                }
+            if (owner == null)
+                return false;
+            return s.RemoveChild(owner);
         }
 
         public LinkedList<Cart> GetCarts()
@@ -61,6 +81,14 @@ namespace Workshop192.UserManagment
         public bool GetAdmin()
         {
             return admin;
+        }
+
+        public StoreOwner GetOwner(Store store)
+        {
+            foreach (StoreOwner s in storeOwners)
+                if (s.GetStore().Equals(store))
+                    return s;
+            return null;
         }
     }
 }
