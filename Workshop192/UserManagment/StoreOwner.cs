@@ -22,9 +22,13 @@ namespace Workshop192.UserManagment
             children = new LinkedList<StoreOwner>();
         }
 
-        public virtual void AddProduct(Product product)
+        public virtual bool AddProduct(Product product)
         {
+            foreach (Product p in store.GetProducts())
+                if (p.Equals(product))
+                    return false;
             store.GetProducts().AddLast(product);
+            return true;
         }
 
         public virtual bool RemoveProduct(Product product)
@@ -62,6 +66,10 @@ namespace Workshop192.UserManagment
 
         public virtual bool RemoveChild(StoreOwner child)
         {
+            bool ans = false;
+            CheckUserExists2(child, user, false);
+            if (!ans)
+                return false;
             return ForceRemoveChild(child);
         }
 

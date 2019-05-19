@@ -35,14 +35,6 @@ namespace Workshop192.UserManagment
             return storeOwners;
         }
 
-        public StoreOwner GetStoreOwner(Store store)
-        {
-            foreach (StoreOwner storeOwner in storeOwners)
-                if (storeOwner.GetStore().Equals(store))
-                    return storeOwner;
-            return null;
-        }
-
         public bool AddStoreOwner(StoreOwner store)
         {
             if (storeOwners.Contains(store))
@@ -69,17 +61,6 @@ namespace Workshop192.UserManagment
         public bool GetAdmin()
         {
             return admin;
-        }
-
-        public bool CloseStore(Store store)
-        {
-            StoreOwner storeOwner = null;
-            foreach (StoreOwner owner in storeOwners)
-                if (owner.GetStore().Equals(store))
-                    storeOwner = owner;
-            if (storeOwner == null || storeOwner.GetFather() != null)
-                return false;
-            return storeOwner.RemoveChild(storeOwner);
         }
     }
 }

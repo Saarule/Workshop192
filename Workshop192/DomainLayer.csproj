@@ -59,6 +59,7 @@
     <Compile Include="UserManagment\StoreManager.cs" />
     <Compile Include="UserManagment\StoreOwner.cs" />
     <Compile Include="UserManagment\User.cs" />
+    <Compile Include="UserManagment\UserState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

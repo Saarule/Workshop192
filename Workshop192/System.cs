@@ -57,25 +57,17 @@ namespace Workshop192
             return null;
         }
 
-        public bool RemoveUser(UserState user)
+        public bool OpenStore(string storeName, User user)
         {
-            if (!security.RemoveUser(user.GetUserName()))
+            if (user.GetState() == null)
                 return false;
-            foreach (StoreOwner storeOwner in user.GetStoreOwners())
-            {
-                if (!storeOwner.ForceRemoveChild(storeOwner))
+            foreach (Store s in stores)
+                if (s.GetName().Equals(storeName))
                     return false;
-                if (storeOwner.GetFather() == null && !CloseStore(storeOwner.GetStore()))
-                    return false;
-            }
-            return true;
-        }
-
-        public void OpenStore(string storeName, UserState owner)
-        {
-            Store store = new Store(storeName, owner);
-            owner.AddStoreOwner(new StoreOwner(owner, store, null));
+            Store store = new Store(storeName);
+            user.GetState().AddStoreOwner(new StoreOwner(user.GetState(), store, null));
             stores.AddLast(store);
+            return true;
         }
 
         public Store GetStore(string storeName)
@@ -91,15 +83,24 @@ namespace Workshop192
             return stores;
         }
 
+        public bool RemoveUser(User user)
+        {
+            if (user.GetState() == null)
+                return false;
+            if (!security.RemoveUser(user.GetUserName()))
+                return false;
+            foreach (StoreOwner storeOwner in user.GetStoreOwners())
+            {
+                if (!storeOwner.ForceRemoveChild(storeOwner))
+                    return false;
+                if (storeOwner.GetFather() == null && !CloseStore(storeOwner.GetStore()))
+                    return false;
+            }
+            return true;
+        }
+
         public bool CloseStore(Store store)
         {
-            User creator = store.GetCreator();
-            foreach (StoreOwner storeOwner in creator.GetStoreOwners())
-                if (storeOwner.GetStore().Equals(store))
-                {
-                    storeOwner.RemoveChild(storeOwner);
-                    break;
-                }
             foreach (UserState user in users)
                 foreach (Cart cart in user.GetCarts())
                     if (cart.GetStore() == store)

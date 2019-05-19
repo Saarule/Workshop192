@@ -16,10 +16,11 @@ namespace Workshop192.UserManagment
             this.privileges = privileges;
         }
 
-        public override void AddProduct(Product product)
+        public override bool AddProduct(Product product)
         {
             if (privileges[0])
-                base.AddProduct(product);
+                return base.AddProduct(product);
+            return false;
         }
 
         public override bool RemoveProduct(Product product)

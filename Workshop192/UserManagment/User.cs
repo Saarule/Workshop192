@@ -103,11 +103,9 @@ namespace Workshop192.UserManagment
             return state.GetStoreOwners();
         }
 
-        public StoreOwner GetStoreOwner(Store store)
+        public UserState GetState()
         {
-            if (state == null)
-                return null;
-            return state.GetStoreOwner(store);
+            return state;
         }
     }
 }
