@@ -8,7 +8,7 @@ namespace Workshop192
 {
     class MoneyCollectionSystemProxy : MoneyCollectionSystemInterface
     {
-        private MoneyCollectionSystemInterface real;
+        private MoneyCollectionSystemReal real;
 
         public MoneyCollectionSystemProxy(MoneyCollectionSystemReal real)
         {
