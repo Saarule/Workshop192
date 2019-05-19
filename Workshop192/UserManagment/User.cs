@@ -82,7 +82,7 @@ namespace Workshop192.UserManagment
                         return cart.RemoveProduct(product);
             return false;
         }
-
+        
         public string GetUserName()
         {
             if (state == null)

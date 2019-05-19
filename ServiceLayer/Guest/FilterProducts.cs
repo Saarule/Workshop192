@@ -15,7 +15,7 @@ namespace ServiceLayer.Guest
             for (int j = 0; j < Products.Count; j++)
             {
                  if (Products.ElementAt(j).GetName().Contains(filter))
-                 FilteredProducts.AddLast(FilteredProducts.ElementAt(j));
+                 FilteredProducts.AddLast(Products.ElementAt(j));
             }
             return FilteredProducts;
         }

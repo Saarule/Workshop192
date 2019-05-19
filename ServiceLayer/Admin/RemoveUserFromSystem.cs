@@ -8,7 +8,7 @@ using Workshop192.UserManagment;
 namespace ServiceLayer.Admin
 {
     // use case 6.2 - Remove user from system
-    class RemoveUserFromSystem
+    public class RemoveUserFromSystem
     {
         public static bool RemoveUser(User admin, UserState toDelete)
         {

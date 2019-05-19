@@ -53,8 +53,24 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\RemoveUserFromSystemTest.cs" />
+    <Compile Include="Guest\CheckAvailablilityTest.cs" />
+    <Compile Include="Guest\FilterProductsTest.cs" />
     <Compile Include="Guest\LogInTest.cs" />
-    <Compile Include="SystemInitialization\SystemInitialaization.cs" />
+    <Compile Include="Guest\ProcessOfBuyingProductsTest.cs" />
+    <Compile Include="Guest\RegisterTest.cs" />
+    <Compile Include="Guest\SaveProductToCartTest.cs" />
+    <Compile Include="Guest\SearchProductsTest.cs" />
+    <Compile Include="Guest\WatchAndEditTest.cs" />
+    <Compile Include="RegisteredUser\LogOutTest.cs" />
+    <Compile Include="RegisteredUser\OpenStoreTest.cs" />
+    <Compile Include="StoreManagerUser\StoreManagerTriesToMakeCommandTest.cs" />
+    <Compile Include="StoreOwnerUser\AssignStoreManagerTest.cs" />
+    <Compile Include="StoreOwnerUser\AssignStoreOwnerTest.cs" />
+    <Compile Include="StoreOwnerUser\ManageProductsTest.cs" />
+    <Compile Include="StoreOwnerUser\RemoveExistingStoreOwnerTest.cs" />
+    <Compile Include="StoreOwnerUser\RemoveStoreManagerTest.cs" />
+    <Compile Include="SystemInitialization\InitializationOfTheSystemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,20 +81,12 @@
       <Project>{3460562a-e8d6-4335-b018-4875640959bf}</Project>
       <Name>ServiceLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UnitTestProject1\DomainLayerTests.csproj">
-      <Project>{cfa7da86-3c6e-4347-a9b0-605541a0178d}</Project>
-      <Name>DomainLayerTests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Workshop192\DomainLayer.csproj">
       <Project>{0db1192a-15dd-405e-8f42-fe910f491968}</Project>
       <Name>DomainLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\" />
-    <Folder Include="RegisteredUser\" />
-    <Folder Include="StoreOwnerUser\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

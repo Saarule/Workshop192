@@ -13,7 +13,22 @@ namespace ServiceLayer.Guest
         // use case 2.6 - Save products to cart
         public static bool SaveProduct(Product product, Store store, User user)
         {
-            return user.AddProductToCart(product ,store);
+            foreach (Product p in store.GetProducts()) {
+                if (p.GetId() == product.GetId())
+                {
+                    Product tmp = product;
+                    store.GetProducts().Remove(product);
+                    if (!user.AddProductToCart(tmp, store)) {
+                        store.GetProducts().AddLast(tmp);
+                        return false;
+                    }
+
+                    return true;
+                }
+                    
+            }
+            return false;
+            
         }
     }
 }

@@ -9,12 +9,12 @@ using Workshop192.UserManagment;
 namespace ServiceLayer.Guest
 {
     // use case 2.8 - Process of buying policy
-    class ProcessOfBuyingProducts
+    public class ProcessOfBuyingProducts
     {
         public static bool ProcessBuyingProducts(int accountId, User user, string name, string address)
         {
-            if (!CheckAvailability.CheckAvailable(user.GetCarts()))
-                return false;
+            //if (!CheckAvailability.CheckAvailable(user.GetCarts()))
+               // return false;
             return Workshop192.System.GetInstance().PurchaseProducts(accountId, user, name, address); 
         }
     }
