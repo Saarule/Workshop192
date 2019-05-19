@@ -3,40 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Workshop192;
 
 namespace ServiceLayer
 {
     public class InitializationOfTheSystem
-    {
-        bool isInitialized = false;
-        private Workshop192.System system;
-        public InitializationOfTheSystem()
-        {
-            Initalize();
-        }
-        public bool Initalize() {
-            if (!isInitialized)
+    {   
+        public void Initalize() {
+            Workshop192.System system = Workshop192.System.GetInstance();
+            MoneyCollectionSystemReal real = ConnectExternalMoneyCollectionSystems();
+            system.ConnectMoneyCollectionSystem(real);
+            if (system.GetUser("admin", "admin") == null)
             {
-                system = Workshop192.System.GetInstance();
-                ConnectExternalSystems();
-                CreateAdmin("FirstAdmin", "666666");
-                isInitialized = true;
-                return true;
+                system.Register("admin", "admin");
+                system.GetUser("admin", "admin").SetAdmin();
             }
-            return false;
         }
-        private void CreateAdmin(string username, string password) {
-            system.Register(username, password);
-            system.GetUser(username, password).Register(username);
-            system.GetUser(username, password).SetAdmin();
-        }
-        private void ConnectExternalSystems()
+
+        private MoneyCollectionSystemReal ConnectExternalMoneyCollectionSystems()
         {
-            //TODO...
-        }
-        public bool IsInitialized()
-        {
-            return isInitialized;
+            return new MoneyCollectionSystemReal();
         }
     }
 }
