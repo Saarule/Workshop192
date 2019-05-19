@@ -11,11 +11,15 @@ namespace Workshop192.MarketManagment
     {
         private string name;
         private LinkedList<Product> products;
+        private DiscountPolicy discountPolicy;
+        private SellingPolicy sellingPolicy;
 
         public Store(string name)
         {
             this.name = name;
             products = new LinkedList<Product>();
+            discountPolicy = new DiscountPolicy();
+            sellingPolicy = new SellingPolicy();
         }
 
         public LinkedList<Product> GetProducts()

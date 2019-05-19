@@ -49,8 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MarketManagment\Cart.cs" />
+    <Compile Include="MarketManagment\DiscountPolicy.cs" />
     <Compile Include="MarketManagment\Product.cs" />
+    <Compile Include="MarketManagment\SellingPolicy.cs" />
     <Compile Include="MarketManagment\Store.cs" />
+    <Compile Include="MoneyCollectionSystemInterface.cs" />
+    <Compile Include="MoneyCollectionSystemProxy.cs" />
+    <Compile Include="MoneyCollectionSystemReal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security.cs" />

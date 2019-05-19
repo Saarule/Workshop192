@@ -13,6 +13,7 @@ namespace Workshop192
         private LinkedList<UserState> users;
         private LinkedList<Store> stores;
         private Security security;
+        private MoneyCollectionSystemProxy proxy;
 
         private static System instance = null;
 
@@ -36,6 +37,56 @@ namespace Workshop192
             return instance;
         }
 
+        public void ConnectMoneyCollectionSystem(MoneyCollectionSystemReal real)
+        {
+            proxy = new MoneyCollectionSystemProxy(real);
+        }
+
+        public bool PurchaseProducts(int accountId, User user)
+        {
+            foreach (Cart cart in user.GetCarts())
+                foreach (Product product in cart.GetProducts())
+                    cart.GetStore().GetProducts().Remove(product);
+            int sum = SumOfCartPrice(user.GetCarts());
+            return proxy.CollectFromAccount(accountId, sum);
+        }
+
+        private bool CheckProductsavailability(LinkedList<Cart> carts)
+        {
+            LinkedList<Cart> tmp = new LinkedList<Cart>();
+            foreach (Cart cart in carts)
+            {
+                tmp.AddLast(new Cart(cart.GetStore()));
+                foreach (Product product in cart.GetProducts())
+                {
+                    if (cart.GetStore().GetProducts().Contains(product))
+                        tmp.Last.Value.AddProduct(product);
+                    else
+                    {
+                        ReturnProductsToStore(tmp);
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private void ReturnProductsToStore(LinkedList<Cart> carts)
+        {
+            foreach (Cart cart in carts)
+                foreach (Product product in cart.GetProducts())
+                    cart.GetStore().GetProducts().AddLast(product);
+        }
+
+        private int SumOfCartPrice(LinkedList<Cart> carts)
+        {
+            int sum = 0;
+            foreach (Cart cart in carts)
+                foreach (Product product in cart.GetProducts())
+                    sum += product.GetPrice();
+            return sum;
+        }
+
         public bool Register(string userName, string password)
         {
             if (!security.AddUser(userName, password))
@@ -54,6 +105,26 @@ namespace Workshop192
                 {
                     return user;
                 }
+            return null;
+        }
+
+        public bool AddStoreOwner(User user, Store store, string userName)
+        {
+            return user.AddStoreOwner(store, GetUser(userName));
+        }
+
+        public bool AddStoreManager(User user, Store store, string userName, bool[] privileges)
+        {
+            if (privileges.Length != 6)
+                return false;
+            return user.AddStoreManager(store, GetUser(userName), privileges);
+        }
+
+        private UserState GetUser(string userName)
+        {
+            foreach (UserState user in users)
+                if (user.GetUserName() == userName)
+                    return user;
             return null;
         }
 
