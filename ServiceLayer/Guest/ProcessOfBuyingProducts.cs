@@ -11,9 +11,11 @@ namespace ServiceLayer.Guest
     // use case 2.8 - Process of buying policy
     class ProcessOfBuyingProducts
     {
-        public static bool ProcessBuyingProducts(User user , LinkedList<Cart> carts)
+        public static bool ProcessBuyingProducts(int accountId, User user, string name, string address)
         {
-            return Workshop192.System.GetInstance().PurchaseProducts(1111, user); /// "1111" is Account ID 
+            if (!CheckAvailability.CheckAvailable(user.GetCarts()))
+                return false;
+            return Workshop192.System.GetInstance().PurchaseProducts(accountId, user, name, address); 
         }
     }
 }

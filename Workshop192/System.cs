@@ -13,7 +13,8 @@ namespace Workshop192
         private LinkedList<UserState> users;
         private LinkedList<Store> stores;
         private Security security;
-        private MoneyCollectionSystemProxy proxy;
+        private MoneyCollectionSystemInterface moneyCollectionSystem;
+        private DeliverySystemInterface deliverySystem;
 
         private static System instance = null;
 
@@ -39,16 +40,26 @@ namespace Workshop192
 
         public void ConnectMoneyCollectionSystem(MoneyCollectionSystemReal real)
         {
-            proxy = new MoneyCollectionSystemProxy(real);
+            moneyCollectionSystem = new MoneyCollectionSystemProxy(real);
         }
 
-        public bool PurchaseProducts(int accountId, User user)
+        public void ConnectDeliverySystem(DeliverySystemReal real)
+        {
+            deliverySystem = new DeliverySystemProxy(real);
+        }
+
+        public bool PurchaseProducts(int accountId, User user, string name, string address)
         {
             foreach (Cart cart in user.GetCarts())
                 foreach (Product product in cart.GetProducts())
                     cart.GetStore().GetProducts().Remove(product);
             int sum = SumOfCartPrice(user.GetCarts());
-            return proxy.CollectFromAccount(accountId, sum);
+            if (!moneyCollectionSystem.CollectFromAccount(accountId, sum))
+                return false;
+            if (!deliverySystem.Deliver(name, address, user.GetCarts()))
+                return false;
+            user.ResetCarts();
+            return true;
         }
 
         public bool CheckProductsavailability(LinkedList<Cart> carts)
