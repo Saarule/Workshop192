@@ -76,7 +76,7 @@ namespace AccaptanceTests.Guest
             Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(22222, Nati, "Nati kalontar", "shlomo 2"), true);
         }
         [Test]
-        public void BuyingEmptyListcart() // ERROR: product that save to other someone suceess to save again. -> to lock product
+        public void BuyingEmptyListcart() 
         {
             Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(3333, Saar, "Saar mashehu", "lalalend 6"), true);
         }

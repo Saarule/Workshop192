@@ -48,8 +48,6 @@ namespace AccaptanceTests.StoreOwnerUser
         [Test]
         public void AssignNewStoreManagerTest()
         {
-            
-            
             Assert.AreEqual(AssignStoreManager.AsssignManager(Orel, System.GetStore("Victory"), "nati",privileges), true);
         }
         [Test]

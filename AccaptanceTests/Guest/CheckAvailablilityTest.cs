@@ -10,7 +10,7 @@ using Workshop192.UserManagment;
 namespace AccaptanceTests.Guest
 {
     [TestFixture]
-    public class CheckAvailability
+    public class CheckAvailabilityTest
     {
    
 

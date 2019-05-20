@@ -19,7 +19,7 @@ namespace Workshop192.UserManagment
 
         public bool LogIn(UserState state)
         {
-            if (this.state != null)
+            if (this.state != null || state == null)
                 return false;
             this.state = state;
             carts = state.GetCarts();
@@ -44,21 +44,21 @@ namespace Workshop192.UserManagment
 
         public bool AddStoreOwner(Store store, UserState user)
         {
-            if (state == null)
+            if (state == null || user == null)
                 return false;
             return state.AddStoreOwner(store, user);
         }
 
         public bool AddStoreManager(Store store, UserState user, bool[] privileges)
         {
-            if (state == null)
+            if (state == null || user == null)
                 return false;
             return state.AddStoreManager(store, user, privileges);
         }
 
         public bool RemoveStoreOwner(Store store, UserState user)
         {
-            if (state == null)
+            if (state == null || user == null)
                 return false;
             return state.RemoveStoreOwner(store, user);
         }

@@ -45,7 +45,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [Test]
         public void RemoveChildTest()
         {
-            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Nati.GetState()), true);
+            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), System.GetUser("nati", "123456")), true);
             Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Saar.GetState()), true);
 
         }
@@ -71,8 +71,8 @@ namespace AccaptanceTests.StoreOwnerUser
         {
             Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Saar.GetState()), true);
             Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Saar.GetState()), false);
-            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Nati.GetState()), true);
-            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Nati.GetState()), false);
+            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), System.GetUser("nati", "123456")), true);
+            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), System.GetUser("nati", "123456")), false);
 
 
 

@@ -39,14 +39,13 @@ namespace AccaptanceTests.Admin
         [Test]
         public void SuccessRemoveTest() // NULL in case that GetUser(username,password) not exist ( == null) 
         {
-            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Admin, Nati.GetState()),true);
-            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Admin, Orel.GetState()), true);
-
+            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Admin, System.GetUser("nati", "12345")),true);
+            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Admin, System.GetUser("orel", "123456")), true);
         }
         [Test]
         public void NotAdminRemoveTest()
         {
-            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Orel, Nati.GetState()), false);
+            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Orel, System.GetUser("nati", "12345")), false);
         }
         [Test]
         public void RemoveNotExistedTest() 
@@ -56,8 +55,8 @@ namespace AccaptanceTests.Admin
         [Test]
         public void DoubleRemoveTest() 
         {
-            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Admin, Orel.GetState()), true);
-            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Admin, Orel.GetState()), false);
+            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Admin, System.GetUser("orel", "123456")), true);
+            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Admin, System.GetUser("orel", "123456")), false);
 
         }
         
