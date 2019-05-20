@@ -6,6 +6,7 @@ using ServiceLayer.Guest;
 using ServiceLayer.Store_Owner_User;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
+using System.Linq;
 
 namespace AccaptanceTests.Guest
 {
@@ -60,7 +61,13 @@ namespace AccaptanceTests.Guest
             cart.AddProduct(p1);
             cart.AddProduct(p2);
             c1.AddLast(cart);
-            Assert.AreEqual(WatchAndEdit.Watch(Nati),c1);
+            for(int i = 0; i < Nati.GetCarts().Count; i++) 
+            {
+                for (int j = 0; j < Nati.GetCarts().ElementAt(i).GetProducts().Count; j++)
+                {
+                    Assert.AreEqual(Nati.GetCarts().ElementAt(i).GetProducts().ElementAt(j), c1.ElementAt(i).GetProducts().ElementAt(j));
+                }
+            }
         }
         [Test]
         public void WatchComplicatedCartTest()
@@ -76,7 +83,13 @@ namespace AccaptanceTests.Guest
             cart2.AddProduct(p4);
             c1.AddLast(cart);
             c1.AddLast(cart2);
-            Assert.AreEqual(WatchAndEdit.Watch(Nati), c1);
+            for (int i = 0; i < Nati.GetCarts().Count; i++)
+            {
+                for (int j = 0; j < Nati.GetCarts().ElementAt(i).GetProducts().Count; j++)
+                {
+                    Assert.AreEqual(Nati.GetCarts().ElementAt(i).GetProducts().ElementAt(j), c1.ElementAt(i).GetProducts().ElementAt(j));
+                }
+            }
         }
         [Test]
         public void WatchEmptyCartTest()
@@ -84,15 +97,21 @@ namespace AccaptanceTests.Guest
             Assert.AreEqual(WatchAndEdit.Watch(Nati), c1);
         }
         [Test]
-        public void DeleteProductsCartTest() // ERROR: product that save to other someone suceess to save again. -> to lock product
+        public void DeleteProductsCartTest() 
         {
             SaveProductToCart.SaveProduct(p1, System.GetStore("Victory"), Nati);
             WatchAndEdit.Edit("delete", p1, Nati);
             c1.AddLast(cart);
-            Assert.AreEqual(WatchAndEdit.Watch(Nati), c1);
+            for (int i = 0; i < Nati.GetCarts().Count; i++)
+            {
+                for (int j = 0; j < Nati.GetCarts().ElementAt(i).GetProducts().Count; j++)
+                {
+                    Assert.AreEqual(Nati.GetCarts().ElementAt(i).GetProducts().ElementAt(j), c1.ElementAt(i).GetProducts().ElementAt(j));
+                }
+            }
         }
         [Test]
-        public void DeleteAllProductsFromCartTest() // ERROR: product that save to other someone suceess to save again. -> to lock product
+        public void DeleteAllProductsFromCartTest()
         {
             SaveProductToCart.SaveProduct(p1, System.GetStore("Victory"), Nati);
             SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Nati);
@@ -105,7 +124,13 @@ namespace AccaptanceTests.Guest
             WatchAndEdit.Edit("delete", p4, Nati);
             c1.AddLast(cart);
             c1.AddLast(cart2);
-            Assert.AreEqual(WatchAndEdit.Watch(Nati), c1);
+            for (int i = 0; i < Nati.GetCarts().Count; i++)
+            {
+                for (int j = 0; j < Nati.GetCarts().ElementAt(i).GetProducts().Count; j++)
+                {
+                    Assert.AreEqual(Nati.GetCarts().ElementAt(i).GetProducts().ElementAt(j), c1.ElementAt(i).GetProducts().ElementAt(j));
+                }
+            }
         }
     }
 }

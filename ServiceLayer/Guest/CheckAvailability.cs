@@ -8,9 +8,10 @@ using Workshop192.MarketManagment;
 namespace ServiceLayer.Guest
 {
     // use case - 2.8(1) check availability of products
-    class CheckAvailability
+    public class CheckAvailability
     {
         public static bool CheckAvailable(LinkedList<Cart> carts) {
+
             return Workshop192.System.GetInstance().CheckProductsavailability(carts);
         }
     }

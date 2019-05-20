@@ -20,16 +20,6 @@ namespace ServiceLayer.Guest
         {
             if (option.Equals("delete"))
             {
-                foreach(Cart c in user.GetCarts())
-                {
-                    foreach(Product p in c.GetProducts())
-                    {
-                        if (p.GetId() == product.GetId())
-                        {
-                            c.GetStore().GetProducts().AddLast(product);
-                        }
-                    }
-                }
                 user.RemoveProductFromCart(product);
                 return true;
             }

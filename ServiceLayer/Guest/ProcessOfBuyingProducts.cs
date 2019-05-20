@@ -13,8 +13,10 @@ namespace ServiceLayer.Guest
     {
         public static bool ProcessBuyingProducts(int accountId, User user, string name, string address)
         {
-            //if (!CheckAvailability.CheckAvailable(user.GetCarts()))
-               // return false;
+            if (user.GetCarts().Count == 0)
+                return false;
+            if (!CheckAvailability.CheckAvailable(user.GetCarts()))
+                return false;
             return Workshop192.System.GetInstance().PurchaseProducts(accountId, user, name, address); 
         }
     }

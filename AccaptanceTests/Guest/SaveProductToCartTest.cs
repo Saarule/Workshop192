@@ -54,7 +54,7 @@ namespace AccaptanceTests.Guest
         public void AddCatchedProductTest() 
         {
             Assert.AreEqual(SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Orel), true);
-            Assert.AreEqual(SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Nati), false);
+            Assert.AreEqual(SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Nati), true);
         }
     }
 }

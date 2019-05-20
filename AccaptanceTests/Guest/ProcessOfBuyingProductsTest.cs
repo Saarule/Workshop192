@@ -76,9 +76,32 @@ namespace AccaptanceTests.Guest
             Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(22222, Nati, "Nati kalontar", "shlomo 2"), true);
         }
         [Test]
-        public void BuyingEmptyListcart() 
+        public void BuyingEmptyListcartTest() 
         {
-            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(3333, Saar, "Saar mashehu", "lalalend 6"), true);
+            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(3333, Saar, "Saar mashehu", "lalalend 6"), false);
         }
+        public void BuyingFailed_Because_Product_isnot_Availabe_Test()
+        {
+            Product p7 = new Product(7, 5, "milk");
+            ManageProducts.ManageProduct(Orel, p7, System.GetStore("Mega"), "add");
+
+            SaveProductToCart.SaveProduct(p7, System.GetStore("Mega"), Orel);
+            SaveProductToCart.SaveProduct(p7, System.GetStore("Mega"), Nati);
+
+            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(22222, Nati, "Nati kalontar", "shlomo 2"), true);
+            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(1111, Orel, "orel kakon", "hadekel 2"), false);
+
+
+        }
+        [Test]
+        public void DoubleBuyingTest()
+        {
+            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(22222, Nati, "Nati kalontar", "shlomo 2"), true);
+            
+        //assert failed because maybe Nati buying empty list and 
+            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(22222, Nati, "Nati kalontar", "shlomo 2"), false);
+
+        }
+
     }
 }
