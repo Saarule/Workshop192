@@ -118,7 +118,7 @@ namespace DomainLayerUnitTests.UserManagment
         [Test]
         public void RemoveChild_RemoveNonExistingChild_ReturnsFalse()
         {
-            Assert.IsFalse(owner.RemoveChild(state2.GetOwner(store)));
+            Assert.IsFalse(owner.RemoveChild(new StoreOwner(state2, new Store("temp"), null)));
             Assert.AreEqual(0, owner.GetChildren().Count);
             Assert.IsNull(state2.GetOwner(store));
         }

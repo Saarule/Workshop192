@@ -50,9 +50,6 @@ namespace Workshop192
 
         public bool PurchaseProducts(int accountId, User user, string name, string address)
         {
-            foreach (Cart cart in user.GetCarts())
-                foreach (Product product in cart.GetProducts())
-                    cart.GetStore().GetProducts().Remove(product);
             int sum = SumOfCartPrice(user.GetCarts());
             if (!moneyCollectionSystem.CollectFromAccount(accountId, sum))
                 return false;
@@ -71,7 +68,10 @@ namespace Workshop192
                 foreach (Product product in cart.GetProducts())
                 {
                     if (cart.GetStore().GetProducts().Contains(product))
+                    {
                         tmp.Last.Value.AddProduct(product);
+                        cart.GetStore().GetProducts().Remove(product);
+                    }
                     else
                     {
                         ReturnProductsToStore(tmp);
@@ -171,11 +171,12 @@ namespace Workshop192
                 return false;
             if (!security.RemoveUser(user.GetUserName()))
                 return false;
-            foreach (StoreOwner storeOwner in user.GetStoreOwners())
+            while (user.GetStoreOwners().Count > 0)
             {
-                if (!storeOwner.ForceRemoveChild(storeOwner))
+                StoreOwner tmp = user.GetStoreOwners().First.Value;
+                if (!tmp.ForceRemoveChild(tmp))
                     return false;
-                if (storeOwner.GetFather() == null && !RemoveStore(storeOwner.GetStore()))
+                if (tmp.GetFather() == null && !RemoveStore(tmp.GetStore()))
                     return false;
             }
             return true;

@@ -71,9 +71,9 @@ namespace Workshop192.UserManagment
 
         public bool ForceRemoveChild(StoreOwner child)
         {
-            foreach (StoreOwner tmp in child.children)
-                ForceRemoveChild(tmp);
-            return child.user.GetStoreOwners().Remove(child) && (father == null || father.children.Remove(child));
+            while (child.children.Count > 0)
+                ForceRemoveChild(child.children.First.Value);
+            return child.user.GetStoreOwners().Remove(child) && (child.father == null || child.father.children.Remove(child));
         }
 
         public UserState GetUser()

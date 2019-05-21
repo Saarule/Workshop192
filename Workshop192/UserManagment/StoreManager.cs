@@ -46,7 +46,7 @@ namespace Workshop192.UserManagment
 
         public override bool AddManager(UserState user, bool[] privileges)
         {
-            if (privileges[4])
+            if (this.privileges[4])
                 return base.AddManager(user, privileges);
             return false;
         }

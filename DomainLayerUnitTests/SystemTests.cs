@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using Workshop192;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
 
@@ -16,6 +17,8 @@ namespace DomainLayerUnitTests
         public void Init()
         {
             system = Workshop192.System.GetInstance();
+            system.ConnectMoneyCollectionSystem(new MoneyCollectionSystemReal());
+            system.ConnectDeliverySystem(new DeliverySystemReal());
             system.Register("user1", "12345");
             system.Register("user2", "12345");
             system.OpenStore("myStore", system.GetUser("user1", "12345"));
