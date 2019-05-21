@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Workshop192
 {
-    class MoneyCollectionSystemProxy : MoneyCollectionSystemInterface
+    public class MoneyCollectionSystemProxy : MoneyCollectionSystemInterface
     {
         private MoneyCollectionSystemReal real;
 

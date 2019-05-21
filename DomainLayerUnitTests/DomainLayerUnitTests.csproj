@@ -45,8 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeliverySystemProxyTests.cs" />
+    <Compile Include="MarketManagment\CartTests.cs" />
+    <Compile Include="MarketManagment\DiscountPolicyTests.cs" />
+    <Compile Include="MarketManagment\ProductTests.cs" />
+    <Compile Include="MarketManagment\SellingPolicyTests.cs" />
+    <Compile Include="MarketManagment\StoreTests.cs" />
+    <Compile Include="MoneyCollectionSystemProxyTests.cs" />
+    <Compile Include="SecurityTests.cs" />
     <Compile Include="SystemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserManagment\StoreManagerTests.cs" />
+    <Compile Include="UserManagment\StoreOwnerTests.cs" />
+    <Compile Include="UserManagment\UserStateTests.cs" />
+    <Compile Include="UserManagment\UserTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">

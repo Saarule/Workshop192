@@ -89,7 +89,7 @@ namespace Workshop192
                     cart.GetStore().GetProducts().AddLast(product);
         }
 
-        private int SumOfCartPrice(LinkedList<Cart> carts)
+        public int SumOfCartPrice(LinkedList<Cart> carts)
         {
             int sum = 0;
             foreach (Cart cart in carts)
