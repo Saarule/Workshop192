@@ -8,10 +8,10 @@ using Workshop192.UserManagment;
 
 namespace ServiceLayer.Store_Owner_User
 {
-    class AssignStoreManager
+    public class AssignStoreManager
     {
         // use case 4.5 - Assign store Manager
-        public bool AsssignManager(User user,Store store,string username,bool [] privileges)
+        public static bool AsssignManager(User user,Store store,string username,bool [] privileges)
         {
             return Workshop192.System.GetInstance().AddStoreManager(user ,store, username,privileges);
         }

@@ -98,23 +98,20 @@ namespace Workshop192.UserManagment
 
         public bool CheckUserExists(UserState user)
         {
-            bool exist = false;
             StoreOwner storeOwner = this;
             while (storeOwner.father != null)
                 storeOwner = storeOwner.father;
-            CheckUserExists2(storeOwner, user, exist);
-            return exist;
+            return CheckUserExists2(storeOwner, user);
         }
 
-        public void CheckUserExists2(StoreOwner storeOwner, UserState user, bool exist)
+        public bool CheckUserExists2(StoreOwner storeOwner, UserState user)
         {
-            if (exist || storeOwner.GetUser().Equals(user))
-            {
-                exist = true;
-                return;
-            }
+            bool ret = false;
+            if (storeOwner.GetUser().Equals(user))
+                return true; ;
             foreach (StoreOwner s in storeOwner.children)
-                CheckUserExists2(s, user, exist);
+                ret = ret || CheckUserExists2(s, user);
+            return ret;
         }
     }
 }
