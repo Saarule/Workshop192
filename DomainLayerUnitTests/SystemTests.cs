@@ -117,7 +117,7 @@ namespace DomainLayerUnitTests
         [Test]
         public void CheckProductsAvailability_ProductRemovedFromStoreAfterCheckout_ReturnTrue()
         {
-            Assert.IsTrue(system.CheckProductsavailability(user.GetCarts()));
+            Assert.IsTrue(system.CheckProductsAvailability(user.GetCarts()));
             Assert.AreEqual(1, system.GetStore("myStore").GetProducts().Count);
         }
 
@@ -130,8 +130,8 @@ namespace DomainLayerUnitTests
             user.GetState().GetOwner(system.GetStore("myStore")).AddProduct(p4);
             user.AddProductToCart(p4, system.GetStore("myStore"));
             user2.AddProductToCart(p4, system.GetStore("myStore"));
-            Assert.IsTrue(system.CheckProductsavailability(user2.GetCarts()));
-            Assert.IsFalse(system.CheckProductsavailability(user.GetCarts()));
+            Assert.IsTrue(system.CheckProductsAvailability(user2.GetCarts()));
+            Assert.IsFalse(system.CheckProductsAvailability(user.GetCarts()));
             Assert.AreEqual(3, system.GetStore("myStore").GetProducts().Count);
         }
 

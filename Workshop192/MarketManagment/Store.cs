@@ -10,26 +10,37 @@ namespace Workshop192.MarketManagment
     public class Store
     {
         private string name;
-        private LinkedList<Product> products;
-        private DiscountPolicy discountPolicy;
-        private SellingPolicy sellingPolicy;
+        private Inventory inventory;
 
         public Store(string name)
         {
             this.name = name;
-            products = new LinkedList<Product>();
-            discountPolicy = new DiscountPolicy();
-            sellingPolicy = new SellingPolicy();
+            inventory = new Inventory();
         }
 
-        public LinkedList<Product> GetProducts()
+        public void AddProducts(Product product, int amount)
         {
-            return products;
+            inventory.AddProducts(product, amount);
+        }
+
+        public bool RemoveProducts(Product product, int amount)
+        {
+            return inventory.RemoveProducts(product, amount);
+        }
+
+        public bool RemoveProductFromInventory(Product product)
+        {
+            return inventory.RemoveProductFromInventory(product);
         }
 
         public string GetName()
         {
             return name;
+        }
+
+        public Dictionary<Product, int> GetInventory()
+        {
+            return inventory.GetAllProduct();
         }
     }
 }

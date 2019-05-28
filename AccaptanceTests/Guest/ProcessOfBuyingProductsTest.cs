@@ -49,6 +49,7 @@ namespace AccaptanceTests.Guest
             ManageProducts.ManageProduct(Orel, p3, System.GetStore("Victory"), "add");
             SaveProductToCart.SaveProduct(p1, System.GetStore("Victory"), Orel);
             SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Orel);
+            SaveProductToCart.SaveProduct(p1, System.GetStore("Victory"), Orel);
             
             ManageProducts.ManageProduct(Orel, p4, System.GetStore("Mega"), "add");
             ManageProducts.ManageProduct(Orel, p5, System.GetStore("Mega"), "add");

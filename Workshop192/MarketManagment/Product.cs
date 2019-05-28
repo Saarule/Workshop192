@@ -8,20 +8,20 @@ namespace Workshop192.MarketManagment
 {
     public class Product
     {
-        private int productId;
-        private int price;
         private string name;
+        private string category;
+        private int price;
 
-        public Product(int productId, int price, string name)
+        public Product(string name, string category, int price)
         {
-            this.productId = productId;
-            this.price = price;
             this.name = name;
+            this.category = category;
+            this.price = price;
         }
 
-        public int GetPrice()
+        public string GetCategory()
         {
-            return price;
+            return category;
         }
 
         public string GetName()
@@ -29,9 +29,9 @@ namespace Workshop192.MarketManagment
             return name;
         }
 
-        public int GetId()
+        public int GetPrice()
         {
-            return productId;
+            return price;
         }
     }
 }
