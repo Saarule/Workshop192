@@ -11,18 +11,20 @@ namespace CommunicationLayer.Controllers
 {
     public class UsersController : ApiController
     {
-        User[] users = new User[]
+        List<User> users = new List<User>
         {
             new User { Id = 1, UserName = "DanNicolas", Age = 23 , Address = "Tel Aviv" },
             new User { Id = 2, UserName = "AlmaBrown", Age =  45, Address = "Haifa" },
             new User { Id = 3, UserName = "NiceDogPerson", Age = 19, Address= "Eilat" },
         };
 
+        //Get: api/users
         public IEnumerable<User> GetAllUsers()
         {
             return users;
         }
 
+        //Get: api/users/5
         public IHttpActionResult GetUser(int id)
         {
             var user = users.FirstOrDefault((u) => u.Id == id);
@@ -41,6 +43,12 @@ namespace CommunicationLayer.Controllers
         public bool SignIn(String username, String password)
         {
             return ServiceLayer.Guest.LogIn.Login(username,password, null);
+        }
+
+        //Get: api/users/5
+        public void Post(User user)
+        {
+            users.Add(user);
         }
     }
 }
