@@ -12,9 +12,9 @@ namespace DomainLayerUnitTests.UserManagment
     [TestFixture]
     class StoreManagerTests
     {
-        private UserState state;
-        private UserState stateT;
-        private UserState stateF;
+        private UserInfo state;
+        private UserInfo stateT;
+        private UserInfo stateF;
         private StoreOwner owner;
         private Store store;
         Product product;
@@ -22,9 +22,9 @@ namespace DomainLayerUnitTests.UserManagment
         [SetUp]
         public void SetUp()
         {
-            state = new UserState("Ben");
-            stateT = new UserState("Saar");
-            stateF = new UserState("Orel");
+            state = new UserInfo("Ben");
+            stateT = new UserInfo("Saar");
+            stateF = new UserInfo("Orel");
             store = new Store("newStore");
             owner = new StoreOwner(state, store, null);
             state.GetStoreOwners().AddLast(owner);
@@ -51,14 +51,14 @@ namespace DomainLayerUnitTests.UserManagment
         public void RemoveProduct_HasPrivilege_ReturnsTrue()
         {
             owner.AddProduct(product);
-            Assert.IsTrue(stateT.GetOwner(store).RemoveProduct(product));
+            Assert.IsTrue(stateT.GetOwner(store).RemoveProductFromInventory(product));
         }
 
         [Test]
         public void RemoveProduct_DoesntHavePrivilege_ReturnsFalse()
         {
             owner.AddProduct(product);
-            Assert.IsFalse(stateF.GetOwner(store).RemoveProduct(product));
+            Assert.IsFalse(stateF.GetOwner(store).RemoveProductFromInventory(product));
         }
 
         [Test]
@@ -78,41 +78,41 @@ namespace DomainLayerUnitTests.UserManagment
         [Test]
         public void AddOwner_HasPrivilege_ReturnsTrue()
         {
-            Assert.IsTrue(stateT.GetOwner(store).AddOwner(new UserState("temp")));
+            Assert.IsTrue(stateT.GetOwner(store).AddOwner(new UserInfo("temp")));
         }
 
         [Test]
         public void AddOwner_DoesntHavePrivilege_ReturnsFalse()
         {
-            Assert.IsFalse(stateF.GetOwner(store).AddOwner(new UserState("temp")));
+            Assert.IsFalse(stateF.GetOwner(store).AddOwner(new UserInfo("temp")));
         }
 
         [Test]
         public void AddManager_HasPrivilege_ReturnsTrue()
         {
-            Assert.IsTrue(stateT.GetOwner(store).AddManager(new UserState("temp"), new bool[6]));
+            Assert.IsTrue(stateT.GetOwner(store).AddManager(new UserInfo("temp"), new bool[6]));
         }
 
         [Test]
         public void AddManager_DoesntHavePrivilege_ReturnsFalse()
         {
-            Assert.IsFalse(stateF.GetOwner(store).AddManager(new UserState("temp"), new bool[6]));
+            Assert.IsFalse(stateF.GetOwner(store).AddManager(new UserInfo("temp"), new bool[6]));
         }
 
         [Test]
         public void RemoveChild_HasPrivilege_ReturnsTrue()
         {
-            UserState temp = new UserState("temp");
+            UserInfo temp = new UserInfo("temp");
             stateT.GetOwner(store).AddOwner(temp);
-            Assert.IsTrue(stateT.GetOwner(store).RemoveChild(temp.GetOwner(store)));
+            Assert.IsTrue(stateT.GetOwner(store).RemoveAppointedOwner(temp.GetOwner(store)));
         }
 
         [Test]
         public void RemoveChild_DoesntHavePrivilege_ReturnsFalse()
         {
-            UserState temp = new UserState("temp");
+            UserInfo temp = new UserInfo("temp");
             stateF.GetOwner(store).AddOwner(temp);
-            Assert.IsFalse(stateF.GetOwner(store).RemoveChild(temp.GetOwner(store)));
+            Assert.IsFalse(stateF.GetOwner(store).RemoveAppointedOwner(temp.GetOwner(store)));
         }
     }
 }

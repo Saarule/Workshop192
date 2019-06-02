@@ -9,20 +9,21 @@ namespace Workshop192.MarketManagment
     public class Cart
     {
         private Store store;
-        private LinkedList<Product> products;
+        private Dictionary<Product, int> products;
+        int sum;
 
         public Cart(Store store)
         {
             this.store = store;
-            products = new LinkedList<Product>();
+            products = new Dictionary<Product, int>();
+            sum = 0;
         }
 
-        public bool AddProduct(Product product)
+        public bool AddProductsToCart(Product product, int amount)
         {
-            foreach (Product p in products)
-                if (p.Equals(product))
-                    return false;
-            products.AddLast(product);
+            if ((store.GetInventory()[product] < amount) || (products[product] + amount > store.GetInventory()[product]))
+                return false;
+            products[product] += amount;
             return true;
         }
 
@@ -31,15 +32,25 @@ namespace Workshop192.MarketManagment
             return products.Remove(product);
         }
 
+        public void SetSum()
+        {
+            foreach (KeyValuePair<Product, int> product in products)
+                sum += product.Key.GetPrice() * product.Value;
+        }
+
         public Store GetStore()
         {
             return store;
         }
 
-        public LinkedList<Product> GetProducts()
+        public Dictionary<Product, int> GetProducts()
         {
             return products;
         }
 
+        public int GetCartSum()
+        {
+            return sum;
+        }
     }
 }

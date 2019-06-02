@@ -33,7 +33,7 @@ namespace ServiceLayer.Store_Owner_User
                 }
                 else if (option.Equals("delete"))
                 {
-                    return user.GetState().GetOwner(store).RemoveProduct(product);
+                    return user.GetState().GetOwner(store).RemoveProductFromInventory(product);
                 }
                 return false;
             }

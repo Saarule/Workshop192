@@ -56,7 +56,7 @@ namespace DomainLayerUnitTests
         [Test]
         public void RemoveStore_StoreCountDecreasedByOne_ReturnsTrue()
         {
-            UserState userState = system.GetUser("user1", "12345");
+            UserInfo userState = system.GetUser("user1", "12345");
             system.CloseStore(system.GetStore("myStore"), userState);
             Assert.IsTrue(system.GetUser("user1", "12345").GetStoreOwners().Count == 0);
         }
@@ -117,7 +117,7 @@ namespace DomainLayerUnitTests
         [Test]
         public void CheckProductsAvailability_ProductRemovedFromStoreAfterCheckout_ReturnTrue()
         {
-            Assert.IsTrue(system.CheckProductsavailability(user.GetCarts()));
+            Assert.IsTrue(system.CheckProductsAvailability(user.GetCarts()));
             Assert.AreEqual(1, system.GetStore("myStore").GetProducts().Count);
         }
 
@@ -130,8 +130,8 @@ namespace DomainLayerUnitTests
             user.GetState().GetOwner(system.GetStore("myStore")).AddProduct(p4);
             user.AddProductToCart(p4, system.GetStore("myStore"));
             user2.AddProductToCart(p4, system.GetStore("myStore"));
-            Assert.IsTrue(system.CheckProductsavailability(user2.GetCarts()));
-            Assert.IsFalse(system.CheckProductsavailability(user.GetCarts()));
+            Assert.IsTrue(system.CheckProductsAvailability(user2.GetCarts()));
+            Assert.IsFalse(system.CheckProductsAvailability(user.GetCarts()));
             Assert.AreEqual(3, system.GetStore("myStore").GetProducts().Count);
         }
 

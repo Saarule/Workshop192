@@ -12,7 +12,7 @@ namespace ServiceLayer.Guest
     {
         public static bool CheckAvailable(LinkedList<Cart> carts) {
 
-            return Workshop192.System.GetInstance().CheckProductsavailability(carts);
+            return Workshop192.System.GetInstance().CheckProductsAvailability(carts);
         }
     }
 }
