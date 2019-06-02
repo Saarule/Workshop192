@@ -15,14 +15,12 @@ namespace Workshop192.MarketManagment
             products = new Dictionary<Product, int>();
         }
 
-        public void AddProducts(Product product, int amount)
+        public bool AddProducts(Product product, int amount)
         {
             if (products.ContainsKey(product))
-            {
-                products[product] += amount;
-                return;
-            }
+                return false;
             products.Add(product, amount);
+            return true;
         }
 
         public bool RemoveProducts(Product product, int amount)
@@ -37,17 +35,21 @@ namespace Workshop192.MarketManagment
             return false;
         }
 
-        public bool RemoveProductFromInventory(Product product)
+        public bool RemoveProductFromInventory(int productId)
         {
-            return products.Remove(product);
+            foreach (Product product in products.Keys)
+                if (product.GetId() == productId)
+                    return products.Remove(product);
+            return false;
         }
 
-        public bool EditProduct(Product product, string name, string category, int price)
+        public bool EditProduct(int productId, string name, string category, int price, int amount)
         {
             foreach (Product p in products.Keys)
-                if (product.Equals(p))
+                if (p.GetId() == productId)
                 {
-                    product.EditProduct(name, category, price);
+                    products[p] = amount;
+                    p.EditProduct(name, category, price);
                     return true;
                 }
             return false;

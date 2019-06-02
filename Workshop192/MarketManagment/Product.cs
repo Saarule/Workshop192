@@ -8,12 +8,14 @@ namespace Workshop192.MarketManagment
 {
     public class Product
     {
+        private int Id;
         private string name;
         private string category;
         private int price;
 
-        public Product(string name, string category, int price)
+        public Product(int Id, string name, string category, int price)
         {
+            this.Id = Id;
             this.name = name;
             this.category = category;
             this.price = price;
@@ -24,6 +26,11 @@ namespace Workshop192.MarketManagment
             this.name = name;
             this.category = category;
             this.price = price;
+        }
+
+        public int GetId()
+        {
+            return Id;
         }
 
         public string GetCategory()

@@ -9,14 +9,18 @@ namespace Workshop192.UserManagment
     public class AllRegisteredUsers
     {
         private Dictionary<string, string> passwords;
-        private Dictionary<string, UserInfo> users;
+        private Dictionary<string, UserInfo> userInfos;
+        private int userId;
+        private Dictionary<int, User> users;
 
         private static AllRegisteredUsers instance = null;
 
         private AllRegisteredUsers()
         {
             passwords = new Dictionary<string, string>();
-            users = new Dictionary<string, UserInfo>();
+            userInfos = new Dictionary<string, UserInfo>();
+            userId = 0;
+            users = new Dictionary<int, User>();
         }
 
         public static AllRegisteredUsers GetInstance()
@@ -33,27 +37,50 @@ namespace Workshop192.UserManagment
             if (passwords.ContainsKey(userName) || Security.Security.CheckPasswordSecurity(password))
                 return false;
             passwords.Add(userName, password);
-            users.Add(userName, new UserInfo(userName));
+            userInfos.Add(userName, new UserInfo(userName));
             return true;
         }
 
-        public UserInfo GetUser(string userName, string password)
+        public int CreateUser()
+        {
+            userId++;
+            users.Add(userId, new User());
+            return userId;
+        }
+
+        public User GetUser(int userId)
+        {
+            if (!users.ContainsKey(userId))
+                return null;
+            return users[userId];
+        }
+
+        public UserInfo GetUserInfo(string userName, string password)
         {
             if (!passwords.ContainsKey(userName) || !passwords[userName].Equals(password))
                 return null;
-            return users[userName];
+            return userInfos[userName];
         }
 
-        public UserInfo GetUser(string userName)
+        public UserInfo GetUserInfo(string userName)
         {
-            if (!users.ContainsKey(userName))
+            if (!userInfos.ContainsKey(userName))
                 return null;
-            return users[userName];
+            return userInfos[userName];
         }
 
         public bool RemoveUser(string userName)
         {
-            //TODO
+            if (!userInfos.ContainsKey(userName))
+                return false;
+            UserInfo user = userInfos[userName];
+            while (user.GetStoreManagers().Count > 0)
+                user.GetStoreManagers().First.Value.RemoveSelf();
+            while (user.GetStoreOwners().Count > 0)
+                user.GetStoreOwners().First.Value.RemoveSelf();
+            userInfos.Remove(userName);
+            passwords.Remove(userName);
+            return true;
         }
     }
 }

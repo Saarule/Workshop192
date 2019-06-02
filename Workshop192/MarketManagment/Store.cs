@@ -28,14 +28,14 @@ namespace Workshop192.MarketManagment
             return inventory.RemoveProducts(product, amount);
         }
 
-        public bool RemoveProductFromInventory(Product product)
+        public bool RemoveProductFromInventory(int productId)
         {
-            return inventory.RemoveProductFromInventory(product);
+            return inventory.RemoveProductFromInventory(productId);
         }
 
-        public bool EditProduct(Product product, string name, string category, int price)
+        public bool EditProduct(int productId, string name, string category, int price, int amount)
         {
-            return inventory.EditProduct(product, name, category, price);
+            return inventory.EditProduct(productId, name, category, price, amount);
         }
 
         public string GetName()

@@ -52,6 +52,12 @@ namespace Workshop192.MarketManagment
             deliverySystem = new DeliverySystemProxy(real);
         }
 
+        public Product CreateProduct(string name, string category, int price)
+        {
+            productId++;
+            return new Product(productId, name, category, price);
+        }
+
         public int AddNewMultiCart()
         {
             multiCartId++;
@@ -117,6 +123,11 @@ namespace Workshop192.MarketManagment
                 foreach (Product product in cart.GetProducts())
                     sum += product.GetPrice();
             return sum;
+        }
+
+        public void OpenStore(string storeName)
+        {
+            stores.AddLast(new Store(storeName));
         }
 
         public Store GetStore(string storeName)
