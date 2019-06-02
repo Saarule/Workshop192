@@ -12,12 +12,14 @@ namespace Workshop192.UserManagment
         private bool[] privileges;
         private UserInfo user;
         private string store;
+        private StoreOwner owner;
 
-        public StoreManager(UserInfo user, string store, bool[] privileges)
+        public StoreManager(UserInfo user, string store, bool[] privileges, StoreOwner owner)
         {
             this.privileges = privileges;
             this.user = user;
             this.store = store;
+            this.owner = owner;
         }
 
         public bool AddProducts(Product product, int amount)
@@ -30,23 +32,29 @@ namespace Workshop192.UserManagment
             return false;
         }
 
-        public bool RemoveProductFromInventory(Product product)
+        public bool RemoveProductFromInventory(int productId)
         {
             if (privileges[1])
             {
-                MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(product);
+                MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId);
                 return true;
             }
             return false;
         }
 
-        public bool EditProduct(Product product, string name, string category, int price)
+        public bool EditProduct(int productId, string name, string category, int price, int amount)
         {
             if (privileges[2])
             {
-                return MarketManagment.System.GetInstance().GetStore(store).EditProduct(product, name, category, price);
+                return MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount);
             }
             return false;
+        }
+
+        public void RemoveSelf()
+        {
+            user.GetStoreManagers().Remove(this);
+            owner.GetAppointedManagers().Remove(this);
         }
 
         public UserInfo GetUser()
@@ -62,6 +70,11 @@ namespace Workshop192.UserManagment
         public bool[] GetPrivileges()
         {
             return privileges;
+        }
+
+        public StoreOwner GetOwner()
+        {
+            return owner;
         }
     }
 }

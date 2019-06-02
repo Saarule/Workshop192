@@ -29,14 +29,14 @@ namespace Workshop192.UserManagment
             MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount);
         }
 
-        public bool RemoveProductFromInventory(Product product)
+        public bool RemoveProductFromInventory(int productId)
         {
-            return MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(product);
+            return MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId);
         }
 
-        public bool EditProduct(Product product, string name, string category, int price)
+        public bool EditProduct(int productId, string name, string category, int price, int amount)
         {
-            return MarketManagment.System.GetInstance().GetStore(store).EditProduct(product, name, category, price);
+            return MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount);
         }
 
         public bool AddOwner(UserInfo user)
@@ -53,7 +53,7 @@ namespace Workshop192.UserManagment
         {
             if (CheckUserExists(user))
                 return false;
-            StoreManager manager = new StoreManager(user, store, privileges);
+            StoreManager manager = new StoreManager(user, store, privileges, this);
             user.GetStoreManagers().AddLast(manager);
             appointedManagers.AddLast(manager);
             return true;
@@ -71,10 +71,7 @@ namespace Workshop192.UserManagment
         {
             bool result = true;
             while (owner.appointedManagers.Count > 0)
-            {
-                owner.appointedManagers.First.Value.GetUser().GetStoreManagers().Remove(owner.appointedManagers.First.Value);
-                owner.appointedManagers.RemoveFirst();
-            }
+                owner.appointedManagers.First.Value.RemoveSelf();
             while (owner.appointedOwners.Count > 0)
                 result = result && ForceRemove(owner.appointedOwners.First.Value.GetChild());
             return owner.user.GetStoreOwners().Remove(owner) && owner.father.GetFather().appointedOwners.Remove(owner.father) && result;
@@ -85,8 +82,7 @@ namespace Workshop192.UserManagment
             foreach (StoreManager manager in appointedManagers)
                 if (manager.Equals(child))
                 {
-                    manager.GetUser().GetStoreManagers().Remove(manager);
-                    appointedManagers.Remove(manager);
+                    manager.RemoveSelf();
                     return true;
                 }
             return false;
@@ -95,16 +91,11 @@ namespace Workshop192.UserManagment
         public void RemoveSelf()
         {
             while (appointedManagers.Count > 0)
-            {
-                appointedManagers.First.Value.GetUser().GetStoreManagers().Remove(appointedManagers.First.Value);
-                appointedManagers.RemoveFirst();
-            }
+                appointedManagers.First.Value.RemoveSelf();
             while (appointedOwners.Count > 0)
-            {
                 ForceRemove(appointedOwners.First.Value.GetChild());
-            }
             user.GetStoreOwners().Remove(this);
-            if (father != null)
+            if (father.GetFather() != null)
                 foreach (Appointment appointment in father.GetFather().appointedOwners)
                 {
                     if (appointment.GetChild().Equals(this))
@@ -130,6 +121,11 @@ namespace Workshop192.UserManagment
         public LinkedList<Appointment> GetAppointedOwners()
         {
             return appointedOwners;
+        }
+
+        public LinkedList<StoreManager> GetAppointedManagers()
+        {
+            return appointedManagers;
         }
 
         public bool CheckUserExists(UserInfo user)

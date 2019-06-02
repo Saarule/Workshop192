@@ -42,6 +42,34 @@ namespace Workshop192.UserManagment
             return state.SetAdmin();
         }
 
+        public bool OpenStore(string storeName)
+        {
+            if (state != null)
+                return state.OpenStore(storeName);
+            return false;
+        }
+
+        public bool AddProducts(Store store, Product product, int amount)
+        {
+            if (state != null)
+                return state.AddProducts(store, product, amount);
+            return false;
+        }
+
+        public bool RemoveProductFromInventory(Store store, int productId)
+        {
+            if (state != null)
+                return state.RemoveProductFromInventory(store, productId);
+            return false;
+        }
+
+        public bool EditProduct(Store store, int productId, string name, string category, int price, int amount)
+        {
+            if (state != null)
+                return state.EditProduct(store, productId, name, category, price, amount);
+            return false;
+        }
+
         public bool AddStoreOwner(Store store, UserInfo user)
         {
             if (state == null || user == null)
@@ -61,6 +89,13 @@ namespace Workshop192.UserManagment
             if (state == null || user == null)
                 return false;
             return state.RemoveStoreOwner(store, user);
+        }
+
+        public bool RemoveStoreManager(Store store, UserInfo user)
+        {
+            if (state == null || user == null)
+                return false;
+            return state.RemoveStoreManager(store, user);
         }
 
         public bool AddProductsToMultiCart(Store store, Product product, int amount)
