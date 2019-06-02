@@ -5,6 +5,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using ServiceLayer;
+using Workshop192.UserManagment;
+using User = CommunicationLayer.Models.User.User;
 
 namespace CommunicationLayer.Controllers
 {
@@ -16,6 +19,8 @@ namespace CommunicationLayer.Controllers
             new User { Id = 2, UserName = "Apple", Age =  45, Address = "Haifa" },
             new User { Id = 3, UserName = "Orange", Age = 19, Address= "Eilat" },
         };
+
+  
 
         public IEnumerable<User> GetAllUsers()
         {
@@ -30,6 +35,21 @@ namespace CommunicationLayer.Controllers
                 return NotFound();
             }
             return Ok(product);
+        }
+
+        public static bool Register(string username, string password,string userID)
+        {
+            return true;//ServiceLayer.Guest.Register.Registration(username, password, userID);
+        }
+
+        public static bool Login(string username, string password, string userID)
+        {
+            return true;// ServiceLayer.Guest.LogIn.Login(username, password, userID);
+        }
+
+        public static bool Logout(string userID)
+        {
+            return true;// ServiceLayer.RegisteredUser.LogOut.Logout(userID);
         }
     }
 }
