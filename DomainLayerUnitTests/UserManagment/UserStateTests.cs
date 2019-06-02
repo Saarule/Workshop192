@@ -12,9 +12,9 @@ namespace DomainLayerUnitTests.UserManagment
     [TestFixture]
     class UserStateTests
     {
-        UserState state;
-        UserState state2;
-        UserState state3;
+        UserInfo state;
+        UserInfo state2;
+        UserInfo state3;
         Store store;
         StoreOwner owner;
         StoreOwner owner2;
@@ -22,14 +22,14 @@ namespace DomainLayerUnitTests.UserManagment
         [SetUp]
         public void SetUp()
         {
-            state = new UserState("me");
-            state2 = new UserState("him");
-            state3 = new UserState("her");
+            state = new UserInfo("me");
+            state2 = new UserInfo("him");
+            state3 = new UserInfo("her");
             store = new Store("newStore");
             owner = new StoreOwner(state, store, null);
             state.GetStoreOwners().AddFirst(owner);
             owner2 = new StoreOwner(state2, store, owner);
-            state.GetStoreOwners().First.Value.GetChildren().AddFirst(owner2);
+            state.GetStoreOwners().First.Value.GetAppointedOwners().AddFirst(owner2);
             state2.GetStoreOwners().AddFirst(owner2);
         }
 
@@ -51,14 +51,14 @@ namespace DomainLayerUnitTests.UserManagment
         public void AddStoreOwner_AddNewStoreOwner_ReturnsTrue()
         {
             Assert.IsTrue(state.AddStoreOwner(store, state3));
-            Assert.AreEqual(2, owner.GetChildren().Count);
+            Assert.AreEqual(2, owner.GetAppointedOwners().Count);
         }
 
         [Test]
         public void AddStoreOwner_AddExistingStoreOwner_ReturnsFalse()
         {
             Assert.IsFalse(state.AddStoreOwner(store, state2));
-            Assert.AreEqual(1, owner.GetChildren().Count);
+            Assert.AreEqual(1, owner.GetAppointedOwners().Count);
         }
 
         [Test]
@@ -71,28 +71,28 @@ namespace DomainLayerUnitTests.UserManagment
         public void AddStoreManager_AddNewStoreManager_ReturnsTrue()
         {
             Assert.IsTrue(state.AddStoreManager(store, state3, new bool[6]));
-            Assert.AreEqual(2, owner.GetChildren().Count);
+            Assert.AreEqual(2, owner.GetAppointedOwners().Count);
         }
 
         [Test]
         public void AddStoreManager_AddExistingStoreManager_ReturnsFalse()
         {
             Assert.IsFalse(state.AddStoreManager(store, state2, new bool[6]));
-            Assert.AreEqual(1, owner.GetChildren().Count);
+            Assert.AreEqual(1, owner.GetAppointedOwners().Count);
         }
 
         [Test]
         public void RemoveStoreOwner_RemoveExistingStoreOwner_ReturnsTrue()
         {
             Assert.IsTrue(state.RemoveStoreOwner(store, state2));
-            Assert.AreEqual(0, owner.GetChildren().Count);
+            Assert.AreEqual(0, owner.GetAppointedOwners().Count);
         }
 
         [Test]
         public void RemoveStoreOwner_RemoveNonExistingStoreOwner_ReturnsFalse()
         {
             Assert.IsFalse(state.RemoveStoreOwner(store, state3));
-            Assert.AreEqual(1, owner.GetChildren().Count);
+            Assert.AreEqual(1, owner.GetAppointedOwners().Count);
         }
     }
 }

@@ -64,6 +64,11 @@ namespace Workshop192.MarketManagment
             return multiCarts[multiCartId];
         }
 
+        private void ResetMultiCart(int multiCartId)
+        {
+            multiCarts[multiCartId] = new MultiCart();
+        }
+
         public bool PurchaseProducts(int accountId, User user, string name, string address)
         {
             int sum = SumOfCartPrice(user.GetCarts());
@@ -125,26 +130,6 @@ namespace Workshop192.MarketManagment
         public LinkedList<Store> GetAllStores()
         {
             return stores;
-        }
-
-        public bool CloseStore(Store store, UserState user)
-        {
-            StoreOwner owner = user.GetOwner(store);
-            if (owner == null || owner.GetFather() != null)
-                return false;
-            return owner.ForceRemoveChild(owner) && RemoveStore(store);
-        }
-
-        private bool RemoveStore(Store store)
-        {
-            foreach (UserState user in users)
-                foreach (Cart cart in user.GetCarts())
-                    if (cart.GetStore() == store)
-                    {
-                        user.GetCarts().Remove(cart);
-                        break;
-                    }
-            return stores.Remove(store);
         }
     }
 }

@@ -56,7 +56,7 @@ namespace DomainLayerUnitTests
         [Test]
         public void RemoveStore_StoreCountDecreasedByOne_ReturnsTrue()
         {
-            UserState userState = system.GetUser("user1", "12345");
+            UserInfo userState = system.GetUser("user1", "12345");
             system.CloseStore(system.GetStore("myStore"), userState);
             Assert.IsTrue(system.GetUser("user1", "12345").GetStoreOwners().Count == 0);
         }

@@ -7,19 +7,21 @@ using Workshop192.MarketManagment;
 
 namespace Workshop192.UserManagment
 {
-    public class UserState
+    public class UserInfo
     {
         private string userName;
         private bool admin;
         private LinkedList<StoreOwner> storeOwners;
-        private LinkedList<Cart> carts;
+        private LinkedList<StoreManager> storeManagers;
+        private int multiCartId;
 
-        public UserState(string userName)
+        public UserInfo(string userName)
         {
             this.userName = userName;
             admin = false;
             storeOwners = new LinkedList<StoreOwner>();
-            carts = new LinkedList<Cart>();
+            storeManagers = new LinkedList<StoreManager>();
+            multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
         }
 
         public bool SetAdmin()
@@ -35,7 +37,12 @@ namespace Workshop192.UserManagment
             return storeOwners;
         }
 
-        public bool AddStoreOwner(Store store, UserState user)
+        public LinkedList<StoreManager> GetStoreManagers()
+        {
+            return storeManagers;
+        }
+
+        public bool AddStoreOwner(Store store, UserInfo user)
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
@@ -43,7 +50,7 @@ namespace Workshop192.UserManagment
             return s.AddOwner(user);
         }
 
-        public bool AddStoreManager(Store store, UserState user, bool[] privileges)
+        public bool AddStoreManager(Store store, UserInfo user, bool[] privileges)
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
@@ -51,26 +58,26 @@ namespace Workshop192.UserManagment
             return s.AddManager(user, privileges);
         }
 
-        public bool RemoveStoreOwner(Store store, UserState user)
+        public bool RemoveStoreOwner(Store store, UserInfo user)
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
                 return false;
             StoreOwner owner = null;
-            foreach (StoreOwner so in s.GetChildren())
-                if (so.GetUser().Equals(user))
+            foreach (Appointment appointmnet in s.GetAppointedOwners())
+                if (appointmnet.GetChild().GetUser().Equals(user))
                 {
-                    owner = so;
+                    owner = appointmnet.GetChild();
                     break;
                 }
             if (owner == null)
                 return false;
-            return s.RemoveChild(owner);
+            return s.RemoveAppointedOwner(owner);
         }
 
-        public LinkedList<Cart> GetCarts()
+        public int GetMultiCart()
         {
-            return carts;
+            return multiCartId;
         }
 
         public string GetUserName()

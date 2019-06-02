@@ -19,6 +19,13 @@ namespace Workshop192.MarketManagment
             this.price = price;
         }
 
+        public void EditProduct(string name, string category, int price)
+        {
+            this.name = name;
+            this.category = category;
+            this.price = price;
+        }
+
         public string GetCategory()
         {
             return category;

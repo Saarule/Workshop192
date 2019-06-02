@@ -33,6 +33,11 @@ namespace Workshop192.MarketManagment
             return inventory.RemoveProductFromInventory(product);
         }
 
+        public bool EditProduct(Product product, string name, string category, int price)
+        {
+            return inventory.EditProduct(product, name, category, price);
+        }
+
         public string GetName()
         {
             return name;

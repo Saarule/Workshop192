@@ -7,55 +7,61 @@ using Workshop192.MarketManagment;
 
 namespace Workshop192.UserManagment
 {
-    public class StoreManager : StoreOwner
+    public class StoreManager
     {
         private bool[] privileges;
+        private UserInfo user;
+        private string store;
 
-        public StoreManager(UserState user, Store store, StoreOwner father, bool[] privileges) : base(user, store, father)
+        public StoreManager(UserInfo user, string store, bool[] privileges)
         {
             this.privileges = privileges;
+            this.user = user;
+            this.store = store;
         }
 
-        public override bool AddProduct(Product product)
+        public bool AddProducts(Product product, int amount)
         {
             if (privileges[0])
-                return base.AddProduct(product);
+            {
+                MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount);
+                return true;
+            }
             return false;
         }
 
-        public override bool RemoveProduct(Product product)
+        public bool RemoveProductFromInventory(Product product)
         {
             if (privileges[1])
-                return base.RemoveProduct(product);
+            {
+                MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(product);
+                return true;
+            }
             return false;
         }
 
-        public override bool EditProduct(Product oldProduct, Product newProduct)
+        public bool EditProduct(Product product, string name, string category, int price)
         {
             if (privileges[2])
-                return base.EditProduct(oldProduct, newProduct);
+            {
+                return MarketManagment.System.GetInstance().GetStore(store).EditProduct(product, name, category, price);
+            }
             return false;
         }
 
-        public override bool AddOwner(UserState user)
+        public UserInfo GetUser()
         {
-            if (privileges[3])
-                return base.AddOwner(user);
-            return false;
+            return user;
         }
 
-        public override bool AddManager(UserState user, bool[] privileges)
+        public string GetStore()
         {
-            if (this.privileges[4])
-                return base.AddManager(user, privileges);
-            return false;
+            return store;
         }
 
-        public override bool RemoveChild(StoreOwner child)
+        public bool[] GetPrivileges()
         {
-            if (privileges[5])
-                return base.RemoveChild(child);
-            return false;
+            return privileges;
         }
     }
 }

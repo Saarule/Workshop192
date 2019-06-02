@@ -24,17 +24,18 @@ namespace Workshop192.MarketManagment
             return carts.Last.Value.AddProductsToCart(product, amount);
         }
 
-        public bool RemoveProductFromMultiCart(Store store, Product product)
+        public bool RemoveProductFromMultiCart(Product product)
         {
             foreach (Cart cart in carts)
-                if (cart.GetStore().Equals(store))
-                {
-                    if (!cart.RemoveProduct(product))
-                        return false;
-                    if (cart.GetProducts().Count == 0)
-                        carts.Remove(cart);
-                    return true;
-                }
+                foreach (Product p in cart.GetProducts().Keys)
+                    if (p.Equals(product))
+                    {
+                        if (!cart.RemoveProduct(product))
+                            return false;
+                        if (cart.GetProducts().Count == 0)
+                            carts.Remove(cart);
+                        return true;
+                    }
             return false;
         }
 

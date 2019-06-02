@@ -42,6 +42,17 @@ namespace Workshop192.MarketManagment
             return products.Remove(product);
         }
 
+        public bool EditProduct(Product product, string name, string category, int price)
+        {
+            foreach (Product p in products.Keys)
+                if (product.Equals(p))
+                {
+                    product.EditProduct(name, category, price);
+                    return true;
+                }
+            return false;
+        }
+
         public Dictionary<Product, int> GetAllProduct()
         {
             return products;

@@ -12,8 +12,8 @@ namespace DomainLayerUnitTests.UserManagment
     [TestFixture]
     class StoreOwnerTests
     {
-        private UserState state;
-        private UserState state2;
+        private UserInfo state;
+        private UserInfo state2;
         private StoreOwner owner;
         private Store store;
         Product product;
@@ -21,8 +21,8 @@ namespace DomainLayerUnitTests.UserManagment
         [SetUp]
         public void SetUp()
         {
-            state = new UserState("Ben");
-            state2 = new UserState("Saar");
+            state = new UserInfo("Ben");
+            state2 = new UserInfo("Saar");
             store = new Store("newStore");
             owner = new StoreOwner(state, store, null);
             state.GetStoreOwners().AddLast(owner);
@@ -49,7 +49,7 @@ namespace DomainLayerUnitTests.UserManagment
         public void RemoveProduct_RemoveExistingProduct_ReturnsTrue()
         {
             owner.AddProduct(product);
-            Assert.IsTrue(owner.RemoveProduct(product));
+            Assert.IsTrue(owner.RemoveProductFromInventory(product));
             Assert.AreEqual(0, store.GetProducts().Count);
         }
 
@@ -57,7 +57,7 @@ namespace DomainLayerUnitTests.UserManagment
         public void RemoveProduct_RemoveNonExistingProduct_ReturnsFalse()
         {
             owner.AddProduct(product);
-            Assert.IsFalse(owner.RemoveProduct(new Product(2, 2, "temp")));
+            Assert.IsFalse(owner.RemoveProductFromInventory(new Product(2, 2, "temp")));
             Assert.AreEqual(1, store.GetProducts().Count);
         }
 
@@ -85,7 +85,7 @@ namespace DomainLayerUnitTests.UserManagment
         public void AddOwner_AddNewOwner_ReturnsTrue()
         {
             Assert.IsTrue(owner.AddOwner(state2));
-            Assert.AreEqual(1, owner.GetChildren().Count);
+            Assert.AreEqual(1, owner.GetAppointedOwners().Count);
             Assert.AreEqual(1, state2.GetStoreOwners().Count);
         }
 
@@ -94,7 +94,7 @@ namespace DomainLayerUnitTests.UserManagment
         {
             owner.AddOwner(state2);
             Assert.IsFalse(owner.AddOwner(state2));
-            Assert.AreEqual(1, owner.GetChildren().Count);
+            Assert.AreEqual(1, owner.GetAppointedOwners().Count);
             Assert.AreEqual(1, state2.GetStoreOwners().Count);
         }
 
@@ -102,7 +102,7 @@ namespace DomainLayerUnitTests.UserManagment
         public void AddManager_AddNewManager_ReturnsTrue()
         {
             Assert.IsTrue(owner.AddManager(state2, new bool[6]));
-            Assert.AreEqual(1, owner.GetChildren().Count);
+            Assert.AreEqual(1, owner.GetAppointedOwners().Count);
             Assert.AreEqual(1, state2.GetStoreOwners().Count);
         }
 
@@ -110,16 +110,16 @@ namespace DomainLayerUnitTests.UserManagment
         public void RemoveChild_RemoveExistingChild_ReturnsTrue()
         {
             owner.AddOwner(state2);
-            Assert.IsTrue(owner.RemoveChild(state2.GetOwner(store)));
-            Assert.AreEqual(0, owner.GetChildren().Count);
+            Assert.IsTrue(owner.RemoveAppointedOwner(state2.GetOwner(store)));
+            Assert.AreEqual(0, owner.GetAppointedOwners().Count);
             Assert.IsNull(state2.GetOwner(store));
         }
 
         [Test]
         public void RemoveChild_RemoveNonExistingChild_ReturnsFalse()
         {
-            Assert.IsFalse(owner.RemoveChild(new StoreOwner(state2, new Store("temp"), null)));
-            Assert.AreEqual(0, owner.GetChildren().Count);
+            Assert.IsFalse(owner.RemoveAppointedOwner(new StoreOwner(state2, new Store("temp"), null)));
+            Assert.AreEqual(0, owner.GetAppointedOwners().Count);
             Assert.IsNull(state2.GetOwner(store));
         }
     }

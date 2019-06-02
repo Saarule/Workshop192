@@ -8,21 +8,21 @@ namespace Workshop192.UserManagment
 {
     public class User
     {
-        private UserState state;
-        private LinkedList<Cart> carts;
+        private UserInfo state;
+        private int multiCartId;
 
         public User()
         {
             state = null;
-            carts = new LinkedList<Cart>();
+            multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
         }
 
-        public bool LogIn(UserState state)
+        public bool LogIn(UserInfo state)
         {
             if (this.state != null || state == null)
                 return false;
             this.state = state;
-            carts = state.GetCarts();
+            multiCartId = state.GetMultiCart();
             return true;
         }
 
@@ -30,7 +30,7 @@ namespace Workshop192.UserManagment
         {
             if (state == null)
                 return false;
-            carts = new LinkedList<Cart>();
+            multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
             state = null;
             return true;
         }
@@ -42,45 +42,35 @@ namespace Workshop192.UserManagment
             return state.SetAdmin();
         }
 
-        public bool AddStoreOwner(Store store, UserState user)
+        public bool AddStoreOwner(Store store, UserInfo user)
         {
             if (state == null || user == null)
                 return false;
             return state.AddStoreOwner(store, user);
         }
 
-        public bool AddStoreManager(Store store, UserState user, bool[] privileges)
+        public bool AddStoreManager(Store store, UserInfo user, bool[] privileges)
         {
             if (state == null || user == null)
                 return false;
             return state.AddStoreManager(store, user, privileges);
         }
 
-        public bool RemoveStoreOwner(Store store, UserState user)
+        public bool RemoveStoreOwner(Store store, UserInfo user)
         {
             if (state == null || user == null)
                 return false;
             return state.RemoveStoreOwner(store, user);
         }
 
-        public bool AddProductToCart(Product product, Store store)
+        public bool AddProductsToMultiCart(Store store, Product product, int amount)
         {
-            foreach (Cart cart in carts)
-                if (cart.GetStore().Equals(store))
-                {
-                    return cart.AddProduct(product);
-                }
-            carts.AddLast(new Cart(store));
-            return carts.Last.Value.AddProduct(product);
+            return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).AddProductsToMultiCart(store, product, amount);
         }
 
         public bool RemoveProductFromCart(Product product)
         {
-            foreach (Cart cart in carts)
-                foreach (Product p in cart.GetProducts())
-                    if (p.Equals(product))
-                        return cart.RemoveProduct(product);
-            return false;
+            return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).RemoveProductFromMultiCart(product);
         }
         
         public string GetUserName()
@@ -90,14 +80,9 @@ namespace Workshop192.UserManagment
             return state.GetUserName();
         }
 
-        public LinkedList<Cart> GetCarts()
+        public int GetMultiCart()
         {
-            return carts;
-        }
-
-        public void ResetCarts()
-        {
-            carts = new LinkedList<Cart>();
+            return multiCartId;
         }
 
         public bool IsAdmin()
@@ -107,14 +92,7 @@ namespace Workshop192.UserManagment
             return state.GetAdmin();
         }
 
-        public LinkedList<StoreOwner> GetStoreOwners()
-        {
-            if (state == null)
-                return null;
-            return state.GetStoreOwners();
-        }
-
-        public UserState GetState()
+        public UserInfo GetState()
         {
             return state;
         }
