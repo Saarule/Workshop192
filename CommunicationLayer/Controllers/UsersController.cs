@@ -39,17 +39,17 @@ namespace CommunicationLayer.Controllers
 
         public static bool Register(string username, string password,string userID)
         {
-            return true;//ServiceLayer.Guest.Register.Registration(username, password, userID);
+            return ServiceLayer.Guest.Register.Registration(username, password, userID);
         }
 
         public static bool Login(string username, string password, string userID)
         {
-            return true;// ServiceLayer.Guest.LogIn.Login(username, password, userID);
+            return ServiceLayer.Guest.LogIn.Login(username, password, userID);
         }
 
         public static bool Logout(string userID)
         {
-            return true;// ServiceLayer.RegisteredUser.LogOut.Logout(userID);
+            return ServiceLayer.RegisteredUser.LogOut.Logout(userID);
         }
     }
 }

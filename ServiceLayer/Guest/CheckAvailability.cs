@@ -10,9 +10,9 @@ namespace ServiceLayer.Guest
     // use case - 2.8(1) check availability of products
     public class CheckAvailability
     {
-        public static bool CheckAvailable(LinkedList<Cart> carts) {
-
-            return Workshop192.System.GetInstance().CheckProductsAvailability(carts);
+        public static bool CheckAvailable(LinkedList<Cart> carts)
+        {
+            return Workshop192.MarketManagment.System.GetInstance().CheckProductsAvailability(carts);
         }
     }
 }

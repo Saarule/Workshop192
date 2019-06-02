@@ -14,7 +14,7 @@ namespace ServiceLayer.Admin
         {
             if (admin.GetState() == null || !admin.IsAdmin())
                 return false;
-            return Workshop192.System.GetInstance().RemoveUser(toDelete);
+            return AllRegisteredUsers.GetInstance().RemoveUser(toDelete.GetUserName());
         }
     }
 }

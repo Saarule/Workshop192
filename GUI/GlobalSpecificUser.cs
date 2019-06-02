@@ -8,9 +8,10 @@ namespace GUI
 {
     public class GlobalSpecificUser
     {
-        static int num = 0;
-        public static string userID = "guest" + num;
-        static void Main(string[] args)
+        public static int Num = 0;
+        public static string userID = "guest" + Num;
+        
+        public static void Main(string[] args)
         {
             
         }
