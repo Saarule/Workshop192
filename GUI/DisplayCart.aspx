@@ -24,20 +24,20 @@
         }
         .auto-style3 {
             z-index: 1;
-            left: 435px;
-            top: 62px;
+            left: 10px;
+            top: 50px;
             position: absolute;
         }
         .auto-style4 {
             z-index: 1;
-            left: 435px;
-            top: 93px;
+            left: 10px;
+            top: 86px;
             position: absolute;
         }
         .auto-style9 {
             z-index: 1;
-            left: 435px;
-            top: 135px;
+            left: 167px;
+            top: 85px;
             position: absolute;
             width: 65px;
         }
@@ -53,9 +53,15 @@
                 <br />
                 <br />
                 <br />
-                <asp:PlaceHolder ID="PH1" runat="server"></asp:PlaceHolder>
-                <asp:Label ID="Label2" runat="server" CssClass="auto-style3" Text="Insert Name of Product To Remove:"></asp:Label>
                 <asp:Button ID="SendButton1" runat="server" BackColor="#000066" BorderColor="#000066" CssClass="auto-style9" ForeColor="White" OnClick="DeleteButton1_Click" Text="Delete" />
+                <asp:Label ID="Label2" runat="server" CssClass="auto-style3" Text="Insert ID of Product To Remove:"></asp:Label>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <asp:PlaceHolder ID="PH1" runat="server"></asp:PlaceHolder>
+                <br />
             </asp:Panel>
         </div>
         <p>

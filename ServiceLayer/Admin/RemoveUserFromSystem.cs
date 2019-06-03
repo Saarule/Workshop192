@@ -12,7 +12,7 @@ namespace ServiceLayer.Admin
     {
         public static bool RemoveUser(User admin, UserInfo toDelete)
         {
-            if (admin.GetState() == null || !admin.IsAdmin())
+            if (admin.GetInfo() == null || !admin.IsAdmin())
                 return false;
             return AllRegisteredUsers.GetInstance().RemoveUser(toDelete.GetUserName());
         }

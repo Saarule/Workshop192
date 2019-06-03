@@ -10,40 +10,48 @@ namespace AccaptanceTests.RegisteredUser
     [TestFixture]
     public class LogOutTest
     {
-        Workshop192.System System = null;
+        AllRegisteredUsers Allusers = null;
+        Workshop192.MarketManagment.System system = null;
+
         User Orel;
         User Nati;
+        int userIDorel;
+        int userIDnati;
+
         [SetUp]
         public void SetUp()
         {
             InitializationOfTheSystem init = new InitializationOfTheSystem();
             init.Initalize();
-            System = Workshop192.System.GetInstance();
-            Orel = new User();
+            Allusers = AllRegisteredUsers.GetInstance();
+            system = Workshop192.MarketManagment.System.GetInstance(); Orel = new User();
             Nati = new User();
-            Register.Registration("orel", "123456", Orel);
-            LogIn.Login("orel", "123456", Orel);
+            userIDorel = Allusers.CreateUser();
+            userIDnati = Allusers.CreateUser();
+            Register.Registration("orel", "123456", userIDorel);
+            LogIn.Login("orel", "123456", userIDorel);
         }
         [TearDown]
         public void TearDown()
         {
-            System = Workshop192.System.Reset();
+            system = Workshop192.MarketManagment.System.Reset();
+            Allusers = AllRegisteredUsers.Reset();
         }
         [Test]
         public void SuccessLogOutTest()
         {
-            Assert.AreEqual(LogOut.Logout(Orel), true);
+            Assert.AreEqual(LogOut.Logout(userIDorel), true);
         }
         [Test]
         public void DoubleLogOutTest()
         {
-            Assert.AreEqual(LogOut.Logout(Orel), true);
-            Assert.AreEqual(LogOut.Logout(Orel), false);
+            Assert.AreEqual(LogOut.Logout(userIDorel), true);
+            Assert.AreEqual(LogOut.Logout(userIDorel), false);
         }
         [Test]
         public void UserNotRegisteredTest()
         {
-            Assert.AreEqual(LogOut.Logout(Nati), false);
+            Assert.AreEqual(LogOut.Logout(userIDnati), false);
         }
     }
 }

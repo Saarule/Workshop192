@@ -12,7 +12,7 @@ namespace ServiceLayer.Guest
     {
         public static bool Login(string username, string password, int userNum)
         {   
-            if (CreateAndGetUser.GetUser(userNum).GetState() == null) // if the user logged in will return false
+            if (CreateAndGetUser.GetUser(userNum).GetInfo() == null) // if the user logged in will return false
             {
                 // if the user not registerd will return false , otherwise true
                 return CreateAndGetUser.GetUser(userNum).LogIn(Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUserInfo(username,password));

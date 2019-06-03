@@ -36,8 +36,8 @@
          }
         .auto-style7 {
             z-index: 1;
-            left: 176px;
-            top: 68px;
+            left: 208px;
+            top: 65px;
             position: absolute;
              width: 80px;
          }

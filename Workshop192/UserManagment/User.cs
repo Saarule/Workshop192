@@ -8,94 +8,94 @@ namespace Workshop192.UserManagment
 {
     public class User
     {
-        private UserInfo state;
+        private UserInfo info;
         private int multiCartId;
 
         public User()
         {
-            state = null;
+            info = null;
             multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
         }
             
         public bool LogIn(UserInfo state)
         {
-            if (this.state != null || state == null)
+            if (this.info != null || state == null)
                 return false;
-            this.state = state;
+            this.info = state;
             multiCartId = state.GetMultiCart();
             return true;
         }
 
         public bool LogOut()
         {
-            if (state == null)
+            if (info == null)
                 return false;
             multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
-            state = null;
+            info = null;
             return true;
         }
 
         public bool SetAdmin()
         {
-            if (state == null)
+            if (info == null)
                 return false;
-            return state.SetAdmin();
+            return info.SetAdmin();
         }
 
         public bool OpenStore(string storeName)
         {
-            if (state != null)
-                return state.OpenStore(storeName);
+            if (info != null)
+                return info.OpenStore(storeName);
             return false;
         }
 
         public bool AddProducts(string store, Product product, int amount)
         {
-            if (state != null)
-                return state.AddProducts(store, product, amount);
+            if (info != null)
+                return info.AddProducts(store, product, amount);
             return false;
         }
 
         public bool RemoveProductFromInventory(string store, int productId)
         {
-            if (state != null)
-                return state.RemoveProductFromInventory(store, productId);
+            if (info != null)
+                return info.RemoveProductFromInventory(store, productId);
             return false;
         }
 
         public bool EditProduct(string store, int productId, string name, string category, int price, int amount)
         {
-            if (state != null)
-                return state.EditProduct(store, productId, name, category, price, amount);
+            if (info != null)
+                return info.EditProduct(store, productId, name, category, price, amount);
             return false;
         }
 
         public bool AddStoreOwner(string store, UserInfo user)
         {
-            if (state == null || user == null)
+            if (info == null || user == null)
                 return false;
-            return state.AddStoreOwner(store, user);
+            return info.AddStoreOwner(store, user);
         }
 
         public bool AddStoreManager(string store, UserInfo user, bool[] privileges)
         {
-            if (state == null || user == null)
+            if (info == null || user == null)
                 return false;
-            return state.AddStoreManager(store, user, privileges);
+            return info.AddStoreManager(store, user, privileges);
         }
 
         public bool RemoveStoreOwner(string store, UserInfo user)
         {
-            if (state == null || user == null)
+            if (info == null || user == null)
                 return false;
-            return state.RemoveStoreOwner(store, user);
+            return info.RemoveStoreOwner(store, user);
         }
 
         public bool RemoveStoreManager(string store, UserInfo user)
         {
-            if (state == null || user == null)
+            if (info == null || user == null)
                 return false;
-            return state.RemoveStoreManager(store, user);
+            return info.RemoveStoreManager(store, user);
         }
 
         public bool AddProductsToMultiCart(string store, Product product, int amount)
@@ -110,9 +110,9 @@ namespace Workshop192.UserManagment
         
         public string GetUserName()
         {
-            if (state == null)
+            if (info == null)
                 return "";
-            return state.GetUserName();
+            return info.GetUserName();
         }
 
         public int GetMultiCart()
@@ -122,14 +122,21 @@ namespace Workshop192.UserManagment
 
         public bool IsAdmin()
         {
-            if (state == null)
+            if (info == null)
                 return false;
-            return state.GetAdmin();
+            return info.GetAdmin();
         }
 
-        public UserInfo GetState()
+        public bool IsLoggedIn()
         {
-            return state;
+            if (info == null)
+                return false;
+            return true;
+        }
+
+        public UserInfo GetInfo()
+        {
+            return info;
         }
     }
 }

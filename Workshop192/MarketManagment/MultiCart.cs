@@ -17,6 +17,8 @@ namespace Workshop192.MarketManagment
 
         public bool AddProductsToMultiCart(Store store, Product product, int amount)
         {
+            if (amount < 0)
+                return false;
             foreach (Cart cart in carts)
                 if (cart.GetStore().Equals(store))
                     return cart.AddProductsToCart(product, amount);

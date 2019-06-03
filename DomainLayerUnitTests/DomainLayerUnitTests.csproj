@@ -52,7 +52,7 @@
     <Compile Include="MarketManagment\SellingPolicyTests.cs" />
     <Compile Include="MarketManagment\StoreTests.cs" />
     <Compile Include="MoneyCollectionSystemProxyTests.cs" />
-    <Compile Include="SecurityTests.cs" />
+    <Compile Include="Security\SecurityTests.cs" />
     <Compile Include="SystemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManagment\StoreManagerTests.cs" />
@@ -61,10 +61,6 @@
     <Compile Include="UserManagment\UserTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
-      <Project>{3460562a-e8d6-4335-b018-4875640959bf}</Project>
-      <Name>ServiceLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Workshop192\DomainLayer.csproj">
       <Project>{0db1192a-15dd-405e-8f42-fe910f491968}</Project>
       <Name>DomainLayer</Name>
@@ -75,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

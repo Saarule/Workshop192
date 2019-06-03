@@ -16,11 +16,11 @@ namespace Workshop192
             this.real = real;
         }
 
-        public bool Deliver(string name, string address, LinkedList<Cart> carts)
+        public bool Deliver(string name, string address, MultiCart multiCart)
         {
             if (real == null)
                 return false;
-            return real.Deliver(name, address, carts);
+            return real.Deliver(name, address, multiCart);
         }
     }
 }

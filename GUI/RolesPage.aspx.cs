@@ -26,8 +26,12 @@ namespace GUI
                 tableRoles.Append("</tr>");
             }
             tableRoles.Append("</table>");
-            PlaceHolder1.Controls.Add(new Literal { Text = Roles.ToString() });
+            PlaceHolder1.Controls.Add(new Literal { Text = tableRoles.ToString() });
         }
 
+        protected void ContinueButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -50,7 +50,7 @@ namespace AccaptanceTests.Admin
         [Test]
         public void RemoveNotExistedTest() 
         {
-            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Admin, NotRegisteredUser.GetState()), false);
+            Assert.AreEqual(RemoveUserFromSystem.RemoveUser(Admin, NotRegisteredUser.GetInfo()), false);
         }
         [Test]
         public void DoubleRemoveTest() 

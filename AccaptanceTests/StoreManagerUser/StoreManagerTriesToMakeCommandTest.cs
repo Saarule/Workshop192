@@ -30,7 +30,7 @@ namespace AccaptanceTests.StoreManagerUser
             Register.Registration("saar", "123456", Saar);
             LogIn.Login("saar", "123456", Saar);
 
-            System.OpenStore("Victory", Orel.GetState());
+            System.OpenStore("Victory", Orel.GetInfo());
             AssignStoreManager.AsssignManager(Orel, System.GetStore("Victory"), "saar", Privileges1);
         }
         [TearDown]

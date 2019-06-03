@@ -33,7 +33,7 @@ namespace AccaptanceTests.StoreOwnerUser
             Register.Registration("saar", "123456", Saar);
             LogIn.Login("saar", "123456", Saar);
             Register.Registration("nati", "123456", Nati);
-            System.OpenStore("Victory", Orel.GetState());
+            System.OpenStore("Victory", Orel.GetInfo());
             AssignStoreOwner.assignStoreOwner(Orel, System.GetStore("Victory"), "saar");
             AssignStoreOwner.assignStoreOwner(Orel, System.GetStore("Victory"), "nati");
         }
@@ -46,7 +46,7 @@ namespace AccaptanceTests.StoreOwnerUser
         public void RemoveChildTest()
         {
             Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), System.GetUser("nati", "123456")), true);
-            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Saar.GetState()), true);
+            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Saar.GetInfo()), true);
 
         }
         [Test]
@@ -54,7 +54,7 @@ namespace AccaptanceTests.StoreOwnerUser
         {//when the system check if the username exist -if not it returns null->null reference
             User Ben = new User();
             Register.Registration("Ben", "55", Ben);
-            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Ben.GetState()), false);
+            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Ben.GetInfo()), false);
         }
         [Test]
         public void Remove_Grandson_Test()
@@ -64,13 +64,13 @@ namespace AccaptanceTests.StoreOwnerUser
             LogIn.Login("Ben", "55", Ben);
             AssignStoreOwner.assignStoreOwner(Saar, System.GetStore("Victory"), "Ben");
 
-            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Ben.GetState()), false);
+            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Ben.GetInfo()), false);
         }
         [Test]
         public void DoubleRemoveTest()
         {
-            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Saar.GetState()), true);
-            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Saar.GetState()), false);
+            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Saar.GetInfo()), true);
+            Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), Saar.GetInfo()), false);
             Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), System.GetUser("nati", "123456")), true);
             Assert.AreEqual(RemoveExistingStoreOwner.RemoveStoreOwner(Orel, System.GetStore("Victory"), System.GetUser("nati", "123456")), false);
 
