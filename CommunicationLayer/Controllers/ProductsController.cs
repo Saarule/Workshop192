@@ -5,12 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using Workshop192.MarketManagment;
+using Product = CommunicationLayer.Models.Product.Product;
 
 namespace CommunicationLayer.Controllers
 {
     public class ProductsController : ApiController
     {
-        /*
+        
         List<Product> products = new List<Product>
         {
             new Product { Id = 1, Name = "Tomato", Category = "Groceries", Price = 1 },
@@ -61,10 +62,7 @@ namespace CommunicationLayer.Controllers
         {
             products.Add(product);
         }
-        ////
-        ///
-        //
-        */
+        
         public static bool openStore(string storename , int userID)
         {
             return ServiceLayer.RegisteredUser.OpenStore.openStore(storename, userID);

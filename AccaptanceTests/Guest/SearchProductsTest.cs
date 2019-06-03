@@ -12,8 +12,11 @@ namespace AccaptanceTests.Guest
     [TestFixture]
     public class SearchProductsTest
     {
-        Workshop192.System System = null;
+
+        AllRegisteredUsers Allusers = null;
+        Workshop192.MarketManagment.System system = null;
         User Orel;
+        int userIDorel;
         Product p1;
         Product p2;
         Product p3;
@@ -23,22 +26,26 @@ namespace AccaptanceTests.Guest
         {
             InitializationOfTheSystem init = new InitializationOfTheSystem();
             init.Initalize();
-            System = Workshop192.System.GetInstance();
-            Orel = new User();
-            Register.Registration("orel", "123456", Orel);
-            LogIn.Login("orel", "123456", Orel);
-            System.OpenStore("Victory", Orel.GetInfo());
-            p1 = new Product(1,10,"white bread");
-            p2 = new Product(2,12,"black bread");
-            p3 = new Product(3,10,"white bread");
-            ManageProducts.ManageProduct(Orel,p1,System.GetStore("Victory"),"add");
-            ManageProducts.ManageProduct(Orel, p2, System.GetStore("Victory"), "add");
-            ManageProducts.ManageProduct(Orel, p3, System.GetStore("Victory"), "add");
+            Allusers = AllRegisteredUsers.GetInstance();
+            system = Workshop192.MarketManagment.System.GetInstance(); Orel = new User();
+            userIDorel = Allusers.CreateUser();
+
+            Register.Registration("orel", "123456", userIDorel);
+            LogIn.Login("orel", "123456", userIDorel);
+            Allusers.GetUser(userIDorel).OpenStore("Victory");
+            p1 = system.CreateProduct("black bread","bread",10);
+            p2 = system.CreateProduct("white bread", "bread", 20);
+            p3 = system.CreateProduct("cutted bread", "bread", 30);
+            Allusers.GetUser(userIDorel).AddProducts("Victory",p1,5);
+            Allusers.GetUser(userIDorel).AddProducts("Victory", p2, 10);
+            Allusers.GetUser(userIDorel).AddProducts("Victory", p3, 15);
+
         }
         [TearDown]
         public void TearDown()
         {
-            System = Workshop192.System.Reset();
+            system = Workshop192.MarketManagment.System.Reset();
+            Allusers = AllRegisteredUsers.Reset();
         }
         [Test]
         public void SearchBreadTest()
@@ -52,10 +59,14 @@ namespace AccaptanceTests.Guest
         [Test]
         public void SearchWhiteBreadTest()
         {
-            LinkedList<Product> l2 = new LinkedList<Product>();
-            l2.AddLast(p1);
-            l2.AddLast(p3);
-            Assert.AreEqual(SearchProducts.Search("white bread"), l2);
+            LinkedList<LinkedList<string>> list = new LinkedList<LinkedList<string>>();
+            LinkedList<string> l1 = new LinkedList<string>();
+            l1.AddLast(p2.GetId()+ "");
+            l1.AddLast(p2.GetName() + "");
+            l1.AddLast(p2.GetCategory() + "");
+            l1.AddLast(p2.GetPrice() + "");
+            list.AddLast(l1);
+            Assert.AreEqual(SearchProducts.Search("white bread"), l1);
         }
         [Test]
         public void SearchNoResultsTest()

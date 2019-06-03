@@ -13,7 +13,7 @@ namespace DomainLayerUnitTests.Security
         [Test]
         public void CheckPasswordSecurity_SecurePassword_ReturnsTrue()
         {
-            Assert.IsTrue(Workshop192.Security.Security.CheckPasswordSecurity("asd123"));
+            Assert.IsTrue(Workshop192.Security.Security.CheckPasswordSecurity("123456"));
         }
 
         [Test]
