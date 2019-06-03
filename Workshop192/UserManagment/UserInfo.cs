@@ -51,7 +51,7 @@ namespace Workshop192.UserManagment
             return storeManagers;
         }
 
-        public bool AddProducts(Store store, Product product, int amount)
+        public bool AddProducts(string store, Product product, int amount)
         {
             StoreOwner owner = GetOwner(store);
             StoreManager manager = GetManager(store);
@@ -65,7 +65,7 @@ namespace Workshop192.UserManagment
             return false;
         }
 
-        public bool RemoveProductFromInventory(Store store, int productId)
+        public bool RemoveProductFromInventory(string store, int productId)
         {
             StoreOwner owner = GetOwner(store);
             StoreManager manager = GetManager(store);
@@ -76,7 +76,7 @@ namespace Workshop192.UserManagment
             return false;
         }
 
-        public bool EditProduct(Store store, int productId, string name, string category, int price, int amount)
+        public bool EditProduct(string store, int productId, string name, string category, int price, int amount)
         {
             StoreOwner owner = GetOwner(store);
             StoreManager manager = GetManager(store);
@@ -87,7 +87,7 @@ namespace Workshop192.UserManagment
             return false;
         }
 
-        public bool AddStoreOwner(Store store, UserInfo user)
+        public bool AddStoreOwner(string store, UserInfo user)
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
@@ -95,7 +95,7 @@ namespace Workshop192.UserManagment
             return s.AddOwner(user);
         }
 
-        public bool AddStoreManager(Store store, UserInfo user, bool[] privileges)
+        public bool AddStoreManager(string store, UserInfo user, bool[] privileges)
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
@@ -103,7 +103,7 @@ namespace Workshop192.UserManagment
             return s.AddManager(user, privileges);
         }
 
-        public bool RemoveStoreOwner(Store store, UserInfo user)
+        public bool RemoveStoreOwner(string store, UserInfo user)
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
@@ -120,7 +120,7 @@ namespace Workshop192.UserManagment
             return s.RemoveAppointedOwner(owner);
         }
 
-        public bool RemoveStoreManager(Store store, UserInfo user)
+        public bool RemoveStoreManager(string store, UserInfo user)
         {
             StoreOwner owner = GetOwner(store);
             if (owner == null)
@@ -146,7 +146,7 @@ namespace Workshop192.UserManagment
             return admin;
         }
 
-        public StoreOwner GetOwner(Store store)
+        public StoreOwner GetOwner(string store)
         {
             foreach (StoreOwner owner in storeOwners)
                 if (owner.GetStore().Equals(store))
@@ -154,7 +154,7 @@ namespace Workshop192.UserManagment
             return null;
         }
 
-        public StoreManager GetManager(Store store)
+        public StoreManager GetManager(string store)
         {
             foreach (StoreManager manager in storeManagers)
                 if (manager.GetStore().Equals(store))

@@ -12,7 +12,7 @@ namespace ServiceLayer.Guest
     {
         public static bool Registration(string username, string password, User user)
         {
-            if (user.GetState() == null) // if the user logged in will return false 
+            if (user.GetInfo() == null) // if the user logged in will return false 
             {
                 // if the user registerd will return false , otherwise true
                 return Workshop192.System.GetInstance().Register(username, password);

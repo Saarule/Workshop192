@@ -33,7 +33,7 @@ namespace AccaptanceTests.StoreOwnerUser
             Register.Registration("saar", "123456", Saar);
             LogIn.Login("saar", "123456", Saar);
             Register.Registration("nati", "123456", Nati);
-            System.OpenStore("Victory", Orel.GetState());
+            System.OpenStore("Victory", Orel.GetInfo());
             p1 = new Product(1, 10, "white bread");
             p2 = new Product(2, 12, "black bread");
             ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "add");

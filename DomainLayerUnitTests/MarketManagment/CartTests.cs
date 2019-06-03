@@ -18,23 +18,6 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
-            p1 = new Product(1, 2, "wood");
-            cart = new Cart(new Store("tempStore"));
-        }
-
-        [Test]
-        public void AddProduct_AddNewProductToCart_ReturnsTrue()
-        {
-            Assert.IsTrue(cart.AddProduct(p1));
-            Assert.AreEqual(1, cart.GetProducts().Count);
-        }
-
-        [Test]
-        public void AddProduct_AddExistingProductToCart_ReturnsFalse()
-        {
-            Assert.IsTrue(cart.AddProduct(p1));
-            Assert.IsFalse(cart.AddProduct(p1));
-            Assert.AreEqual(1, cart.GetProducts().Count);
         }
     }
 }

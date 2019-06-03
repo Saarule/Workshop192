@@ -13,7 +13,7 @@ namespace ServiceLayer.RegisteredUser
         // use case 3.1 - Open Store
         public static bool openStore(string storeName, User user)
         {
-           return Workshop192.System.GetInstance().OpenStore(storeName, user.GetState());
+           return Workshop192.System.GetInstance().OpenStore(storeName, user.GetInfo());
         }
 
     }

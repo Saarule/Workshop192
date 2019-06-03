@@ -54,11 +54,13 @@
     <Compile Include="DeliverySystemProxy.cs" />
     <Compile Include="DeliverySystemReal.cs" />
     <Compile Include="MarketManagment\Cart.cs" />
-    <Compile Include="MarketManagment\DiscountPolicy.cs" />
     <Compile Include="MarketManagment\Inventory.cs" />
     <Compile Include="MarketManagment\MultiCart.cs" />
+    <Compile Include="MarketManagment\PolicyComponent.cs" />
+    <Compile Include="MarketManagment\PolicyComposite.cs" />
+    <Compile Include="MarketManagment\PolicyLeafProductAmount.cs" />
+    <Compile Include="MarketManagment\PolicyLeafUserName.cs" />
     <Compile Include="MarketManagment\Product.cs" />
-    <Compile Include="MarketManagment\SellingPolicy.cs" />
     <Compile Include="MarketManagment\Store.cs" />
     <Compile Include="MarketManagment\System.cs" />
     <Compile Include="MoneyCollectionSystemInterface.cs" />

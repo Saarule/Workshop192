@@ -28,7 +28,7 @@ namespace AccaptanceTests.StoreOwnerUser
             Nati = new User();
             Register.Registration("orel", "123456", Orel);
             LogIn.Login("orel", "123456", Orel);
-            System.OpenStore("Victory", Orel.GetState());
+            System.OpenStore("Victory", Orel.GetInfo());
             p1 = new Product(1,20,"Milk");
             p2 = new Product(2, 15,"Pepsi");
             p3 = new Product(2, 15, "Soda");

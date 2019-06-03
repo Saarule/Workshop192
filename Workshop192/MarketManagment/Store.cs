@@ -11,11 +11,15 @@ namespace Workshop192.MarketManagment
     {
         private string name;
         private Inventory inventory;
+        private LinkedList<Tuple<PolicyComponent, int>> discountPolicies;
+        private LinkedList<PolicyComponent> sellingPolicies;
 
         public Store(string name)
         {
             this.name = name;
             inventory = new Inventory();
+            discountPolicies = new LinkedList<Tuple<PolicyComponent, int>>();
+            sellingPolicies = new LinkedList<PolicyComponent>();
         }
 
         public void AddProducts(Product product, int amount)
@@ -46,6 +50,16 @@ namespace Workshop192.MarketManagment
         public Dictionary<Product, int> GetInventory()
         {
             return inventory.GetAllProduct();
+        }
+
+        public LinkedList<Tuple<PolicyComponent, int>> GetDiscountPolicies()
+        {
+            return discountPolicies;
+        }
+
+        public LinkedList<PolicyComponent> GetSellingPolicies()
+        {
+            return sellingPolicies;
         }
     }
 }

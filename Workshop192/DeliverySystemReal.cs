@@ -9,7 +9,7 @@ namespace Workshop192
 {
     public class DeliverySystemReal : DeliverySystemInterface
     {
-        public bool Deliver(string name, string address, LinkedList<Cart> carts)
+        public bool Deliver(string name, string address, MultiCart multiCart)
         {
             return true;
         }

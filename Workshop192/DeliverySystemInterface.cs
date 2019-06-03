@@ -9,6 +9,6 @@ namespace Workshop192
 {
     public interface DeliverySystemInterface
     {
-        bool Deliver(string name, string address, LinkedList<Cart> carts);
+        bool Deliver(string name, string address, MultiCart multiCart);
     }
 }

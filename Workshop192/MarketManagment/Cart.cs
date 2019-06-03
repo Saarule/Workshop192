@@ -38,6 +38,11 @@ namespace Workshop192.MarketManagment
                 sum += product.Key.GetPrice() * product.Value;
         }
 
+        public void SetSum(int sum)
+        {
+            this.sum = sum;
+        }
+
         public Store GetStore()
         {
             return store;

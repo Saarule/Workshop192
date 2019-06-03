@@ -75,53 +75,56 @@ namespace Workshop192.MarketManagment
             multiCarts[multiCartId] = new MultiCart();
         }
 
-        public bool PurchaseProducts(int accountId, User user, string name, string address)
+        public bool PurchaseProducts(int accountId, int userId, string name, string address)
         {
-            int sum = SumOfCartPrice(user.GetCarts());
+            int sum = SumOfCartPrice(userId);
             if (!moneyCollectionSystem.CollectFromAccount(accountId, sum))
                 return false;
-            if (!deliverySystem.Deliver(name, address, user.GetCarts()))
+            if (!deliverySystem.Deliver(name, address, GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart())))
                 return false;
-            user.ResetCarts();
+            ResetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
             return true;
         }
 
-        public bool CheckProductsAvailability(LinkedList<Cart> carts)
+        public bool CheckProductsAvailability(MultiCart multiCart)
         {
-            LinkedList<Cart> tmp = new LinkedList<Cart>();
-            foreach (Cart cart in carts)
+            foreach (Cart cart in multiCart.GetCarts())
             {
-                tmp.AddLast(new Cart(cart.GetStore()));
-                foreach (Product product in cart.GetProducts())
+                foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
                 {
-                    if (cart.GetStore().GetProducts().Contains(product))
-                    {
-                        tmp.Last.Value.AddProduct(product);
-                        cart.GetStore().GetProducts().Remove(product);
-                    }
-                    else
-                    {
-                        ReturnProductsToStore(tmp);
+                    if (!cart.GetStore().GetInventory().ContainsKey(productAmount.Key))
                         return false;
-                    }
+                    if (cart.GetStore().GetInventory()[productAmount.Key] < productAmount.Value)
+                        return false;
+                    if (GetStore(cart.GetStore().GetName()) == null)
+                        return false;
                 }
             }
             return true;
         }
 
-        private void ReturnProductsToStore(LinkedList<Cart> carts)
+        public void RemoveProductsFromStore(MultiCart multiCart)
         {
-            foreach (Cart cart in carts)
-                foreach (Product product in cart.GetProducts())
-                    cart.GetStore().GetProducts().AddLast(product);
+            foreach (Cart cart in multiCart.GetCarts())
+                foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
+                    cart.GetStore().RemoveProducts(productAmount.Key, productAmount.Value);
         }
 
-        public int SumOfCartPrice(LinkedList<Cart> carts)
+        public void ReturnProductsToStore(MultiCart multiCart)
         {
+            foreach (Cart cart in multiCart.GetCarts())
+                foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
+                    cart.GetStore().GetInventory()[productAmount.Key] += productAmount.Value;
+        }
+
+        public int SumOfCartPrice(int userId)
+        {
+            MultiCart multiCart = GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
+            foreach (Cart cart in multiCart.GetCarts())
+                cart.SetSum();
             int sum = 0;
-            foreach (Cart cart in carts)
-                foreach (Product product in cart.GetProducts())
-                    sum += product.GetPrice();
+            foreach (Cart cart in multiCart.GetCarts())
+                sum += cart.GetCartSum();
             return sum;
         }
 

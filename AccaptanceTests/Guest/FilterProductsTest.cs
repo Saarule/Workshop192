@@ -27,7 +27,7 @@ namespace AccaptanceTests.Guest
             Orel = new User();
             Register.Registration("orel", "123456", Orel);
             LogIn.Login("orel", "123456", Orel);
-            System.OpenStore("Victory", Orel.GetState());
+            System.OpenStore("Victory", Orel.GetInfo());
             p1 = new Product(1, 10, "white bread");
             p2 = new Product(2, 12, "black bread");
             p3 = new Product(3, 10, "white bread");
