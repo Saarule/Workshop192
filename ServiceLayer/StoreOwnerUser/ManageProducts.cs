@@ -9,7 +9,7 @@ using Workshop192.UserManagment;
 namespace ServiceLayer.Store_Owner_User
 {
     public class ManageProducts
-    {
+    {   /*
         // use case 4.1 - Manage Products 
         public static bool ManageProduct(User user , Product product, Store store ,string option)
         {
@@ -38,5 +38,6 @@ namespace ServiceLayer.Store_Owner_User
                 return false;
             }
         }
+        */
     }
 }

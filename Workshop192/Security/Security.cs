@@ -17,7 +17,7 @@ namespace Workshop192.Security
 
         private static bool CheckLength(string password)
         {
-            if (password.Length < 5)
+            if (password.Length < 10)
                 return false;
             return true;
         }
@@ -25,9 +25,9 @@ namespace Workshop192.Security
         private static bool CheckNumbers(string password)
         {
             foreach (char c in password)
-                if (c >= '0' && c <= '9')
-                    return true;
-            return false;
+                if (c < '0' && c > '9')
+                    return false;
+            return true;
         }
     }
 }

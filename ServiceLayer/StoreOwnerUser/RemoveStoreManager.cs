@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceLayer.Guest;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,9 @@ namespace ServiceLayer.Store_Owner_User
     // use case 4.6 - Remove store manager
     public class RemoveStoreManager
     {
-        public static bool removeStoreManager(User Im, Store store, UserInfo toRemove)
+        public static bool removeStoreManager(int Im, string store, string toRemove)
         {
-            return Im.RemoveStoreOwner(store, toRemove);
+            return CreateAndGetUser.GetUser(Im).RemoveStoreOwner(store, AllRegisteredUsers.GetInstance().GetUserInfo(toRemove)); 
         }
     }
 }

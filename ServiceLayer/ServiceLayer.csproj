@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\IsAdmin.cs" />
     <Compile Include="Admin\RemoveUserFromSystem.cs" />
     <Compile Include="Guest\BuyProductsAccordingToBuyingPolicy.cs" />
     <Compile Include="Guest\BuyProductsAccordingToDiscountPolicy.cs" />
     <Compile Include="Guest\CheckAvailability.cs" />
+    <Compile Include="Guest\CreateAndGetUser.cs" />
     <Compile Include="Guest\FilterProducts.cs" />
     <Compile Include="Guest\LogIn.cs" />
     <Compile Include="Guest\ProcessOfBuyingProducts.cs" />
@@ -54,6 +56,7 @@
     <Compile Include="Guest\SaveProductToCart.cs" />
     <Compile Include="Guest\SearchProducts.cs" />
     <Compile Include="Guest\WatchAndEdit.cs" />
+    <Compile Include="RegisteredUser\GetRoles.cs" />
     <Compile Include="RegisteredUser\LogOut.cs" />
     <Compile Include="RegisteredUser\OpenStore.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreManager.cs" />

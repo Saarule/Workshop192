@@ -16,7 +16,7 @@ namespace Workshop192.UserManagment
             state = null;
             multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
         }
-
+            
         public bool LogIn(UserInfo state)
         {
             if (this.state != null || state == null)
@@ -49,58 +49,58 @@ namespace Workshop192.UserManagment
             return false;
         }
 
-        public bool AddProducts(Store store, Product product, int amount)
+        public bool AddProducts(string store, Product product, int amount)
         {
             if (state != null)
                 return state.AddProducts(store, product, amount);
             return false;
         }
 
-        public bool RemoveProductFromInventory(Store store, int productId)
+        public bool RemoveProductFromInventory(string store, int productId)
         {
             if (state != null)
                 return state.RemoveProductFromInventory(store, productId);
             return false;
         }
 
-        public bool EditProduct(Store store, int productId, string name, string category, int price, int amount)
+        public bool EditProduct(string store, int productId, string name, string category, int price, int amount)
         {
             if (state != null)
                 return state.EditProduct(store, productId, name, category, price, amount);
             return false;
         }
 
-        public bool AddStoreOwner(Store store, UserInfo user)
+        public bool AddStoreOwner(string store, UserInfo user)
         {
             if (state == null || user == null)
                 return false;
             return state.AddStoreOwner(store, user);
         }
 
-        public bool AddStoreManager(Store store, UserInfo user, bool[] privileges)
+        public bool AddStoreManager(string store, UserInfo user, bool[] privileges)
         {
             if (state == null || user == null)
                 return false;
             return state.AddStoreManager(store, user, privileges);
         }
 
-        public bool RemoveStoreOwner(Store store, UserInfo user)
+        public bool RemoveStoreOwner(string store, UserInfo user)
         {
             if (state == null || user == null)
                 return false;
             return state.RemoveStoreOwner(store, user);
         }
 
-        public bool RemoveStoreManager(Store store, UserInfo user)
+        public bool RemoveStoreManager(string store, UserInfo user)
         {
             if (state == null || user == null)
                 return false;
             return state.RemoveStoreManager(store, user);
         }
 
-        public bool AddProductsToMultiCart(Store store, Product product, int amount)
+        public bool AddProductsToMultiCart(string store, Product product, int amount)
         {
-            return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).AddProductsToMultiCart(store, product, amount);
+            return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).AddProductsToMultiCart(MarketManagment.System.GetInstance().GetStore(store), product, amount);
         }
 
         public bool RemoveProductFromCart(Product product)

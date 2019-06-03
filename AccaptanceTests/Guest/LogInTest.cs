@@ -9,49 +9,55 @@ namespace AccaptanceTests.Guest
     [TestFixture]
     public class LogInTest
     {
-        Workshop192.System System = null;
+        AllRegisteredUsers Allusers = null;
+        Workshop192.MarketManagment.System system = null;
         User Orel;
         User Nati;
+        int userIDorel;
         [SetUp]
         public void SetUp()
         {
             InitializationOfTheSystem init = new InitializationOfTheSystem();
             init.Initalize();
-            System = Workshop192.System.GetInstance();
+            Allusers = AllRegisteredUsers.GetInstance();
+            system = Workshop192.MarketManagment.System.GetInstance();
             Orel = new User();
+            userIDorel = Allusers.CreateUser();
             Nati = new User();
-            Register.Registration("orel", "123456", Orel);
+            //int userIDnati = Allusers.CreateUser();
+            Register.Registration("orel", "123456", userIDorel);
         }
         [TearDown]
         public void TearDown()
         {
-            System = Workshop192.System.Reset();
+            system = Workshop192.MarketManagment.System.Reset();
+            Allusers = AllRegisteredUsers.Reset();
         }
         [Test]
         public void SuccessLoginTest()
         {
-            Assert.AreEqual(LogIn.Login("orel", "123456", Orel), true);
+            Assert.AreEqual(LogIn.Login("orel", "123456", userIDorel), true);
         }
         [Test]
         public void UserNotRegisteredTest()
         {
-            Assert.AreEqual(LogIn.Login("nati", "2222", Nati), false);
+            Assert.AreEqual(LogIn.Login("nati", "2222", userIDorel), false);
         }
         [Test]
         public void DoubleLoginTest() // NULL in case that GetUser(username,password) not exist ( == null) 
         {
-            Assert.AreEqual(LogIn.Login("orel", "123456", Orel), true);
-            Assert.AreEqual(LogIn.Login("orel", "123456", Orel), false);
+            Assert.AreEqual(LogIn.Login("orel", "123456", userIDorel), true);
+            Assert.AreEqual(LogIn.Login("orel", "123456", userIDorel), false);
         }
         [Test]
         public void WrongPasswordTest() // NULL in case that GetUser(username,password) not exist ( == null)
         {
-            Assert.AreEqual(LogIn.Login("orel", "111", Orel), false);
+            Assert.AreEqual(LogIn.Login("orel", "111", userIDorel), false);
         }
         [Test]
         public void WrongUsernameTest() // NULL in case that GetUser(username,password) not exist ( == null)
         {
-            Assert.AreEqual(LogIn.Login("ore", "123456", Orel), false);
+            Assert.AreEqual(LogIn.Login("ore", "123456", userIDorel), false);
         }
 
     }

@@ -75,7 +75,7 @@ namespace Workshop192.MarketManagment
             multiCarts[multiCartId] = new MultiCart();
         }
 
-        public bool PurchaseProducts(int accountId, User user, string name, string address)
+        /*public bool PurchaseProducts(int accountId, User user, string name, string address)
         {
             int sum = SumOfCartPrice(user.GetCarts());
             if (!moneyCollectionSystem.CollectFromAccount(accountId, sum))
@@ -123,7 +123,7 @@ namespace Workshop192.MarketManagment
                 foreach (Product product in cart.GetProducts())
                     sum += product.GetPrice();
             return sum;
-        }
+        }*/
 
         public void OpenStore(string storeName)
         {

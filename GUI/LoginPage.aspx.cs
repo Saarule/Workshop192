@@ -33,9 +33,7 @@ namespace GUI
             }
             else
             {
-                Pair pair = new Pair(Username, Password);
-                // send HTTP (username,password)
-                bool ans = CommunicationLayer.Controllers.UsersController.Login(Username, Password,GlobalSpecificUser.userID);
+                bool ans = CommunicationLayer.Controllers.UsersController.Login(Username, Password,GlobalSpecificUser.userNum);
                 if (ans)
                 {
                     Response.Write("<script>alert('Successful Log in');</script>");

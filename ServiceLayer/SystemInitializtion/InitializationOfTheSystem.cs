@@ -11,13 +11,13 @@ namespace ServiceLayer
     {
         // use case 1.1 - Initialization of the system
         public void Initalize() {
-            Workshop192.System system = Workshop192.System.GetInstance();
+            Workshop192.MarketManagment.System system = Workshop192.MarketManagment.System.GetInstance();
             system.ConnectMoneyCollectionSystem(ConnectExternalMoneyCollectionSystems());
             system.ConnectDeliverySystem(ConnectExternalDeliverySystems());
-            if (system.GetUser("admin", "admin") == null)
+            if (Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(0) == null)
             {
-                system.Register("admin", "admin");
-                system.GetUser("admin", "admin").SetAdmin();
+                Workshop192.UserManagment.AllRegisteredUsers.GetInstance().RegisterUser("admin", "admin");
+                Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(0).SetAdmin();
             }
         }
 

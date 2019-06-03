@@ -12,6 +12,7 @@ namespace GUI
         public void Page_Load(object sender, EventArgs e)
         {
             //this.Form.Target = "_blank";
+            GlobalSpecificUser.Start();
         }
 
         protected void RegisterButton_Click(object sender, EventArgs e)

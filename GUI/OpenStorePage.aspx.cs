@@ -21,8 +21,17 @@ namespace GUI
             {
                 Response.Write("<script>alert('The field of store name empty');</script>");
             }
-            else {
-
+            else
+            {
+                bool ans = CommunicationLayer.Controllers.ProductsController.openStore(storeName, GlobalSpecificUser.userNum);
+                if (ans)
+                {
+                    Response.Write("<script>alert('succesfully opening store');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('The store name is exists');</script>");
+                }
             }
         }
     }

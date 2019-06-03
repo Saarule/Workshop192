@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ServiceLayer.RegisteredUser
+{
+    public class GetRoles
+    {
+        public static LinkedList<LinkedList<string>> getRoles(int userID)
+        {
+            LinkedList<LinkedList<string>> Roles = new LinkedList<LinkedList<string>>();
+            for (int i = 0; i < Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(userID).GetState().GetStoreOwners().Count; i++)
+            {
+                LinkedList<string> toAdd = new LinkedList<string>();
+                toAdd.AddLast("Store Owner");
+                toAdd.AddLast(Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(userID).GetState().GetStoreOwners().ElementAt(i).GetStore());
+                Roles.AddLast(toAdd);
+            }
+            for (int i= 0; i < Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(userID).GetState().GetStoreManagers().Count; i++)
+            {
+                LinkedList<string> toAdd = new LinkedList<string>();
+                toAdd.AddLast("Store Manager");
+                toAdd.AddLast(Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(userID).GetState().GetStoreManagers().ElementAt(i).GetStore());
+                Roles.AddLast(toAdd);
+            }
+            return Roles;
+        }
+    }
+}

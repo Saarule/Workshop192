@@ -11,9 +11,9 @@ namespace ServiceLayer.Guest
     public class WatchAndEdit
     {
         // use case 2.7 - watch and edit to cart
-        public static LinkedList<Cart> Watch(User user)
+        public static MultiCart Watch(int userNum)
         {
-            return user.GetCarts();
+            return Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart());
         }
 
         public static bool Edit(string option , Product product , User user)

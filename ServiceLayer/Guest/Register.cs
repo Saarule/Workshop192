@@ -10,12 +10,13 @@ namespace ServiceLayer.Guest
     // use case 2.2 - Register
     public class Register
     {
-        public static bool Registration(string username, string password, User user)
+        public static bool Registration(string username, string password, int userNum)
         {
-            if (user.GetState() == null) // if the user logged in will return false 
+
+            if (CreateAndGetUser.GetUser(userNum).GetState() == null) // if the user logged in will return false 
             {
                 // if the user registerd will return false , otherwise true
-                return Workshop192.System.GetInstance().Register(username, password);
+                return AllRegisteredUsers.GetInstance().RegisterUser(username, password);
             }
             return false;
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceLayer.Guest;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,9 @@ namespace ServiceLayer.Store_Owner_User
     public class AssignStoreManager
     {
         // use case 4.5 - Assign store Manager
-        public static bool AsssignManager(User user,Store store,string username,bool [] privileges)
+        public static bool AsssignManager(int userNum,string store,string username,bool [] privileges)
         {
-            return Workshop192.System.GetInstance().AddStoreManager(user ,store, username,privileges);
+            return CreateAndGetUser.GetUser(userNum).AddStoreManager(store, AllRegisteredUsers.GetInstance().GetUserInfo(username), privileges);
         }
     }
 }

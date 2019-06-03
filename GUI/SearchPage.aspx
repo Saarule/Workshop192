@@ -69,7 +69,7 @@
                 <br />
                 <br />
                 <br />
-                <asp:Label ID="Label2" runat="server" CssClass="auto-style3" Text="Insert Name of Product:  "></asp:Label>
+                <asp:Label ID="Label2" runat="server" CssClass="auto-style3" Text="Insert ID of Product:  "></asp:Label>
                 <asp:PlaceHolder ID="PH1" runat="server"></asp:PlaceHolder>
                 <asp:Label ID="Label3" runat="server" CssClass="auto-style4" Text="Insert Amount:"></asp:Label>
                 <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style5"></asp:TextBox>

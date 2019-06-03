@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using Workshop192.MarketManagment;
 
 namespace CommunicationLayer.Controllers
 {
     public class ProductsController : ApiController
     {
+        /*
         List<Product> products = new List<Product>
         {
             new Product { Id = 1, Name = "Tomato", Category = "Groceries", Price = 1 },
@@ -58,6 +60,44 @@ namespace CommunicationLayer.Controllers
         public void Post(Product product)
         {
             products.Add(product);
+        }
+        ////
+        ///
+        //
+        */
+        public static bool openStore(string storename , int userID)
+        {
+            return ServiceLayer.RegisteredUser.OpenStore.openStore(storename, userID);
+        }
+
+        public LinkedList<LinkedList<string>> displayCart(int userID)
+        {
+            LinkedList<LinkedList<string>> result = new LinkedList<LinkedList<string>>();
+            MultiCart carts = ServiceLayer.Guest.WatchAndEdit.Watch(userID);
+            for(int i = 0; i < carts.GetCarts().Count; i++)
+            {
+                for(int j = 0; j < carts.GetCarts().ElementAt(i).GetProducts().Count; j++)
+                {
+                    LinkedList<string> toAdd = new LinkedList<string>();
+                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetId() + "");
+                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetName() + "");
+                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetCategory() + "");
+                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetPrice() + "");
+                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Value + "");
+                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetStore().GetName());
+                    result.AddLast(toAdd);
+                }
+            }
+            return result;
+        }
+        public static bool addToCart(int userID , int productID , int amount)
+        {
+            return ServiceLayer.Guest.SaveProductToCart.SaveProduct(productID,userID,amount);
+        }
+        public static LinkedList<LinkedList<string>> SearchProducts(string input)
+        {
+            LinkedList<LinkedList<string>> result = ServiceLayer.Guest.SearchProducts.Search(input);
+            return result;
         }
     }
 }

@@ -32,6 +32,12 @@ namespace Workshop192.UserManagment
             return instance;
         }
 
+        public static AllRegisteredUsers Reset()
+        {
+            instance = new AllRegisteredUsers();
+            return instance;
+        }
+
         public bool RegisterUser(string userName, string password)
         {
             if (passwords.ContainsKey(userName) || Security.Security.CheckPasswordSecurity(password))

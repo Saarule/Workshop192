@@ -114,8 +114,8 @@
                 <asp:Label ID="Label1" runat="server" CssClass="auto-style2" Text="Inventory:"></asp:Label>
                 <asp:Button ID="WatchCartsButton" runat="server" BackColor="#000066" BorderColor="#000066" CssClass="auto-style7" ForeColor="White" OnClick="AddnewProductButton_Click" Text="Add/Edit product" />
                 <asp:Label ID="Label3" runat="server" CssClass="auto-style12" Text="Insert Price:"></asp:Label>
-                <asp:Label ID="Label2" runat="server" CssClass="auto-style8" Text="Insert Name of Product :"></asp:Label>
-                <asp:Label ID="Label7" runat="server" CssClass="auto-style17" Text="Insert Product Name to Remove:"></asp:Label>
+                <asp:Label ID="Label2" runat="server" CssClass="auto-style8" Text="Insert ID of Product :"></asp:Label>
+                <asp:Label ID="Label7" runat="server" CssClass="auto-style17" Text="Insert Product ID to Remove:"></asp:Label>
                 <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style9"></asp:TextBox>
                 <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style10"></asp:TextBox>
                 <asp:TextBox ID="TextBox3" runat="server" CssClass="auto-style11"></asp:TextBox>

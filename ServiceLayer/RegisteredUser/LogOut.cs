@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceLayer.Guest;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,10 @@ namespace ServiceLayer.RegisteredUser
     public class LogOut
     {
         // use case 3.1 - Log Out
-        public static bool Logout(User user)
+        public static bool Logout(int userNum)
         {
             // if the user not logged in will return false
-            return user.LogOut();
+            return CreateAndGetUser.GetUser(userNum).LogOut();
         }
     }
 }

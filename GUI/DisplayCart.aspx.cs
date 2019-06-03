@@ -26,7 +26,7 @@ namespace GUI
             products.Add(b);
             products.Add(b); */
             tableProducts.Append("<table border='1'>");
-            tableProducts.Append("<tr><th>Product Name:</th><th>Price:</th><th>Amount:</th>");
+            tableProducts.Append("<tr><th>Product ID:</th><th>Product Name:</th><th>Catagory:</th><th>Price:</th><th>Amount:</th><th>Store Name:</th>");
             tableProducts.Append("</tr>");
             for (int i = 0; i < products.Count; i++)
             {
@@ -34,6 +34,9 @@ namespace GUI
                 tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(0) + "</td>");
                 tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(1) + "</td>");
                 tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(2) + "</td>");
+                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(3) + "</td>");
+                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(4) + "</td>");
+                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(5) + "</td>");
                 tableProducts.Append("</tr>");
             }
             tableProducts.Append("</table>");

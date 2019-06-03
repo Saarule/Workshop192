@@ -11,19 +11,20 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (true)//isAdmin())
+            if (CommunicationLayer.Controllers.UsersController.isAdmin(GlobalSpecificUser.userNum))
                 Button2.Visible = true;
         }
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
-            bool ans = CommunicationLayer.Controllers.UsersController.Logout(GlobalSpecificUser.userID);
+            bool ans = CommunicationLayer.Controllers.UsersController.Logout(GlobalSpecificUser.userNum);
             if (ans)
             {
+                Response.Redirect("HomePage.aspx");
                 Response.Write("<script>alert('Logout succesfuly');</script>");
             }
             else
             {
-                Response.Redirect("HomePage.aspx");
+                Response.Write("<script>alert('Logout failed');</script>");
             }
         }
 
@@ -62,7 +63,7 @@ namespace GUI
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            //remove page for admin
+            //remove user for admin
         }
     }
 }

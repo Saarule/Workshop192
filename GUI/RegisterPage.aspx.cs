@@ -34,7 +34,7 @@ namespace GUI
             else
             {
                 Pair pair = new Pair(Username, Password);
-                bool ans = CommunicationLayer.Controllers.UsersController.Register(Username, Password,GlobalSpecificUser.userID);
+                bool ans = CommunicationLayer.Controllers.UsersController.Register(Username, Password,GlobalSpecificUser.userNum);
                 if (ans)
                 {
                     Response.Write("<script>alert('Successful Registeration');</script>");
