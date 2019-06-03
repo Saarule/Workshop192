@@ -18,6 +18,10 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            Store store = new Store("newStore");
+            p1 = new Product(1, "air", "element", 5);
+            store.AddProducts(p1, 4);
+            cart = new Cart(store);
         }
     }
 }

@@ -15,12 +15,12 @@ namespace CommunicationLayer.Controllers
     {
         User[] users = new User[]
         {
-            new User { Id = 1, UserName = "Don", Age = 23 , Address = "Tel Aviv" },
-            new User { Id = 2, UserName = "Adi", Age =  45, Address = "Haifa" },
-            new User { Id = 3, UserName = "Vadim", Age = 19, Address= "Eilat" },
+            new User { Id = 1, UserName = "Tomato", Age = 23 , Address = "Tel Aviv" },
+            new User { Id = 2, UserName = "Apple", Age =  45, Address = "Haifa" },
+            new User { Id = 3, UserName = "Orange", Age = 19, Address= "Eilat" },
         };
 
-
+  
 
         public IEnumerable<User> GetAllUsers()
         {
@@ -35,6 +35,31 @@ namespace CommunicationLayer.Controllers
                 return NotFound();
             }
             return Ok(product);
+        }
+
+        public static bool Register(string username, string password,string userID)
+        {
+            return ServiceLayer.Guest.Register.Registration(username, password, userID);
+        }
+
+        public static bool Login(string username, string password, string userID)
+        {
+            return ServiceLayer.Guest.LogIn.Login(username, password, userID);
+        }
+
+        public static bool Logout(string userID)
+        {
+            return ServiceLayer.RegisteredUser.LogOut.Logout(userID);
+        }
+    }
+}
+            new User { Id = 1, UserName = "Don", Age = 23 , Address = "Tel Aviv" },
+            new User { Id = 2, UserName = "Adi", Age =  45, Address = "Haifa" },
+            new User { Id = 3, UserName = "Vadim", Age = 19, Address= "Eilat" },
+        };
+
+
+
         }
 
         public static bool Register(string username, string password, int userID)
@@ -65,5 +90,3 @@ namespace CommunicationLayer.Controllers
         {
             return ServiceLayer.RegisteredUser.GetRoles.getRoles(userID);
         }
-    }
-}

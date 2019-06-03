@@ -48,6 +48,8 @@
     <Compile Include="DeliverySystemProxyTests.cs" />
     <Compile Include="MarketManagment\CartTests.cs" />
     <Compile Include="MarketManagment\DiscountPolicyTests.cs" />
+    <Compile Include="MarketManagment\InventoryTests.cs" />
+    <Compile Include="MarketManagment\MultiCartTests.cs" />
     <Compile Include="MarketManagment\ProductTests.cs" />
     <Compile Include="MarketManagment\SellingPolicyTests.cs" />
     <Compile Include="MarketManagment\StoreTests.cs" />
