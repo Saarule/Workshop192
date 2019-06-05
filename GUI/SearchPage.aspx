@@ -11,8 +11,8 @@
             left: 10px;
             top: 15px;
             position: absolute;
-            height: 383px;
-            width: 693px;
+            height: 100%;
+            width: 100%;
             direction: ltr;
         }
         .auto-style2 {
@@ -60,7 +60,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Panel ID="Panel1" runat="server" BackColor="#99FFCC" CssClass="auto-style1">
+            tor<asp:Panel ID="Panel1" runat="server" BackColor="#99FFCC" CssClass="auto-style1">
                 <asp:Label ID="Label1" runat="server" CssClass="auto-style2" Text="Results:"></asp:Label>
                 <br />
                 <br />

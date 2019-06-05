@@ -11,20 +11,10 @@ namespace GUI
     public partial class DisplayCart : System.Web.UI.Page
     {
         StringBuilder tableProducts = new StringBuilder();
-        List<List<string>> products = new List<List<string>>();
+        LinkedList<LinkedList<string>> products = new LinkedList<LinkedList<string>>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            /* EXAMPLE List<string> a = new List<string>();
-            a.Add("water");
-            a.Add("10");
-            a.Add("20");
-            List<string> b = new List<string>();
-            b.Add("bread");
-            b.Add("15");
-            b.Add("8");
-            products.Add(a);
-            products.Add(b);
-            products.Add(b); */
+            products = CommunicationLayer.Controllers.ProductsController.GetProductsOfCart(GlobalSpecificUser.userNum);
             tableProducts.Append("<table border='1'>");
             tableProducts.Append("<tr><th>Product ID:</th><th>Product Name:</th><th>Catagory:</th><th>Price:</th><th>Amount:</th><th>Store Name:</th>");
             tableProducts.Append("</tr>");
@@ -47,7 +37,15 @@ namespace GUI
         {
             if (TextBox1.Text.Equals(""))
             {
-                Response.Write("<script>alert('The field of product name empty');</script>");
+                Response.Write("<script>alert('The field of product id empty');</script>");
+            }
+            else if (!TextBox1.Text.All(char.IsDigit) || int.Parse(TextBox1.Text) <= 0)
+            {
+                Response.Write("<script>alert('The field of product id must be number and positive');</script>");
+            }
+            else
+            {
+                bool ans = CommunicationLayer.Controllers.ProductsController.DeleteFromCart(GlobalSpecificUser.userNum, int.Parse(TextBox1.Text));
             }
         }
     }

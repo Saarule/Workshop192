@@ -11,9 +11,9 @@ namespace ServiceLayer.Store_Owner_User
     // use case 4.4 - Remove exisiting store owner
     public class RemoveExistingStoreOwner
     {
-        public static bool RemoveStoreOwner(User Im ,string store ,UserInfo toRemove)
+        public static bool RemoveStoreOwner(int userIm ,string store , string userToRemove)
         {
-            return Im.RemoveStoreOwner(store,toRemove);
+            return AllRegisteredUsers.GetInstance().GetUser(userIm).RemoveStoreOwner(store,AllRegisteredUsers.GetInstance().GetUserInfo(userToRemove));
         }
     }
 }

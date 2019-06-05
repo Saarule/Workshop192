@@ -37,6 +37,7 @@ namespace GUI
             }
             else
             {
+                Session["inputSearch"] = TextBox1.Text;
                 Response.Redirect("SearchPage.aspx");
             }
         }

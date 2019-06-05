@@ -11,8 +11,8 @@
             left: 10px;
             top: 15px;
             position: absolute;
-            height: 383px;
-            width: 693px;
+            height: 100%;
+            width: 100%;
         }
         .auto-style2 {
             z-index: 1;

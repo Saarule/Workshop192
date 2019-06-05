@@ -26,6 +26,11 @@ namespace CommunicationLayer.Controllers
             new Product { Id = 10, Name = "Orange", Category = "Groceries", Price = 17.98M }
         };
 
+        public static LinkedList<LinkedList<string>> GetProductsOfCart(int userNum)
+        {
+            return ServiceLayer.Guest.WatchAndEdit.Watch(userNum);
+        }
+
         //Get: api/products
         public IEnumerable<Product> GetAllProducts()
         {
@@ -57,6 +62,12 @@ namespace CommunicationLayer.Controllers
             }
             return list;
         }
+
+        public static bool DeleteFromCart(int userNum, int v)
+        {
+            throw new NotImplementedException();
+        }
+
         //Post: api/products
         public void Post(Product product)
         {
@@ -70,23 +81,7 @@ namespace CommunicationLayer.Controllers
 
         public LinkedList<LinkedList<string>> displayCart(int userID)
         {
-            LinkedList<LinkedList<string>> result = new LinkedList<LinkedList<string>>();
-            MultiCart carts = ServiceLayer.Guest.WatchAndEdit.Watch(userID);
-            for(int i = 0; i < carts.GetCarts().Count; i++)
-            {
-                for(int j = 0; j < carts.GetCarts().ElementAt(i).GetProducts().Count; j++)
-                {
-                    LinkedList<string> toAdd = new LinkedList<string>();
-                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetId() + "");
-                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetName() + "");
-                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetCategory() + "");
-                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetPrice() + "");
-                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Value + "");
-                    toAdd.AddLast(carts.GetCarts().ElementAt(i).GetStore().GetName());
-                    result.AddLast(toAdd);
-                }
-            }
-            return result;
+            return ServiceLayer.Guest.WatchAndEdit.Watch(userID);
         }
         public static bool addToCart(int userID , int productID , int amount)
         {
@@ -96,6 +91,14 @@ namespace CommunicationLayer.Controllers
         {
             LinkedList<LinkedList<string>> result = ServiceLayer.Guest.SearchProducts.Search(input);
             return result;
+        }
+        public static bool ManageProducts(int userID, int productID, string name, string category, int price, int amount, string store, string option)
+        {
+            return ServiceLayer.Store_Owner_User.ManageProducts.ManageProduct(userID,productID,name,category,price,amount,store,option);
+        }
+        public static LinkedList<LinkedList<string>> getProductsOfStore(string storeName)
+        {
+            return ServiceLayer.Store_Owner_User.AllProductInStore.GetAllProducts(storeName);
         }
     }
 }

@@ -14,19 +14,9 @@ namespace GUI
         LinkedList<LinkedList<string>> products = new LinkedList<LinkedList<string>>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*List<string> a = new List<string>();
-            a.Add("water");
-            a.Add("10");
-            a.Add("20");
-            List<string> b = new List<string>();
-            b.Add("bread");
-            b.Add("15");
-            b.Add("8");
-            products.Add(a);
-            products.Add(b);
-            products.Add(b);*/
-            //products = CommunicationLayer.Controllers.ProductsController.SearchProducts();
-            tableProducts.Append("<table border='1'>");
+            string input = (string)Session["inputSearch"];
+            products = CommunicationLayer.Controllers.ProductsController.SearchProducts(input);
+            tableProducts.Append("<table border='1' bgcolor= "+ @"""#FFFFFF""" +">");
             tableProducts.Append("<tr><th>Product ID:</th><th>Product Name:</th><th>Catagory:</th><th>Price:</th><th>Amount:</th><th>Store Name:</th>");
             tableProducts.Append("</tr>");
             for (int i = 0; i < products.Count; i++)
@@ -46,13 +36,13 @@ namespace GUI
 
         protected void AddButton1_Click(object sender, EventArgs e)
         {
-            string id = TextBox1.Text;
+            string productID = TextBox1.Text;
             string amount = TextBox2.Text;
-            if (id.Equals("") && amount.Equals(""))
+            if (productID.Equals("") && amount.Equals(""))
             {
                 Response.Write("<script>alert('The fields of id and amount empty');</script>");
             }
-            else if (id.Equals(""))
+            else if (productID.Equals(""))
             {
                 Response.Write("<script>alert('The field of id empty');</script>");
             }
@@ -62,10 +52,11 @@ namespace GUI
             }
             else
             {
-                try
-                {
-                    CommunicationLayer.Controllers.ProductsController.addToCart(GlobalSpecificUser.userNum, int.Parse(id), int.Parse(amount));
-                }
+                //try
+                //{
+                    //need to check why has exception 
+                    CommunicationLayer.Controllers.ProductsController.addToCart(GlobalSpecificUser.userNum, int.Parse(productID), int.Parse(amount));
+                try{}
                 catch (Exception)
                 {
                     Response.Write("<script>alert('illegal arguments');</script>");

@@ -3,22 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Workshop192.MarketManagment;
 
 namespace ServiceLayer.Guest
 {
    public class FilterProducts
     {
         // use case 2.5(1) - Filter Products
-        public static LinkedList<Workshop192.MarketManagment.Product> Filter(LinkedList<Workshop192.MarketManagment.Product> Products,string filter)
-        { 
-            LinkedList<Workshop192.MarketManagment.Product> FilteredProducts = new LinkedList<Workshop192.MarketManagment.Product>();
-            for (int j = 0; j < Products.Count; j++)
+        public static LinkedList<LinkedList<string>> Filter(string filter)
+        {
+            LinkedList<LinkedList<string>> FoundProducts = new LinkedList<LinkedList<string>>();
+            Store CurrentStore;
+            LinkedList<Store> AllStores = Workshop192.MarketManagment.System.GetInstance().GetAllStores();
+
+            for (int i = 0; i < AllStores.Count; i++)
             {
-                 if (Products.ElementAt(j).GetName().Contains(filter))
-                 FilteredProducts.AddLast(Products.ElementAt(j));
+                CurrentStore = AllStores.ElementAt(i);
+                Dictionary<Product, int> ProductsPerStore = CurrentStore.GetInventory();
+                for (int j = 0; j < ProductsPerStore.Count; j++)
+                {
+                    if (ProductsPerStore.ElementAt(j).Key.GetName().Contains(filter))
+                    {
+                        LinkedList<string> toAdd = new LinkedList<string>();
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetId() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetName() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetCategory() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetPrice() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Value + "");
+                        toAdd.AddLast(CurrentStore.GetName());
+                        FoundProducts.AddLast(toAdd);
+                    }
+                }
             }
-            return FilteredProducts;
+            return FoundProducts;
         }
-            
     }
 }

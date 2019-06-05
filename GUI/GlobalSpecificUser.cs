@@ -12,7 +12,7 @@ namespace GUI
         public static int userNum = CommunicationLayer.Controllers.UsersController.CreateUserId();
         public static void Start()
         {
-           //Process.Start(@"http://http://localhost:63798/HomePage"); 
+
         }
     }
 }

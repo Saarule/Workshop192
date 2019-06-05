@@ -13,20 +13,19 @@ namespace ServiceLayer.Guest
         // use case 2.6 - Save products to cart
         public static bool SaveProduct(int productId,int userID,int amount)
         {
-            string storeName = "";
-            Product product = null;
             for(int i = 0; i < Workshop192.MarketManagment.System.GetInstance().GetAllStores().Count; i++)
             {
                 for(int j = 0; j < Workshop192.MarketManagment.System.GetInstance().GetAllStores().ElementAt(i).GetInventory().Count; j++)
                 {
                     if (Workshop192.MarketManagment.System.GetInstance().GetAllStores().ElementAt(i).GetInventory().ElementAt(j).Key.GetId() == productId)
                     {
-                        storeName = Workshop192.MarketManagment.System.GetInstance().GetAllStores().ElementAt(i).GetName();
-                        product = Workshop192.MarketManagment.System.GetInstance().GetAllStores().ElementAt(i).GetInventory().ElementAt(j).Key;
+                        string storeName = Workshop192.MarketManagment.System.GetInstance().GetAllStores().ElementAt(i).GetName();
+                        Product product = Workshop192.MarketManagment.System.GetInstance().GetAllStores().ElementAt(i).GetInventory().ElementAt(j).Key;
+                        return AllRegisteredUsers.GetInstance().GetUser(userID).AddProductsToMultiCart(storeName, product, amount);
                     }
                 }
             }
-            return AllRegisteredUsers.GetInstance().GetUser(userID).AddProductsToMultiCart(storeName, product, amount);
+            return false;
         }
     }
 }

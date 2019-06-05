@@ -21,10 +21,25 @@ namespace Workshop192.MarketManagment
 
         public bool AddProductsToCart(Product product, int amount)
         {
-            if ((store.GetInventory()[product] < amount) || (products[product] + amount > store.GetInventory()[product]))
+            if ((store.GetInventory()[product] < amount) || ( CheckExsit(product) && (products[product] + amount > store.GetInventory()[product])))
                 return false;
-            products[product] += amount;
+            if (CheckExsit(product))
+                products[product] += amount;
+            else
+            {
+                products.Add(product, amount);
+            }
             return true;
+        }
+
+        private bool CheckExsit(Product p)
+        {
+            for(int i=0; i < products.Count; i++)
+            {
+                if (products.ElementAt(i).Key.GetId() == p.GetId())
+                    return true;
+            }
+            return false;
         }
 
         public bool RemoveProduct(Product product)

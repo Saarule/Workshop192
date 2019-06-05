@@ -33,6 +33,7 @@ namespace GUI
                 Response.Write("<script>alert('field of search is empty');</script>");
             }
             else {
+                Session["inputSearch"] = TextBox1.Text;
                 Response.Redirect("SearchPage.aspx");
             }
         }

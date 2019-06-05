@@ -16,7 +16,7 @@ namespace GUI
 
         protected void InventoryButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("");
+            Response.Redirect("InventoryPage.aspx");
         }
 
         protected void TreeButton_Click(object sender, EventArgs e)

@@ -59,6 +59,7 @@
     <Compile Include="RegisteredUser\GetRoles.cs" />
     <Compile Include="RegisteredUser\LogOut.cs" />
     <Compile Include="RegisteredUser\OpenStore.cs" />
+    <Compile Include="StoreOwnerUser\AllProductInStore.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreManager.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreOwner.cs" />
     <Compile Include="StoreOwnerUser\ManageProducts.cs" />

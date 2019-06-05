@@ -7,7 +7,7 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            height: 336px;
+            height: 100%;
         }
         .auto-style2 {
             z-index: 1;
@@ -65,8 +65,8 @@
             left: 10px;
             top: 15px;
             position: absolute;
-            height: 333px;
-            width: 693px;
+            height: 100%;
+            width:  100%;
         }
         .auto-style9 {
             z-index: 1;

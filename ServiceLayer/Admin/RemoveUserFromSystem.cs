@@ -10,11 +10,11 @@ namespace ServiceLayer.Admin
     // use case 6.2 - Remove user from system
     public class RemoveUserFromSystem
     {
-        public static bool RemoveUser(User admin, UserInfo toDelete)
+        public static bool RemoveUser(int adminID, string nameToDelete)
         {
-            if (admin.GetInfo() == null || !admin.IsAdmin())
+            if (AllRegisteredUsers.GetInstance().GetUser(adminID).GetInfo() == null || !AllRegisteredUsers.GetInstance().GetUser(adminID).IsAdmin())
                 return false;
-            return AllRegisteredUsers.GetInstance().RemoveUser(toDelete.GetUserName());
+            return AllRegisteredUsers.GetInstance().RemoveUser(nameToDelete);
         }
     }
 }
