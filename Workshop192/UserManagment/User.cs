@@ -17,18 +17,18 @@ namespace Workshop192.UserManagment
             multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
         }
             
-        public bool LogIn(UserInfo state)
+        public bool LogIn(UserInfo info)
         {
-            if (this.info != null || state == null)
+            if (IsLoggedIn() || info == null)
                 return false;
-            this.info = state;
-            multiCartId = state.GetMultiCart();
+            this.info = info;
+            multiCartId = info.GetMultiCart();
             return true;
         }
 
         public bool LogOut()
         {
-            if (info == null)
+            if (!IsLoggedIn())
                 return false;
             multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
             info = null;
@@ -37,63 +37,63 @@ namespace Workshop192.UserManagment
 
         public bool SetAdmin()
         {
-            if (info == null)
+            if (!IsLoggedIn())
                 return false;
             return info.SetAdmin();
         }
 
         public bool OpenStore(string storeName)
         {
-            if (info != null)
+            if (IsLoggedIn())
                 return info.OpenStore(storeName);
             return false;
         }
 
         public bool AddProducts(string store, Product product, int amount)
         {
-            if (info != null)
+            if (IsLoggedIn())
                 return info.AddProducts(store, product, amount);
             return false;
         }
 
         public bool RemoveProductFromInventory(string store, int productId)
         {
-            if (info != null)
+            if (IsLoggedIn())
                 return info.RemoveProductFromInventory(store, productId);
             return false;
         }
 
         public bool EditProduct(string store, int productId, string name, string category, int price, int amount)
         {
-            if (info != null)
+            if (IsLoggedIn())
                 return info.EditProduct(store, productId, name, category, price, amount);
             return false;
         }
 
         public bool AddStoreOwner(string store, UserInfo user)
         {
-            if (info == null || user == null)
+            if (!IsLoggedIn() || user == null)
                 return false;
             return info.AddStoreOwner(store, user);
         }
 
         public bool AddStoreManager(string store, UserInfo user, bool[] privileges)
         {
-            if (info == null || user == null)
+            if (!IsLoggedIn() || user == null)
                 return false;
             return info.AddStoreManager(store, user, privileges);
         }
 
         public bool RemoveStoreOwner(string store, UserInfo user)
         {
-            if (info == null || user == null)
+            if (!IsLoggedIn() || user == null)
                 return false;
             return info.RemoveStoreOwner(store, user);
         }
 
         public bool RemoveStoreManager(string store, UserInfo user)
         {
-            if (info == null || user == null)
+            if (!IsLoggedIn() || user == null)
                 return false;
             return info.RemoveStoreManager(store, user);
         }
@@ -107,10 +107,17 @@ namespace Workshop192.UserManagment
         {
             return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).RemoveProductFromMultiCart(product);
         }
+
+        public bool RemoveUser(string userName)
+        {
+            if (!IsLoggedIn())
+                return false;
+            return info.RemoveUser(userName);
+        }
         
         public string GetUserName()
         {
-            if (info == null)
+            if (!IsLoggedIn())
                 return "";
             return info.GetUserName();
         }
@@ -122,9 +129,9 @@ namespace Workshop192.UserManagment
 
         public bool IsAdmin()
         {
-            if (info == null)
+            if (!IsLoggedIn())
                 return false;
-            return info.GetAdmin();
+            return info.IsAdmin();
         }
 
         public bool IsLoggedIn()

@@ -10,7 +10,7 @@ namespace Workshop192.UserManagment
     public class UserInfo
     {
         private string userName;
-        private bool admin;
+        private Admin admin;
         private LinkedList<StoreOwner> storeOwners;
         private LinkedList<StoreManager> storeManagers;
         private int multiCartId;
@@ -18,7 +18,7 @@ namespace Workshop192.UserManagment
         public UserInfo(string userName)
         {
             this.userName = userName;
-            admin = false;
+            admin = null;
             storeOwners = new LinkedList<StoreOwner>();
             storeManagers = new LinkedList<StoreManager>();
             multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
@@ -26,9 +26,9 @@ namespace Workshop192.UserManagment
 
         public bool SetAdmin()
         {
-            if (admin)
+            if (!IsAdmin())
                 return false;
-            admin = true;
+            admin = new Admin();
             return true;
         }
 
@@ -131,6 +131,13 @@ namespace Workshop192.UserManagment
             return false;
         }
 
+        public bool RemoveUser(string userName)
+        {
+            if (!IsAdmin())
+                return false;
+            return admin.RemoveUser(userName);
+        }
+
         public int GetMultiCart()
         {
             return multiCartId;
@@ -141,7 +148,12 @@ namespace Workshop192.UserManagment
             return userName;
         }
 
-        public bool GetAdmin()
+        public bool IsAdmin()
+        {
+            return admin != null;
+        }
+
+        public Admin GetAdmin()
         {
             return admin;
         }

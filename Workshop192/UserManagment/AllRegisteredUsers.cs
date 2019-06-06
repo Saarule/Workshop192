@@ -40,7 +40,7 @@ namespace Workshop192.UserManagment
 
         public bool RegisterUser(string userName, string password)
         {
-            if (passwords.ContainsKey(userName) || Security.Security.CheckPasswordSecurity(password))
+            if (passwords.ContainsKey(userName) || !Security.Security.CheckPasswordSecurity(password))
                 return false;
             passwords.Add(userName, password);
             userInfos.Add(userName, new UserInfo(userName));

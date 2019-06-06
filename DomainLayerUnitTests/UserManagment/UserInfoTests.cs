@@ -10,7 +10,7 @@ using Workshop192.MarketManagment;
 namespace DomainLayerUnitTests.UserManagment
 {
     [TestFixture]
-    class UserStateTests
+    class UserInfoTests
     {
         UserInfo state;
         UserInfo state2;

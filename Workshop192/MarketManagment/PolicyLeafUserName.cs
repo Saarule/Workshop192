@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Workshop192.MarketManagment
 {
-    class PolicyLeafUserName : PolicyComponent
+    public class PolicyLeafUserName : PolicyComponent
     {
         private string userName;
         private string operation;
