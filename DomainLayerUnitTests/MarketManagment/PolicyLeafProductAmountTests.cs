@@ -24,8 +24,8 @@ namespace DomainLayerUnitTests.MarketManagment
             Product tmp = new Product(2, "computer", "electronics", 200);
             store.AddProducts(product, 10);
             store.AddProducts(tmp, 10);
-            cart.AddProductsToCart(product, 10);
-            cart.AddProductsToCart(tmp, 10);
+            cart.AddProductsToCart(1, 10);
+            cart.AddProductsToCart(2, 10);
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().CreateUser();
         }
 

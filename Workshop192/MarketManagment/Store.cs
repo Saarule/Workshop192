@@ -22,9 +22,9 @@ namespace Workshop192.MarketManagment
             sellingPolicies = new LinkedList<PolicyComponent>();
         }
 
-        public void AddProducts(Product product, int amount)
+        public bool AddProducts(Product product, int amount)
         {
-            inventory.AddProducts(product, amount);
+            return inventory.AddProducts(product, amount);
         }
 
         public bool RemoveProducts(Product product, int amount)

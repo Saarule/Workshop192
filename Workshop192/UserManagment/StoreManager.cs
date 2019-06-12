@@ -26,8 +26,7 @@ namespace Workshop192.UserManagment
         {
             if (privileges[0])
             {
-                MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount);
-                return true;
+                return MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount);
             }
             return false;
         }
@@ -36,8 +35,7 @@ namespace Workshop192.UserManagment
         {
             if (privileges[1])
             {
-                MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId);
-                return true;
+                return MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId);
             }
             return false;
         }
@@ -48,6 +46,68 @@ namespace Workshop192.UserManagment
             {
                 return MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount);
             }
+            return false;
+        }
+
+        public bool AddDiscountPolicy(PolicyComponent policy, int discount, int productId)
+        {
+            if (!privileges[3])
+                return false;
+            if (productId == 0)
+                MarketManagment.System.GetInstance().GetStore(store).AddDiscountPolicy(policy, discount);
+            else
+                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.Key.GetId().Equals(productId))
+                    {
+                        productAmount.Key.AddDiscountPolicy(policy, discount);
+                        return true;
+                    }
+            return false;
+        }
+
+        public bool AddSellingPolicy(PolicyComponent policy, int productId)
+        {
+            if (!privileges[4])
+                return false;
+            if (productId == 0)
+                MarketManagment.System.GetInstance().GetStore(store).AddSellingPolicy(policy);
+            else
+                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.Key.GetId().Equals(productId))
+                    {
+                        productAmount.Key.AddSellingPolicy(policy);
+                        return true;
+                    }
+            return false;
+        }
+
+        public bool RemoveDiscountPolicy(int policyId, int productId)
+        {
+            if (!privileges[5])
+                return false;
+            if (productId == 0)
+                return MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy(policyId);
+            else
+                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.Key.GetId().Equals(productId))
+                    {
+                        return productAmount.Key.RemoveDiscountPolicy(policyId);
+                    }
+            return false;
+        }
+
+        public bool RemoveSellingPolicy(int policyId, int productId)
+        {
+            if (!privileges[6])
+                return false;
+            if (productId == 0)
+                return MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy(policyId);
+            else
+                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.Key.GetId().Equals(productId))
+                    {
+                        return productAmount.Key.RemoveSellingPolicy(policyId);
+                    }
             return false;
         }
 

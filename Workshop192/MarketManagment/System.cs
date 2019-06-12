@@ -23,8 +23,8 @@ namespace Workshop192.MarketManagment
             multiCartId = 0;
             multiCarts = new Dictionary<int, MultiCart>();
             stores = new LinkedList<Store>();
-            moneyCollectionSystem = null;
-            deliverySystem = null;
+            moneyCollectionSystem = new MoneyCollectionSystemProxy(null);
+            deliverySystem = new DeliverySystemProxy(null);
         }
 
         public static System GetInstance()

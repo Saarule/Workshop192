@@ -15,24 +15,30 @@ namespace Workshop192.MarketManagment
             carts = new LinkedList<Cart>();
         }
 
-        public bool AddProductsToMultiCart(Store store, Product product, int amount)
+        public bool AddProductsToMultiCart(Store store, int productId, int amount)
         {
             if (amount < 0)
                 return false;
             foreach (Cart cart in carts)
                 if (cart.GetStore().Equals(store))
-                    return cart.AddProductsToCart(product, amount);
+                    return cart.AddProductsToCart(productId, amount);
             carts.AddLast(new Cart(store));
-            return carts.Last.Value.AddProductsToCart(product, amount);
+            if (carts.Last.Value.AddProductsToCart(productId, amount))
+                return true;
+            else
+            {
+                carts.RemoveLast();
+                return false;
+            }
         }
 
-        public bool RemoveProductFromMultiCart(Product product)
+        public bool RemoveProductFromMultiCart(int productId)
         {
             foreach (Cart cart in carts)
                 foreach (Product p in cart.GetProducts().Keys)
-                    if (p.Equals(product))
+                    if (p.GetId().Equals(productId))
                     {
-                        if (!cart.RemoveProduct(product))
+                        if (!cart.RemoveProduct(productId))
                             return false;
                         if (cart.GetProducts().Count == 0)
                             carts.Remove(cart);
