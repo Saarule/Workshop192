@@ -14,7 +14,7 @@ namespace ServiceLayer.Store_Owner_User
     {
         public static bool removeStoreManager(int Im, string store, string toRemove)
         {
-            return CreateAndGetUser.GetUser(Im).RemoveStoreOwner(store, AllRegisteredUsers.GetInstance().GetUserInfo(toRemove)); 
+            return CreateAndGetUser.GetUser(Im).RemoveStoreManager(store, AllRegisteredUsers.GetInstance().GetUserInfo(toRemove)); 
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.SystemInitializtion
 {
-    public class ResetSystems
+    public class SystemReset
     {
-        public static void ResetSystem()
+        public static void Reset()
         {
             Workshop192.MarketManagment.System.Reset();
             Workshop192.UserManagment.AllRegisteredUsers.Reset();

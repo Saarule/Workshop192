@@ -77,9 +77,9 @@
     <Compile Include="Security\Security.cs" />
     <Compile Include="UserManagment\Admin.cs" />
     <Compile Include="UserManagment\AllRegisteredUsers.cs" />
-    <Compile Include="UserManagment\Appointment.cs" />
     <Compile Include="UserManagment\StoreManager.cs" />
     <Compile Include="UserManagment\StoreOwner.cs" />
+    <Compile Include="UserManagment\StoreOwnersOfStore.cs" />
     <Compile Include="UserManagment\User.cs" />
     <Compile Include="UserManagment\UserInfo.cs" />
   </ItemGroup>
