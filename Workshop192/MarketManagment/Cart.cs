@@ -19,11 +19,20 @@ namespace Workshop192.MarketManagment
             sum = 0;
         }
 
-        public bool AddProductsToCart(Product product, int amount)
+        public bool AddProductsToCart(int productId, int amount)
         {
-            if ((store.GetInventory()[product] < amount) || ( CheckExsit(product) && (products[product] + amount > store.GetInventory()[product])))
+            Product product = null;
+            foreach (KeyValuePair<Product, int> productAmount in store.GetInventory())
+                if (productAmount.Key.GetId().Equals(productId))
+                {
+                    product = productAmount.Key;
+                    break;
+                }
+            if (product == null)
                 return false;
-            if (CheckExsit(product))
+            if ((store.GetInventory()[product] < amount) || ( CheckExsit(productId) && (products[product] + amount > store.GetInventory()[product])))
+                return false;
+            if (CheckExsit(productId))
                 products[product] += amount;
             else
             {
@@ -32,23 +41,25 @@ namespace Workshop192.MarketManagment
             return true;
         }
 
-        private bool CheckExsit(Product p)
+        private bool CheckExsit(int productId)
         {
-            for(int i=0; i < products.Count; i++)
-            {
-                if (products.ElementAt(i).Key.GetId() == p.GetId())
+            foreach (KeyValuePair<Product, int> productAmount in products)
+                if (productAmount.Key.GetId().Equals(productId))
                     return true;
-            }
             return false;
         }
 
-        public bool RemoveProduct(Product product)
+        public bool RemoveProduct(int productId)
         {
-            return products.Remove(product);
+            foreach (KeyValuePair<Product, int> productAmount in products)
+                if (productAmount.Key.GetId().Equals(productId))
+                    return products.Remove(productAmount.Key);
+            return false;
         }
 
         public void SetSum()
         {
+            sum = 0;
             foreach (KeyValuePair<Product, int> product in products)
                 sum += product.Key.GetPrice() * product.Value;
         }
