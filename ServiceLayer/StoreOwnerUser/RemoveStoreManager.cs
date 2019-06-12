@@ -12,6 +12,7 @@ namespace ServiceLayer.Store_Owner_User
     // use case 4.6 - Remove store manager
     public class RemoveStoreManager
     {
+
         public static bool removeStoreManager(int Im, string store, string toRemove)
         {
             return CreateAndGetUser.GetUser(Im).RemoveStoreOwner(store, AllRegisteredUsers.GetInstance().GetUserInfo(toRemove)); 
