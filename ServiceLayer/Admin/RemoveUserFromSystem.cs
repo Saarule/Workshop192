@@ -14,7 +14,9 @@ namespace ServiceLayer.Admin
         {
             if (AllRegisteredUsers.GetInstance().GetUser(adminID).GetInfo() == null || !AllRegisteredUsers.GetInstance().GetUser(adminID).IsAdmin())
                 return false;
-            return AllRegisteredUsers.GetInstance().RemoveUser(nameToDelete);
+            if (AllRegisteredUsers.GetInstance().GetUserInfo(nameToDelete) == null)
+                return false;
+            return AllRegisteredUsers.GetInstance().RemoveUser(AllRegisteredUsers.GetInstance().GetUserInfo(nameToDelete));
         }
     }
 }
