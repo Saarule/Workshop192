@@ -35,10 +35,15 @@ namespace ServiceLayer.Guest
         {
             if (option.Equals("delete"))
             {
-                //AllRegisteredUsers.GetInstance().GetUser(userID).RemoveProductFromCart(productID);
-                return true;
+                ///return AllRegisteredUsers.GetInstance().GetUser(userID).RemoveProductFromCart();
+
             }
-            // not support in edit product now.
+            else if (option.Equals("edit"))
+            {
+                ///return AllRegisteredUsers.GetInstance().GetUser(userID).();
+                ///has no support to edit from domain
+            }
+
             return false;
         }
     }

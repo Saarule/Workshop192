@@ -10,6 +10,7 @@ namespace GUI
     public class GlobalSpecificUser
     {
         public static int userNum = CommunicationLayer.Controllers.UsersController.CreateUserId();
+
         public static void Start()
         {
 

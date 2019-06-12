@@ -10,7 +10,6 @@ namespace ServiceLayer.SystemInitializtion
     {
         public static void Reset()
         {
-
             Workshop192.MarketManagment.System.Reset();
             Workshop192.UserManagment.AllRegisteredUsers.Reset();
         }

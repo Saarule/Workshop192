@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="CheckoutPage.aspx" />
     <Content Include="DisplayCart.aspx" />
+    <Content Include="index.html" />
     <Content Include="InventoryPage.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="LoginUserHomePage.aspx" />

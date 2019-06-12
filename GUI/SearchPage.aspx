@@ -17,8 +17,8 @@
         }
         .auto-style2 {
             z-index: 1;
-            left: 257px;
-            top: 11px;
+            left: 330px;
+            top: 9px;
             position: absolute;
             font-weight: 700;
             font-size: xx-large;
@@ -40,6 +40,8 @@
             left: 7px;
             top: 73px;
             position: absolute;
+            height: 14px;
+            width: 122px;
         }
         .auto-style6 {
             z-index: 1;
@@ -49,11 +51,12 @@
         }
         .auto-style9 {
             z-index: 1;
-            left: 380px;
-            top: 70px;
-            position: absolute;
-            width: 99px;
-            bottom: 287px;
+            left: 434px;
+            top: 69px;
+            position:  absolute;
+            width: 100px;
+        
+            
         }
         </style>
 </head>
