@@ -19,18 +19,24 @@ namespace ServiceLayer.Store_Owner_User
             {
                 if (option.Equals("edit"))
                 {
-                    AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetOwner(store).EditProduct(productID,name,category,price,amount);
-                    return true;
+                    if (AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetOwner(store) != null)
+                        return AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetOwner(store).EditProduct(productID,name,category,price,amount);
+                    return AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().EditProduct(store,productID, name, category, price, amount);
                 }
                 else if (option.Equals("add"))
                 {
                     Product product = Workshop192.MarketManagment.System.GetInstance().CreateProduct(name, category, price);
-                    AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetOwner(store).AddProducts(product,amount);
-                    return true;
+                    if(AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetOwner(store) != null )
+                        return AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetOwner(store).AddProducts(product,amount);
+                    return AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetManager(store).AddProducts(product, amount);
+
+
                 }
                 else if (option.Equals("delete"))
                 {
-                    return AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetOwner(store).RemoveProductFromInventory(productID);
+                    if(AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetOwner(store) != null)
+                        return AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetOwner(store).RemoveProductFromInventory(productID);
+                    return AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetManager(store).RemoveProductFromInventory(productID);
                 }
                 return false;
             }

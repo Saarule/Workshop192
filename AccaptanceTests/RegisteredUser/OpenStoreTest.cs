@@ -23,17 +23,16 @@ namespace AccaptanceTests.RegisteredUser
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
             UserId_Saar = CreateAndGetUser.CreateUser();
-            Register.Registration("orel", "Orelp", UserId_Orel);
-            LogIn.Login("orel", "Orelp", UserId_Orel);
-            Register.Registration("saar", "Saarp", UserId_Saar);
-            LogIn.Login("saar", "Saarp", UserId_Saar);
+            Register.Registration("orel", "123456", UserId_Orel);
+            LogIn.Login("orel", "123456", UserId_Orel);
+            Register.Registration("saar", "12345123", UserId_Saar);
+            LogIn.Login("saar", "12345123", UserId_Saar);
             
         }
         [TearDown]
         public void TearDown()
         {
-            //TODO
-            SystemReset.Reset();//the opposite of initalization of the system        
+            SystemReset.Reset();      
         }
         [Test]
         public void SuccessOpenStoreTest()

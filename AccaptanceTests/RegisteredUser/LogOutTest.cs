@@ -21,15 +21,13 @@ namespace AccaptanceTests.RegisteredUser
             System.Initalize();
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
-
-            Register.Registration("orel", "Orelp", UserId_Orel);
-            LogIn.Login("orel", "Orelp", UserId_Orel);
+            Register.Registration("orel", "111111", UserId_Orel);
+            LogIn.Login("orel", "111111", UserId_Orel);
         }
         [TearDown]
         public void TearDown()
-        {
-            //TODO
-            SystemReset.Reset();//the opposite of initalization of the system        
+        { 
+            SystemReset.Reset();      
         }
         [Test]
         public void SuccessLogOutTest()
@@ -45,6 +43,12 @@ namespace AccaptanceTests.RegisteredUser
         [Test]
         public void UserNotRegisteredTest()
         {
+            Assert.AreEqual(LogOut.Logout(UserId_Nati), false);
+        }
+        [Test]
+        public void UserNotLoggedInTest()
+        {
+            Register.Registration("nati", "1111111", UserId_Nati);
             Assert.AreEqual(LogOut.Logout(UserId_Nati), false);
         }
     }

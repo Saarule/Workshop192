@@ -14,9 +14,8 @@ namespace ServiceLayer
             Workshop192.MarketManagment.System system = Workshop192.MarketManagment.System.GetInstance();
             system.ConnectMoneyCollectionSystem(ConnectExternalMoneyCollectionSystems());
             system.ConnectDeliverySystem(ConnectExternalDeliverySystems());
-            Workshop192.UserManagment.AllRegisteredUsers.GetInstance().RegisterUser("admin", "admin");
-                
-            
+            Workshop192.UserManagment.AllRegisteredUsers.GetInstance().RegisterUser("admin", "admin11");
+            Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUserInfo("admin", "admin11").SetAdmin();
         }
 
         private MoneyCollectionSystemReal ConnectExternalMoneyCollectionSystems()

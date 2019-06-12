@@ -69,7 +69,6 @@
     <Compile Include="StoreOwnerUser\AssignStoreManagerTest.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreOwnerTest.cs" />
     <Compile Include="StoreOwnerUser\ManageProductsTest.cs" />
-    <Compile Include="StoreOwnerUser\RemoveExistingStoreOwnerTest.cs" />
     <Compile Include="StoreOwnerUser\RemoveStoreManagerTest.cs" />
     <Compile Include="SystemInitialization\InitializationOfTheSystemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

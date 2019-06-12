@@ -10,29 +10,21 @@ namespace ServiceLayer.Guest
    public class FilterProducts
     {
         // use case 2.5(1) - Filter Products
-        public static LinkedList<LinkedList<string>> Filter(string filter)
+        public static LinkedList<LinkedList<string>> Filter(string filter, LinkedList<LinkedList<string>> products)
         {
             LinkedList<LinkedList<string>> FoundProducts = new LinkedList<LinkedList<string>>();
-            Store CurrentStore;
-            LinkedList<Store> AllStores = Workshop192.MarketManagment.System.GetInstance().GetAllStores();
-
-            for (int i = 0; i < AllStores.Count; i++)
+            for (int j = 0; j < products.Count; j++)
             {
-                CurrentStore = AllStores.ElementAt(i);
-                Dictionary<Product, int> ProductsPerStore = CurrentStore.GetInventory();
-                for (int j = 0; j < ProductsPerStore.Count; j++)
+                if (products.ElementAt(j).ElementAt(1).Equals(filter))
                 {
-                    if (ProductsPerStore.ElementAt(j).Key.GetName().Contains(filter))
-                    {
-                        LinkedList<string> toAdd = new LinkedList<string>();
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetId() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetName() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetCategory() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetPrice() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Value + "");
-                        toAdd.AddLast(CurrentStore.GetName());
-                        FoundProducts.AddLast(toAdd);
-                    }
+                    LinkedList<string> toAdd = new LinkedList<string>();
+                    toAdd.AddLast(products.ElementAt(j).ElementAt(0));
+                    toAdd.AddLast(products.ElementAt(j).ElementAt(1));
+                    toAdd.AddLast(products.ElementAt(j).ElementAt(2));
+                    toAdd.AddLast(products.ElementAt(j).ElementAt(3));
+                    toAdd.AddLast(products.ElementAt(j).ElementAt(4));
+                    toAdd.AddLast(products.ElementAt(j).ElementAt(5));
+                    FoundProducts.AddLast(toAdd);
                 }
             }
             return FoundProducts;

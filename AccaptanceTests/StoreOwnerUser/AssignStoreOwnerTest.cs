@@ -26,21 +26,19 @@ namespace AccaptanceTests.StoreOwnerUser
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
             UserId_Saar = CreateAndGetUser.CreateUser();
-            Register.Registration("orel", "Orelp", UserId_Orel);
-            LogIn.Login("orel", "Orelp", UserId_Orel);
-            Register.Registration("saar", "Saarp", UserId_Saar);
-            LogIn.Login("saar", "Saarp", UserId_Saar);
-            Register.Registration("nati", "Natip", UserId_Nati);
+            Register.Registration("orel", "123456", UserId_Orel);
+            LogIn.Login("orel", "123456", UserId_Orel);
+            Register.Registration("saar", "123456", UserId_Saar);
+            LogIn.Login("saar", "123456", UserId_Saar);
+            Register.Registration("nati", "123456", UserId_Nati);
             OpenStore.openStore("Victory", UserId_Orel);
-
-
 
         }
         [TearDown]
         public void TearDown()
         {
             //TODO
-            SystemReset.Reset();//the opposite of initalization of the system        
+            SystemReset.Reset();       
         }
         [Test]
         public void AssignNewStoreOwnerTest()
@@ -61,14 +59,14 @@ namespace AccaptanceTests.StoreOwnerUser
         [Test]
         public void CircularAssignTest()
         {
-            LogIn.Login("nati", "Natip", UserId_Nati);
+            LogIn.Login("nati", "123456", UserId_Nati);
             Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "nati"), true);
             Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Nati, "Victory", "Orel"), false);
         }
         [Test]
         public void Someone_Else_Assign_Him_To_Store_Test()
         {
-            LogIn.Login("nati", "Natip", UserId_Nati);
+            LogIn.Login("nati", "123456", UserId_Nati);
             Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "nati"), true);
             Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Nati, "Victory", "saar"), true);
             Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "saar"), false);

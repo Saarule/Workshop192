@@ -1,68 +1,86 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using ServiceLayer;
 using ServiceLayer.Guest;
+using ServiceLayer.RegisteredUser;
 using ServiceLayer.Store_Owner_User;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
-
+using ServiceLayer.SystemInitializtion;
 namespace AccaptanceTests.Guest
 {
     [TestFixture]
     public class FilterProductsTest
     {
-        Workshop192.System System = null;
-        User Orel;
-        Product p1;
-        Product p2;
-        Product p3;
-        Product p4;
+        int UserId_Orel;
+        LinkedList<LinkedList<string>> l1 = new LinkedList<LinkedList<string>>();
+        LinkedList<LinkedList<string>> l2 = new LinkedList<LinkedList<string>>();
+        LinkedList<string> black_bread = new LinkedList<string>();
+        LinkedList<string> white_bread = new LinkedList<string>();
+        LinkedList<string> cutted_bread = new LinkedList<string>();
+
         [SetUp]
         public void SetUp()
         {
-            InitializationOfTheSystem init = new InitializationOfTheSystem();
-            init.Initalize();
-            System = Workshop192.System.GetInstance();
-            Orel = new User();
-            Register.Registration("orel", "123456", Orel);
-            LogIn.Login("orel", "123456", Orel);
-            System.OpenStore("Victory", Orel.GetInfo());
-            p1 = new Product(1, 10, "white bread");
-            p2 = new Product(2, 12, "black bread");
-            p3 = new Product(3, 10, "white bread");
-            p4 = new Product(4, 10, "brown bread");
-            ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "add");
-            ManageProducts.ManageProduct(Orel, p2, System.GetStore("Victory"), "add");
-            ManageProducts.ManageProduct(Orel, p3, System.GetStore("Victory"), "add");
-            ManageProducts.ManageProduct(Orel, p4, System.GetStore("Victory"), "add");
+            InitializationOfTheSystem System = new InitializationOfTheSystem();
+            System.Initalize();
+            UserId_Orel = CreateAndGetUser.CreateUser();
+
+
+            Register.Registration("orel", "123456", UserId_Orel);
+            LogIn.Login("orel", "123456", UserId_Orel);
+            OpenStore.openStore("victory", UserId_Orel);
+            ManageProducts.ManageProduct(UserId_Orel, -1, "black bread", "bread", 10, 50, "victory", "add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, "white bread", "bread", 15, 50, "victory", "add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, "cutted bread", "bread", 20, 50, "victory", "add");
+
+            black_bread.AddLast("1");
+            black_bread.AddLast("black bread");
+            black_bread.AddLast("bread");
+            black_bread.AddLast("10");
+            black_bread.AddLast("50");
+            black_bread.AddLast("victory");
+
+            white_bread.AddLast("2");
+            white_bread.AddLast("white bread");
+            white_bread.AddLast("bread");
+            white_bread.AddLast("15");
+            white_bread.AddLast("50");
+            white_bread.AddLast("victory");
+
+            cutted_bread.AddLast("3");
+            cutted_bread.AddLast("cutted bread");
+            cutted_bread.AddLast("bread");
+            cutted_bread.AddLast("20");
+            cutted_bread.AddLast("50");
+            cutted_bread.AddLast("victory");
         }
         [TearDown]
         public void TearDown()
         {
-            System = Workshop192.System.Reset();
+            white_bread = new LinkedList<string>();
+            black_bread = new LinkedList<string>();
+            cutted_bread = new LinkedList<string>();
+            l1 = new LinkedList<LinkedList<string>>();
+            SystemReset.Reset();
         }
         [Test]
         public void SearchWhiteBreadTest()
         {
-            LinkedList<Product> l1 = new LinkedList<Product>();
-            l1.AddLast(p1);
-            l1.AddLast(p3);
-            Assert.AreEqual(FilterProducts.Filter(SearchProducts.Search("bread"),"white"), l1);
+            l1.AddLast(white_bread);
+            Assert.AreEqual(FilterProducts.Filter("white bread",SearchProducts.Search("bread")),l1);
         }
         [Test]
-        public void SearchBrownBreadTest()
+        public void SearchBlackBreadTest()
         {
-            LinkedList<Product> l2 = new LinkedList<Product>();
-            l2.AddLast(p4);
-            Assert.AreEqual(FilterProducts.Filter(SearchProducts.Search("bread"), "brown"), l2);
+            l1.AddLast(black_bread);
+            Assert.AreEqual(FilterProducts.Filter("black bread", SearchProducts.Search("bread")), l1);
         }
         [Test]
         public void SearchNoResultsTest()
         {
-            LinkedList<Product> l3 = new LinkedList<Product>();
-            Assert.AreEqual(FilterProducts.Filter(SearchProducts.Search("bread"), "light"), l3);
+            Assert.AreEqual(FilterProducts.Filter("chocko", SearchProducts.Search("bread")), l1);
         }
     }
 }
-*/

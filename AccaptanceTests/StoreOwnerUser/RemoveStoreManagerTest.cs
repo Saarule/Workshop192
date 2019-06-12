@@ -20,8 +20,7 @@ namespace AccaptanceTests.StoreOwnerUser
         int UserId_Ben;
 
 
-        bool[] Privileges1 = { true, true, true, true, true, true };
-        bool[] Privileges2 = { true, true, true, true, true, true };
+        bool[] Privileges1 = { true, true, true, true, true, true,true };
 
 
         [SetUp]
@@ -34,15 +33,15 @@ namespace AccaptanceTests.StoreOwnerUser
             UserId_Saar = CreateAndGetUser.CreateUser();
             UserId_Ben = CreateAndGetUser.CreateUser();
 
-            Register.Registration("orel", "Orelp", UserId_Orel);
-            LogIn.Login("orel", "Orelp", UserId_Orel);
-            Register.Registration("saar", "Saarp", UserId_Saar);
-            LogIn.Login("saar", "Saarp", UserId_Saar);
-            Register.Registration("nati", "Natip", UserId_Nati);
+            Register.Registration("orel", "123456", UserId_Orel);
+            LogIn.Login("orel", "123456", UserId_Orel);
+            Register.Registration("saar", "123456", UserId_Saar);
+            LogIn.Login("saar", "123456", UserId_Saar);
+            Register.Registration("nati", "123456", UserId_Nati);
             OpenStore.openStore("Victory", UserId_Orel);
 
             AssignStoreManager.AsssignManager(UserId_Orel, "Victory", "saar",Privileges1);
-            AssignStoreManager.AsssignManager(UserId_Orel, "Victory", "nati",Privileges2);
+            
            
         }
         [TearDown]
@@ -54,7 +53,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [Test]
         public void RemoveChildTest()
         {
-            Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel, "Victory", "nati"), true);
+            
             Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel, "Victory", "saar"), true);
 
         }
@@ -62,25 +61,35 @@ namespace AccaptanceTests.StoreOwnerUser
         public void Remove_NotExisted_Child_Test()
         {//when the system check if the username exist -if not it returns null->null reference
             
-            Register.Registration("ben", "Benp", UserId_Ben);
+            Register.Registration("ben", "123456", UserId_Ben);
             Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel, "Victory","ben"), false);
         }
         [Test]
         public void Remove_Grandson_Test()
         {
-            Register.Registration("ben", "Benp", UserId_Ben);
-
-            Assert.AreEqual( AssignStoreManager.AsssignManager(UserId_Saar,"Victory","ben",Privileges2),true);
+            Register.Registration("ben", "123456", UserId_Ben);
+            AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "nati");
+            LogIn.Login("nati", "123456", UserId_Nati);
+            Assert.AreEqual( AssignStoreManager.AsssignManager(UserId_Nati,"Victory","ben",Privileges1),true);
 
             Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel,"Victory", "ben"), false);
+        }
+        [Test]
+        public void Remove_Manager_Test2()
+        {
+            Register.Registration("ben", "123456", UserId_Ben);
+            AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "nati");
+            LogIn.Login("nati", "123456", UserId_Nati);
+            Assert.AreEqual(AssignStoreManager.AsssignManager(UserId_Nati, "Victory", "ben", Privileges1), true);
+
+            Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Nati, "Victory", "ben"), true);
         }
         [Test]
         public void DoubleRemoveTest()
         {
             Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel,"Victory", "saar"), true);
             Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel, "Victory", "saar"), false);
-            Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel, "Victory", "nati"), true);
-            Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel, "Victory", "nati"), false);
+            
         }
     }
 }

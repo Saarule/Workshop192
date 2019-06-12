@@ -29,7 +29,7 @@ namespace ServiceLayer.Guest
                         toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetName() + "");
                         toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetCategory() + "");
                         toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetPrice() + "");
-                        //toAdd.AddLast(ProductsPerStore.ElementAt(j).Value + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Value + "");
                         toAdd.AddLast(CurrentStore.GetName());
                         FoundProducts.AddLast(toAdd);
                     }

@@ -26,7 +26,7 @@ namespace Workshop192.UserManagment
 
         public bool SetAdmin()
         {
-            if (!IsAdmin())
+            if (IsAdmin()) 
                 return false;
             admin = new Admin();
             return true;

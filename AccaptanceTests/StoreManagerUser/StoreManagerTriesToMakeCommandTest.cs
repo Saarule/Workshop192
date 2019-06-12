@@ -1,8 +1,10 @@
-﻿/*using System;
+﻿using System;
 using NUnit.Framework;
 using ServiceLayer;
 using ServiceLayer.Guest;
+using ServiceLayer.RegisteredUser;
 using ServiceLayer.Store_Owner_User;
+using ServiceLayer.SystemInitializtion;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
 
@@ -11,46 +13,41 @@ namespace AccaptanceTests.StoreManagerUser
     [TestFixture]
     public class StoreManagerTriesToMakeCommandTest
     {
-        Workshop192.System System = null;
-        User Orel;
-        User Saar;
-        Product p1;
-        Product p2;
-        bool[] Privileges1 = { true, false, true, true, true, true };
+        int UserId_Orel;
+        int UserId_Saar;
+        bool[] Privileges1 = { true, false, true, true, true, true,true};
+
         [SetUp]
         public void SetUp()
         {
-            InitializationOfTheSystem init = new InitializationOfTheSystem();
-            init.Initalize();
-            System = Workshop192.System.GetInstance();
-            Orel = new User();
-            Saar = new User();
-            Register.Registration("orel", "123456", Orel);
-            LogIn.Login("orel", "123456", Orel);
-            Register.Registration("saar", "123456", Saar);
-            LogIn.Login("saar", "123456", Saar);
+            InitializationOfTheSystem System = new InitializationOfTheSystem();
+            System.Initalize();
+            UserId_Orel = CreateAndGetUser.CreateUser();
+            UserId_Saar = CreateAndGetUser.CreateUser();
+            Register.Registration("orel", "123456", UserId_Orel);
+            LogIn.Login("orel", "123456", UserId_Orel);
+            Register.Registration("saar", "123456", UserId_Saar);
+            LogIn.Login("saar", "123456", UserId_Saar);
 
-            System.OpenStore("Victory", Orel.GetInfo());
-            AssignStoreManager.AsssignManager(Orel, System.GetStore("Victory"), "saar", Privileges1);
+            OpenStore.openStore("Victory", UserId_Orel);
+            AssignStoreManager.AsssignManager(UserId_Orel,"Victory","saar", Privileges1);
         }
         [TearDown]
         public void TearDown()
         {
-            System = Workshop192.System.Reset();
+            SystemReset.Reset();
         }
         [Test]
-        public void SuccessCommandTest()
+        public void PermittedCommandTest()
         {
-            Assert.AreEqual(ManageProducts.ManageProduct(Saar, new Product(1, 10, "milk"), System.GetStore("Victory"), "add"),true);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Saar, -1,"Milki","dairy products",10,50,"Victory","add"),true);
         }
         [Test]
-        public void SuccessCommandTest2()
+        public void NotPermittedCommandTest()
         {
-           ManageProducts.ManageProduct(Saar, new Product(1, 10, "milk"), System.GetStore("Victory"), "add");
-
-            Assert.AreEqual(ManageProducts.ManageProduct(Saar, new Product(1, 10, "milk"), System.GetStore("Victory"), "remove"), false);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Saar, -1, "Milki", "dairy products", 10, 50, "Victory", "add"),true);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Saar, 1, "Milki", "dairy products", 10, 50, "Victory", "delete"), false);
         }
         
     }
 }
-*/
