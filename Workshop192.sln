@@ -36,8 +36,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "aroma", "..\aroma\", "{BAFC
 		SlnRelativePath = "..\aroma\"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{F6733795-982D-4C51-B3E7-DCA2991849E5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,10 +70,6 @@ Global
 		{BAFCF687-83EC-4911-B040-C849B7CD997C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAFCF687-83EC-4911-B040-C849B7CD997C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{BAFCF687-83EC-4911-B040-C849B7CD997C}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{F6733795-982D-4C51-B3E7-DCA2991849E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6733795-982D-4C51-B3E7-DCA2991849E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6733795-982D-4C51-B3E7-DCA2991849E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6733795-982D-4C51-B3E7-DCA2991849E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
