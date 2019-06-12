@@ -29,6 +29,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             Assert.IsTrue(inventory.AddProducts(product2, 5));
             Assert.AreEqual(2, inventory.GetAllProduct().Count);
+            Assert.AreEqual(5, inventory.GetAllProduct()[product2]);
         }
 
         [Test]
@@ -36,6 +37,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             Assert.IsFalse(inventory.AddProducts(product1, 5));
             Assert.AreEqual(1, inventory.GetAllProduct().Count);
+            Assert.AreEqual(10, inventory.GetAllProduct()[product1]);
         }
 
         [Test]
