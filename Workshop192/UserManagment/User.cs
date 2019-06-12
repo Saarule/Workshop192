@@ -77,18 +77,53 @@ namespace Workshop192.UserManagment
             return info.AddStoreOwner(store, user);
         }
 
+        public bool AcceptOwner(string store, UserInfo user)
+        {
+            if (!IsLoggedIn() || user == null)
+                return false;
+            return info.AcceptOwner(store, user);
+        }
+
+        public bool DeclineOwner(string store, UserInfo user)
+        {
+            if (!IsLoggedIn() || user == null)
+                return false;
+            return info.DeclineOwner(store, user);
+        }
+
+        public bool AddDiscountPolicy(string store, PolicyComponent policy, int discount, int productId)
+        {
+            if (!IsLoggedIn())
+                return false;
+            return info.AddDiscountPolicy(store, policy, discount, productId);
+        }
+
+        public bool AddSellingPolicy(string store, PolicyComponent policy, int productId)
+        {
+            if (!IsLoggedIn())
+                return false;
+            return info.AddSellingPolicy(store, policy, productId);
+        }
+
+        public bool RemoveDiscountPolicy(string store, int policyId, int productId)
+        {
+            if (!IsLoggedIn())
+                return false;
+            return info.RemoveDiscountPolicy(store, policyId, productId);
+        }
+
+        public bool RemoveSellingPolicy(string store, int policyId, int productId)
+        {
+            if (!IsLoggedIn())
+                return false;
+            return info.RemoveSellingPolicy(store, policyId, productId);
+        }
+
         public bool AddStoreManager(string store, UserInfo user, bool[] privileges)
         {
             if (!IsLoggedIn() || user == null)
                 return false;
             return info.AddStoreManager(store, user, privileges);
-        }
-
-        public bool RemoveStoreOwner(string store, UserInfo user)
-        {
-            if (!IsLoggedIn() || user == null)
-                return false;
-            return info.RemoveStoreOwner(store, user);
         }
 
         public bool RemoveStoreManager(string store, UserInfo user)
@@ -98,14 +133,14 @@ namespace Workshop192.UserManagment
             return info.RemoveStoreManager(store, user);
         }
 
-        public bool AddProductsToMultiCart(string store, Product product, int amount)
+        public bool AddProductsToMultiCart(string store, int productId, int amount)
         {
-            return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).AddProductsToMultiCart(MarketManagment.System.GetInstance().GetStore(store), product, amount);
+            return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).AddProductsToMultiCart(MarketManagment.System.GetInstance().GetStore(store), productId, amount);
         }
 
-        public bool RemoveProductFromCart(Product product)
+        public bool RemoveProductFromCart(int productId)
         {
-            return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).RemoveProductFromMultiCart(product);
+            return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).RemoveProductFromMultiCart(productId);
         }
 
         public bool RemoveUser(string userName)

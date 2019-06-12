@@ -57,8 +57,7 @@ namespace Workshop192.UserManagment
             StoreManager manager = GetManager(store);
             if (owner != null)
             {
-                owner.AddProducts(product, amount);
-                return true;
+                return owner.AddProducts(product, amount);
             }
             if (manager != null)
                 return manager.AddProducts(product, amount);
@@ -95,29 +94,72 @@ namespace Workshop192.UserManagment
             return s.AddOwner(user);
         }
 
+        public bool AcceptOwner(string store, UserInfo user)
+        {
+            StoreOwner s = GetOwner(store);
+            if (s == null)
+                return false;
+            return s.AcceptOwner(user);
+        }
+
+        public bool DeclineOwner(string store, UserInfo user)
+        {
+            StoreOwner s = GetOwner(store);
+            if (s == null)
+                return false;
+            return s.DeclineOwner(user);
+        }
+
+        public bool AddDiscountPolicy(string store, PolicyComponent policy, int discount, int productId)
+        {
+            StoreOwner owner = GetOwner(store);
+            StoreManager manager = GetManager(store);
+            if (owner != null)
+                return owner.AddDiscountPolicy(policy, discount, productId);
+            if (manager != null)
+                return manager.AddDiscountPolicy(policy, discount, productId);
+            return false;
+        }
+
+        public bool AddSellingPolicy(string store, PolicyComponent policy, int productId)
+        {
+            StoreOwner owner = GetOwner(store);
+            StoreManager manager = GetManager(store);
+            if (owner != null)
+                return owner.AddSellingPolicy(policy, productId);
+            if (manager != null)
+                return manager.AddSellingPolicy(policy, productId);
+            return false;
+        }
+
+        public bool RemoveDiscountPolicy(string store, int policyId, int productId)
+        {
+            StoreOwner owner = GetOwner(store);
+            StoreManager manager = GetManager(store);
+            if (owner != null)
+                return owner.RemoveDiscountPolicy(policyId, productId);
+            if (manager != null)
+                return manager.RemoveDiscountPolicy(policyId, productId);
+            return false;
+        }
+
+        public bool RemoveSellingPolicy(string store, int policyId, int productId)
+        {
+            StoreOwner owner = GetOwner(store);
+            StoreManager manager = GetManager(store);
+            if (owner != null)
+                return owner.RemoveSellingPolicy(policyId, productId);
+            if (manager != null)
+                return manager.RemoveSellingPolicy(policyId, productId);
+            return false;
+        }
+
         public bool AddStoreManager(string store, UserInfo user, bool[] privileges)
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
                 return false;
             return s.AddManager(user, privileges);
-        }
-
-        public bool RemoveStoreOwner(string store, UserInfo user)
-        {
-            StoreOwner s = GetOwner(store);
-            if (s == null)
-                return false;
-            StoreOwner owner = null;
-            foreach (Appointment appointmnet in s.GetAppointedOwners())
-                if (appointmnet.GetChild().GetUser().Equals(user))
-                {
-                    owner = appointmnet.GetChild();
-                    break;
-                }
-            if (owner == null)
-                return false;
-            return s.RemoveAppointedOwner(owner);
         }
 
         public bool RemoveStoreManager(string store, UserInfo user)
