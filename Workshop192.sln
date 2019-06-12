@@ -15,6 +15,31 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunicationLayer", "CommunicationLayer\CommunicationLayer.csproj", "{40AF445F-D014-40A0-8CFB-EFF006FAB8A9}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "aroma", "..\aroma\", "{BAFCF687-83EC-4911-B040-C849B7CD997C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63110"
+		Debug.AspNetCompiler.PhysicalPath = "..\aroma\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63110\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63110"
+		Release.AspNetCompiler.PhysicalPath = "..\aroma\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63110\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63110"
+		SlnRelativePath = "..\aroma\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{F6733795-982D-4C51-B3E7-DCA2991849E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewGUI", "NewGUI\NewGUI.csproj", "{3EF180EB-59EA-4AF1-A729-A6B32C03C5C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +70,18 @@ Global
 		{40AF445F-D014-40A0-8CFB-EFF006FAB8A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40AF445F-D014-40A0-8CFB-EFF006FAB8A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40AF445F-D014-40A0-8CFB-EFF006FAB8A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAFCF687-83EC-4911-B040-C849B7CD997C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAFCF687-83EC-4911-B040-C849B7CD997C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAFCF687-83EC-4911-B040-C849B7CD997C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAFCF687-83EC-4911-B040-C849B7CD997C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F6733795-982D-4C51-B3E7-DCA2991849E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6733795-982D-4C51-B3E7-DCA2991849E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6733795-982D-4C51-B3E7-DCA2991849E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6733795-982D-4C51-B3E7-DCA2991849E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EF180EB-59EA-4AF1-A729-A6B32C03C5C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF180EB-59EA-4AF1-A729-A6B32C03C5C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF180EB-59EA-4AF1-A729-A6B32C03C5C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF180EB-59EA-4AF1-A729-A6B32C03C5C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
