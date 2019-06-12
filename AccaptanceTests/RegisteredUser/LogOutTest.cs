@@ -4,6 +4,7 @@ using ServiceLayer;
 using ServiceLayer.Guest;
 using ServiceLayer.RegisteredUser;
 using Workshop192.UserManagment;
+using ServiceLayer.SystemInitializtion;
 
 namespace AccaptanceTests.RegisteredUser
 {
@@ -28,7 +29,7 @@ namespace AccaptanceTests.RegisteredUser
         public void TearDown()
         {
             //TODO
-            //SystemReset.Reset();//the opposite of initalization of the system        
+            SystemReset.Reset();//the opposite of initalization of the system        
         }
         [Test]
         public void SuccessLogOutTest()

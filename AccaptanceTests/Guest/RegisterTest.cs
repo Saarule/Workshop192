@@ -3,6 +3,7 @@ using NUnit.Framework;
 using ServiceLayer;
 using ServiceLayer.Guest;
 using Workshop192.UserManagment;
+using ServiceLayer.SystemInitializtion;
 
 namespace AccaptanceTests.Guest
 {
@@ -34,7 +35,7 @@ namespace AccaptanceTests.Guest
         public void TearDown()
         {
             //TODO
-            //SystemReset.Reset();//the opposite of initalization of the system
+            SystemReset.Reset();//the opposite of initalization of the system
             
         }
         [Test]

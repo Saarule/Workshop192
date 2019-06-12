@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.SystemInitializtion
 {
-    public class ResetSystem
+    public class SystemReset
     {
         public static void Reset()
         {

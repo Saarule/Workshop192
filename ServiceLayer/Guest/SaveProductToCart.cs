@@ -20,8 +20,7 @@ namespace ServiceLayer.Guest
                     if (Workshop192.MarketManagment.System.GetInstance().GetAllStores().ElementAt(i).GetInventory().ElementAt(j).Key.GetId() == productId)
                     {
                         string storeName = Workshop192.MarketManagment.System.GetInstance().GetAllStores().ElementAt(i).GetName();
-                        Product product = Workshop192.MarketManagment.System.GetInstance().GetAllStores().ElementAt(i).GetInventory().ElementAt(j).Key;
-                        return AllRegisteredUsers.GetInstance().GetUser(userID).AddProductsToMultiCart(storeName, product, amount);
+                        return AllRegisteredUsers.GetInstance().GetUser(userID).AddProductsToMultiCart(storeName, productId, amount);
                     }
                 }
             }

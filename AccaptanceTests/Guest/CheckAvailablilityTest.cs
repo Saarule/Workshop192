@@ -7,6 +7,7 @@ using ServiceLayer.Store_Owner_User;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
 using ServiceLayer.RegisteredUser;
+using ServiceLayer.SystemInitializtion;
 
 namespace AccaptanceTests.Guest
 {
@@ -49,7 +50,7 @@ namespace AccaptanceTests.Guest
         public void TearDown()
         {
             //TODO
-            //SystemReset.Reset();//the opposite of initalization of the system
+            SystemReset.Reset();//the opposite of initalization of the system
         }
 
         [Test]
