@@ -34,7 +34,7 @@ namespace Workshop192.UserManagment
 
         public static AllRegisteredUsers Reset()
         {
-            instance = new AllRegisteredUsers();
+            instance = new AllRegisteredUsers(); 
             return instance;
         }
 

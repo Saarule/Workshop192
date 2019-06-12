@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using NUnit.Framework;
 using ServiceLayer;
 using ServiceLayer.Guest;
@@ -53,3 +53,4 @@ namespace AccaptanceTests.StoreManagerUser
         
     }
 }
+*/

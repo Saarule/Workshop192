@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿/*using NUnit.Framework;
 using ServiceLayer;
 using ServiceLayer.Admin;
 using ServiceLayer.Guest;
@@ -62,3 +62,4 @@ namespace AccaptanceTests.Admin
         
     }
 }
+*/

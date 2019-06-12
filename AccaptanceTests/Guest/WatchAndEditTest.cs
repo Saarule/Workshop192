@@ -7,130 +7,93 @@ using ServiceLayer.Store_Owner_User;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
 using System.Linq;
+using ServiceLayer.RegisteredUser;
 
 namespace AccaptanceTests.Guest
 {
     [TestFixture]
     public class WatchAndEditTest
     {
-        Workshop192.System System = null;
-        User Orel;
-        User Nati;
-        Product p1;
-        Product p2;
-        Product p3;
-        Product p4;
-        Cart cart;
-        Cart cart2;
-        LinkedList<Cart> c1;
-        
+
+        int UserId_Nati;
+        int UserId_Orel;
+        string[] product1 =new string[] {"white bread","bread","10","100"};
+        string[] product2 = new string[] { "black bread", "bread", "10", "100" };
+        string[] product3 = new string[] {  "cutted bread", "bread", "10", "100" };
+        string[] product4 = new string[] { "brown bread", "bread", "10", "100" };
+
+
+
         [SetUp]
         public void SetUp()
         {
-            InitializationOfTheSystem init = new InitializationOfTheSystem();
-            init.Initalize();
-            System = Workshop192.System.GetInstance();
-            Orel = new User();
-            Nati = new User();
-            Register.Registration("orel", "123456", Orel);
-            LogIn.Login("orel", "123456", Orel);
-            System.OpenStore("Victory", Orel.GetInfo());
-            System.OpenStore("Rami-Levi", Orel.GetInfo());
-            p1 = new Product(1, 10, "white bread");
-            p2 = new Product(2, 12, "black bread");
-            p3 = new Product(3, 15, "bread");
-            p4 = new Product(4, 16, "brown bread");
-            ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "add");
-            ManageProducts.ManageProduct(Orel, p2, System.GetStore("Victory"), "add");
-            ManageProducts.ManageProduct(Orel, p3, System.GetStore("Rami-Levi"), "add");
-            ManageProducts.ManageProduct(Orel, p4, System.GetStore("Rami-Levi"), "add");
-            c1 = new LinkedList<Cart>();
-            cart = new Cart(System.GetStore("Victory"));
-            cart2 = new Cart(System.GetStore("Rami-Levi"));
+            InitializationOfTheSystem System = new InitializationOfTheSystem();
+            System.Initalize();
+
+             UserId_Nati=CreateAndGetUser.CreateUser();
+            UserId_Orel = CreateAndGetUser.CreateUser();
+            Register.Registration("orel", "Orelp", UserId_Orel);
+            LogIn.Login("orel", "Orelp", UserId_Orel);
+            OpenStore.openStore("victory", UserId_Orel);
+            OpenStore.openStore("Rami-Levi", UserId_Orel);
+            
+            
+            ManageProducts.ManageProduct(UserId_Orel, -1, "black bread","bread",10,100,"Victory", "add");
+            ManageProducts.ManageProduct(UserId_Orel,-1,"black bread","bread",15,100, "Victory", "add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, "cutted bread", "bread", 20, 100, "Rami-Levi", "add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, "brown bread", "bread", 25, 100, "Rami-Levi", "add");
+           
+           
         }
         [TearDown]
         public void TearDown()
         {
-            System = Workshop192.System.Reset();
+            //TODO
+            //SystemReset.Reset();//the opposite of initalization of the system
         }
         [Test]
         public void WatchSimpleCartTest()
         {
-            SaveProductToCart.SaveProduct(p1, System.GetStore("Victory"), Nati);
-            SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Nati);
-            cart.AddProduct(p1);
-            cart.AddProduct(p2);
-            c1.AddLast(cart);
-            for(int i = 0; i < Nati.GetCarts().Count; i++) 
-            {
-                for (int j = 0; j < Nati.GetCarts().ElementAt(i).GetProducts().Count; j++)
-                {
-                    Assert.AreEqual(Nati.GetCarts().ElementAt(i).GetProducts().ElementAt(j), c1.ElementAt(i).GetProducts().ElementAt(j));
-                }
-            }
+            SaveProductToCart.SaveProduct(1, UserId_Orel,10);
+            SaveProductToCart.SaveProduct(2, UserId_Orel,10);
+            WatchAndEdit.Watch(UserId_Orel);
+           
         }
         [Test]
         public void WatchComplicatedCartTest()
         {
-            SaveProductToCart.SaveProduct(p1, System.GetStore("Victory"), Nati);
-            SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Nati);
-            SaveProductToCart.SaveProduct(p3, System.GetStore("Rami-Levi"), Nati);
-            SaveProductToCart.SaveProduct(p4, System.GetStore("Rami-Levi"), Nati);
-
-            cart.AddProduct(p1);
-            cart.AddProduct(p2);
-            cart2.AddProduct(p3);
-            cart2.AddProduct(p4);
-            c1.AddLast(cart);
-            c1.AddLast(cart2);
-            for (int i = 0; i < Nati.GetCarts().Count; i++)
-            {
-                for (int j = 0; j < Nati.GetCarts().ElementAt(i).GetProducts().Count; j++)
-                {
-                    Assert.AreEqual(Nati.GetCarts().ElementAt(i).GetProducts().ElementAt(j), c1.ElementAt(i).GetProducts().ElementAt(j));
-                }
-            }
+            SaveProductToCart.SaveProduct(1, UserId_Orel, 10);
+            SaveProductToCart.SaveProduct(2, UserId_Orel, 10);
+            SaveProductToCart.SaveProduct(3, UserId_Orel, 15);
+            SaveProductToCart.SaveProduct(4, UserId_Orel, 20);
+            WatchAndEdit.Watch(UserId_Orel);
+          
         }
         [Test]
         public void WatchEmptyCartTest()
         {
-            Assert.AreEqual(WatchAndEdit.Watch(Nati), c1);
+            WatchAndEdit.Watch(UserId_Orel);
+
         }
         [Test]
         public void DeleteProductsCartTest() 
         {
-            SaveProductToCart.SaveProduct(p1, System.GetStore("Victory"), Nati);
-            WatchAndEdit.Edit("delete", p1, Nati);
-            c1.AddLast(cart);
-            for (int i = 0; i < Nati.GetCarts().Count; i++)
-            {
-                for (int j = 0; j < Nati.GetCarts().ElementAt(i).GetProducts().Count; j++)
-                {
-                    Assert.AreEqual(Nati.GetCarts().ElementAt(i).GetProducts().ElementAt(j), c1.ElementAt(i).GetProducts().ElementAt(j));
-                }
-            }
+            SaveProductToCart.SaveProduct(1, UserId_Orel, 10);
+            SaveProductToCart.SaveProduct(2, UserId_Orel, 10);
+
+            WatchAndEdit.Edit("delete", "1", UserId_Orel);
+            
         }
         [Test]
-        public void DeleteAllProductsFromCartTest()
+        public void EditProductFromCartTest()
         {
-            SaveProductToCart.SaveProduct(p1, System.GetStore("Victory"), Nati);
-            SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Nati);
-            SaveProductToCart.SaveProduct(p3, System.GetStore("Rami-Levi"), Nati);
-            SaveProductToCart.SaveProduct(p4, System.GetStore("Rami-Levi"), Nati);
-
-            WatchAndEdit.Edit("delete", p1, Nati);
-            WatchAndEdit.Edit("delete", p2, Nati);
-            WatchAndEdit.Edit("delete", p3, Nati);
-            WatchAndEdit.Edit("delete", p4, Nati);
-            c1.AddLast(cart);
-            c1.AddLast(cart2);
-            for (int i = 0; i < Nati.GetCarts().Count; i++)
-            {
-                for (int j = 0; j < Nati.GetCarts().ElementAt(i).GetProducts().Count; j++)
-                {
-                    Assert.AreEqual(Nati.GetCarts().ElementAt(i).GetProducts().ElementAt(j), c1.ElementAt(i).GetProducts().ElementAt(j));
-                }
-            }
+            SaveProductToCart.SaveProduct(1, UserId_Orel, 10);
+            SaveProductToCart.SaveProduct(2, UserId_Orel, 10);
+            SaveProductToCart.SaveProduct(3, UserId_Orel, 15);
+            //add option "edit" to edit amount of product in cart
+            //WatchAndEdit.Edit("edit",1,20,UserId_Orel);
+            
+        
         }
     }
 }

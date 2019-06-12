@@ -10,48 +10,41 @@ namespace AccaptanceTests.RegisteredUser
     [TestFixture]
     public class LogOutTest
     {
-        AllRegisteredUsers Allusers = null;
-        Workshop192.MarketManagment.System system = null;
-
-        User Orel;
-        User Nati;
-        int userIDorel;
-        int userIDnati;
+        int UserId_Nati;
+        int UserId_Orel;
 
         [SetUp]
         public void SetUp()
         {
-            InitializationOfTheSystem init = new InitializationOfTheSystem();
-            init.Initalize();
-            Allusers = AllRegisteredUsers.GetInstance();
-            system = Workshop192.MarketManagment.System.GetInstance(); Orel = new User();
-            Nati = new User();
-            userIDorel = Allusers.CreateUser();
-            userIDnati = Allusers.CreateUser();
-            Register.Registration("orel", "123456", userIDorel);
-            LogIn.Login("orel", "123456", userIDorel);
+            InitializationOfTheSystem System = new InitializationOfTheSystem();
+            System.Initalize();
+            UserId_Nati = CreateAndGetUser.CreateUser();
+            UserId_Orel = CreateAndGetUser.CreateUser();
+
+            Register.Registration("orel", "Orelp", UserId_Orel);
+            LogIn.Login("orel", "Orelp", UserId_Orel);
         }
         [TearDown]
         public void TearDown()
         {
-            system = Workshop192.MarketManagment.System.Reset();
-            Allusers = AllRegisteredUsers.Reset();
+            //TODO
+            //SystemReset.Reset();//the opposite of initalization of the system        
         }
         [Test]
         public void SuccessLogOutTest()
         {
-            Assert.AreEqual(LogOut.Logout(userIDorel), true);
+            Assert.AreEqual(LogOut.Logout(UserId_Orel), true);
         }
         [Test]
         public void DoubleLogOutTest()
         {
-            Assert.AreEqual(LogOut.Logout(userIDorel), true);
-            Assert.AreEqual(LogOut.Logout(userIDorel), false);
+            Assert.AreEqual(LogOut.Logout(UserId_Orel), true);
+            Assert.AreEqual(LogOut.Logout(UserId_Orel), false);
         }
         [Test]
         public void UserNotRegisteredTest()
         {
-            Assert.AreEqual(LogOut.Logout(userIDnati), false);
+            Assert.AreEqual(LogOut.Logout(UserId_Nati), false);
         }
     }
 }

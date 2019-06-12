@@ -15,7 +15,8 @@ namespace AccaptanceTests.SystemInitialization
         [TestCase]
         public void TestInitialaization()
         {
+            
         }
-        
+
     }
 }

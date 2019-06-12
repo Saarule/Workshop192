@@ -6,80 +6,69 @@ using ServiceLayer.Guest;
 using ServiceLayer.Store_Owner_User;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
+using ServiceLayer.RegisteredUser;
 
 namespace AccaptanceTests.Guest
 {
     [TestFixture]
     public class CheckAvailablilityTest
     {
-        Workshop192.System System = null;
-        User Orel;
-        User Nati;
-        User Saar;
+        int UserId_Orel;
+        int UserId_Nati;
+        int UserId_Saar;
 
-        Product p1;
-        Product p2;
-        Product p3;
-        Product p4;
-        Product p5;
-        Product p6;
+       
 
         [SetUp]
         public void SetUp()
         {
-            InitializationOfTheSystem init = new InitializationOfTheSystem();
-            init.Initalize();
-            System = Workshop192.System.GetInstance();
-            Orel = new User();
-            Nati = new User();
-            Saar = new User();
+            InitializationOfTheSystem System = new InitializationOfTheSystem();
+            System.Initalize();
+            UserId_Orel = CreateAndGetUser.CreateUser();
+            UserId_Nati = CreateAndGetUser.CreateUser();
+            UserId_Saar = CreateAndGetUser.CreateUser();
 
-            Register.Registration("orel", "123456", Orel);
-            LogIn.Login("orel", "123456", Orel);
-            System.OpenStore("Victory", Orel.GetInfo());
-            System.OpenStore("Mega", Orel.GetInfo());
-            p1 = new Product(1, 10, "white bread");
-            p2 = new Product(2, 12, "black bread");
-            p3 = new Product(3, 10, "chocolate");
-            p4 = new Product(4, 5, "milki");
-            p5 = new Product(5, 15, "humus");
-            p6 = new Product(6, 2, "water");
-            ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "add");
-            ManageProducts.ManageProduct(Orel, p2, System.GetStore("Victory"), "add");
-            ManageProducts.ManageProduct(Orel, p3, System.GetStore("Victory"), "add");
-            //SaveProductToCart.SaveProduct(p1, System.GetStore("Victory"), Orel);
-            //SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Orel);
+            Register.Registration("orel", "Orelp", UserId_Orel);
+            LogIn.Login("orel", "OrelP", UserId_Orel);
+            OpenStore.openStore("Victory", UserId_Orel);
+           // OpenStore.openStore("Mega", UserId_Orel);
 
-            ManageProducts.ManageProduct(Orel, p4, System.GetStore("Mega"), "add");
-            ManageProducts.ManageProduct(Orel, p5, System.GetStore("Mega"), "add");
-            ManageProducts.ManageProduct(Orel, p6, System.GetStore("Mega"), "add");
-            SaveProductToCart.SaveProduct(p4, System.GetStore("Mega"), Orel);
-            SaveProductToCart.SaveProduct(p5, System.GetStore("Mega"), Orel);
-            SaveProductToCart.SaveProduct(p5, System.GetStore("Mega"), Nati);
-            SaveProductToCart.SaveProduct(p3, System.GetStore("Victory"), Nati);
-            SaveProductToCart.SaveProduct(p6, System.GetStore("Mega"), Nati);
+
+            ManageProducts.ManageProduct(UserId_Orel, -1, " white bread", "bread", 10, 50, "victory", "add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, " black bread", "bread", 15, 50, "victory", "add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, " chocolate", "chocolate", 11, 50, "victory", "add");
+           // ManageProducts.ManageProduct(UserId_Orel, -1, "milki", "dairy products", 12, 50, "Mega", "add");
+            //ManageProducts.ManageProduct(UserId_Orel, -1, "humus", "humus", 15, 50, "Mega", "add");
+           // ManageProducts.ManageProduct(UserId_Orel, -1, "water", "water", 7, 50, "Mega", "add");
+
+
+          
 
         }
         [TearDown]
         public void TearDown()
         {
-            System = Workshop192.System.Reset();
+            //TODO
+            //SystemReset.Reset();//the opposite of initalization of the system
         }
+
         [Test]
         public void AvailableFromOneShopTest()
         {
-            Assert.AreEqual(CheckAvailability.CheckAvailable(Orel.GetCarts()), true);
+            SaveProductToCart.SaveProduct(1, UserId_Orel, 20);
+            Assert.AreEqual(CheckAvailability.CheckAvailable(UserId_Orel), true);
         }
-        [Test]
+        /*[Test]
         public void AvailableFromTwoShopTest()
         {
             Assert.AreEqual(CheckAvailability.CheckAvailable(Nati.GetCarts()), true);
-        }
+        }*/
         [Test]
-        public void NotAvailableProductShopTest()//doesnt remove the product from store after check_availability returb true;
+        public void NotAvailableProductShopTest()
         {
-            Assert.AreEqual(CheckAvailability.CheckAvailable(Orel.GetCarts()), true);
-            Assert.AreEqual(CheckAvailability.CheckAvailable(Nati.GetCarts()), false);
+            SaveProductToCart.SaveProduct(1, UserId_Orel, 60);
+            Assert.AreEqual(CheckAvailability.CheckAvailable(UserId_Orel),false);
+           
         }
     }
 }

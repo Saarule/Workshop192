@@ -6,56 +6,55 @@ using ServiceLayer.Guest;
 using ServiceLayer.Store_Owner_User;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
+using ServiceLayer.RegisteredUser;
 
 namespace AccaptanceTests.Guest
 {
     [TestFixture]
     public class SaveProductsToCartTest
     {
-        Workshop192.System System = null;
-        User Orel;
-        User Nati;
-        Product p1;
-        Product p2;
+       int UserId_Orel;
+        int UserId_Nati;
+        
 
         [SetUp]
         public void SetUp()
         {
-            InitializationOfTheSystem init = new InitializationOfTheSystem();
-            init.Initalize();
-            System = Workshop192.System.GetInstance();
-            Orel = new User();
-            Nati = new User();
-            Register.Registration("orel", "123456", Orel);
-            LogIn.Login("orel", "123456", Orel);
-            System.OpenStore("Victory", Orel.GetInfo());
-            p1 = new Product(1, 10, "white bread");
-            p2 = new Product(2, 12, "black bread");
-            ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "add");
-            ManageProducts.ManageProduct(Orel, p2, System.GetStore("Victory"), "add");
+            InitializationOfTheSystem System = new InitializationOfTheSystem();
+            System.Initalize();
+            UserId_Orel = CreateAndGetUser.CreateUser();
+            UserId_Nati = CreateAndGetUser.CreateUser();
+            Register.Registration("orel", "Orelp", UserId_Orel);
+            LogIn.Login("orel", "Orelp",UserId_Orel);
+            OpenStore.openStore("Victory", UserId_Orel);
+            ManageProducts.ManageProduct(UserId_Orel, -1, " black bread", "bread", 10, 50, "victory", "add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, " white bread", "bread", 15, 50, "victory", "add");
+
+
+         
 
         }
         [TearDown]
         public void TearDown()
         {
-            System = Workshop192.System.Reset();
+            //TODO
+            //SystemReset.Reset();//the opposite of initalization of the system
         }
         [Test]
         public void AddProductToCartNonRegisteredTest()
         {
-            Assert.AreEqual(SaveProductToCart.SaveProduct(p1, System.GetStore("Victory"), Nati),true);
+            Assert.AreEqual(SaveProductToCart.SaveProduct(1,UserId_Nati,10),true);
         }
         [Test]
         public void AddProductToCartRegistedUserTest()
         {
-            Assert.AreEqual(SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Orel), true);
+            Assert.AreEqual(SaveProductToCart.SaveProduct(1,UserId_Orel,5), true);
         }
         [Test]
-        public void AddCatchedProductTest() 
+        public void AddNotExistedProductTest() 
         {
-            Assert.AreEqual(SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Orel), true);
-            Assert.AreEqual(SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Nati), true);
-            Assert.IsFalse(SaveProductToCart.SaveProduct(p2, System.GetStore("Victory"), Nati));
+            Assert.AreEqual(SaveProductToCart.SaveProduct(99999, UserId_Orel, 5), false);
         }
     }
 }
+

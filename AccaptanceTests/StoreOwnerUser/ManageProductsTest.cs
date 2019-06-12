@@ -12,80 +12,76 @@ namespace AccaptanceTests.StoreOwnerUser
     [TestFixture]
     public class ManageProductsTest
     {
-        Workshop192.System System = null;
-        User Orel;
-        User Nati;
-        Product p1;
-        Product p2;
-        Product p3;
+
+        int UserId_Nati;
+        int UserId_Orel;
+        
         [SetUp]
         public void SetUp()
         {
-            InitializationOfTheSystem init = new InitializationOfTheSystem();
-            init.Initalize();
-            System = Workshop192.System.GetInstance();
-            Orel = new User();
-            Nati = new User();
-            Register.Registration("orel", "123456", Orel);
-            LogIn.Login("orel", "123456", Orel);
-            System.OpenStore("Victory", Orel.GetInfo());
-            p1 = new Product(1,20,"Milk");
-            p2 = new Product(2, 15,"Pepsi");
-            p3 = new Product(2, 15, "Soda");
+
+            InitializationOfTheSystem System = new InitializationOfTheSystem();
+            System.Initalize();
+            UserId_Nati = CreateAndGetUser.CreateUser();
+            UserId_Orel = CreateAndGetUser.CreateUser();
+            Register.Registration("orel", "Orelp", UserId_Orel);
+            LogIn.Login("orel", "Orelp", UserId_Orel);
+            OpenStore.openStore("Victory", UserId_Orel);
+            
         }
         [TearDown]
         public void TearDown()
         {
-            System = Workshop192.System.Reset();
+            //TODO
+            //SystemReset.Reset();//the opposite of initalization of the system        
         }
         [Test]
         public void AddCorrectProductsTest()
         {
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel,p1,System.GetStore("Victory"),"add"), true);
+            //add option do nothing with productId ,beacuse of this I insert ProductId=-1
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel,-1,"Milk", "dairy products",10,50,"victory","add"), true);
         }
         [Test]
         public void AddIncorrectProductTest()
-        { 
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "add"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "add"), false);
-        }
-        /*[Test]
-        public void AddProductsWithSameIDTest() // need to check id and not just equality
         {
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p2, System.GetStore("Victory"), "add"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p3, System.GetStore("Victory"), "add"), false);
-        }*/
+            //add option do nothing with productId ,beacuse of this I insert ProductId=-1
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, -1, "Milk", "dairy products", 10, 50, "victory", "add"), true);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, -1, "Milk", "dairy products", 10, 50, "victory", "add"), false);
+        }
         [Test]
         public void DeleteProductTest()
         {
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "add"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "delete"), true);
+            //add option do nothing with productId ,beacuse of this I insert ProductId=-1
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, -1, "Milk", "dairy products", 10, 50, "victory", "add"), true);
+            //I dont know productId after I add the product to the inventory.
+            //because it the first product to be added to inventory in this test,I suppose its Id is 1.according to domain implementation.
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel,1, "Milk", "dairy products", 10, 50, "victory", "delete"), true);
         }
         [Test]
         public void DeleteProductNotExistsTest()
         {
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "add"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p3, System.GetStore("Victory"), "delete"), false);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 10, 50, "victory", "add"), true);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel,99999, "Goat Milk", "dairy products", 9, 40, "victory", "delete"), false);
         }
         [Test]
         public void DeleteProductTwiceTest()
         {
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "add"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "delete"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p1, System.GetStore("Victory"), "delete"), false);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, -1, "Milk", "dairy products", 10, 50, "victory", "add"), true);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 10, 50, "victory", "delete"), true);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 10, 50, "victory", "delete"), false);
         }
         [Test]
-        public void EditProductTwiceTest()
+        public void EditProductTest()
         {
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p2, System.GetStore("Victory"), "add"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p3, System.GetStore("Victory"), "edit"), true);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, -1, "Cheese", "dairy products", 10, 50, "victory", "add"), true);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Cheese", "dairy products", 20, 60, "victory", "edit"), true);
         }
         [Test]
         public void EditDeletedProductTest()
         {
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p2, System.GetStore("Victory"), "add"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p2, System.GetStore("Victory"), "delete"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(Orel, p3, System.GetStore("Victory"), "edit"), false);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, -1, "Milk", "dairy products", 10, 50, "victory", "add"), true);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 10, 50, "victory", "delete"), true);
+            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 20, 60, "victory", "edit"), false);
         }
     }
 }
