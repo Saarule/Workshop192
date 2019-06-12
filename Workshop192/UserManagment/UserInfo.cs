@@ -26,10 +26,17 @@ namespace Workshop192.UserManagment
 
         public bool SetAdmin()
         {
-            if (!IsAdmin())
+            if (IsAdmin())
                 return false;
             admin = new Admin();
             return true;
+        }
+
+        public bool MakeAdmin(UserInfo user)
+        {
+            if (!IsAdmin())
+                return false;
+            return admin.MakeAdmin(user);
         }
 
         public bool OpenStore(string storeName)
@@ -173,11 +180,11 @@ namespace Workshop192.UserManagment
             return false;
         }
 
-        public bool RemoveUser(string userName)
+        public bool RemoveUser(UserInfo user)
         {
             if (!IsAdmin())
                 return false;
-            return admin.RemoveUser(userName);
+            return admin.RemoveUser(user);
         }
 
         public int GetMultiCart()

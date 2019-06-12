@@ -8,9 +8,16 @@ namespace Workshop192.UserManagment
 {
     public class Admin
     {
-        public bool RemoveUser(string userName)
+        public bool RemoveUser(UserInfo user)
         {
-            return AllRegisteredUsers.GetInstance().RemoveUser(userName);
+            return AllRegisteredUsers.GetInstance().RemoveUser(user);
+        }
+
+        public bool MakeAdmin(UserInfo user)
+        {
+            if (user.IsAdmin())
+                return false;
+            return user.SetAdmin();
         }
     }
 }

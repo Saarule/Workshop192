@@ -161,8 +161,8 @@ namespace Workshop192.UserManagment
 
         public void RemoveSelf()
         {
-            foreach (StoreManager manager in appointedManagers)
-                manager.RemoveSelf();
+            while (appointedManagers.Count > 0)
+                appointedManagers.First.Value.RemoveSelf();
             user.GetStoreOwners().Remove(this);
             storeOwners.GetStoreOwners().Remove(this);
             if (storeOwners.GetStoreOwners().Count == 0)
