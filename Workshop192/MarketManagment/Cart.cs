@@ -49,6 +49,7 @@ namespace Workshop192.MarketManagment
 
         public void SetSum()
         {
+            sum = 0;
             foreach (KeyValuePair<Product, int> product in products)
                 sum += product.Key.GetPrice() * product.Value;
         }

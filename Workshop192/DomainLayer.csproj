@@ -7,7 +7,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0DB1192A-15DD-405E-8F42-FE910F491968}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>Workshop192</RootNamespace>
     <AssemblyName>Workshop192</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -15,6 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +35,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
@@ -58,7 +62,9 @@
     <Compile Include="MarketManagment\Inventory.cs" />
     <Compile Include="MarketManagment\MultiCart.cs" />
     <Compile Include="MarketManagment\PolicyComponent.cs" />
-    <Compile Include="MarketManagment\PolicyComposite.cs" />
+    <Compile Include="MarketManagment\PolicyCompositeAnd.cs" />
+    <Compile Include="MarketManagment\PolicyCompositeOr.cs" />
+    <Compile Include="MarketManagment\PolicyCompositeXor.cs" />
     <Compile Include="MarketManagment\PolicyLeafProductAmount.cs" />
     <Compile Include="MarketManagment\PolicyLeafUserName.cs" />
     <Compile Include="MarketManagment\Product.cs" />
@@ -67,9 +73,9 @@
     <Compile Include="MoneyCollectionSystemInterface.cs" />
     <Compile Include="MoneyCollectionSystemProxy.cs" />
     <Compile Include="MoneyCollectionSystemReal.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Security.cs" />
+    <Compile Include="UserManagment\Admin.cs" />
     <Compile Include="UserManagment\AllRegisteredUsers.cs" />
     <Compile Include="UserManagment\Appointment.cs" />
     <Compile Include="UserManagment\StoreManager.cs" />

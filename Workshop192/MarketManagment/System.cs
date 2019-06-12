@@ -77,6 +77,8 @@ namespace Workshop192.MarketManagment
 
         public bool PurchaseProducts(int accountId, int userId, string name, string address)
         {
+            if (!CheckSellingPolicies(userId))
+                return false;
             int sum = SumOfCartPrice(userId);
             if (!moneyCollectionSystem.CollectFromAccount(accountId, sum))
                 return false;
@@ -117,11 +119,30 @@ namespace Workshop192.MarketManagment
                     cart.GetStore().GetInventory()[productAmount.Key] += productAmount.Value;
         }
 
+        public bool CheckSellingPolicies(int userId)
+        {
+            MultiCart multiCart = GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
+            foreach (Cart cart in multiCart.GetCarts())
+            {
+                if (!cart.GetStore().CheckSellingPolicies(userId, cart))
+                    return false;
+                foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
+                    if (!productAmount.Key.CheckSellingPolicies(userId, cart))
+                        return false;
+            }
+            return true;
+        }
+
         public int SumOfCartPrice(int userId)
         {
             MultiCart multiCart = GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
             foreach (Cart cart in multiCart.GetCarts())
+            {
                 cart.SetSum();
+                cart.GetStore().SetDiscountMinimum(userId, cart);
+                foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
+                    productAmount.Key.SetDiscountMinimum(userId, cart);
+            }
             int sum = 0;
             foreach (Cart cart in multiCart.GetCarts())
                 sum += cart.GetCartSum();

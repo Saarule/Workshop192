@@ -32,6 +32,56 @@ namespace Workshop192.MarketManagment
             this.price = price;
         }
 
+        public void AddDiscountPolicy(PolicyComponent policy, int discount)
+        {
+            discountPolicies.AddLast(new Tuple<PolicyComponent, int>(policy, discount));
+        }
+
+        public void AddSellingPolicy(PolicyComponent policy)
+        {
+            sellingPolicies.AddLast(policy);
+        }
+
+        public bool RemoveDiscountPolicy(int policyId)
+        {
+            if (discountPolicies.Count < policyId)
+                return false;
+            return discountPolicies.Remove(discountPolicies.ElementAt(policyId));
+        }
+
+        public bool RemoveSellingPolicy(int policyId)
+        {
+            if (sellingPolicies.Count < policyId)
+                return false;
+            return sellingPolicies.Remove(sellingPolicies.ElementAt(policyId));
+        }
+
+        public void SetDiscountMinimum(int userId, Cart cart)
+        {
+            foreach (Tuple<PolicyComponent, int> policy in discountPolicies)
+                if (policy.Item1.Validate(userId, cart))
+                {
+                    int sum = 0;
+                    foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
+                    {
+                        if (productAmount.Key.Equals(this))
+                            sum += productAmount.Key.price * productAmount.Value * (100 - policy.Item2) / 100;
+                        else
+                            sum += productAmount.Key.price * productAmount.Value;
+                    }
+                    if (sum < cart.GetCartSum())
+                        cart.SetSum(sum);
+                }
+        }
+
+        public bool CheckSellingPolicies(int userId, Cart cart)
+        {
+            foreach (PolicyComponent policy in sellingPolicies)
+                if (!policy.Validate(userId, cart))
+                    return false;
+            return true;
+        }
+
         public int GetId()
         {
             return Id;

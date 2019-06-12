@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainLayerUnitTests.MarketManagment
+namespace DomainLayerUnitTests.UserManagment
 {
     [TestFixture]
-    class SellingPolicyTests
+    class AllRegisteredUsersTests
     {
     }
 }

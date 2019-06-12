@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Workshop192.MarketManagment
 {
-    class PolicyLeafProductAmount : PolicyComponent
+    public class PolicyLeafProductAmount : PolicyComponent
     {
         private string operation;
         private Product product;
