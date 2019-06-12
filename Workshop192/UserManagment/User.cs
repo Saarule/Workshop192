@@ -35,11 +35,11 @@ namespace Workshop192.UserManagment
             return true;
         }
 
-        public bool SetAdmin()
+        public bool MakeAdmin(UserInfo user)
         {
-            if (!IsLoggedIn())
+            if (!IsLoggedIn() || user == null)
                 return false;
-            return info.SetAdmin();
+            return user.MakeAdmin(user);
         }
 
         public bool OpenStore(string storeName)
@@ -143,11 +143,11 @@ namespace Workshop192.UserManagment
             return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).RemoveProductFromMultiCart(productId);
         }
 
-        public bool RemoveUser(string userName)
+        public bool RemoveUser(UserInfo user)
         {
-            if (!IsLoggedIn())
+            if (!IsLoggedIn() || user == null)
                 return false;
-            return info.RemoveUser(userName);
+            return info.RemoveUser(user);
         }
         
         public string GetUserName()

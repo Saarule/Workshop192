@@ -75,17 +75,14 @@ namespace Workshop192.UserManagment
             return userInfos[userName];
         }
 
-        public bool RemoveUser(string userName)
+        public bool RemoveUser(UserInfo user)
         {
-            if (!userInfos.ContainsKey(userName))
-                return false;
-            UserInfo user = userInfos[userName];
             while (user.GetStoreManagers().Count > 0)
                 user.GetStoreManagers().First.Value.RemoveSelf();
             while (user.GetStoreOwners().Count > 0)
                 user.GetStoreOwners().First.Value.RemoveSelf();
-            userInfos.Remove(userName);
-            passwords.Remove(userName);
+            userInfos.Remove(user.GetUserName());
+            passwords.Remove(user.GetUserName());
             return true;
         }
     }
