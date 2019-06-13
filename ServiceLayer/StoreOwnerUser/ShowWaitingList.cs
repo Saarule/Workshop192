@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.StoreOwnerUser
+namespace ServiceLayer.Store_Owner_User
 {
     class ShowWaitingList
     {

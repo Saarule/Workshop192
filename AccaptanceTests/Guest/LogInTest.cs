@@ -16,7 +16,7 @@ namespace AccaptanceTests.Guest
         public void SetUp()
         {
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
             //int userIDnati = Allusers.CreateUser();

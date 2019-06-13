@@ -21,7 +21,7 @@ namespace AccaptanceTests.StoreManagerUser
         public void SetUp()
         {
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Orel = CreateAndGetUser.CreateUser();
             UserId_Saar = CreateAndGetUser.CreateUser();
             Register.Registration("orel", "123456", UserId_Orel);

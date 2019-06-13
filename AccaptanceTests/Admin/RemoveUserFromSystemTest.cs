@@ -18,7 +18,7 @@ namespace AccaptanceTests.Admin
         public void SetUp()
         {
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
 
             UserId_Admin = CreateAndGetUser.CreateUser();
             LogIn.Login("admin", "admin11",UserId_Admin);

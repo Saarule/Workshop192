@@ -24,8 +24,6 @@ namespace CommunicationLayer.Notifications
             return instance;
         }
 
-        
-
         public void SendMessageToUser (string username, string message)
         {
             if (!Message_To_Users_List.ContainsKey(username))
@@ -49,16 +47,5 @@ namespace CommunicationLayer.Notifications
 
             return messages;
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }
