@@ -201,5 +201,13 @@ namespace Workshop192.UserManagment
         {
             return appointedManagers;
         }
+        public LinkedList<string> GetPendingUsers() {
+            LinkedList<string> result = new LinkedList<string>();
+            for(int i = 0; i < pendingUsers.Count; i++)
+            {
+                result.AddLast(pendingUsers.ElementAt(i).GetUserName());
+            }
+            return result;
+        }
     }
 }
