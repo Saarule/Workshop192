@@ -13,6 +13,7 @@ namespace CommunicationLayer.Controllers
 {
     public class UsersController : ApiController
     {
+        /*
         User[] users = new User[]
         {
             new User { Id = 1, UserName = "Tomato", Age = 23 , Address = "Tel Aviv" },
@@ -35,7 +36,7 @@ namespace CommunicationLayer.Controllers
                 return NotFound();
             }
             return Ok(product);
-        }
+        }*/
 
         public static bool Register(string username, string password, int userID)
         {
@@ -51,7 +52,11 @@ namespace CommunicationLayer.Controllers
         {
             return ServiceLayer.RegisteredUser.LogOut.Logout(userID);
         }
-        public static bool isAdmin(int userID)
+        public static bool RemoveUserFromSystem(int userID, string usernameToDelete)
+        {
+            return ServiceLayer.Admin.RemoveUserFromSystem.RemoveUser(userID,usernameToDelete);
+        }
+        public static bool IsAdmin(int userID)
         {
             return ServiceLayer.Admin.IsAdmin.isAdmin(userID);
         }
@@ -61,9 +66,27 @@ namespace CommunicationLayer.Controllers
             return ServiceLayer.Guest.CreateAndGetUser.CreateUser();
         }
 
+
+        
+        public static bool AssignStoreManager(int userId,string store,string usernameToAppoint,bool [] privileges)
+        {
+            return ServiceLayer.Store_Owner_User.AssignStoreManager.AsssignManager(userId, store, usernameToAppoint, privileges);
+        }
+
+        public static bool AssignStoreOwner(int userId, string store, string usernameToAppoint)
+        {
+            return ServiceLayer.Store_Owner_User.AssignStoreOwner.assignStoreOwner(userId, store, usernameToAppoint);
+        }
+
+        public static bool RemoveStoreManger(int userId, string store, string usernameToDelete)
+        {
+            return ServiceLayer.Store_Owner_User.RemoveStoreManager.removeStoreManager(userId, store, usernameToDelete);
+        }
+
         public static LinkedList<LinkedList<string>> GetRoles(int userID)
         {
             return ServiceLayer.RegisteredUser.GetRoles.getRoles(userID);
         }
+
     }
 }

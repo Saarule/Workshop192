@@ -49,8 +49,7 @@ namespace AccaptanceTests.Guest
         [TearDown]
         public void TearDown()
         {
-            //TODO
-            SystemReset.Reset();//the opposite of initalization of the system
+            SystemReset.Reset();
         }
         [Test]
         public void WatchSimpleCartTest()
@@ -82,19 +81,8 @@ namespace AccaptanceTests.Guest
             SaveProductToCart.SaveProduct(1, UserId_Orel, 10);
             SaveProductToCart.SaveProduct(2, UserId_Orel, 10);
 
-            WatchAndEdit.Edit("delete", "1", UserId_Orel);
+            WatchAndEdit.Edit("delete", 1, UserId_Orel);
             
-        }
-        [Test]
-        public void EditProductFromCartTest()
-        {
-            SaveProductToCart.SaveProduct(1, UserId_Orel, 10);
-            SaveProductToCart.SaveProduct(2, UserId_Orel, 10);
-            SaveProductToCart.SaveProduct(3, UserId_Orel, 15);
-            //add option "edit" to edit amount of product in cart
-            //WatchAndEdit.Edit("edit",1,20,UserId_Orel);
-            
-        
         }
     }
 }
