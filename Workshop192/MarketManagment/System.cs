@@ -70,20 +70,31 @@ namespace Workshop192.MarketManagment
             return multiCarts[multiCartId];
         }
 
-        private void ResetMultiCart(int multiCartId)
+        public void ResetMultiCart(int multiCartId)
         {
             multiCarts[multiCartId] = new MultiCart();
         }
 
         public bool PurchaseProducts(int accountId, int userId, string name, string address)
         {
+            int multiCartId = UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart();
+            RemoveProductsFromStore(GetMultiCart(multiCartId));
             if (!CheckSellingPolicies(userId))
+            {
+                ReturnProductsToStore(GetMultiCart(multiCartId));
                 return false;
+            }
             int sum = SumOfCartPrice(userId);
             if (!moneyCollectionSystem.CollectFromAccount(accountId, sum))
+            {
+                ReturnProductsToStore(GetMultiCart(multiCartId));
                 return false;
+            }
             if (!deliverySystem.Deliver(name, address, GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart())))
+            {
+                ReturnProductsToStore(GetMultiCart(multiCartId));
                 return false;
+            }
             ResetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
             return true;
         }

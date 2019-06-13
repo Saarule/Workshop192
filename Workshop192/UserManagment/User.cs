@@ -22,6 +22,7 @@ namespace Workshop192.UserManagment
             if (IsLoggedIn() || info == null)
                 return false;
             this.info = info;
+            MarketManagment.System.GetInstance().ResetMultiCart(multiCartId);
             multiCartId = info.GetMultiCart();
             return true;
         }

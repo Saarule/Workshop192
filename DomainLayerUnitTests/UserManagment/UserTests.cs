@@ -194,6 +194,19 @@ namespace DomainLayerUnitTests.UserManagment
         }
 
         [Test]
+        public void LogIn_ChangeMultiCartToLoggedInUserCart_ReturnsTrue()
+        {
+            Workshop192.MarketManagment.System.GetInstance().OpenStore("store");
+            Workshop192.MarketManagment.System.GetInstance().GetStore("store").AddProducts(new Product(1, "", "", 1), 5);
+            user.LogIn(info);
+            user.AddProductsToMultiCart("store", 1, 3);
+            user.LogOut();
+            Assert.AreEqual(0, Workshop192.MarketManagment.System.GetInstance().GetMultiCart(user.GetMultiCart()).GetCarts().Count);
+            user.LogIn(info);
+            Assert.AreEqual(1, Workshop192.MarketManagment.System.GetInstance().GetMultiCart(user.GetMultiCart()).GetCarts().Count);
+        }
+
+        [Test]
         public void RemoveUser_UserNotLoggedIn_ReturnsFalse()
         {
             Assert.IsFalse(user.RemoveUser(null));

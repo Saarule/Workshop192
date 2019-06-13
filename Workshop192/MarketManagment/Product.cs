@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,8 +28,9 @@ namespace Workshop192.MarketManagment
 
         public void EditProduct(string name, string category, int price)
         {
-            //Logger.GetInstance().WriteToEventLog("Edited product " + Id + " to: name: " + this.name + " -> " + name + ", category: " + this.category + " -> " + category + ", price: " + this.price + " -> " + price);
+            //Logger.GetInstance().WriteToEventLog("Product edited [" + Id + "] to: name: " + this.name + " -> " + name + ", category: " + this.category + " -> " + category + ", price: " + this.price + " -> " + price);
             Logger.GetInstance().WriteToEventLog("test");
+            Logger.GetInstance().WriteToErrorLog("asd");
             this.name = name;
             this.category = category;
             this.price = price;
