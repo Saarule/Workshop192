@@ -24,7 +24,7 @@ namespace AccaptanceTests.Guest
         public void SetUp()
         {
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Orel = CreateAndGetUser.CreateUser();
 
 
@@ -69,18 +69,26 @@ namespace AccaptanceTests.Guest
         public void SearchWhiteBreadTest()
         {
             l1.AddLast(white_bread);
-            Assert.AreEqual(FilterProducts.Filter("white bread",SearchProducts.Search("bread")),l1);
+            Assert.AreEqual(FilterProducts.Filter("white bread",SearchProducts.Search("bread"),"byName"),l1);
         }
         [Test]
         public void SearchBlackBreadTest()
         {
             l1.AddLast(black_bread);
-            Assert.AreEqual(FilterProducts.Filter("black bread", SearchProducts.Search("bread")), l1);
+            Assert.AreEqual(FilterProducts.Filter("black bread", SearchProducts.Search("bread"),"byName"), l1);
+        }
+        [Test]
+        public void SearchCategoryTest()
+        {
+            l1.AddLast(white_bread);
+            l1.AddLast(black_bread);
+            l1.AddLast(cutted_bread);
+            Assert.AreEqual(FilterProducts.Filter("bread", l1 , "byCategory"), l1);
         }
         [Test]
         public void SearchNoResultsTest()
         {
-            Assert.AreEqual(FilterProducts.Filter("chocko", SearchProducts.Search("bread")), l1);
+            Assert.AreEqual(FilterProducts.Filter("chocko", SearchProducts.Search("bread"),"byName"), l1);
         }
     }
 }

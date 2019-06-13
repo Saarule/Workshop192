@@ -31,19 +31,13 @@ namespace ServiceLayer.Guest
             return products;
         }
 
-        public static bool Edit(string option, string productID, int userID)
+        public static bool Edit(string option, int productID, int userID)
         {
             if (option.Equals("delete"))
             {
-                ///return AllRegisteredUsers.GetInstance().GetUser(userID).RemoveProductFromCart();
+                return AllRegisteredUsers.GetInstance().GetUser(userID).RemoveProductFromCart(productID);
 
             }
-            else if (option.Equals("edit"))
-            {
-                ///return AllRegisteredUsers.GetInstance().GetUser(userID).();
-                ///has no support to edit from domain
-            }
-
             return false;
         }
     }

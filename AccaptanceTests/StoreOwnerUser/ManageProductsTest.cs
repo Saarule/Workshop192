@@ -22,7 +22,7 @@ namespace AccaptanceTests.StoreOwnerUser
         {
 
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
             Register.Registration("orel", "123456", UserId_Orel);

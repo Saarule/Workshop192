@@ -24,7 +24,7 @@ namespace AccaptanceTests.StoreOwnerUser
         {
 
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
             UserId_Saar = CreateAndGetUser.CreateUser();
