@@ -76,7 +76,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('Successful Registeration');</script>");
-                    Response.Redirect("HomePage.aspx");
+                    Response.Redirect("index.aspx");
                 }
                 else
                 {

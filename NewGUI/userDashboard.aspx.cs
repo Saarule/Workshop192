@@ -51,7 +51,7 @@ namespace NewGUI
             }
             else
             {
-                bool ans = CommunicationLayer.Controllers.ProductsController.openStore(storeName, HttpContext.Current.Session.SessionID);
+                bool ans = CommunicationLayer.Controllers.ProductsController.OpenStore(storeName, HttpContext.Current.Session.SessionID);
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully opening store');</script>");
