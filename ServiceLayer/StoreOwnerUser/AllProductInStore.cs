@@ -10,9 +10,10 @@ namespace ServiceLayer.Store_Owner_User
         public static LinkedList<LinkedList<string>> GetAllProducts(string storeName)
         {
             LinkedList<LinkedList<string>> products = new LinkedList<LinkedList<string>>();
-            for (int i = 0; i < Workshop192.MarketManagment.System.GetInstance().GetStore(storeName).GetInventory().Count; i++) {
+            for (int i = 0; i < Workshop192.MarketManagment.System.GetInstance().GetStore(storeName).GetInventory().Count; i++)
+            {
                 LinkedList<string> product = new LinkedList<string>();
-                product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetStore(storeName).GetInventory().ElementAt(i).Key.GetId()+"");
+                product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetStore(storeName).GetInventory().ElementAt(i).Key.GetId() + "");
                 product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetStore(storeName).GetInventory().ElementAt(i).Key.GetName() + "");
                 product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetStore(storeName).GetInventory().ElementAt(i).Key.GetCategory() + "");
                 product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetStore(storeName).GetInventory().ElementAt(i).Key.GetPrice() + "");
@@ -20,7 +21,6 @@ namespace ServiceLayer.Store_Owner_User
                 product.AddLast(storeName);
                 products.AddLast(product);
             }
-
             return products;
         }
     }

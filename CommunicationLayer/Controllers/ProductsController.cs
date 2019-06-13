@@ -11,7 +11,7 @@ namespace CommunicationLayer.Controllers
 {
     public class ProductsController : ApiController
     {
-        
+        /* SAAR VERSION
         List<Product> products = new List<Product>
         {
             new Product { Id = 1, Name = "Tomato", Category = "Groceries", Price = 1 },
@@ -73,32 +73,68 @@ namespace CommunicationLayer.Controllers
         {
             products.Add(product);
         }
-        
-        public static bool openStore(string storename , int userID)
+        */
+
+
+        public static bool OpenStore(string storename ,string SessionID)
         {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+
             return ServiceLayer.RegisteredUser.OpenStore.openStore(storename, userID);
         }
 
-        public LinkedList<LinkedList<string>> displayCart(int userID)
+        public LinkedList<LinkedList<string>> DisplayCart(string SessionID)
         {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+
             return ServiceLayer.Guest.WatchAndEdit.Watch(userID);
         }
-        public static bool addToCart(int userID , int productID , int amount)
+
+        public static bool SaveToCart(string SessionID, int productID , int amount)
         {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+
             return ServiceLayer.Guest.SaveProductToCart.SaveProduct(productID,userID,amount);
         }
+
         public static LinkedList<LinkedList<string>> SearchProducts(string input)
         {
             LinkedList<LinkedList<string>> result = ServiceLayer.Guest.SearchProducts.Search(input);
             return result;
         }
-        public static bool ManageProducts(int userID, int productID, string name, string category, int price, int amount, string store, string option)
+
+        public static bool ManageProducts(string SessionID, int productID, string name, string category, int price, int amount, string store, string option)
         {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+
             return ServiceLayer.Store_Owner_User.ManageProducts.ManageProduct(userID,productID,name,category,price,amount,store,option);
         }
-        public static LinkedList<LinkedList<string>> getProductsOfStore(string storeName)
+
+        public static bool ProcessOfBuying(int AcountID, string SessionID, string Name,string AddresToDelivery)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+
+            return ServiceLayer.Guest.ProcessOfBuyingProducts.ProcessBuyingProducts(AcountID,userID,Name,AddresToDelivery);
+        }
+
+        public static LinkedList<LinkedList<string>> FilterProducts(string input , LinkedList<LinkedList<string>> toFilter,string option)
+        {
+            // filter by category OR name (must be identical to  - הפילטר חייב להיות זהה)
+            // option need to be :  byName OR byCategory
+            return ServiceLayer.Guest.FilterProducts.Filter(input , toFilter, option);
+        }
+
+        public static LinkedList<LinkedList<string>> GetProductsOfStore(string storeName)
         {
             return ServiceLayer.Store_Owner_User.AllProductInStore.GetAllProducts(storeName);
+        }
+
+        public static bool EditCart(string option, int productID, string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+
+            //EDIT SUPPORT: meantime just "delete" if want to edit num of units form products need to delete and add how many he wants again.  
+            return ServiceLayer.Guest.WatchAndEdit.Edit(option, productID, userID);
         }
     }
 }
