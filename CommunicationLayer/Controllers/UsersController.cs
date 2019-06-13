@@ -66,8 +66,16 @@ namespace CommunicationLayer.Controllers
             return ServiceLayer.Guest.CreateAndGetUser.CreateUser();
         }
 
+        public static bool AcceptOwner(string store , int userID , string usernameToAccept)
+        {
+            return ServiceLayer.Store_Owner_User.HandlerRequestAppointment.AcceptAppointment(store, userID, usernameToAccept);
+        }
 
-        
+        public static bool DeclineOwner(string store, int userID, string usernameToDecline)
+        {
+            return ServiceLayer.Store_Owner_User.HandlerRequestAppointment.DeclineAppointment(store, userID, usernameToDecline);
+        }
+
         public static bool AssignStoreManager(int userId,string store,string usernameToAppoint,bool [] privileges)
         {
             return ServiceLayer.Store_Owner_User.AssignStoreManager.AsssignManager(userId, store, usernameToAppoint, privileges);
