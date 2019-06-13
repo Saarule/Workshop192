@@ -66,6 +66,7 @@
     <Compile Include="StoreOwnerUser\AllProductInStore.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreManager.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreOwner.cs" />
+    <Compile Include="StoreOwnerUser\HandlerRequestAppointment.cs" />
     <Compile Include="StoreOwnerUser\ManageProducts.cs" />
     <Compile Include="StoreOwnerUser\RemoveStoreManager.cs" />
     <Compile Include="SystemInitializtion\InitializationOfTheSystem.cs" />
