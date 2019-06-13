@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunicationLayer.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -34,8 +35,10 @@ namespace CommunicationLayer.Notifications
             Message_To_Users_List[username].AddLast(message);
             
         }
-        public LinkedList<string> Send_Notifications_To_Me(int UserId)
+        public LinkedList<string> Send_Notifications_To_Me(string SessionID)
         {
+            int UserId = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+
             string username = ServiceLayer.Guest.CreateAndGetUser.GetUser(UserId).GetUserName();
             LinkedList<string> messages = new LinkedList<string>();
             //create copy of list of messages
