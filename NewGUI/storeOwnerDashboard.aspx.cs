@@ -71,5 +71,11 @@ namespace NewGUI
             String storeNameToManage = StoreToManageTextBox.Text; 
             Response.Redirect("manageStorePanel.aspx?storeName="+storeNameToManage);
         }
+        protected void OwnStoreButton1_Click(object sender, EventArgs e)
+        {
+            String storeNameToOwn = StoreToOwnTextBox.Text;
+            Response.Redirect("ownStorePanel.aspx?storeName=" + storeNameToOwn);
+        }
+        
     }
 }

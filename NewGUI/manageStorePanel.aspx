@@ -169,44 +169,16 @@
             </table>
           </div>
         </div>
+
+
+
+
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
             <h3 class="billing-title">Store Products</h3>
             <table class="order-rable">
               <tr>
                   <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-              </tr>
-            </table>
-          </div>
-        </div>
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Remove Product</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter product ID:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="TextBox2" runat="server" placeholder="Product ID" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button5" runat="server" class="button button-register w-100" Text="Remove Product" OnClick="RemoveProductButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Remove Product</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter product ID:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="TextBox3" runat="server" placeholder="Product ID" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button6" runat="server" class="button button-register w-100" Text="Remove Product" OnClick="RemoveProductButton1_Click" /></td>
               </tr>
             </table>
           </div>

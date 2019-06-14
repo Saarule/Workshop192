@@ -8,15 +8,16 @@ using System.Web.UI.WebControls;
 
 namespace NewGUI
 {
-    public partial class manageStorePanel : System.Web.UI.Page
+    public partial class ownStorePanel : System.Web.UI.Page
     {
-        StringBuilder tableProducts = new StringBuilder();
-        LinkedList<LinkedList<string>> products = new LinkedList<LinkedList<string>>();
+        //StringBuilder tableProducts = new StringBuilder();
+        //LinkedList<LinkedList<string>> products = new LinkedList<LinkedList<string>>();
         string storeName;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             storeName = Request["storeName"];
+            /*
             products = CommunicationLayer.Controllers.ProductsController.GetProductsOfStore(storeName);
             tableProducts.Append("<table border='1'>");
             tableProducts.Append("<tr><th> Product ID: </th><th> Product Name: </th><th> Product Category: </th><th> Product Price: </th><th> Product Amount: </th><th> Store Name: </th>");
@@ -34,7 +35,7 @@ namespace NewGUI
             }
             tableProducts.Append("</table>");
             PlaceHolder1.Controls.Add(new Literal { Text = tableProducts.ToString() });
-
+            */
 
         }
 
@@ -52,7 +53,7 @@ namespace NewGUI
             }
         }
 
-        
+
         protected void AddProductButton1_Click(object sender, EventArgs e)
         {
             string productName = ProductNameTextBox1.Text;
@@ -74,7 +75,7 @@ namespace NewGUI
         protected void RemoveProductButton1_Click(object sender, EventArgs e)
         {
             string productIdToDelete = ProductIdToDeleteTextBox.Text;
-            bool ans = CommunicationLayer.Controllers.ProductsController.ManageProducts(HttpContext.Current.Session.SessionID, Int32.Parse(productIdToDelete), null , null , -1 , -1 , storeName, "delete");
+            bool ans = CommunicationLayer.Controllers.ProductsController.ManageProducts(HttpContext.Current.Session.SessionID, Int32.Parse(productIdToDelete), null, null, -1, -1, storeName, "delete");
             if (ans)
             {
                 Response.Write("<script>alert('succesfully delete product');</script>");
@@ -153,6 +154,5 @@ namespace NewGUI
                 Response.Write("<script>alert('There was error when adding the Store Owner');</script>");
             }
         }
-
     }
 }

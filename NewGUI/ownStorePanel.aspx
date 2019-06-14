@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="storeOwnerDashboard.aspx.cs" Inherits="NewGUI.storeOwnerDashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ownStorePanel.aspx.cs" Inherits="NewGUI.ownStorePanel" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,72 +77,55 @@
   <section class="order_details section-margin--small">
     <div class="container">
       <div class="row mb-5">
-        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
-            <h3 class="billing-title">Log Out</h3>
-            <table class="order-rable">
-                <asp:Button ID="SendButton1" runat="server" class="button button-register w-100" Text="Log Out" OnClick="LogoutButton1_Click" />
-            </table>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Open Store</h3>
+            <h3 class="billing-title">Add Store Manager</h3>
             <table class="order-rable">
               <tr>
-                <td>Enter store name:</td>
+                <td>Enter store manager username:</td>
               </tr>
                 <tr>
-                    <td><asp:TextBox id="StoreNameTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                    <td><asp:TextBox id="StoreManagerToAddTextBox" runat="server" placeholder="username" class="form-control" type="text"></asp:TextBox></td>
                 </tr>
               <tr>
-                <td><asp:Button ID="Button1" runat="server" class="button button-register w-100" Text="Open Store" OnClick="OpenStoreButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">My Roles</h3>
-            <table class="order-rable">
-              <tr>
-                  <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+                <td><asp:Button ID="Button5" runat="server" class="button button-register w-100" Text="Add Store Manager" OnClick="AddStoreManagerButton1_Click" /></td>
               </tr>
             </table>
           </div>
         </div>
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
-            <h3 class="billing-title">Manage Store</h3>
+            <h3 class="billing-title">Remove Store Manager</h3>
             <table class="order-rable">
-                <tr>
-                <td>Enter store name:</td>
+              <tr>
+                <td>Enter store manager username:</td>
               </tr>
                 <tr>
-                    <td><asp:TextBox id="StoreToManageTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                    <td><asp:TextBox id="StoreManagerToRemoveTextBox" runat="server" placeholder="username" class="form-control" type="text"></asp:TextBox></td>
                 </tr>
-                <tr>
-                    <td><asp:Button ID="Button2" runat="server" class="button button-register w-100" Text="Manage Store Panel" OnClick="ManageStoreButton1_Click" /></td>
+              <tr>
+                <td><asp:Button ID="Button9" runat="server" class="button button-register w-100" Text="Remove Store Manager" OnClick="RemoveStoreManagerButton1_Click" /></td>
               </tr>
             </table>
           </div>
         </div>
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
-            <h3 class="billing-title">Own Store</h3>
+            <h3 class="billing-title">Add Store Owner</h3>
             <table class="order-rable">
-                <tr>
-                <td>Enter store name:</td>
+              <tr>
+                <td>Enter store owner username:</td>
               </tr>
                 <tr>
-                    <td><asp:TextBox id="StoreToOwnTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                    <td><asp:TextBox id="StoreOwnerTextBox" runat="server" placeholder="username" class="form-control" type="text"></asp:TextBox></td>
                 </tr>
-                <tr>
-                    <td><asp:Button ID="Button3" runat="server" class="button button-register w-100" Text="Own Store Panel" OnClick="OwnStoreButton1_Click" /></td>
+              <tr>
+                <td><asp:Button ID="Button2" runat="server" class="button button-register w-100" Text="Add Store Owner" OnClick="AddStoreOwnerButton1_Click" /></td>
               </tr>
             </table>
           </div>
         </div>
+   
       </div>
     </div>
   </section>
