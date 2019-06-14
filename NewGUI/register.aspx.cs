@@ -76,6 +76,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('Successful Registeration');</script>");
+                    Session["temp"] = "Temp";//Must do it in order to keep the session ID perssitent 
                     Response.Redirect("index.aspx");
                 }
                 else

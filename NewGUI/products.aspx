@@ -170,6 +170,7 @@
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
             <div class="row">
+
               <div class="col-md-6 col-lg-4">
                 <div class="card text-center card-product">
                   <div class="card-product__img">
@@ -323,6 +324,9 @@
                   </div>
                 </div>
               </div>
+                <div>
+                    <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+                </div>
             </div>
           </section>
           <!-- End Best Seller -->

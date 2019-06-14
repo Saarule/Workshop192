@@ -11,12 +11,12 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (CommunicationLayer.Controllers.UsersController.isAdmin(GlobalSpecificUser.userNum))
+            if (CommunicationLayer.Controllers.UsersController.IsAdmin(HttpContext.Current.Session.SessionID))
                 Button2.Visible = true;
         }
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
-            bool ans = CommunicationLayer.Controllers.UsersController.Logout(GlobalSpecificUser.userNum);
+            bool ans = CommunicationLayer.Controllers.UsersController.Logout(HttpContext.Current.Session.SessionID);
             if (ans)
             {
                 Response.Redirect("HomePage.aspx");

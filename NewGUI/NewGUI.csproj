@@ -78,8 +78,10 @@
   <ItemGroup>
     <Content Include="indexLoginUser.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="manageStorePanel.aspx" />
     <Content Include="products.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="storeOwnerDashboard.aspx" />
     <Content Include="userDashboard.aspx" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
@@ -98,6 +100,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manageStorePanel.aspx.cs">
+      <DependentUpon>manageStorePanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manageStorePanel.aspx.designer.cs">
+      <DependentUpon>manageStorePanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="products.aspx.cs">
       <DependentUpon>products.aspx</DependentUpon>
@@ -120,6 +129,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="storeOwnerDashboard.aspx.cs">
+      <DependentUpon>storeOwnerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="storeOwnerDashboard.aspx.designer.cs">
+      <DependentUpon>storeOwnerDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="userDashboard.aspx.cs">
       <DependentUpon>userDashboard.aspx</DependentUpon>

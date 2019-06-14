@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="userDashboard.aspx.cs" Inherits="NewGUI.userDashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="storeOwnerDashboard.aspx.cs" Inherits="NewGUI.storeOwnerDashboard" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,7 @@
 </head>
 <body>
   <!--================ Start Header Menu Area =================-->
-    <form id="form1" runat="server">
+    <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -52,6 +52,7 @@
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
                     <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li>
                  <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
@@ -106,6 +107,22 @@
             <table class="order-rable">
               <tr>
                   <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+              </tr>
+            </table>
+          </div>
+        </div>
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Manage Store</h3>
+            <table class="order-rable">
+                <tr>
+                <td>Enter store name:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="StoreToManageTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Button ID="Button2" runat="server" class="button button-register w-100" Text="Open Store" OnClick="ManageStoreButton1_Click" /></td>
               </tr>
             </table>
           </div>

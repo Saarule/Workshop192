@@ -8,13 +8,13 @@ using System.Web.UI.WebControls;
 
 namespace NewGUI
 {
-    public partial class userDashboard : System.Web.UI.Page
+    public partial class storeOwnerDashboard : System.Web.UI.Page
     {
         StringBuilder tableRoles = new StringBuilder();
         LinkedList<LinkedList<string>> Roles = new LinkedList<LinkedList<string>>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             Roles = CommunicationLayer.Controllers.UsersController.GetRoles(HttpContext.Current.Session.SessionID);
             tableRoles.Append("<table border='1'>");
             tableRoles.Append("<tr><th> Role: </th><th> Store Name: </th>");
@@ -28,8 +28,8 @@ namespace NewGUI
             }
             tableRoles.Append("</table>");
             PlaceHolder1.Controls.Add(new Literal { Text = tableRoles.ToString() });
-            
-            
+
+
         }
         protected void LogoutButton1_Click(object sender, EventArgs e)
         {
@@ -65,6 +65,11 @@ namespace NewGUI
                     Response.Write("<script>alert('The store name is exists');</script>");
                 }
             }
+        }
+        protected void ManageStoreButton1_Click(object sender, EventArgs e)
+        {
+            String storeNameToManage = StoreToManageTextBox.Text; 
+            Response.Redirect("manageStorePanel.aspx?storeName="+storeNameToManage);
         }
     }
 }
