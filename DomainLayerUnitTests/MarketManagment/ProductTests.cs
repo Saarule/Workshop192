@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
+using Workshop192;
 
 namespace DomainLayerUnitTests.MarketManagment
 {
@@ -63,7 +64,7 @@ namespace DomainLayerUnitTests.MarketManagment
             product.AddSellingPolicy(new PolicyLeafUserName("", "=="));
             product.AddSellingPolicy(new PolicyLeafUserName("user", "!="));
             product.AddSellingPolicy(new PolicyLeafProductAmount(product, ">", 10));
-            Assert.IsFalse(product.CheckSellingPolicies(1, cart));
+            Assert.Throws<ErrorMessageException>(() => product.CheckSellingPolicies(1, cart));
         }
 
         [TearDown]

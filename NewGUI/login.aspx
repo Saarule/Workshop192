@@ -100,10 +100,12 @@
 						<h3>Log in to enter</h3>
 						<form class="row login_form" action="#/" id="contactForm" >
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+								<!-- <input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'"> -->
+                                <asp:TextBox id="UsernameTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox>
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+							    <!-- <input type="text" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"> -->
+                                <asp:TextBox id="PasswordTextBox" runat="server" placeholder="Password" class="form-control" type="text"></asp:TextBox>
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">

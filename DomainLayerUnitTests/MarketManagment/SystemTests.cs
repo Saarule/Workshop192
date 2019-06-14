@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
+using Workshop192;
 
 namespace DomainLayerUnitTests.MarketManagment
 {
@@ -92,7 +93,7 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store1", 2, 1);
             user.AddProductsToMultiCart("store2", 3, 1);
             user.AddProductsToMultiCart("store2", 4, 1);
-            Assert.IsFalse(system.CheckSellingPolicies(1));
+            Assert.Throws<ErrorMessageException>(() => system.CheckSellingPolicies(1));
         }
 
         [Test]
@@ -142,19 +143,23 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store2", 3, 3);
             user.AddProductsToMultiCart("store2", 4, 4);
             store1.RemoveProductFromInventory(2);
-            Assert.IsFalse(system.CheckProductsAvailability(system.GetMultiCart(user.GetMultiCart())));
+            Assert.Throws<ErrorMessageException>(() => system.CheckProductsAvailability(system.GetMultiCart(user.GetMultiCart())));
         }
 
         [Test]
         public void PurchaseProducts_SuccesfullPurchase_ReturnsTrue()
         {
-            system.ConnectDeliverySystem(new Workshop192.DeliverySystemReal());
-            system.ConnectMoneyCollectionSystem(new Workshop192.MoneyCollectionSystemReal());
+            system.ConnectDeliverySystem(new DeliverySystemReal());
+            system.ConnectMoneyCollectionSystem(new MoneyCollectionSystemReal());
             user.AddProductsToMultiCart("store1", 1, 5);
             user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
             Assert.IsTrue(system.PurchaseProducts(1, 1, "Ben", "Here"));
+            Assert.AreEqual(5, store1.GetInventory()[product1]);
+            Assert.AreEqual(5, store1.GetInventory()[product2]);
+            Assert.AreEqual(5, store2.GetInventory()[product3]);
+            Assert.AreEqual(5, store2.GetInventory()[product4]);
         }
 
         [Test]
@@ -164,7 +169,11 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
-            Assert.IsFalse(system.PurchaseProducts(1, 1, "Ben", "Here"));
+            Assert.Throws<ErrorMessageException>(() => system.PurchaseProducts(1, 1, "Ben", "Here"));
+            Assert.AreEqual(10, store1.GetInventory()[product1]);
+            Assert.AreEqual(10, store1.GetInventory()[product2]);
+            Assert.AreEqual(10, store2.GetInventory()[product3]);
+            Assert.AreEqual(10, store2.GetInventory()[product4]);
         }
 
         [TearDown]

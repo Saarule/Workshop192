@@ -22,7 +22,7 @@ namespace AccaptanceTests.Guest
         public void SetUp()
         {
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Orel = CreateAndGetUser.CreateUser();
             UserId_Nati = CreateAndGetUser.CreateUser();
             Register.Registration("orel", "123456", UserId_Orel);

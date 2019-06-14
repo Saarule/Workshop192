@@ -23,7 +23,7 @@ namespace GUI
             }
             else
             {
-                bool ans = CommunicationLayer.Controllers.ProductsController.openStore(storeName, GlobalSpecificUser.userNum);
+                bool ans = CommunicationLayer.Controllers.ProductsController.OpenStore(storeName, HttpContext.Current.Session.SessionID);
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully opening store');</script>");

@@ -70,20 +70,36 @@ namespace Workshop192.MarketManagment
             return multiCarts[multiCartId];
         }
 
-        private void ResetMultiCart(int multiCartId)
+        public void ResetMultiCart(int multiCartId)
         {
             multiCarts[multiCartId] = new MultiCart();
         }
 
         public bool PurchaseProducts(int accountId, int userId, string name, string address)
         {
-            if (!CheckSellingPolicies(userId))
-                return false;
+            int multiCartId = UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart();
+            RemoveProductsFromStore(GetMultiCart(multiCartId));
+            try
+            {
+                if (!CheckSellingPolicies(userId))
+                    return false;
+            }
+            catch (ErrorMessageException e)
+            {
+                ReturnProductsToStore(GetMultiCart(multiCartId));
+                throw e;
+            }
             int sum = SumOfCartPrice(userId);
             if (!moneyCollectionSystem.CollectFromAccount(accountId, sum))
-                return false;
+            {
+                ReturnProductsToStore(GetMultiCart(multiCartId));
+                throw new ErrorMessageException("Cant connect to Money Collection System");
+            }
             if (!deliverySystem.Deliver(name, address, GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart())))
-                return false;
+            {
+                ReturnProductsToStore(GetMultiCart(multiCartId));
+                throw new ErrorMessageException("Cant connect to Delivery System");
+            }
             ResetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
             return true;
         }
@@ -95,11 +111,11 @@ namespace Workshop192.MarketManagment
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
                 {
                     if (!cart.GetStore().GetInventory().ContainsKey(productAmount.Key))
-                        return false;
+                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesn't exist anymore");
                     if (cart.GetStore().GetInventory()[productAmount.Key] < productAmount.Value)
-                        return false;
+                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesn't have the given amount in store");
                     if (GetStore(cart.GetStore().GetName()) == null)
-                        return false;
+                        throw new ErrorMessageException("Store [" + cart.GetStore().GetName() + "] no longer exists");
                 }
             }
             return true;

@@ -33,7 +33,7 @@ namespace GUI
             }
             else
             {
-                bool ans = CommunicationLayer.Controllers.UsersController.Login(Username, Password,GlobalSpecificUser.userNum);
+                bool ans = CommunicationLayer.Controllers.UsersController.Login(Username, Password, HttpContext.Current.Session.SessionID);
                 if (ans)
                 {
                     Response.Write("<script>alert('Successful Log in');</script>");

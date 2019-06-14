@@ -9,6 +9,7 @@ using Workshop192.UserManagment;
 using System.Linq;
 using ServiceLayer.RegisteredUser;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.Guest
 {
@@ -29,18 +30,18 @@ namespace AccaptanceTests.Guest
         public void SetUp()
         {
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
 
-             UserId_Nati=CreateAndGetUser.CreateUser();
+            UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
-            Register.Registration("orel", "Orelp", UserId_Orel);
-            LogIn.Login("orel", "Orelp", UserId_Orel);
+            Register.Registration("orel", "123456", UserId_Orel);
+            LogIn.Login("orel", "123456", UserId_Orel);
             OpenStore.openStore("victory", UserId_Orel);
             OpenStore.openStore("Rami-Levi", UserId_Orel);
-            
-            
-            ManageProducts.ManageProduct(UserId_Orel, -1, "black bread","bread",10,100,"Victory", "add");
-            ManageProducts.ManageProduct(UserId_Orel,-1,"black bread","bread",15,100, "Victory", "add");
+
+
+            ManageProducts.ManageProduct(UserId_Orel, -1, "black bread", "bread", 10, 100, "victory", "add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, "black bread", "bread", 15, 100, "victory", "add");
             ManageProducts.ManageProduct(UserId_Orel, -1, "cutted bread", "bread", 20, 100, "Rami-Levi", "add");
             ManageProducts.ManageProduct(UserId_Orel, -1, "brown bread", "bread", 25, 100, "Rami-Levi", "add");
            
@@ -49,8 +50,7 @@ namespace AccaptanceTests.Guest
         [TearDown]
         public void TearDown()
         {
-            //TODO
-            SystemReset.Reset();//the opposite of initalization of the system
+            SystemReset.Reset();
         }
         [Test]
         public void WatchSimpleCartTest()
@@ -81,20 +81,8 @@ namespace AccaptanceTests.Guest
         {
             SaveProductToCart.SaveProduct(1, UserId_Orel, 10);
             SaveProductToCart.SaveProduct(2, UserId_Orel, 10);
-
-            WatchAndEdit.Edit("delete", "1", UserId_Orel);
+            WatchAndEdit.Edit("delete", 1, UserId_Orel);
             
-        }
-        [Test]
-        public void EditProductFromCartTest()
-        {
-            SaveProductToCart.SaveProduct(1, UserId_Orel, 10);
-            SaveProductToCart.SaveProduct(2, UserId_Orel, 10);
-            SaveProductToCart.SaveProduct(3, UserId_Orel, 15);
-            //add option "edit" to edit amount of product in cart
-            //WatchAndEdit.Edit("edit",1,20,UserId_Orel);
-            
-        
         }
     }
 }

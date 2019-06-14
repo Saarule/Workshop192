@@ -23,12 +23,15 @@ namespace Workshop192.MarketManagment
                 if (cart.GetStore().Equals(store))
                     return cart.AddProductsToCart(productId, amount);
             carts.AddLast(new Cart(store));
-            if (carts.Last.Value.AddProductsToCart(productId, amount))
+            try
+            {
+                carts.Last.Value.AddProductsToCart(productId, amount);
                 return true;
-            else
+            }
+            catch (ErrorMessageException e)
             {
                 carts.RemoveLast();
-                return false;
+                throw e;
             }
         }
 
@@ -44,7 +47,7 @@ namespace Workshop192.MarketManagment
                             carts.Remove(cart);
                         return true;
                     }
-            return false;
+            throw new ErrorMessageException("Product Doesn't exist in multi cart");
         }
 
         public LinkedList<Cart> GetCarts()

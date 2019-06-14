@@ -4,6 +4,7 @@ using ServiceLayer;
 using ServiceLayer.Guest;
 using Workshop192.UserManagment;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.Guest
 {
@@ -19,7 +20,7 @@ namespace AccaptanceTests.Guest
         public void SetUp()
         {
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
            
@@ -39,13 +40,13 @@ namespace AccaptanceTests.Guest
         public void UserNameExistTest()
         {
             Assert.AreEqual(Register.Registration("orel", "5555555", UserId_Nati), true);
-            Assert.AreEqual(Register.Registration("orel", "5555", UserId_Orel), false);
+            Assert.Throws<ErrorMessageException>(() => Register.Registration("orel", "5555", UserId_Orel));
         }
         [Test]
         public void DoubleRegistrationTest()
         {
             Assert.AreEqual(Register.Registration("orel", "11111", UserId_Orel), true);
-            Assert.AreEqual(Register.Registration("orel", "11111", UserId_Orel), false);
+            Assert.Throws<ErrorMessageException>(() => Register.Registration("orel", "11111", UserId_Orel));
         }
 
     }

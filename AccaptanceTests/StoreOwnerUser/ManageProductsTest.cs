@@ -7,6 +7,7 @@ using ServiceLayer.Store_Owner_User;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.StoreOwnerUser
 {
@@ -22,7 +23,7 @@ namespace AccaptanceTests.StoreOwnerUser
         {
 
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
             Register.Registration("orel", "123456", UserId_Orel);
@@ -62,14 +63,14 @@ namespace AccaptanceTests.StoreOwnerUser
         public void DeleteProductNotExistsTest()
         {
             Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 10, 50, "victory", "add"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel,99999, "Goat Milk", "dairy products", 9, 40, "victory", "delete"), false);
+            Assert.Throws<ErrorMessageException>(() => ManageProducts.ManageProduct(UserId_Orel,99999, "Goat Milk", "dairy products", 9, 40, "victory", "delete"));
         }
         [Test]
         public void DeleteProductTwiceTest()
         {
             Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, -1, "Milk", "dairy products", 10, 50, "victory", "add"), true);
             Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 10, 50, "victory", "delete"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 10, 50, "victory", "delete"), false);
+            Assert.Throws<ErrorMessageException>(() => ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 10, 50, "victory", "delete"));
         }
         [Test]
         public void EditProductTest()
@@ -82,7 +83,7 @@ namespace AccaptanceTests.StoreOwnerUser
         {
             Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, -1,"Milk", "dairy products", 10, 50, "victory", "add"), true);
             Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 10, 50, "victory", "delete"), true);
-            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 20, 60, "victory", "edit"), false);
+            Assert.Throws<ErrorMessageException>(() => ManageProducts.ManageProduct(UserId_Orel, 1, "Milk", "dairy products", 20, 60, "victory", "edit"));
         }
     }
 }

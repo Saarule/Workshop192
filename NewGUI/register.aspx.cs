@@ -18,6 +18,8 @@ namespace NewGUI
 
         protected void RegisterButton1_Click(object sender, EventArgs e)
         {
+            /*
+             
             Console.WriteLine("--------Register Button pressed--------");
             //TODO GenerateNewUserId();
             if (!ConfirmPasswordTextBox.Text.Equals(PasswordTextBox.Text))
@@ -44,6 +46,43 @@ namespace NewGUI
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Response.Write("<script>alert('User registered successfully!')</script>");
+            }
+
+            */
+
+
+            string Username = UsernameTextBox.Text;
+            string Password = PasswordTextBox.Text;
+            if (!ConfirmPasswordTextBox.Text.Equals(PasswordTextBox.Text))
+            {
+                Response.Write("<script>alert('Password Does not much!');</script>");
+            }
+            else if (Username.Equals("") && Password.Equals(""))
+            {
+                Response.Write("<script>alert('The fields of username and password empty');</script>");
+            }
+            else if (Username.Equals(""))
+            {
+                Response.Write("<script>alert('The field of username empty');</script>");
+            }
+            else if (Password.Equals(""))
+            {
+                Response.Write("<script>alert('The field of password empty');</script>");
+            }
+            else
+            {
+                Pair pair = new Pair(Username, Password);
+                bool ans = CommunicationLayer.Controllers.UsersController.Register(Username, Password, HttpContext.Current.Session.SessionID);
+                if (ans)
+                {
+                    Response.Write("<script>alert('Successful Registeration');</script>");
+                    Session["temp"] = "Temp";//Must do it in order to keep the session ID perssitent 
+                    Response.Redirect("index.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Failed Registeration');</script>");
+                }
             }
         }
     }

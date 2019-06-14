@@ -10,24 +10,47 @@ namespace ServiceLayer.Guest
    public class FilterProducts
     {
         // use case 2.5(1) - Filter Products
-        public static LinkedList<LinkedList<string>> Filter(string filter, LinkedList<LinkedList<string>> products)
+        public static LinkedList<LinkedList<string>> Filter(string filter, LinkedList<LinkedList<string>> products , string option)
         {
-            LinkedList<LinkedList<string>> FoundProducts = new LinkedList<LinkedList<string>>();
-            for (int j = 0; j < products.Count; j++)
+            if (option.Equals("byName"))
             {
-                if (products.ElementAt(j).ElementAt(1).Equals(filter))
+                LinkedList<LinkedList<string>> FoundProducts = new LinkedList<LinkedList<string>>();
+                for (int j = 0; j < products.Count; j++)
                 {
-                    LinkedList<string> toAdd = new LinkedList<string>();
-                    toAdd.AddLast(products.ElementAt(j).ElementAt(0));
-                    toAdd.AddLast(products.ElementAt(j).ElementAt(1));
-                    toAdd.AddLast(products.ElementAt(j).ElementAt(2));
-                    toAdd.AddLast(products.ElementAt(j).ElementAt(3));
-                    toAdd.AddLast(products.ElementAt(j).ElementAt(4));
-                    toAdd.AddLast(products.ElementAt(j).ElementAt(5));
-                    FoundProducts.AddLast(toAdd);
+                    if (products.ElementAt(j).ElementAt(1).Equals(filter))
+                    {
+                        LinkedList<string> toAdd = new LinkedList<string>();
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(0));
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(1));
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(2));
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(3));
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(4));
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(5));
+                        FoundProducts.AddLast(toAdd);
+                    }
                 }
+                return FoundProducts;
             }
-            return FoundProducts;
+            else if (option.Equals("byCategory"))
+            {
+                LinkedList<LinkedList<string>> FoundProducts = new LinkedList<LinkedList<string>>();
+                for (int j = 0; j < products.Count; j++)
+                {
+                    if (products.ElementAt(j).ElementAt(2).Equals(filter))
+                    {
+                        LinkedList<string> toAdd = new LinkedList<string>();
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(0));
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(1));
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(2));
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(3));
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(4));
+                        toAdd.AddLast(products.ElementAt(j).ElementAt(5));
+                        FoundProducts.AddLast(toAdd);
+                    }
+                }
+                return FoundProducts;
+            }
+            return new LinkedList<LinkedList<string>>(); // illegal input
         }
     }
 }
