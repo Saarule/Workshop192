@@ -28,7 +28,7 @@ namespace Workshop192.UserManagment
             {
                 return MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount);
             }
-            return false;
+            throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
         }
 
         public bool RemoveProductFromInventory(int productId)
@@ -37,7 +37,7 @@ namespace Workshop192.UserManagment
             {
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId);
             }
-            return false;
+            throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
         }
 
         public bool EditProduct(int productId, string name, string category, int price, int amount)
@@ -46,13 +46,13 @@ namespace Workshop192.UserManagment
             {
                 return MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount);
             }
-            return false;
+            throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
         }
 
         public bool AddDiscountPolicy(PolicyComponent policy, int discount, int productId)
         {
             if (!privileges[3])
-                return false;
+                throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
             if (productId == 0)
                 MarketManagment.System.GetInstance().GetStore(store).AddDiscountPolicy(policy, discount);
             else
@@ -62,13 +62,13 @@ namespace Workshop192.UserManagment
                         productAmount.Key.AddDiscountPolicy(policy, discount);
                         return true;
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public bool AddSellingPolicy(PolicyComponent policy, int productId)
         {
             if (!privileges[4])
-                return false;
+                throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
             if (productId == 0)
                 MarketManagment.System.GetInstance().GetStore(store).AddSellingPolicy(policy);
             else
@@ -78,13 +78,13 @@ namespace Workshop192.UserManagment
                         productAmount.Key.AddSellingPolicy(policy);
                         return true;
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public bool RemoveDiscountPolicy(int policyId, int productId)
         {
             if (!privileges[5])
-                return false;
+                throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
             if (productId == 0)
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy(policyId);
             else
@@ -93,13 +93,13 @@ namespace Workshop192.UserManagment
                     {
                         return productAmount.Key.RemoveDiscountPolicy(policyId);
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public bool RemoveSellingPolicy(int policyId, int productId)
         {
             if (!privileges[6])
-                return false;
+                throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
             if (productId == 0)
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy(policyId);
             else
@@ -108,7 +108,7 @@ namespace Workshop192.UserManagment
                     {
                         return productAmount.Key.RemoveSellingPolicy(policyId);
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public void RemoveSelf()

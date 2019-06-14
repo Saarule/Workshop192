@@ -47,9 +47,11 @@ namespace Workshop192.UserManagment
 
         public bool AddOwner(UserInfo user)
         {
+            if (CheckUserExists(user))
+                throw new ErrorMessageException("The given user is already a store owner/manager in the store");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
                 if (owner.GetUser().Equals(user) || owner.pendingUsers.Contains(user))
-                    return false;
+                    throw new ErrorMessageException("The given user is already a pending owner");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
                 owner.pendingUsers.AddLast(user);
             pendingUsers.Remove(user);
@@ -66,7 +68,7 @@ namespace Workshop192.UserManagment
         public bool AcceptOwner(UserInfo user)
         {
             if (!pendingUsers.Contains(user))
-                return false;
+                throw new ErrorMessageException("The given user isn't in your pending users list");
             pendingUsers.Remove(user);
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
                 if (owner.pendingUsers.Contains(user))
@@ -78,7 +80,7 @@ namespace Workshop192.UserManagment
         public bool DeclineOwner(UserInfo user)
         {
             if (!pendingUsers.Contains(user))
-                return false;
+                throw new ErrorMessageException("The given user isn't in your pending users list");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
                 owner.pendingUsers.Remove(user);
             return true;
@@ -87,7 +89,7 @@ namespace Workshop192.UserManagment
         public bool AddManager(UserInfo user, bool[] privileges)
         {
             if (CheckUserExists(user))
-                return false;
+                throw new ErrorMessageException("The given user is already a store owner/manager in the store");
             StoreManager manager = new StoreManager(user, store, privileges, this);
             user.GetStoreManagers().AddLast(manager);
             appointedManagers.AddLast(manager);
@@ -102,7 +104,7 @@ namespace Workshop192.UserManagment
                     manager.RemoveSelf();
                     return true;
                 }
-            return false;
+            throw new ErrorMessageException("The given user is not a store manager this user appointed");
         }
 
         public bool AddDiscountPolicy(PolicyComponent policy, int discount, int productId)
@@ -116,7 +118,7 @@ namespace Workshop192.UserManagment
                         productAmount.Key.AddDiscountPolicy(policy, discount);
                         return true;
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public bool AddSellingPolicy(PolicyComponent policy, int productId)
@@ -130,7 +132,7 @@ namespace Workshop192.UserManagment
                         productAmount.Key.AddSellingPolicy(policy);
                         return true;
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public bool RemoveDiscountPolicy(int policyId, int productId)
@@ -143,7 +145,7 @@ namespace Workshop192.UserManagment
                     {
                         return productAmount.Key.RemoveDiscountPolicy(policyId);
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public bool RemoveSellingPolicy(int policyId, int productId)
@@ -156,7 +158,7 @@ namespace Workshop192.UserManagment
                     {
                         return productAmount.Key.RemoveSellingPolicy(policyId);
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public void RemoveSelf()

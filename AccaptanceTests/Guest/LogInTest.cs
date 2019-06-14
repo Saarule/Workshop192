@@ -4,6 +4,7 @@ using ServiceLayer;
 using ServiceLayer.Guest;
 using Workshop192.UserManagment;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.Guest
 {
@@ -36,7 +37,7 @@ namespace AccaptanceTests.Guest
         [Test]
         public void UserNotRegisteredTest()
         {
-            Assert.AreEqual(LogIn.Login("nati", "2222", UserId_Orel), false);
+            Assert.Throws<ErrorMessageException>(() => LogIn.Login("nati", "2222", UserId_Orel));
         }
         [Test]
         public void DoubleLoginTest() // NULL in case that GetUser(username,password) not exist ( == null) 
@@ -47,12 +48,12 @@ namespace AccaptanceTests.Guest
         [Test]
         public void WrongPasswordTest() // NULL in case that GetUser(username,password) not exist ( == null)
         {
-            Assert.AreEqual(LogIn.Login("orel", "111", UserId_Orel), false);
+            Assert.Throws<ErrorMessageException>(() => LogIn.Login("orel", "111", UserId_Orel));
         }
         [Test]
         public void WrongUsernameTest() // NULL in case that GetUser(username,password) not exist ( == null)
         {
-            Assert.AreEqual(LogIn.Login("ore", "123456", UserId_Orel), false);
+            Assert.Throws<ErrorMessageException>(() => LogIn.Login("ore", "123456", UserId_Orel));
         }
 
     }

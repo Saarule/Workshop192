@@ -114,10 +114,6 @@
       <Project>{3460562a-e8d6-4335-b018-4875640959bf}</Project>
       <Name>ServiceLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Workshop192\DomainLayer.csproj">
-      <Project>{0DB1192A-15DD-405E-8F42-FE910F491968}</Project>
-      <Name>DomainLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

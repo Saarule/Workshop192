@@ -79,21 +79,26 @@ namespace Workshop192.MarketManagment
         {
             int multiCartId = UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart();
             RemoveProductsFromStore(GetMultiCart(multiCartId));
-            if (!CheckSellingPolicies(userId))
+            try
+            {
+                if (!CheckSellingPolicies(userId))
+                    return false;
+            }
+            catch (ErrorMessageException e)
             {
                 ReturnProductsToStore(GetMultiCart(multiCartId));
-                return false;
+                throw e;
             }
             int sum = SumOfCartPrice(userId);
             if (!moneyCollectionSystem.CollectFromAccount(accountId, sum))
             {
                 ReturnProductsToStore(GetMultiCart(multiCartId));
-                return false;
+                throw new ErrorMessageException("Cant connect to Money Collection System");
             }
             if (!deliverySystem.Deliver(name, address, GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart())))
             {
                 ReturnProductsToStore(GetMultiCart(multiCartId));
-                return false;
+                throw new ErrorMessageException("Cant connect to Delivery System");
             }
             ResetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
             return true;
@@ -106,11 +111,11 @@ namespace Workshop192.MarketManagment
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
                 {
                     if (!cart.GetStore().GetInventory().ContainsKey(productAmount.Key))
-                        return false;
+                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesn't exist anymore");
                     if (cart.GetStore().GetInventory()[productAmount.Key] < productAmount.Value)
-                        return false;
+                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesn't have the given amount in store");
                     if (GetStore(cart.GetStore().GetName()) == null)
-                        return false;
+                        throw new ErrorMessageException("Store [" + cart.GetStore().GetName() + "] no longer exists");
                 }
             }
             return true;

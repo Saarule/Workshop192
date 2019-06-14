@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
+
 namespace Workshop192.UserManagment
 {
     public class User
@@ -19,8 +20,10 @@ namespace Workshop192.UserManagment
             
         public bool LogIn(UserInfo info)
         {
-            if (IsLoggedIn() || info == null)
-                return false;
+            if (IsLoggedIn())
+                throw new ErrorMessageException("User is already logged in");
+            if (info == null)
+                throw new ErrorMessageException("Invalid user info");
             this.info = info;
             MarketManagment.System.GetInstance().ResetMultiCart(multiCartId);
             multiCartId = info.GetMultiCart();
@@ -30,7 +33,7 @@ namespace Workshop192.UserManagment
         public bool LogOut()
         {
             if (!IsLoggedIn())
-                return false;
+                throw new ErrorMessageException("Not logged in");
             multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
             info = null;
             return true;
@@ -38,8 +41,10 @@ namespace Workshop192.UserManagment
 
         public bool MakeAdmin(UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+                throw new ErrorMessageException("Can't make admin while not logged in");
+            if (user == null)
+                throw new ErrorMessageException("Given user dosen't exist");
             return user.MakeAdmin(user);
         }
 
@@ -47,90 +52,100 @@ namespace Workshop192.UserManagment
         {
             if (IsLoggedIn())
                 return info.OpenStore(storeName);
-            return false;
+            throw new ErrorMessageException("Can't open store while not logged in");
         }
 
         public bool AddProducts(string store, Product product, int amount)
         {
             if (IsLoggedIn())
                 return info.AddProducts(store, product, amount);
-            return false;
+            throw new ErrorMessageException("Can't add products to store while not logged in");
         }
 
         public bool RemoveProductFromInventory(string store, int productId)
         {
             if (IsLoggedIn())
                 return info.RemoveProductFromInventory(store, productId);
-            return false;
+            throw new ErrorMessageException("Can't remove products from store while not logged in");
         }
 
         public bool EditProduct(string store, int productId, string name, string category, int price, int amount)
         {
             if (IsLoggedIn())
                 return info.EditProduct(store, productId, name, category, price, amount);
-            return false;
+            throw new ErrorMessageException("Can't edit products while not logged in");
         }
 
         public bool AddStoreOwner(string store, UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+                throw new ErrorMessageException("Can't add store owner while not logged in");
+            if (user == null)
+                throw new ErrorMessageException("Given user dosen't exist");
             return info.AddStoreOwner(store, user);
         }
 
         public bool AcceptOwner(string store, UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+                throw new ErrorMessageException("Can't accept store owner while not logged in");
+            if (user == null)
+                throw new ErrorMessageException("Given user dosen't exist");
             return info.AcceptOwner(store, user);
         }
 
         public bool DeclineOwner(string store, UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+                throw new ErrorMessageException("Can't decline store owner while not logged in");
+            if (user == null)
+                throw new ErrorMessageException("Given user dosen't exist");
             return info.DeclineOwner(store, user);
         }
 
         public bool AddDiscountPolicy(string store, PolicyComponent policy, int discount, int productId)
         {
             if (!IsLoggedIn())
-                return false;
+                throw new ErrorMessageException("Can't add discount policy while not logged in");
             return info.AddDiscountPolicy(store, policy, discount, productId);
         }
 
         public bool AddSellingPolicy(string store, PolicyComponent policy, int productId)
         {
             if (!IsLoggedIn())
-                return false;
+                throw new ErrorMessageException("Can't add selling policy while not logged in");
             return info.AddSellingPolicy(store, policy, productId);
         }
 
         public bool RemoveDiscountPolicy(string store, int policyId, int productId)
         {
             if (!IsLoggedIn())
-                return false;
+                throw new ErrorMessageException("Can't remove discount policy while not logged in");
             return info.RemoveDiscountPolicy(store, policyId, productId);
         }
 
         public bool RemoveSellingPolicy(string store, int policyId, int productId)
         {
             if (!IsLoggedIn())
-                return false;
+                throw new ErrorMessageException("Can't remove selling policy while not logged in");
             return info.RemoveSellingPolicy(store, policyId, productId);
         }
 
         public bool AddStoreManager(string store, UserInfo user, bool[] privileges)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+                throw new ErrorMessageException("Can't add store manager while not logged in");
+            if (user == null)
+                throw new ErrorMessageException("Given user dosen't exist");
             return info.AddStoreManager(store, user, privileges);
         }
 
         public bool RemoveStoreManager(string store, UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+                throw new ErrorMessageException("Can't remove store manager while not logged in");
+            if (user == null)
+                throw new ErrorMessageException("Given user dosen't exist");
             return info.RemoveStoreManager(store, user);
         }
 
@@ -146,8 +161,10 @@ namespace Workshop192.UserManagment
 
         public bool RemoveUser(UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+                throw new ErrorMessageException("Can't remove registered user while not logged in");
+            if (user == null)
+                throw new ErrorMessageException("Given user dosen't exist");
             return info.RemoveUser(user);
         }
         

@@ -29,9 +29,9 @@ namespace Workshop192.MarketManagment
                     break;
                 }
             if (product == null)
-                return false;
+                throw new ErrorMessageException("Product Id dosen't exist in store");
             if ((store.GetInventory()[product] < amount) || ( CheckExsit(productId) && (products[product] + amount > store.GetInventory()[product])))
-                return false;
+                throw new ErrorMessageException("Product has less than the given amount");
             if (CheckExsit(productId))
                 products[product] += amount;
             else
@@ -54,7 +54,7 @@ namespace Workshop192.MarketManagment
             foreach (KeyValuePair<Product, int> productAmount in products)
                 if (productAmount.Key.GetId().Equals(productId))
                     return products.Remove(productAmount.Key);
-            return false;
+            throw new ErrorMessageException("Product Doesn't exist in cart");
         }
 
         public void SetSum()

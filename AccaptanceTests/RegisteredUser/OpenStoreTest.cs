@@ -5,6 +5,7 @@ using ServiceLayer.Guest;
 using ServiceLayer.RegisteredUser;
 using Workshop192.UserManagment;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.RegisteredUser
 {
@@ -44,19 +45,19 @@ namespace AccaptanceTests.RegisteredUser
         {
 
             Assert.AreEqual(OpenStore.openStore("Victory", UserId_Orel), true);
-            Assert.AreEqual(OpenStore.openStore("Victory", UserId_Orel), false);
+            Assert.Throws<ErrorMessageException>(() => OpenStore.openStore("Victory", UserId_Orel));
         }
         [Test]
         public void OpenExistStoreTest2()
         {
 
             Assert.AreEqual(OpenStore.openStore("Victory", UserId_Orel), true);
-            Assert.AreEqual(OpenStore.openStore("Victory", UserId_Saar), false);
+            Assert.Throws<ErrorMessageException>(() => OpenStore.openStore("Victory", UserId_Saar));
         }
         [Test]
         public void UserNotRegisteredOpenStoreTest()
         {
-            Assert.AreEqual(OpenStore.openStore("victory", UserId_Nati), false);
+            Assert.Throws<ErrorMessageException>(() => OpenStore.openStore("victory", UserId_Nati));
         }
     }
 }

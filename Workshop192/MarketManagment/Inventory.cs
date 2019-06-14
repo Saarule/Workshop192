@@ -18,7 +18,7 @@ namespace Workshop192.MarketManagment
         public bool AddProducts(Product product, int amount)
         {
             if (products.ContainsKey(product))
-                return false;
+                throw new ErrorMessageException("Product already exists");
             products.Add(product, amount);
             return true;
         }
@@ -28,11 +28,11 @@ namespace Workshop192.MarketManagment
             if (products.ContainsKey(product))
             {
                 if (products[product] < amount)
-                    return false;
+                    throw new ErrorMessageException("Product doesn't have the given amount exists");
                 products[product] -= amount;
                 return true;
             }
-            return false;
+            throw new ErrorMessageException("Product doesn't exists");
         }
 
         public bool RemoveProductFromInventory(int productId)
@@ -40,7 +40,7 @@ namespace Workshop192.MarketManagment
             foreach (Product product in products.Keys)
                 if (product.GetId() == productId)
                     return products.Remove(product);
-            return false;
+            throw new ErrorMessageException("Product doesn't exists");
         }
 
         public bool EditProduct(int productId, string name, string category, int price, int amount)
@@ -52,7 +52,7 @@ namespace Workshop192.MarketManagment
                     p.EditProduct(name, category, price);
                     return true;
                 }
-            return false;
+            throw new ErrorMessageException("Product doesn't exists");
         }
 
         public Dictionary<Product, int> GetAllProduct()

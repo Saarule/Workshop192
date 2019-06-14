@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
+using Workshop192;
 
 namespace DomainLayerUnitTests.MarketManagment
 {
@@ -39,7 +40,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void AddProducts_AddExistingProducts_ReturnsFalse()
         {
-            Assert.IsFalse(store.AddProducts(product1, 5));
+            Assert.Throws<ErrorMessageException>(() => store.AddProducts(product1, 5));
             Assert.AreEqual(1, store.GetInventory().Count);
             Assert.AreEqual(10, store.GetInventory()[product1]);
         }
@@ -55,7 +56,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void RemoveProducts_RemoveNonExistingProducts_ReturnsFalse()
         {
-            Assert.IsFalse(store.RemoveProducts(product2, 2));
+            Assert.Throws<ErrorMessageException>(() => store.RemoveProducts(product2, 2));
             Assert.AreEqual(1, store.GetInventory().Count);
             Assert.AreEqual(10, store.GetInventory()[product1]);
         }
@@ -70,7 +71,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void RemoveProductFromstore_RemoveNonExistingProducts_ReturnsFalse()
         {
-            Assert.IsFalse(store.RemoveProductFromInventory(product2.GetId()));
+            Assert.Throws<ErrorMessageException>(() => store.RemoveProductFromInventory(product2.GetId()));
             Assert.AreEqual(1, store.GetInventory().Count);
         }
 
@@ -85,7 +86,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void EditProduct_EditNonExistingProduct_ReturnsFalse()
         {
-            Assert.IsFalse(store.EditProduct(product2.GetId(), "c", "c", 3, 30));
+            Assert.Throws<ErrorMessageException>(() => store.EditProduct(product2.GetId(), "c", "c", 3, 30));
             Assert.AreEqual(1, store.GetInventory().Count);
             Assert.AreEqual(10, store.GetInventory()[product1]);
         }
@@ -117,7 +118,7 @@ namespace DomainLayerUnitTests.MarketManagment
             store.AddSellingPolicy(new PolicyLeafUserName("", "=="));
             store.AddSellingPolicy(new PolicyLeafUserName("user", "!="));
             store.AddSellingPolicy(new PolicyLeafProductAmount(product1, ">", 10));
-            Assert.IsFalse(store.CheckSellingPolicies(1, cart));
+            Assert.Throws<ErrorMessageException>(() => store.CheckSellingPolicies(1, cart));
         }
 
         [TearDown]

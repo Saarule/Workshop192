@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop192.UserManagment;
+using Workshop192;
 
 namespace DomainLayerUnitTests.UserManagment
 {
@@ -49,7 +50,7 @@ namespace DomainLayerUnitTests.UserManagment
         public void MakeAdmin_UserAlreadyAdmin_ReturnsFalse()
         {
             admin.MakeAdmin(user1);
-            Assert.IsFalse(admin.MakeAdmin(user1));
+            Assert.Throws<ErrorMessageException>(() => admin.MakeAdmin(user1));
             Assert.IsTrue(user1.IsAdmin());
         }
 

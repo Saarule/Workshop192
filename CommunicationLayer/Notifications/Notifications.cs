@@ -34,7 +34,7 @@ namespace CommunicationLayer.Notifications
         }
         public LinkedList<string> Send_Notifications_To_Me(int UserId)
         {
-            string username = ServiceLayer.Guest.CreateAndGetUser.GetUser(UserId).GetUserName();
+            string username = ServiceLayer.Guest.CreateAndGetUser.GetUserName(UserId);
             LinkedList<string> messages = new LinkedList<string>();
             //create copy of list of messages
             for(int i=0;i< Message_To_Users_List[username].Count; i++)

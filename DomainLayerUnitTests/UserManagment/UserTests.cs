@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
+using Workshop192;
 
 namespace DomainLayerUnitTests.UserManagment
 {
@@ -35,14 +36,14 @@ namespace DomainLayerUnitTests.UserManagment
         public void LogIn_UserAlreadyLoggedIn_ReturnsFalse()
         {
             user.LogIn(info);
-            Assert.IsFalse(user.LogIn(info));
+            Assert.Throws<ErrorMessageException>(() => user.LogIn(info));
             Assert.IsNotNull(user.GetInfo());
         }
 
         [Test]
         public void LogOut_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.LogOut());
+            Assert.Throws<ErrorMessageException>(() => user.LogOut());
             Assert.IsNull(user.GetInfo());
         }
 
@@ -57,85 +58,85 @@ namespace DomainLayerUnitTests.UserManagment
         [Test]
         public void MakeAdmin_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.MakeAdmin(null));
+            Assert.Throws<ErrorMessageException>(() => user.MakeAdmin(null));
         }
 
         [Test]
         public void OpenStore_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.OpenStore("temp"));
+            Assert.Throws<ErrorMessageException>(() => user.OpenStore("temp"));
         }
 
         [Test]
         public void AddProducts_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.AddProducts("temp", new Product(1, "", "", 1), 5));
+            Assert.Throws<ErrorMessageException>(() => user.AddProducts("temp", new Product(1, "", "", 1), 5));
         }
 
         [Test]
         public void RemoveProductFromInventory_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.RemoveProductFromInventory("temp", 1));
+            Assert.Throws<ErrorMessageException>(() => user.RemoveProductFromInventory("temp", 1));
         }
 
         [Test]
         public void EditProduct_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.EditProduct("", 1, "", "", 1, 1));
+            Assert.Throws<ErrorMessageException>(() => user.EditProduct("", 1, "", "", 1, 1));
         }
 
         [Test]
         public void AddStoreOwner_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.AddStoreOwner("", null));
+            Assert.Throws<ErrorMessageException>(() => user.AddStoreOwner("", null));
         }
 
         [Test]
         public void AcceptOwner_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.AcceptOwner("", null));
+            Assert.Throws<ErrorMessageException>(() => user.AcceptOwner("", null));
         }
 
         [Test]
         public void DeclineOwner_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.DeclineOwner("", null));
+            Assert.Throws<ErrorMessageException>(() => user.DeclineOwner("", null));
         }
 
         [Test]
         public void AddDiscountPolicy_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.AddDiscountPolicy("", new PolicyLeafUserName("", "=="), 10, 0));
+            Assert.Throws<ErrorMessageException>(() => user.AddDiscountPolicy("", new PolicyLeafUserName("", "=="), 10, 0));
         }
 
         [Test]
         public void AddSellingPolicy_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.AddSellingPolicy("", new PolicyLeafUserName("", "=="), 0));
+            Assert.Throws<ErrorMessageException>(() => user.AddSellingPolicy("", new PolicyLeafUserName("", "=="), 0));
         }
 
         [Test]
         public void RemoveDiscountPolicy_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.RemoveDiscountPolicy("", 1, 1));
+            Assert.Throws<ErrorMessageException>(() => user.RemoveDiscountPolicy("", 1, 1));
         }
 
         [Test]
         public void RemoveSellingPolicy_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.RemoveSellingPolicy("", 1, 1));
+            Assert.Throws<ErrorMessageException>(() => user.RemoveSellingPolicy("", 1, 1));
         }
 
         [Test]
         public void AddStoreManager_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.AddStoreManager("", null, new bool[7]));
+            Assert.Throws<ErrorMessageException>(() => user.AddStoreManager("", null, new bool[7]));
         }
 
         [Test]
         public void RemoveStoreManager_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.RemoveStoreManager("", null));
+            Assert.Throws<ErrorMessageException>(() => user.RemoveStoreManager("", null));
         }
 
         [Test]
@@ -209,7 +210,7 @@ namespace DomainLayerUnitTests.UserManagment
         [Test]
         public void RemoveUser_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.IsFalse(user.RemoveUser(null));
+            Assert.Throws<ErrorMessageException>(() => user.RemoveUser(null));
         }
 
         [TearDown]

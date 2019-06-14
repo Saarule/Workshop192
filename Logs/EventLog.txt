@@ -1,0 +1,10 @@
+06/14/2019 01:34:13  Product edited [1] to: name: white bread -> white bread, category: bread -> bread, price: 10 -> 10
+06/14/2019 01:34:14  Product edited [1] to: name: Cheese -> Cheese, category: dairy products -> dairy products, price: 10 -> 20
+06/14/2019 01:34:14  Product edited [1] to: name: a -> c, category: a -> c, price: 1 -> 3
+06/14/2019 01:34:14  Product edited [1] to: name: cake -> cheese cake, category: food -> good food, price: 10 -> 15
+06/14/2019 01:34:14  Product edited [1] to: name: toaster -> c, category: cooking supplies -> c, price: 15 -> 3
+06/14/2019 01:34:29  Product edited [1] to: name: white bread -> white bread, category: bread -> bread, price: 10 -> 10
+06/14/2019 01:34:29  Product edited [1] to: name: Cheese -> Cheese, category: dairy products -> dairy products, price: 10 -> 20
+06/14/2019 01:34:29  Product edited [1] to: name: a -> c, category: a -> c, price: 1 -> 3
+06/14/2019 01:34:29  Product edited [1] to: name: cake -> cheese cake, category: food -> good food, price: 10 -> 15
+06/14/2019 01:34:29  Product edited [1] to: name: toaster -> c, category: cooking supplies -> c, price: 15 -> 3

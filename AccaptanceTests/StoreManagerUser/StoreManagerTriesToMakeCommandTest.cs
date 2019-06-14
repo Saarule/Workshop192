@@ -7,6 +7,7 @@ using ServiceLayer.Store_Owner_User;
 using ServiceLayer.SystemInitializtion;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
+using Workshop192;
 
 namespace AccaptanceTests.StoreManagerUser
 {
@@ -46,7 +47,7 @@ namespace AccaptanceTests.StoreManagerUser
         public void NotPermittedCommandTest()
         {
             Assert.AreEqual(ManageProducts.ManageProduct(UserId_Saar, -1, "Milki", "dairy products", 10, 50, "Victory", "add"),true);
-            Assert.AreEqual(ManageProducts.ManageProduct(UserId_Saar, 1, "Milki", "dairy products", 10, 50, "Victory", "delete"), false);
+            Assert.Throws<ErrorMessageException>(() => ManageProducts.ManageProduct(UserId_Saar, 1, "Milki", "dairy products", 10, 50, "Victory", "delete"));
         }
         
     }

@@ -16,7 +16,7 @@ namespace Workshop192.UserManagment
         public bool MakeAdmin(UserInfo user)
         {
             if (user.IsAdmin())
-                return false;
+                throw new ErrorMessageException("Given user is already admin");
             return user.SetAdmin();
         }
     }
