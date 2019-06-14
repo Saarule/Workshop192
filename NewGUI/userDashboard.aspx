@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="NewGUI.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="userDashboard.aspx.cs" Inherits="NewGUI.userDashboard" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Aroma Shop - Login</title>
+  <title>Aroma Shop</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -20,8 +20,8 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<!--================ Start Header Menu Area =================-->
-    <form id="form2" runat="server">
+  <!--================ Start Header Menu Area =================-->
+    <form id="form1" runat="server">
 	<header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -35,35 +35,26 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item"><a class="nav-link" href="index.aspx">Home</a></li>
-              <li class="nav-item submenu dropdown">
+              <li class="nav-item"><a class="nav-link" href="indexLoginUser.aspx">Home</a></li>
+              <li class="nav-item active submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-product.html">Blog Details</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
                   <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
                   <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
                   <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
                 </ul>
 							</li>
-                <!--
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Blog</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-                </ul>
-							</li>
-                -->
-							<li class="nav-item active submenu dropdown">
+							<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="login.aspx">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="register.aspx">Register</a></li>
-                  <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
+                 <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
+                 <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
+                 <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
                 </ul>
               </li>
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -80,51 +71,49 @@
     </div>
   </header>
 	<!--================ End Header Menu Area =================-->
-   
-  
-  <!--================Login Box Area =================-->
-	<section class="login_box_area section-margin">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="login_box_img">
-						<div class="hover">
-							<h4>New to our website?</h4>
-							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
-							<a class="button button-account" href="register.aspx">Create an Account</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="login_form_inner">
-						<h3>Log in to enter</h3>
-						<form class="row login_form" action="#/" id="contactForm" >
-							<div class="col-md-12 form-group">
-								<!-- <input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'"> -->
-                                <asp:TextBox id="UsernameTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox>
-							</div>
-							<div class="col-md-12 form-group">
-							    <!-- <input type="text" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"> -->
-                                <asp:TextBox id="PasswordTextBox" runat="server" placeholder="Password" class="form-control" type="text"></asp:TextBox>
-							</div>
-							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector">
-									<label for="f-option2">Keep me logged in</label>
-								</div>
-							</div>
-							<div class="col-md-12 form-group">
-								<!-- <button type="submit" value="submit" class="button button-login w-100">Log In</button> -->
-                                <asp:Button ID="SendButton1" runat="server" class="button button-register w-100" Text="Log In" OnClick="LoginButton1_Click" />
-								<a href="#">Forgot Password?</a>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--================End Login Box Area =================-->
+
+  <!--================Order Details Area =================-->
+  <section class="order_details section-margin--small">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Log Out</h3>
+            <table class="order-rable">
+                <asp:Button ID="SendButton1" runat="server" class="button button-register w-100" Text="Log Out" OnClick="LogoutButton1_Click" />
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Open Store</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Enter store name:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="StoreNameTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+              <tr>
+                <td><asp:Button ID="Button1" runat="server" class="button button-register w-100" Text="Open Store" OnClick="OpenStoreButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">My Roles</h3>
+            <table class="order-rable">
+              <tr>
+                  <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End Order Details Area =================-->
 
 
 
