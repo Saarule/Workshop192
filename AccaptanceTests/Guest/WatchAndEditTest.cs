@@ -40,8 +40,8 @@ namespace AccaptanceTests.Guest
             OpenStore.openStore("Rami-Levi", UserId_Orel);
 
 
-            ManageProducts.ManageProduct(UserId_Orel, -1, "black bread", "bread", 10, 100, "Victory", "add");
-            ManageProducts.ManageProduct(UserId_Orel, -1, "black bread", "bread", 15, 100, "Victory", "add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, "black bread", "bread", 10, 100, "victory", "add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, "black bread", "bread", 15, 100, "victory", "add");
             ManageProducts.ManageProduct(UserId_Orel, -1, "cutted bread", "bread", 20, 100, "Rami-Levi", "add");
             ManageProducts.ManageProduct(UserId_Orel, -1, "brown bread", "bread", 25, 100, "Rami-Levi", "add");
            
@@ -81,7 +81,6 @@ namespace AccaptanceTests.Guest
         {
             SaveProductToCart.SaveProduct(1, UserId_Orel, 10);
             SaveProductToCart.SaveProduct(2, UserId_Orel, 10);
-
             WatchAndEdit.Edit("delete", 1, UserId_Orel);
             
         }
