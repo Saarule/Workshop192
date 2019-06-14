@@ -28,7 +28,7 @@ namespace Workshop192.UserManagment
         {
             if (IsAdmin())
                 throw new ErrorMessageException("This user is already admin");
-            admin = new Admin();
+            admin = new Admin(this);
             return true;
         }
 
@@ -174,9 +174,7 @@ namespace Workshop192.UserManagment
             StoreOwner owner = GetOwner(store);
             if (owner == null)
                 throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
-            foreach (StoreManager manager in owner.GetAppointedManagers())
-                if (manager.GetUser().Equals(user))
-                    return owner.RemoveAppointedManager(manager);
+            return owner.RemoveAppointedManager(user);
             throw new ErrorMessageException("The given user isn't a store manager of store [" + store + "]");
         }
 

@@ -27,7 +27,6 @@ namespace Workshop192.MarketManagment
 
         public void EditProduct(string name, string category, int price)
         {
-            Logger.GetInstance().WriteToEventLog("Product edited [" + Id + "] to: name: " + this.name + " -> " + name + ", category: " + this.category + " -> " + category + ", price: " + this.price + " -> " + price);
             this.name = name;
             this.category = category;
             this.price = price;

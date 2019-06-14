@@ -18,7 +18,8 @@ namespace DomainLayerUnitTests.UserManagment
         [SetUp]
         public void SetUp()
         {
-            admin = new Admin();
+            AllRegisteredUsers.GetInstance().RegisterUser("admin", "admin12");
+            admin = new Admin(AllRegisteredUsers.GetInstance().GetUserInfo("admin"));
             AllRegisteredUsers.GetInstance().RegisterUser("asd", "12345567");
             AllRegisteredUsers.GetInstance().RegisterUser("asdf", "111111111");
             AllRegisteredUsers.GetInstance().RegisterUser("qwe", "111222434");

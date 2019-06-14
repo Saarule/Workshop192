@@ -32,26 +32,48 @@ namespace Workshop192.UserManagment
 
         public bool AddProducts(Product product, int amount)
         {
-            return MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount);
+            if (MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount))
+            {
+                Logger.GetInstance().WriteToEventLog(user.GetUserName() + " Added Product [" + product.GetId() + "] [" + product.GetName() + "] [" + product.GetCategory() + "] [" + product.GetPrice() + "] [" + amount + "] as a owner of store [" + store + "]");
+                return true;
+            }
+            return false;
         }
 
         public bool RemoveProductFromInventory(int productId)
         {
-            return MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId);
+            if (MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId))
+            {
+                Logger.GetInstance().WriteToEventLog(user.GetUserName() + " removed Product [" + productId + "] as a owner of store [" + store + "]");
+                return true;
+            }
+            return false;
         }
 
         public bool EditProduct(int productId, string name, string category, int price, int amount)
         {
-            return MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount);
+            if (MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount))
+            {
+                Logger.GetInstance().WriteToEventLog(user.GetUserName() + " edited product [" + productId + "] to: [" + name + "] [" + category + "] [" + price + "] [" + amount + "] as owner of store [" + store + "]");
+                return true;
+            }
+            return false;
         }
 
         public bool AddOwner(UserInfo user)
         {
             if (CheckUserExists(user))
+            {
+                Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried adding user " + user.GetUserName() + " as a owner but the given user is already a owner/manager of store [" + store + "]");
                 throw new ErrorMessageException("The given user is already a store owner/manager in the store");
+            }
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
                 if (owner.GetUser().Equals(user) || owner.pendingUsers.Contains(user))
+                {
+                    Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried adding user " + user.GetUserName() + " as a owner but the given user is already a apending owner of store [" + store + "]");
                     throw new ErrorMessageException("The given user is already a pending owner");
+                }
+            Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " initiated the owner adding proccess to user " + user.GetUserName() + " for store [" + store + "]");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
                 owner.pendingUsers.AddLast(user);
             pendingUsers.Remove(user);
@@ -63,13 +85,18 @@ namespace Workshop192.UserManagment
         private void AddOwnerFinal(UserInfo user)
         {
             user.GetStoreOwners().AddLast(new StoreOwner(user, store, storeOwners));
+            Logger.GetInstance().WriteToEventLog(user.GetUserName() + " Is now a owner of store [" + store + "]");
         }
 
         public bool AcceptOwner(UserInfo user)
         {
             if (!pendingUsers.Contains(user))
+            {
+                Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried accepting user " + user.GetUserName() + " as a owner of store [" + store + "] but the given user wasn't on their pending list");
                 throw new ErrorMessageException("The given user isn't in your pending users list");
+            }
             pendingUsers.Remove(user);
+            Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " accepted user " + user.GetUserName() + " as a owner in store [" + store + "]");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
                 if (owner.pendingUsers.Contains(user))
                     return true;
@@ -80,7 +107,11 @@ namespace Workshop192.UserManagment
         public bool DeclineOwner(UserInfo user)
         {
             if (!pendingUsers.Contains(user))
+            {
+                Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried declining user " + user.GetUserName() + " as a owner of store [" + store + "] but the given user wasn't on their pending list");
                 throw new ErrorMessageException("The given user isn't in your pending users list");
+            }
+            Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " declined user " + user.GetUserName() + " as a owner in store [" + store + "]");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
                 owner.pendingUsers.Remove(user);
             return true;
@@ -89,21 +120,27 @@ namespace Workshop192.UserManagment
         public bool AddManager(UserInfo user, bool[] privileges)
         {
             if (CheckUserExists(user))
+            {
+                Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried adding user " + user.GetUserName() + " as a manager but the given user is already a owner/manager of store [" + store + "]");
                 throw new ErrorMessageException("The given user is already a store owner/manager in the store");
+            }
+            Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " added user " + user.GetUserName() + " as a manager in store [" + store + "] with the following privileges " + privileges.ToString());
             StoreManager manager = new StoreManager(user, store, privileges, this);
             user.GetStoreManagers().AddLast(manager);
             appointedManagers.AddLast(manager);
             return true;
         }
 
-        public bool RemoveAppointedManager(StoreManager child)
+        public bool RemoveAppointedManager(UserInfo child)
         {
             foreach (StoreManager manager in appointedManagers)
-                if (manager.Equals(child))
+                if (manager.GetUser().Equals(child))
                 {
+                    Logger.GetInstance().WriteToEventLog(user.GetUserName() + " removed appointed manager " + child.GetUserName() + " of store [" + store + "]");
                     manager.RemoveSelf();
                     return true;
                 }
+            Logger.GetInstance().WriteToEventLog(user.GetUserName() + " tried removing user " + child.GetUserName() + " from the store managers but the given user wasn't a manager of store [" + store + "]");
             throw new ErrorMessageException("The given user is not a store manager this user appointed");
         }
 
