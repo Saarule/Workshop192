@@ -63,7 +63,7 @@ namespace NewGUI
             if (ans)
             {
                 Response.Write("<script>alert('succesfully added product');</script>");
-                Response.Redirect("manageStorePanel.aspx");
+                Response.Redirect("manageStorePanel.aspx?storeName=" + storeName);
             }
             else
             {
@@ -78,7 +78,7 @@ namespace NewGUI
             if (ans)
             {
                 Response.Write("<script>alert('succesfully delete product');</script>");
-                Response.Redirect("manageStorePanel.aspx");
+                Response.Redirect("manageStorePanel.aspx?storeName=" + storeName);
             }
             else
             {
@@ -98,7 +98,7 @@ namespace NewGUI
             if (ans)
             {
                 Response.Write("<script>alert('succesfully edit product');</script>");
-                Response.Redirect("manageStorePanel.aspx");
+                Response.Redirect("manageStorePanel.aspx?storeName=" + storeName);
             }
             else
             {
@@ -115,7 +115,7 @@ namespace NewGUI
             if (ans)
             {
                 Response.Write("<script>alert('succesfully added Store Manager');</script>");
-                Response.Redirect("manageStorePanel.aspx");
+                Response.Redirect("manageStorePanel.aspx?storeName=" + storeName);
             }
             else
             {
@@ -131,7 +131,7 @@ namespace NewGUI
             if (ans)
             {
                 Response.Write("<script>alert('succesfully removed Store Manager');</script>");
-                Response.Redirect("manageStorePanel.aspx");
+                Response.Redirect("manageStorePanel.aspx?storeName=" + storeName);
             }
             else
             {
@@ -146,7 +146,7 @@ namespace NewGUI
             if (ans)
             {
                 Response.Write("<script>alert('succesfully added Store Owner');</script>");
-                Response.Redirect("manageStorePanel.aspx");
+                Response.Redirect("manageStorePanel.aspx?storeName=" + storeName);
             }
             else
             {
