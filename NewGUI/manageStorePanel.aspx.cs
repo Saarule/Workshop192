@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,10 +10,31 @@ namespace NewGUI
 {
     public partial class manageStorePanel : System.Web.UI.Page
     {
+        StringBuilder tableProducts = new StringBuilder();
+        LinkedList<LinkedList<string>> products = new LinkedList<LinkedList<string>>();
         string storeName;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             storeName = Request["storeName"];
+            products = CommunicationLayer.Controllers.ProductsController.GetProductsOfStore(storeName);
+            tableProducts.Append("<table border='1'>");
+            tableProducts.Append("<tr><th> Product ID: </th><th> Product name: </th><th> Product category: </th><th> Product price: </th><th> Product amount: </th>");
+            tableProducts.Append("</tr>");
+            for (int i = 0; i < products.Count; i++)
+            {
+                tableProducts.Append("<tr>");
+                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(0) + "</td>");
+                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(1) + "</td>");
+                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(2) + "</td>");
+                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(3) + "</td>");
+                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(4) + "</td>");
+                tableProducts.Append("</tr>");
+            }
+            tableProducts.Append("</table>");
+            PlaceHolder1.Controls.Add(new Literal { Text = tableProducts.ToString() });
+
+
         }
 
         protected void LogoutButton1_Click(object sender, EventArgs e)
