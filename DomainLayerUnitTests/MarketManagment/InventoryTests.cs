@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
+using Workshop192;
 
 namespace DomainLayerUnitTests.MarketManagment
 {
@@ -35,7 +36,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void AddProducts_AddExistingProducts_ReturnsFalse()
         {
-            Assert.IsFalse(inventory.AddProducts(product1, 5));
+            Assert.Throws<ErrorMessageException>(() => inventory.AddProducts(product1, 5));
             Assert.AreEqual(1, inventory.GetAllProduct().Count);
             Assert.AreEqual(10, inventory.GetAllProduct()[product1]);
         }
@@ -51,7 +52,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void RemoveProducts_RemoveNonExistingProducts_ReturnsFalse()
         {
-            Assert.IsFalse(inventory.RemoveProducts(product2, 2));
+            Assert.Throws<ErrorMessageException>(() => inventory.RemoveProducts(product2, 2));
             Assert.AreEqual(1, inventory.GetAllProduct().Count);
             Assert.AreEqual(10, inventory.GetAllProduct()[product1]);
         }
@@ -66,7 +67,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void RemoveProductFromInventory_RemoveNonExistingProducts_ReturnsFalse()
         {
-            Assert.IsFalse(inventory.RemoveProductFromInventory(product2.GetId()));
+            Assert.Throws<ErrorMessageException>(() => inventory.RemoveProductFromInventory(product2.GetId()));
             Assert.AreEqual(1, inventory.GetAllProduct().Count);
         }
 
@@ -81,7 +82,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void EditProduct_EditNonExistingProduct_ReturnsFalse()
         {
-            Assert.IsFalse(inventory.EditProduct(product2.GetId(), "c", "c", 3, 30));
+            Assert.Throws<ErrorMessageException>(() => inventory.EditProduct(product2.GetId(), "c", "c", 3, 30));
             Assert.AreEqual(1, inventory.GetAllProduct().Count);
             Assert.AreEqual(10, inventory.GetAllProduct()[product1]);
         }

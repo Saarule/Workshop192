@@ -9,6 +9,7 @@ using ServiceLayer.Guest;
 using ServiceLayer.Store_Owner_User;
 using ServiceLayer.RegisteredUser;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 
 
@@ -55,20 +56,20 @@ namespace AccaptanceTests.StoreOwnerUser
             AssignStoreOwner.assignStoreOwner(UserId_Orel, "victory", "nati");
             AssignStoreOwner.assignStoreOwner(UserId_Orel, "victory", "saar");
             Assert.AreEqual(HandlerRequestAppointment.AcceptAppointment("victory", UserId_Nati, "saar"), true);
-            Assert.AreEqual(HandlerRequestAppointment.AcceptAppointment("victory", UserId_Nati, "saar"), false);
+            Assert.Throws<ErrorMessageException>(() => HandlerRequestAppointment.AcceptAppointment("victory", UserId_Nati, "saar"));
 
         }
         [Test]
         public void AcceptOwnerNotExistUserTest()
         {
             AssignStoreOwner.assignStoreOwner(UserId_Orel, "victory", "nati");
-            Assert.AreEqual(HandlerRequestAppointment.AcceptAppointment("victory", UserId_Nati, "dan"), false);
+            Assert.Throws<ErrorMessageException>(() => HandlerRequestAppointment.AcceptAppointment("victory", UserId_Nati, "dan"));
         }
         [Test]
         public void AcceptOwnerNotExistStoreTest()
         {
             AssignStoreOwner.assignStoreOwner(UserId_Orel, "victory", "nati");
-            Assert.AreEqual(HandlerRequestAppointment.AcceptAppointment("Mega", UserId_Nati, "saar"), false);
+            Assert.Throws<ErrorMessageException>(() => HandlerRequestAppointment.AcceptAppointment("Mega", UserId_Nati, "saar"));
         }
         [Test]
         public void DeclineOwnerTest()
@@ -83,19 +84,19 @@ namespace AccaptanceTests.StoreOwnerUser
             AssignStoreOwner.assignStoreOwner(UserId_Orel, "victory", "nati");
             AssignStoreOwner.assignStoreOwner(UserId_Orel, "victory", "saar");
             Assert.AreEqual(HandlerRequestAppointment.DeclineAppointment("victory", UserId_Nati, "saar"), true);
-            Assert.AreEqual(HandlerRequestAppointment.DeclineAppointment("victory", UserId_Nati, "saar"), false);
+            Assert.Throws<ErrorMessageException>(() => HandlerRequestAppointment.DeclineAppointment("victory", UserId_Nati, "saar"));
         }
         [Test]
         public void DeclineOwnerNotExistUserTest()
         {
             AssignStoreOwner.assignStoreOwner(UserId_Orel, "victory", "nati");
-            Assert.AreEqual(HandlerRequestAppointment.DeclineAppointment("victory", UserId_Nati, "dan"), false);
+            Assert.Throws<ErrorMessageException>(() => HandlerRequestAppointment.DeclineAppointment("victory", UserId_Nati, "dan"));
         }
         [Test]
         public void DeclineOwnerNotExistStoreTest()
         {
             AssignStoreOwner.assignStoreOwner(UserId_Orel, "victory", "nati");
-            Assert.AreEqual(HandlerRequestAppointment.DeclineAppointment("Mega", UserId_Nati, "saar"), false);
+            Assert.Throws<ErrorMessageException>(() => HandlerRequestAppointment.DeclineAppointment("Mega", UserId_Nati, "saar"));
         }
     }
 }

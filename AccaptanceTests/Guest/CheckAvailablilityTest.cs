@@ -8,6 +8,7 @@ using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
 using ServiceLayer.RegisteredUser;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.Guest
 {
@@ -51,8 +52,8 @@ namespace AccaptanceTests.Guest
         public void NotAvailableProductShopTest()
         {
             SaveProductToCart.SaveProduct(1, UserId_Orel, 40);
-            ManageProducts.ManageProduct(UserId_Orel,1,"white bread","bread",10,30,"victory","edit");
-            Assert.AreEqual(CheckAvailability.CheckAvailable(UserId_Orel),false);  
+            ManageProducts.ManageProduct(UserId_Orel, 1, "white bread", "bread", 10, 30, "victory", "edit");
+            Assert.Throws<ErrorMessageException>(() => CheckAvailability.CheckAvailable(UserId_Orel));  
         }
     }
 }

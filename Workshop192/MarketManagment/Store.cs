@@ -54,15 +54,15 @@ namespace Workshop192.MarketManagment
 
         public bool RemoveDiscountPolicy(int policyId)
         {
-            if (discountPolicies.Count < policyId)
-                return false;
+            if (discountPolicies.Count <= policyId)
+                throw new ErrorMessageException("Discount Policy Id doesn't exists");
             return discountPolicies.Remove(discountPolicies.ElementAt(policyId));
         }
 
         public bool RemoveSellingPolicy(int policyId)
         {
-            if (sellingPolicies.Count < policyId)
-                return false;
+            if (sellingPolicies.Count <= policyId)
+                throw new ErrorMessageException("Selling Policy Id doesn't exists");
             return sellingPolicies.Remove(sellingPolicies.ElementAt(policyId));
         }
 
@@ -85,7 +85,7 @@ namespace Workshop192.MarketManagment
         {
             foreach (PolicyComponent policy in sellingPolicies)
                 if (!policy.Validate(userId, cart))
-                    return false;
+                    throw new ErrorMessageException("Selling Policy of store name [" + name + "] fails");
             return true;
         }
 
