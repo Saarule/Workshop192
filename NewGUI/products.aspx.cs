@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +21,7 @@ namespace NewGUI
             string productPrice;
             string productAmount;
             string productStoreName;
-            products2 = CommunicationLayer.Controllers.ProductsController.GetProductsOfStore(storeName);
+            products2 = CommunicationLayer.Controllers.ProductsController.GetAllProducts();
             tableProducts.Append("<section class='lattest - product - area pb - 40 category - list'>");
             tableProducts.Append("<div class='row'>");;
             for (int i = 0; i < products2.Count; i++)
