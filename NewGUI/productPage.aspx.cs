@@ -46,7 +46,16 @@ namespace NewGUI
         }
         protected void AddToCartButton1_Click(object sender, EventArgs e)
         {
-
+            bool ans = CommunicationLayer.Controllers.ProductsController.SaveToCart(HttpContext.Current.Session.SessionID, productId, Int32.Parse(ProductAmountTextBox.Text));
+            if (ans)
+            {
+                Response.Write("<script>alert('succesfully added product to cart');</script>");
+                Response.Redirect("myCart.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('There was error when adding product to cart');</script>");
+            }
         }
 
         /*

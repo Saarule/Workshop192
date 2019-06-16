@@ -30,5 +30,6 @@ namespace NewGUI {
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder2;
         protected global::System.Web.UI.WebControls.Button Button5;
+        protected global::System.Web.UI.WebControls.TextBox ProductAmountTextBox;
     }
 }
