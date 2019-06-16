@@ -92,13 +92,18 @@ namespace CommunicationLayer.Controllers
         public static bool SaveToCart(string SessionID, int productID , int amount)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-
             return ServiceLayer.Guest.SaveProductToCart.SaveProduct(productID,userID,amount);
         }
 
         public static LinkedList<LinkedList<string>> SearchProducts(string input)
         {
             LinkedList<LinkedList<string>> result = ServiceLayer.Guest.SearchProducts.Search(input);
+            return result;
+        }
+
+        public static LinkedList<string> SearchProductsByID(int productId)
+        {
+            LinkedList<string> result = ServiceLayer.Guest.SearchProducts.SearchById(productId);
             return result;
         }
 

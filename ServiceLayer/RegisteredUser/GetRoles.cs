@@ -33,5 +33,6 @@ namespace ServiceLayer.RegisteredUser
             }
             return Roles;
         }
+
     }
 }

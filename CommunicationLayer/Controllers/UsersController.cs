@@ -112,9 +112,7 @@ namespace CommunicationLayer.Controllers
         public static LinkedList<LinkedList<string>> GetRoles(string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-
             return ServiceLayer.RegisteredUser.GetRoles.getRoles(userID);
         }
-
     }
 }
