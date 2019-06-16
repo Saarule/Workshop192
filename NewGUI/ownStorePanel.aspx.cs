@@ -39,80 +39,27 @@ namespace NewGUI
 
         }
 
-        protected void LogoutButton1_Click(object sender, EventArgs e)
-        {
-            bool ans = CommunicationLayer.Controllers.UsersController.Logout(HttpContext.Current.Session.SessionID);
-            if (ans)
-            {
-                Response.Redirect("index.aspx");
-                Response.Write("<script>alert('Logout succesfuly');</script>");
-            }
-            else
-            {
-                Response.Write("<script>alert('Logout failed');</script>");
-            }
-        }
-
-
-        protected void AddProductButton1_Click(object sender, EventArgs e)
-        {
-            string productName = ProductNameTextBox1.Text;
-            string productPrice = ProductPriceTextBox.Text;
-            string productCategory = ProductCategoryTextBox.Text;
-            string productAmount = ProductAmountTextBox.Text;
-            bool ans = CommunicationLayer.Controllers.ProductsController.ManageProducts(HttpContext.Current.Session.SessionID, -1, productName, productCategory, Int32.Parse(productPrice), Int32.Parse(productAmount), storeName, "add");
-            if (ans)
-            {
-                Response.Write("<script>alert('succesfully added product');</script>");
-                Response.Redirect("manageStorePanel.aspx");
-            }
-            else
-            {
-                Response.Write("<script>alert('There was error when adding the product');</script>");
-            }
-        }
-
-        protected void RemoveProductButton1_Click(object sender, EventArgs e)
-        {
-            string productIdToDelete = ProductIdToDeleteTextBox.Text;
-            bool ans = CommunicationLayer.Controllers.ProductsController.ManageProducts(HttpContext.Current.Session.SessionID, Int32.Parse(productIdToDelete), null, null, -1, -1, storeName, "delete");
-            if (ans)
-            {
-                Response.Write("<script>alert('succesfully delete product');</script>");
-                Response.Redirect("manageStorePanel.aspx");
-            }
-            else
-            {
-                Response.Write("<script>alert('There was error when deleting the product');</script>");
-            }
-
-        }
-
-        protected void EditProductButton1_Click(object sender, EventArgs e)
-        {
-            string productID = ProductIdTextBox2.Text;
-            string productName = ProductNameTextBox2.Text;
-            string productPrice = ProductPriceTextBox2.Text;
-            string productCategory = ProductCategoryTextBox2.Text;
-            string productAmount = ProductAmountTextBox2.Text;
-            bool ans = CommunicationLayer.Controllers.ProductsController.ManageProducts(HttpContext.Current.Session.SessionID, Int32.Parse(productID), productName, productCategory, Int32.Parse(productPrice), Int32.Parse(productAmount), storeName, "edit");
-            if (ans)
-            {
-                Response.Write("<script>alert('succesfully edit product');</script>");
-                Response.Redirect("manageStorePanel.aspx");
-            }
-            else
-            {
-                Response.Write("<script>alert('There was error when editing the product');</script>");
-            }
-
-        }
 
         protected void AddStoreManagerButton1_Click(object sender, EventArgs e)
         {
 
             string storeManagerName = StoreManagerToAddTextBox.Text;
-            bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeManagerName, null);
+            bool checkbox1 = AddProductCheckBox.Checked;
+            bool checkbox2 = RemoveProductCheckBox.Checked;
+            bool checkbox3 = EditProductCheckBox.Checked;
+            bool checkbox4 = AddDiscountPolicyCheckBox.Checked;
+            bool checkbox5 = AddSellingPolicyCheckBox.Checked;
+            bool checkbox6 = RemoveDiscountPolicyCheckBox.Checked;
+            bool checkbox7 = RemoveSellingPolicyCheckBox.Checked;
+            bool[] priviliges = new bool[7];
+            priviliges[0] = checkbox1;
+            priviliges[1] = checkbox2;
+            priviliges[2] = checkbox3;
+            priviliges[3] = checkbox4;
+            priviliges[4] = checkbox5;
+            priviliges[5] = checkbox6;
+            priviliges[6] = checkbox7;
+            bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeManagerName, priviliges);
             if (ans)
             {
                 Response.Write("<script>alert('succesfully added Store Manager');</script>");

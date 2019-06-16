@@ -76,10 +76,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="checkout.aspx" />
     <Content Include="indexLoginUser.aspx" />
     <Content Include="login.aspx" />
     <Content Include="manageStorePanel.aspx" />
+    <Content Include="myCart.aspx" />
     <Content Include="ownStorePanel.aspx" />
+    <Content Include="productPage.aspx" />
     <Content Include="products.aspx" />
     <Content Include="register.aspx" />
     <Content Include="storeOwnerDashboard.aspx" />
@@ -88,6 +91,13 @@
     <Content Include="index.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="indexLoginUser.aspx.cs">
       <DependentUpon>indexLoginUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,12 +119,26 @@
     <Compile Include="manageStorePanel.aspx.designer.cs">
       <DependentUpon>manageStorePanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="myCart.aspx.cs">
+      <DependentUpon>myCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myCart.aspx.designer.cs">
+      <DependentUpon>myCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ownStorePanel.aspx.cs">
       <DependentUpon>ownStorePanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ownStorePanel.aspx.designer.cs">
       <DependentUpon>ownStorePanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productPage.aspx.cs">
+      <DependentUpon>productPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productPage.aspx.designer.cs">
+      <DependentUpon>productPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="products.aspx.cs">
       <DependentUpon>products.aspx</DependentUpon>

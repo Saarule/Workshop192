@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ownStorePanel.aspx.cs" Inherits="NewGUI.ownStorePanel" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="checkout.aspx.cs" Inherits="NewGUI.checkout" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,12 +6,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Aroma Shop</title>
+  <title>Checkout</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
+
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
-	<link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
-	<link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
   <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
   <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
   <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
@@ -35,7 +36,7 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item"><a class="nav-link" href="indexLoginUser.aspx">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
               <li class="nav-item active submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
@@ -51,11 +52,8 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li>
-                 <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
-                 <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
-                 <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
+                  <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                  <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                 </ul>
               </li>
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -73,87 +71,93 @@
   </header>
 	<!--================ End Header Menu Area =================-->
 
-  <!--================Order Details Area =================-->
-  <section class="order_details section-margin--small">
+  
+  
+  <!--================Checkout Area =================-->
+  <section class="checkout_area section-margin--small">
     <div class="container">
-      <div class="row mb-5">
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Add Store Manager</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter store manager username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreManagerToAddTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-                 <tr>
-                <td>Privileges:</td>
-              </tr>
-                   <tr>
-                          <td><asp:CheckBox ID="AddProductCheckBox" runat="server" Text="  Add Product" /></td>  
-                   </tr>
-                   <tr>
-                          <td><asp:CheckBox ID="RemoveProductCheckBox" runat="server" Text="  Remove Product" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="EditProductCheckBox" runat="server" Text="  Edit Product" /></td>  
-                   </tr>
-                      <tr>
-                          <td><asp:CheckBox ID="AddDiscountPolicyCheckBox" runat="server" Text="  Add discount policy" /></td>  
-                   </tr>
-                      <tr>
-                          <td><asp:CheckBox ID="AddSellingPolicyCheckBox" runat="server" Text="  Add selling policy" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="RemoveDiscountPolicyCheckBox" runat="server" Text="  Remove discount policy" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="RemoveSellingPolicyCheckBox" runat="server" Text="  Remove selling policy" /></td>  
-                   </tr>
-              <tr>
-                <td><asp:Button ID="Button5" runat="server" class="button button-register w-100" Text="Add Store Manager" OnClick="AddStoreManagerButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
+        <div class="billing_details">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Billing Details</h3>
+                    <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                        <div class="col-md-6 form-group p_star">
+                            <asp:TextBox id="FirstNameTextBox" runat="server" placeholder="First Name" class="form-control" type="text"></asp:TextBox>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <asp:TextBox id="LastNameTextBox" runat="server" placeholder="Last Name" class="form-control" type="text"></asp:TextBox>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <asp:TextBox id="CountryTextBox" runat="server" placeholder="Country" class="form-control" type="text"></asp:TextBox>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <asp:TextBox id="CityTextBox" runat="server" placeholder="City" class="form-control" type="text"></asp:TextBox>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <asp:TextBox id="StreetTextBox" runat="server" placeholder="Street" class="form-control" type="text"></asp:TextBox>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <asp:TextBox id="CreditCardNumberTextBox" runat="server" placeholder="Credit Card Number" class="form-control" type="text"></asp:TextBox>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <asp:TextBox id="DigitsBehindCardTextBox" runat="server" placeholder="3 Digits Behind Card" class="form-control" type="text"></asp:TextBox>
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <asp:TextBox id="ValidUntilTextBox" runat="server" placeholder="Valid Until" class="form-control" type="text"></asp:TextBox>
+                        </div>
+                        <div class="text-center">
+                          <a class="button button-paypal" href="#">Buy Now</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <div class="order_box">
+                        <h2>Your Order</h2>
+                        <ul class="list">
+                            <li><a href="#"><h4>Product <span>Total</span></h4></a></li>
+                            <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
+                            <li><a href="#">Fresh Tomatoes <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
+                            <li><a href="#">Fresh Brocoli <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
+                        </ul>
+                        <ul class="list list_2">
+                            <li><a href="#">Subtotal <span>$2160.00</span></a></li>
+                            <li><a href="#">Shipping <span>Flat rate: $50.00</span></a></li>
+                            <li><a href="#">Total <span>$2210.00</span></a></li>
+                        </ul>
+                        <div class="payment_item">
+                            <div class="radion_btn">
+                                <input type="radio" id="f-option5" name="selector">
+                                <label for="f-option5">Check payments</label>
+                                <div class="check"></div>
+                            </div>
+                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
+                                Store Postcode.</p>
+                        </div>
+                        <div class="payment_item active">
+                            <div class="radion_btn">
+                                <input type="radio" id="f-option6" name="selector">
+                                <label for="f-option6">Paypal </label>
+                                <img src="img/product/card.jpg" alt="">
+                                <div class="check"></div>
+                            </div>
+                            <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
+                                account.</p>
+                        </div>
+                        <div class="creat_account">
+                            <input type="checkbox" id="f-option4" name="selector">
+                            <label for="f-option4">I’ve read and accept the </label>
+                            <a href="#">terms & conditions*</a>
+                        </div>
+                        <div class="text-center">
+                          <a class="button button-paypal" href="#">Proceed to Paypal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Remove Store Manager</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter store manager username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreManagerToRemoveTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button9" runat="server" class="button button-register w-100" Text="Remove Store Manager" OnClick="RemoveStoreManagerButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Add Store Owner</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter store owner username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreOwnerTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button2" runat="server" class="button button-register w-100" Text="Add Store Owner" OnClick="AddStoreOwnerButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-   
-      </div>
     </div>
   </section>
-  <!--================End Order Details Area =================-->
+  <!--================End Checkout Area =================-->
 
 
 
@@ -257,6 +261,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="vendors/jquery.ajaxchimp.min.js"></script>
   <script src="vendors/mail-script.js"></script>
   <script src="js/main.js"></script>
-        </form>
+</form>
 </body>
 </html>

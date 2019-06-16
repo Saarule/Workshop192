@@ -105,10 +105,12 @@
 								<!-- <input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'"> -->
                                 <asp:TextBox id="UsernameTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox>
 							</div>
+                        <!--
 							<div class="col-md-12 form-group">
-								<!-- <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"> -->
+								 <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"> 
                                 <asp:TextBox id="EmailTextBox" runat="server" placeholder="Email Address" class="form-control" type="text"></asp:TextBox>
                             </div>
+                        //-->
                              <div class="col-md-12 form-group">
 								<!-- <input type="text" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"> -->
                             <asp:TextBox id="PasswordTextBox" runat="server" placeholder="Password" class="form-control" type="text"></asp:TextBox>

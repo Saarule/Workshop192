@@ -21,7 +21,12 @@ namespace NewGUI
             string productPrice;
             string productAmount;
             string productStoreName;
+<<<<<<< Updated upstream
             products2 = CommunicationLayer.Controllers.ProductsController.GetAllProducts();
+=======
+
+            products2 = CommunicationLayer.Controllers.ProductsController.GetProductsOfStore(storeName);
+>>>>>>> Stashed changes
             tableProducts.Append("<section class='lattest - product - area pb - 40 category - list'>");
             tableProducts.Append("<div class='row'>");;
             for (int i = 0; i < products2.Count; i++)
