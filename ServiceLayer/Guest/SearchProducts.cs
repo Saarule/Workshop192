@@ -37,5 +37,34 @@ namespace ServiceLayer.Guest
             }
             return FoundProducts;
         }
+
+
+        public static LinkedList<string> SearchById(int productId)
+        {
+            Store CurrentStore;
+            LinkedList<Store> AllStores = Workshop192.MarketManagment.System.GetInstance().GetAllStores();
+            LinkedList<string> toRet = new LinkedList<string>();
+            bool toKeep = true;
+            for (int i = 0; i < AllStores.Count && toKeep; i++)
+            {
+                CurrentStore = AllStores.ElementAt(i);
+                Dictionary<Product, int> ProductsPerStore = CurrentStore.GetInventory();
+                for (int j = 0; j < ProductsPerStore.Count && toKeep; j++)
+                {
+                    if (ProductsPerStore.ElementAt(j).Key.GetId().Equals(productId))
+                    {
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).Key.GetId() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).Key.GetName() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).Key.GetCategory() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).Key.GetPrice() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).Value + "");
+                        toRet.AddLast(CurrentStore.GetName());
+                        toKeep = false;
+                    }
+                }
+            }
+            return toRet; ;
+        }
+
     }
 }
