@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Aroma Shop - Product Details</title>
+  <title>Product Page</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -89,25 +89,7 @@
 						</div> -->
 					</div>
 				</div>
-				<div class="col-lg-5 offset-lg-1">
-					<div class="s_product_text">
-						<h3>Faded SkyBlu Denim Jeans</h3>
-						<h2>$149.99</h2>
-						<ul class="list">
-							<li><a class="active" href="#"><span>Category</span> : Household</a></li>
-							<li><a href="#"><span>Availibility</span> : In Stock</a></li>
-						</ul>
-						<p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for
-							something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
-							during the winter.</p>
-						<div class="product_count">
-              <label for="qty">Quantity:</label>
-                            <asp:TextBox id="ProductAmountTextBox" runat="server" placeholder="1" class="form-control" type="text"></asp:TextBox>
-                            <p ></p>
-							<a class="button primary-btn" href="#">Add to Cart</a>               
-						</div>
-					</div>
-				</div>
+                <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
 			</div>
 		</div>
 	</div>

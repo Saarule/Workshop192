@@ -2,3 +2,19 @@
 06/14/2019 13:24:40  orel Logged Out
 06/14/2019 14:19:30  orel Logged In
 06/14/2019 14:20:03  orel Logged Out
+06-16-2019 18:33:18  saar Logged In
+06-16-2019 18:33:43  saar Added Product [1] [ttt] [yyy] [123] [456] as a owner of store [store1]
+06-16-2019 18:33:53  saar Added Product [2] [kkkk] [llll] [456] [789] as a owner of store [store1]
+06-16-2019 18:36:58  saar removed Product [2] as a owner of store [store1]
+06-16-2019 18:40:26  saar Logged In
+06-16-2019 18:40:44  saar Added Product [1] [ssss] [eeee] [123] [456] as a owner of store [store1]
+06-16-2019 18:40:51  saar Added Product [2] [dddd] [dddd] [4555] [4545] as a owner of store [store1]
+06-16-2019 18:46:48  saar Logged In
+06-16-2019 18:47:02  saar Added Product [1] [ddd] [ddd] [123] [123] as a owner of store [store1]
+06-16-2019 18:47:09  saar Added Product [2] [fff] [hhh] [123] [456] as a owner of store [store1]
+06-16-2019 18:49:32  saar Logged In
+06-16-2019 18:49:55  saar Added Product [1] [milk] [groc] [1234] [12] as a owner of store [store1]
+06-16-2019 18:50:06  saar Added Product [2] [bread] [ffo] [123] [444] as a owner of store [store1]
+06-16-2019 18:50:14  saar Added Product [3] [ffff] [fff] [334] [44] as a owner of store [store1]
+06-16-2019 18:50:20  saar Added Product [4] [hhhhhhh] [fg] [345] [45] as a owner of store [store1]
+06-16-2019 18:51:38  saar Added Product [5] [fff] [ff] [34] [54] as a owner of store [store2]
