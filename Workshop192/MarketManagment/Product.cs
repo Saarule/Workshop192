@@ -27,8 +27,6 @@ namespace Workshop192.MarketManagment
 
         public void EditProduct(string name, string category, int price)
         {
-            //Logger.GetInstance().WriteToEventLog("Edited product " + Id + " to: name: " + this.name + " -> " + name + ", category: " + this.category + " -> " + category + ", price: " + this.price + " -> " + price);
-            Logger.GetInstance().WriteToEventLog("test");
             this.name = name;
             this.category = category;
             this.price = price;
@@ -46,15 +44,15 @@ namespace Workshop192.MarketManagment
 
         public bool RemoveDiscountPolicy(int policyId)
         {
-            if (discountPolicies.Count < policyId)
-                return false;
+            if (discountPolicies.Count <= policyId)
+                throw new ErrorMessageException("Discount Policy Id doesn't exists");
             return discountPolicies.Remove(discountPolicies.ElementAt(policyId));
         }
 
         public bool RemoveSellingPolicy(int policyId)
         {
-            if (sellingPolicies.Count < policyId)
-                return false;
+            if (sellingPolicies.Count <= policyId)
+                throw new ErrorMessageException("Selling Policy Id doesn't exists");
             return sellingPolicies.Remove(sellingPolicies.ElementAt(policyId));
         }
 
@@ -80,7 +78,7 @@ namespace Workshop192.MarketManagment
         {
             foreach (PolicyComponent policy in sellingPolicies)
                 if (!policy.Validate(userId, cart))
-                    return false;
+                    throw new ErrorMessageException("Selling Policy of product Id [" + Id + "] fails");
             return true;
         }
 

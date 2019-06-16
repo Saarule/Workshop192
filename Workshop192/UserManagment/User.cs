@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
+
 namespace Workshop192.UserManagment
 {
     public class User
@@ -19,9 +20,16 @@ namespace Workshop192.UserManagment
             
         public bool LogIn(UserInfo info)
         {
-            if (IsLoggedIn() || info == null)
-                return false;
+            if (IsLoggedIn())
+            {
+                Logger.GetInstance().WriteToErrorLog(this.info.GetUserName() + " Tried to Log In a second time");
+                throw new ErrorMessageException("User is already logged in");
+            }
+            if (info == null)
+                throw new ErrorMessageException("Invalid user info");
+            Logger.GetInstance().WriteToEventLog(info.GetUserName() + " Logged In");
             this.info = info;
+            MarketManagment.System.GetInstance().ResetMultiCart(multiCartId);
             multiCartId = info.GetMultiCart();
             return true;
         }
@@ -29,16 +37,22 @@ namespace Workshop192.UserManagment
         public bool LogOut()
         {
             if (!IsLoggedIn())
-                return false;
+                throw new ErrorMessageException("Not logged in");
             multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
+            Logger.GetInstance().WriteToEventLog(info.GetUserName() + " Logged Out");
             info = null;
             return true;
         }
 
         public bool MakeAdmin(UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+                throw new ErrorMessageException("Can't make admin while not logged in");
+            if (user == null)
+            {
+                Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried Making a non existent user admin");
+                throw new ErrorMessageException("Given user dosen't exist");
+            }
             return user.MakeAdmin(user);
         }
 
@@ -46,107 +60,176 @@ namespace Workshop192.UserManagment
         {
             if (IsLoggedIn())
                 return info.OpenStore(storeName);
-            return false;
+            Logger.GetInstance().WriteToErrorLog("A guest tried to open a store but failed");
+            throw new ErrorMessageException("Can't open store while not logged in");
         }
 
         public bool AddProducts(string store, Product product, int amount)
         {
             if (IsLoggedIn())
                 return info.AddProducts(store, product, amount);
-            return false;
+            Logger.GetInstance().WriteToErrorLog("A guest tried to add a product but failed");
+            throw new ErrorMessageException("Can't add products to store while not logged in");
         }
 
         public bool RemoveProductFromInventory(string store, int productId)
         {
             if (IsLoggedIn())
                 return info.RemoveProductFromInventory(store, productId);
-            return false;
+            Logger.GetInstance().WriteToErrorLog("A guest tried to remove a product from store but failed");
+            throw new ErrorMessageException("Can't remove products from store while not logged in");
         }
 
         public bool EditProduct(string store, int productId, string name, string category, int price, int amount)
         {
             if (IsLoggedIn())
                 return info.EditProduct(store, productId, name, category, price, amount);
-            return false;
+            Logger.GetInstance().WriteToErrorLog("A guest tried to edit a product of store but failed");
+            throw new ErrorMessageException("Can't edit products while not logged in");
         }
 
         public bool AddStoreOwner(string store, UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+            {
+                Logger.GetInstance().WriteToErrorLog("A guest tried to add a store owner but failed");
+                throw new ErrorMessageException("Can't add store owner while not logged in");
+            }
+            if (user == null)
+            {
+                Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried Making a non existent user store owner");
+                throw new ErrorMessageException("Given user dosen't exist");
+            }
             return info.AddStoreOwner(store, user);
         }
 
         public bool AcceptOwner(string store, UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+            {
+                Logger.GetInstance().WriteToErrorLog("A guest tried to accept a store owner but failed");
+                throw new ErrorMessageException("Can't accept store owner while not logged in");
+            }
+            if (user == null)
+            {
+                Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried accepting a non existent user as a store owner");
+                throw new ErrorMessageException("Given user dosen't exist");
+            }
             return info.AcceptOwner(store, user);
         }
 
         public bool DeclineOwner(string store, UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+            {
+                Logger.GetInstance().WriteToErrorLog("A guest tried to decline a store owner but failed");
+                throw new ErrorMessageException("Can't decline store owner while not logged in");
+            }
+            if (user == null)
+            {
+                Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried declining a non existent user as a store owner");
+                throw new ErrorMessageException("Given user dosen't exist");
+            }
             return info.DeclineOwner(store, user);
         }
 
         public bool AddDiscountPolicy(string store, PolicyComponent policy, int discount, int productId)
         {
             if (!IsLoggedIn())
-                return false;
+                throw new ErrorMessageException("Can't add discount policy while not logged in");
             return info.AddDiscountPolicy(store, policy, discount, productId);
         }
 
         public bool AddSellingPolicy(string store, PolicyComponent policy, int productId)
         {
             if (!IsLoggedIn())
-                return false;
+                throw new ErrorMessageException("Can't add selling policy while not logged in");
             return info.AddSellingPolicy(store, policy, productId);
         }
 
         public bool RemoveDiscountPolicy(string store, int policyId, int productId)
         {
             if (!IsLoggedIn())
-                return false;
+                throw new ErrorMessageException("Can't remove discount policy while not logged in");
             return info.RemoveDiscountPolicy(store, policyId, productId);
         }
 
         public bool RemoveSellingPolicy(string store, int policyId, int productId)
         {
             if (!IsLoggedIn())
-                return false;
+                throw new ErrorMessageException("Can't remove selling policy while not logged in");
             return info.RemoveSellingPolicy(store, policyId, productId);
         }
 
         public bool AddStoreManager(string store, UserInfo user, bool[] privileges)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+            {
+                Logger.GetInstance().WriteToErrorLog("A guest tried to add a store manager but failed");
+                throw new ErrorMessageException("Can't add store manager while not logged in");
+            }
+            if (user == null)
+            {
+                Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried adding a non existent user as a store manager");
+                throw new ErrorMessageException("Given user dosen't exist");
+            }
             return info.AddStoreManager(store, user, privileges);
         }
 
         public bool RemoveStoreManager(string store, UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+            {
+                Logger.GetInstance().WriteToErrorLog("A guest tried to remove a store manager but failed");
+                throw new ErrorMessageException("Can't remove store manager while not logged in");
+            }
+            if (user == null)
+            {
+                Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried removing a non existent user as a store manager");
+                throw new ErrorMessageException("Given user dosen't exist");
+            }
             return info.RemoveStoreManager(store, user);
         }
 
         public bool AddProductsToMultiCart(string store, int productId, int amount)
         {
-            return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).AddProductsToMultiCart(MarketManagment.System.GetInstance().GetStore(store), productId, amount);
+            if (MarketManagment.System.GetInstance().GetMultiCart(multiCartId).AddProductsToMultiCart(MarketManagment.System.GetInstance().GetStore(store), productId, amount))
+            {
+                if (IsLoggedIn())
+                    Logger.GetInstance().WriteToEventLog(info.GetUserName() + " added product [" + productId + "] [" + amount + "] of store [" + store + "] to their multi cart");
+                else
+                    Logger.GetInstance().WriteToEventLog("A guest added product [" + productId + "] [" + amount + "] of store [" + store + "] to their multi cart");
+                return true;
+            }
+            return false;
         }
 
         public bool RemoveProductFromCart(int productId)
         {
-            return MarketManagment.System.GetInstance().GetMultiCart(multiCartId).RemoveProductFromMultiCart(productId);
+            if (MarketManagment.System.GetInstance().GetMultiCart(multiCartId).RemoveProductFromMultiCart(productId))
+            {
+                if (IsLoggedIn())
+                    if (IsLoggedIn())
+                        Logger.GetInstance().WriteToEventLog(info.GetUserName() + " removed product [" + productId + "] from their multi cart");
+                    else
+                        Logger.GetInstance().WriteToEventLog("A guest removed product [" + productId + "] from their multi cart");
+                return true;
+            }
+            return false;
         }
 
         public bool RemoveUser(UserInfo user)
         {
-            if (!IsLoggedIn() || user == null)
-                return false;
+            if (!IsLoggedIn())
+            {
+                Logger.GetInstance().WriteToErrorLog("A guest tried to add a remove a user but failed");
+                throw new ErrorMessageException("Can't remove registered user while not logged in");
+            }
+            if (user == null)
+            {
+                Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried removing a non existent user from the system");
+                throw new ErrorMessageException("Given user dosen't exist");
+            }
             return info.RemoveUser(user);
         }
         

@@ -25,8 +25,6 @@ namespace CommunicationLayer.Notifications
             return instance;
         }
 
-        
-
         public void SendMessageToUser (string username, string message)
         {
             if (!Message_To_Users_List.ContainsKey(username))
@@ -39,7 +37,7 @@ namespace CommunicationLayer.Notifications
         {
             int UserId = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
 
-            string username = ServiceLayer.Guest.CreateAndGetUser.GetUser(UserId).GetUserName();
+            string username = ServiceLayer.Guest.CreateAndGetUser.GetUserName(UserId);
             LinkedList<string> messages = new LinkedList<string>();
             //create copy of list of messages
             for(int i=0;i< Message_To_Users_List[username].Count; i++)
@@ -52,16 +50,5 @@ namespace CommunicationLayer.Notifications
 
             return messages;
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }

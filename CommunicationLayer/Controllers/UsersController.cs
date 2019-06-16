@@ -6,7 +6,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ServiceLayer;
-using Workshop192.UserManagment;
 using User = CommunicationLayer.Models.User.User;
 
 namespace CommunicationLayer.Controllers

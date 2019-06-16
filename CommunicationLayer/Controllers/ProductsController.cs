@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
-using Workshop192.MarketManagment;
 using Product = CommunicationLayer.Models.Product.Product;
 
 namespace CommunicationLayer.Controllers
@@ -127,6 +126,10 @@ namespace CommunicationLayer.Controllers
         public static LinkedList<LinkedList<string>> GetProductsOfStore(string storeName)
         {
             return ServiceLayer.Store_Owner_User.AllProductInStore.GetAllProducts(storeName);
+        }
+        public static LinkedList<LinkedList<string>> GetAllProducts()
+        {
+            return ServiceLayer.Store_Owner_User.AllProductInStore.GetAll();
         }
 
         public static bool EditCart(string option, int productID, string SessionID)

@@ -5,6 +5,7 @@ using ServiceLayer.Guest;
 using ServiceLayer.RegisteredUser;
 using Workshop192.UserManagment;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.RegisteredUser
 {
@@ -18,7 +19,7 @@ namespace AccaptanceTests.RegisteredUser
         public void SetUp()
         {
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
             Register.Registration("orel", "111111", UserId_Orel);
@@ -38,18 +39,18 @@ namespace AccaptanceTests.RegisteredUser
         public void DoubleLogOutTest()
         {
             Assert.AreEqual(LogOut.Logout(UserId_Orel), true);
-            Assert.AreEqual(LogOut.Logout(UserId_Orel), false);
+            Assert.Throws<ErrorMessageException>(() => LogOut.Logout(UserId_Orel));
         }
         [Test]
         public void UserNotRegisteredTest()
         {
-            Assert.AreEqual(LogOut.Logout(UserId_Nati), false);
+            Assert.Throws<ErrorMessageException>(() => LogOut.Logout(UserId_Nati));
         }
         [Test]
         public void UserNotLoggedInTest()
         {
             Register.Registration("nati", "1111111", UserId_Nati);
-            Assert.AreEqual(LogOut.Logout(UserId_Nati), false);
+            Assert.Throws<ErrorMessageException>(() => LogOut.Logout(UserId_Nati));
         }
     }
 }

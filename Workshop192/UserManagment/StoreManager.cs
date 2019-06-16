@@ -26,33 +26,54 @@ namespace Workshop192.UserManagment
         {
             if (privileges[0])
             {
-                return MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount);
+                if (MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount))
+                {
+                    Logger.GetInstance().WriteToEventLog(user.GetUserName() + " Added Product [" + product.GetId() + "] [" + product.GetName() + "] [" + product.GetCategory() + "] [" + product.GetPrice() + "] [" + amount + "] as a manager of store [" + store + "]");
+                    return true;
+                }
+                return false;
             }
-            return false;
+            Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried adding products to store [" + store + "] without privileges");
+            throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
         }
 
         public bool RemoveProductFromInventory(int productId)
         {
             if (privileges[1])
             {
-                return MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId);
+                if (MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId))
+                {
+                    Logger.GetInstance().WriteToEventLog(user.GetUserName() + " removed Product [" + productId  + "] as a manager of store [" + store + "]");
+                    return true;
+                }
+                return false;
             }
-            return false;
+            Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried removing products from store [" + store + "] without privileges");
+            throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
         }
 
         public bool EditProduct(int productId, string name, string category, int price, int amount)
         {
             if (privileges[2])
             {
-                return MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount);
+                if (MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount))
+                {
+                    Logger.GetInstance().WriteToEventLog(user.GetUserName() + " edited product [" + productId + "] to: [" + name + "] [" + category + "] [" + price + "] [" + amount + "] as manager of store [" + store + "]");
+                    return true;
+                }
+                return false;
             }
-            return false;
+            Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried editing products of store [" + store + "] without privileges");
+            throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
         }
 
         public bool AddDiscountPolicy(PolicyComponent policy, int discount, int productId)
         {
             if (!privileges[3])
-                return false;
+            {
+                Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried adding discount policy to store [" + store + "] without privileges");
+                throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
+            }
             if (productId == 0)
                 MarketManagment.System.GetInstance().GetStore(store).AddDiscountPolicy(policy, discount);
             else
@@ -62,13 +83,16 @@ namespace Workshop192.UserManagment
                         productAmount.Key.AddDiscountPolicy(policy, discount);
                         return true;
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public bool AddSellingPolicy(PolicyComponent policy, int productId)
         {
             if (!privileges[4])
-                return false;
+            {
+                Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried adding selling policy to store [" + store + "] without privileges");
+                throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
+            }
             if (productId == 0)
                 MarketManagment.System.GetInstance().GetStore(store).AddSellingPolicy(policy);
             else
@@ -78,13 +102,16 @@ namespace Workshop192.UserManagment
                         productAmount.Key.AddSellingPolicy(policy);
                         return true;
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public bool RemoveDiscountPolicy(int policyId, int productId)
         {
             if (!privileges[5])
-                return false;
+            {
+                Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried removing discount policy of store [" + store + "] without privileges");
+                throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
+            }
             if (productId == 0)
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy(policyId);
             else
@@ -93,13 +120,16 @@ namespace Workshop192.UserManagment
                     {
                         return productAmount.Key.RemoveDiscountPolicy(policyId);
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public bool RemoveSellingPolicy(int policyId, int productId)
         {
             if (!privileges[6])
-                return false;
+            {
+                Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried removing selling policy of store [" + store + "] without privileges");
+                throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
+            }
             if (productId == 0)
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy(policyId);
             else
@@ -108,7 +138,7 @@ namespace Workshop192.UserManagment
                     {
                         return productAmount.Key.RemoveSellingPolicy(policyId);
                     }
-            return false;
+            throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public void RemoveSelf()

@@ -18,5 +18,10 @@ namespace ServiceLayer.Guest
         {
             return AllRegisteredUsers.GetInstance().GetUser(userNum);
         }
+
+        public static string GetUserName(int user)
+        {
+            return AllRegisteredUsers.GetInstance().GetUser(user).GetUserName();
+        }
     }
 }
