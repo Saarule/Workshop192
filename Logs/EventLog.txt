@@ -18,3 +18,35 @@
 06-16-2019 18:50:14  saar Added Product [3] [ffff] [fff] [334] [44] as a owner of store [store1]
 06-16-2019 18:50:20  saar Added Product [4] [hhhhhhh] [fg] [345] [45] as a owner of store [store1]
 06-16-2019 18:51:38  saar Added Product [5] [fff] [ff] [34] [54] as a owner of store [store2]
+06-16-2019 20:09:53  saar Logged In
+06-16-2019 20:10:13  saar Added Product [1] [milk] [blavla] [213] [333] as a owner of store [store1]
+06-16-2019 20:10:23  saar Added Product [2] [bread] [hhh] [1231] [123] as a owner of store [store1]
+06-16-2019 20:10:47  saar Added Product [3] [ddd] [dfd] [123] [324] as a owner of store [store2]
+06-16-2019 20:10:54  saar Added Product [4] [hhh] [fd] [324] [453] as a owner of store [store2]
+06-16-2019 20:12:07  saar Logged In
+06-16-2019 20:12:22  saar Added Product [1] [fff] [ff] [123] [123] as a owner of store [store1]
+06-16-2019 20:14:17  saar Logged In
+06-16-2019 20:14:44  saar Added Product [1] [milk] [grosery] [100] [20] as a owner of store [store1]
+06-16-2019 20:17:09  saar Logged In
+06-16-2019 20:17:33  saar Added Product [1] [milk] [fd] [120] [30] as a owner of store [store1]
+06-16-2019 20:20:26  saar Logged In
+06-16-2019 20:20:45  saar Added Product [1] [milk] [ff] [123] [120] as a owner of store [store1]
+06-16-2019 20:22:43  saar Logged In
+06-16-2019 20:23:04  saar Added Product [1] [ggg] [gg] [100] [200] as a owner of store [store1]
+06-16-2019 20:26:38  saar Logged In
+06-16-2019 20:27:18  saar Added Product [1] [Milk] [grocery] [123] [120] as a owner of store [store1]
+06-16-2019 20:35:31  saar Logged In
+06-16-2019 20:36:00  saar Added Product [1] [milk] [groceery] [120] [20] as a owner of store [store1]
+06-16-2019 20:38:39  saar Logged In
+06-16-2019 20:38:58  saar Added Product [1] [ggg] [ggg] [10] [20] as a owner of store [store1]
+06-16-2019 20:48:04  saar Logged In
+06-16-2019 20:48:22  saar Added Product [1] [ffff] [fff] [1230] [123] as a owner of store [store1]
+06-16-2019 20:53:01  saar Logged In
+06-16-2019 20:53:20  saar Added Product [1] [ppp] [llll] [1234] [123] as a owner of store [store1]
+06-16-2019 20:57:01  saar Logged In
+06-16-2019 20:57:20  saar Added Product [1] [ff] [ff] [100] [20] as a owner of store [store1]
+06-16-2019 21:01:08  saar Logged In
+06-16-2019 21:01:23  saar Added Product [1] [fff] [ff] [123] [123] as a owner of store [store1]
+06-16-2019 21:04:54  saar Logged In
+06-16-2019 21:05:19  saar Added Product [1] [Milk] [Grocery] [120] [20] as a owner of store [store1]
+06-16-2019 21:05:32  saar added product [1] [2] of store [store1] to their multi cart

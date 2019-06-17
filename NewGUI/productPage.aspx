@@ -89,7 +89,22 @@
 						</div> -->
 					</div>
 				</div>
+                <div class="col-lg-5 offset-lg-1">
+					<div class="s_product_text">
                 <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+                                   <table class='order-rable'>
+                                    <tr>
+                                    <td>Enter amount to buy:</td>
+                                    </tr>
+                                    <tr>
+                                    <td><asp:TextBox id='ProductAmountTextBox' runat='server' placeholder='1' class='form-control' type='text'></asp:TextBox></td>
+                                    </tr>
+                                    </table>
+                                     <p></p>
+                                <asp:Button ID ='Button5' class='button primary-btn' runat = 'server' Text='Add to Cart' OnClick='AddToCartButton1_Click'/>
+            </div>
+                    </div>
+                    </div>
 			</div>
 		</div>
 	</div>

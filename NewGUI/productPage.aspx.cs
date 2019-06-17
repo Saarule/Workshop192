@@ -13,40 +13,29 @@ namespace NewGUI
         StringBuilder productDetails = new StringBuilder();
         LinkedList<LinkedList<string>> products2 = new LinkedList<LinkedList<string>>();
         string productId;
-        string productName;
-        string productAmount;
-        string productPrice;
-        string productCategory;
+        LinkedList<string> product;
         protected void Page_Load(object sender, EventArgs e)
         {
             productId = Request["productID"];
-            //product = CommunicationLayer.Controllers.ProductsController.GetProductsOfStore(storeName);
-            productDetails.Append("<div class='col-lg-5 offset-lg-1'>");
-            productDetails.Append("<div class='s_product_text'>");
-            //productName = product[0];
+            product = CommunicationLayer.Controllers.ProductsController.SearchProductsByID(Int32.Parse(productId));
+            string productName = product.ElementAt(1);
+            string productCategory = product.ElementAt(2);
+            string productPrice = product.ElementAt(3);
+            string productAmount = product.ElementAt(4);
+            string storeName = product.ElementAt(5);
             productDetails.Append("<h3>"+productName+"</h3>");
-            //productPrice = product[0];
             productDetails.Append("<h2>$"+productPrice+"</h2>");
             productDetails.Append("<ul class='list'>");
-            //productCategory = product[0];
-            productDetails.Append("<li><a class='active' href='#'><span>Category</span> : " +productCategory +"</a></li>");
-            //productAmount = product[0];
-            productDetails.Append("<li><a href = '#' >< span > Availibility </ span > : "+productAmount+"</a></li>");
+            productDetails.Append("<li><span>Category</span> : " +productCategory +"</li>");
+            productDetails.Append("<li><span> Availibility</span> : "+productAmount+"</li>");
+            productDetails.Append("<li><span> Store Name</span> : " +storeName+ "</li>");
             productDetails.Append("</ul>");
-            productDetails.Append("<div class='product_count'>");
-            productDetails.Append("<label for='qty'>Quantity:</label>");
-            productDetails.Append("<asp:TextBox id = 'ProductAmountTextBox' runat='server' placeholder='1' class='form-control' type='text'></asp:TextBox>>");
-            productDetails.Append("<p></p>");
-            productDetails.Append("<asp:Button ID ='Button5' class='button primary-btn' runat = 'server' Text='Add to Cart' OnClick='AddToCartButton1_Click'/>");
-            //productDetails.Append("<a class='button primary-btn' href='#'>Add to Cart</a>");
-            productDetails.Append("</div>");
-            productDetails.Append("</div>");
-            productDetails.Append("</div>");
+            PlaceHolder2.Controls.Add(new Literal { Text = productDetails.ToString() });
 
         }
         protected void AddToCartButton1_Click(object sender, EventArgs e)
         {
-            bool ans = CommunicationLayer.Controllers.ProductsController.SaveToCart(HttpContext.Current.Session.SessionID, productId, Int32.Parse(ProductAmountTextBox.Text));
+            bool ans = CommunicationLayer.Controllers.ProductsController.SaveToCart(HttpContext.Current.Session.SessionID, Int32.Parse(productId), Int32.Parse(ProductAmountTextBox.Text));
             if (ans)
             {
                 Response.Write("<script>alert('succesfully added product to cart');</script>");
@@ -58,6 +47,16 @@ namespace NewGUI
             }
         }
 
+        /*
+                          <tr>
+                <td>Enter product amount:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="ProductAmountTextBox" runat="server" placeholder="Product amount" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+
+
+        */
         /*
         				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">

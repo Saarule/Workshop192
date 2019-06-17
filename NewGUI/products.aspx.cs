@@ -39,7 +39,7 @@ namespace NewGUI
                 tableProducts.Append(productCategory);
                 tableProducts.Append("</p>");
                 productId = products2.ElementAt(i).ElementAt(0);
-                tableProducts.Append("<h4 class='card-product__title'><a href = 'profuctPage.aspx?productID="+productId+"'>");
+                tableProducts.Append("<h4 class='card-product__title'><a href = 'productPage.aspx?productID="+productId+"'>");
                 productName = products2.ElementAt(i).ElementAt(1);
                 tableProducts.Append(productName);
                 tableProducts.Append("</a></h4>");
