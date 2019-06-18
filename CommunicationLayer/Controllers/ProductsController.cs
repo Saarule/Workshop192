@@ -110,15 +110,14 @@ namespace CommunicationLayer.Controllers
         public static bool ManageProducts(string SessionID, int productID, string name, string category, int price, int amount, string store, string option)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-
             return ServiceLayer.Store_Owner_User.ManageProducts.ManageProduct(userID,productID,name,category,price,amount,store,option);
         }
 
-        public static bool ProcessOfBuying(int AcountID, string SessionID, string Name,string AddresToDelivery)
+        public static string[] ProcessOfBuying(string cardNumber, string month, string year, string holder, string ccv, string ID, string name, string address, string city, string country, string zip, string SessionID)
         {
+            // THE function return number that represent transactionID !!
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-
-            return ServiceLayer.Guest.ProcessOfBuyingProducts.ProcessBuyingProducts(AcountID,userID,Name,AddresToDelivery);
+            return ServiceLayer.Guest.ProcessOfBuyingProducts.ProcessBuyingProducts(cardNumber,month,year,holder,ccv,ID,name,address,city,country,zip,userID);
         }
 
         public static LinkedList<LinkedList<string>> FilterProducts(string input , LinkedList<LinkedList<string>> toFilter,string option)
@@ -143,6 +142,29 @@ namespace CommunicationLayer.Controllers
 
             //EDIT SUPPORT: meantime just "delete" if want to edit num of units form products need to delete and add how many he wants again.  
             return ServiceLayer.Guest.WatchAndEdit.Edit(option, productID, userID);
+        } 
+        public static bool AddBuyingPolicy(LinkedList<string> param ,string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.AddBuyingPolicy(param, userID);
+        }
+
+        public static bool RemoveBuyingPolicy(LinkedList<string> param, string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.RemoveBuyingPolicy(param, userID);
+        }
+
+        public static bool AddDiscountPolicy(LinkedList<string> param, string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.AddDiscountPolicy(param, userID);
+        }
+
+        public static bool RemoveDiscountPolicy(LinkedList<string> param, string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.RemoveDiscountPolicy(param, userID);
         }
     }
 }

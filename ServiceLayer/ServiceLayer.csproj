@@ -65,6 +65,7 @@
     <Compile Include="StoreOwnerUser\AssignStoreManager.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreOwner.cs" />
     <Compile Include="StoreOwnerUser\HandlerRequestAppointment.cs" />
+    <Compile Include="StoreOwnerUser\ManagePolicies.cs" />
     <Compile Include="StoreOwnerUser\ManageProducts.cs" />
     <Compile Include="StoreOwnerUser\RemoveStoreManager.cs" />
     <Compile Include="StoreOwnerUser\ShowWaitingList.cs" />
