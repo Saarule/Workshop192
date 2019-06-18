@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Workshop192;
 
 namespace NewGUI
 {
@@ -16,34 +17,48 @@ namespace NewGUI
         LinkedList<string> product;
         protected void Page_Load(object sender, EventArgs e)
         {
-            productId = Request["productID"];
-            product = CommunicationLayer.Controllers.ProductsController.SearchProductsByID(Int32.Parse(productId));
-            string productName = product.ElementAt(1);
-            string productCategory = product.ElementAt(2);
-            string productPrice = product.ElementAt(3);
-            string productAmount = product.ElementAt(4);
-            string storeName = product.ElementAt(5);
-            productDetails.Append("<h3>"+productName+"</h3>");
-            productDetails.Append("<h2>$"+productPrice+"</h2>");
-            productDetails.Append("<ul class='list'>");
-            productDetails.Append("<li><span>Category</span> : " +productCategory +"</li>");
-            productDetails.Append("<li><span> Availibility</span> : "+productAmount+"</li>");
-            productDetails.Append("<li><span> Store Name</span> : " +storeName+ "</li>");
-            productDetails.Append("</ul>");
-            PlaceHolder2.Controls.Add(new Literal { Text = productDetails.ToString() });
+            try
+            {
+                productId = Request["productID"];
+                product = CommunicationLayer.Controllers.ProductsController.SearchProductsByID(Int32.Parse(productId));
+                string productName = product.ElementAt(1);
+                string productCategory = product.ElementAt(2);
+                string productPrice = product.ElementAt(3);
+                string productAmount = product.ElementAt(4);
+                string storeName = product.ElementAt(5);
+                productDetails.Append("<h3>" + productName + "</h3>");
+                productDetails.Append("<h2>$" + productPrice + "</h2>");
+                productDetails.Append("<ul class='list'>");
+                productDetails.Append("<li><span>Category</span> : " + productCategory + "</li>");
+                productDetails.Append("<li><span> Availibility</span> : " + productAmount + "</li>");
+                productDetails.Append("<li><span> Store Name</span> : " + storeName + "</li>");
+                productDetails.Append("</ul>");
+                PlaceHolder2.Controls.Add(new Literal { Text = productDetails.ToString() });
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
 
         }
         protected void AddToCartButton1_Click(object sender, EventArgs e)
         {
-            bool ans = CommunicationLayer.Controllers.ProductsController.SaveToCart(HttpContext.Current.Session.SessionID, Int32.Parse(productId), Int32.Parse(ProductAmountTextBox.Text));
-            if (ans)
+            try
             {
-                Response.Write("<script>alert('succesfully added product to cart');</script>");
-                Response.Redirect("myCart.aspx");
+                bool ans = CommunicationLayer.Controllers.ProductsController.SaveToCart(HttpContext.Current.Session.SessionID, Int32.Parse(productId), Int32.Parse(ProductAmountTextBox.Text));
+                if (ans)
+                {
+                    Response.Write("<script>alert('succesfully added product to cart');</script>");
+                    Response.Redirect("myCart.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('There was error when adding product to cart');</script>");
+                }
             }
-            else
+            catch (ErrorMessageException exception)
             {
-                Response.Write("<script>alert('There was error when adding product to cart');</script>");
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
         }
 

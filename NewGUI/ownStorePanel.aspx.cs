@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Workshop192;
 
 namespace NewGUI
 {
@@ -42,63 +43,82 @@ namespace NewGUI
 
         protected void AddStoreManagerButton1_Click(object sender, EventArgs e)
         {
-
-            string storeManagerName = StoreManagerToAddTextBox.Text;
-            bool checkbox1 = AddProductCheckBox.Checked;
-            bool checkbox2 = RemoveProductCheckBox.Checked;
-            bool checkbox3 = EditProductCheckBox.Checked;
-            bool checkbox4 = AddDiscountPolicyCheckBox.Checked;
-            bool checkbox5 = AddSellingPolicyCheckBox.Checked;
-            bool checkbox6 = RemoveDiscountPolicyCheckBox.Checked;
-            bool checkbox7 = RemoveSellingPolicyCheckBox.Checked;
-            bool[] priviliges = new bool[7];
-            priviliges[0] = checkbox1;
-            priviliges[1] = checkbox2;
-            priviliges[2] = checkbox3;
-            priviliges[3] = checkbox4;
-            priviliges[4] = checkbox5;
-            priviliges[5] = checkbox6;
-            priviliges[6] = checkbox7;
-            bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeManagerName, priviliges);
-            if (ans)
+            try
             {
-                Response.Write("<script>alert('succesfully added Store Manager');</script>");
-                Response.Redirect("manageStorePanel.aspx");
+                string storeManagerName = StoreManagerToAddTextBox.Text;
+                bool checkbox1 = AddProductCheckBox.Checked;
+                bool checkbox2 = RemoveProductCheckBox.Checked;
+                bool checkbox3 = EditProductCheckBox.Checked;
+                bool checkbox4 = AddDiscountPolicyCheckBox.Checked;
+                bool checkbox5 = AddSellingPolicyCheckBox.Checked;
+                bool checkbox6 = RemoveDiscountPolicyCheckBox.Checked;
+                bool checkbox7 = RemoveSellingPolicyCheckBox.Checked;
+                bool[] priviliges = new bool[7];
+                priviliges[0] = checkbox1;
+                priviliges[1] = checkbox2;
+                priviliges[2] = checkbox3;
+                priviliges[3] = checkbox4;
+                priviliges[4] = checkbox5;
+                priviliges[5] = checkbox6;
+                priviliges[6] = checkbox7;
+                bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeManagerName, priviliges);
+                if (ans)
+                {
+                    Response.Write("<script>alert('succesfully added Store Manager');</script>");
+                    Response.Redirect("manageStorePanel.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('There was error when adding the Store Manager');</script>");
+                }
             }
-            else
+            catch (ErrorMessageException exception)
             {
-                Response.Write("<script>alert('There was error when adding the Store Manager');</script>");
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
 
         }
         protected void RemoveStoreManagerButton1_Click(object sender, EventArgs e)
         {
-
-            string storeManagerName = StoreManagerToRemoveTextBox.Text;
-            bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeManagerName, null);
-            if (ans)
+            try
             {
-                Response.Write("<script>alert('succesfully removed Store Manager');</script>");
-                Response.Redirect("manageStorePanel.aspx");
+                string storeManagerName = StoreManagerToRemoveTextBox.Text;
+                bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeManagerName, null);
+                if (ans)
+                {
+                    Response.Write("<script>alert('succesfully removed Store Manager');</script>");
+                    Response.Redirect("manageStorePanel.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('There was error when removing the Store Manager');</script>");
+                }
             }
-            else
+            catch (ErrorMessageException exception)
             {
-                Response.Write("<script>alert('There was error when removing the Store Manager');</script>");
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
 
         }
         protected void AddStoreOwnerButton1_Click(object sender, EventArgs e)
         {
-            string storeOwnerName = StoreOwnerTextBox.Text;
-            bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeOwnerName, null);
-            if (ans)
+            try
             {
-                Response.Write("<script>alert('succesfully added Store Owner');</script>");
-                Response.Redirect("manageStorePanel.aspx");
+                string storeOwnerName = StoreOwnerTextBox.Text;
+                bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeOwnerName, null);
+                if (ans)
+                {
+                    Response.Write("<script>alert('succesfully added Store Owner');</script>");
+                    Response.Redirect("manageStorePanel.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('There was error when adding the Store Owner');</script>");
+                }
             }
-            else
+            catch (ErrorMessageException exception)
             {
-                Response.Write("<script>alert('There was error when adding the Store Owner');</script>");
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
         }
     }

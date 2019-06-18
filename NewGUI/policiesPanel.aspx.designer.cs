@@ -10,7 +10,7 @@
 namespace NewGUI {
     
     
-    public partial class manageStorePanel {
+    public partial class policiesPanel {
         
         /// <summary>
         /// form2 control.
@@ -22,132 +22,93 @@ namespace NewGUI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// ProductNameTextBox1 control.
+        /// StoreNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductNameTextBox1;
+        protected global::System.Web.UI.WebControls.TextBox StoreNameTextBox;
         
         /// <summary>
-        /// ProductCategoryTextBox control.
+        /// StoreMinimumAmountTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductCategoryTextBox;
+        protected global::System.Web.UI.WebControls.TextBox StoreMinimumAmountTextBox;
         
         /// <summary>
-        /// ProductPriceTextBox control.
+        /// StoreMaximumAmountTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductPriceTextBox;
+        protected global::System.Web.UI.WebControls.TextBox StoreMaximumAmountTextBox;
         
         /// <summary>
-        /// ProductAmountTextBox control.
+        /// ProductNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductAmountTextBox;
+        protected global::System.Web.UI.WebControls.TextBox ProductNameTextBox;
         
         /// <summary>
-        /// Button3 control.
+        /// ProductMinimumAmountTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.TextBox ProductMinimumAmountTextBox;
         
         /// <summary>
-        /// ProductIdToDeleteTextBox control.
+        /// ProductMaximumAmountTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductIdToDeleteTextBox;
+        protected global::System.Web.UI.WebControls.TextBox ProductMaximumAmountTextBox;
         
         /// <summary>
-        /// Button1 control.
+        /// CountryNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox CountryNameTextBox;
         
         /// <summary>
-        /// ProductIdTextBox2 control.
+        /// UserNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductIdTextBox2;
+        protected global::System.Web.UI.WebControls.TextBox UserNameTextBox;
         
         /// <summary>
-        /// ProductNameTextBox2 control.
+        /// compositionType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductNameTextBox2;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType;
         
         /// <summary>
-        /// ProductCategoryTextBox2 control.
+        /// AddPolicyButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductCategoryTextBox2;
-        
-        /// <summary>
-        /// ProductPriceTextBox2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductPriceTextBox2;
-        
-        /// <summary>
-        /// ProductAmountTextBox2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductAmountTextBox2;
-        protected global::System.Web.UI.WebControls.TextBox StoreManagerToRemoveTextBox;
-        protected global::System.Web.UI.WebControls.TextBox StoreManagerToAddTextBox;
-        protected global::System.Web.UI.WebControls.TextBox StoreOwnerTextBox;
-
-        /// <summary>
-        /// Button4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
-        
-        /// <summary>
-        /// PlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button AddPolicyButton1;
     }
 }

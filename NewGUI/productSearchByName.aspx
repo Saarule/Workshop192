@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="products.aspx.cs" Inherits="NewGUI.products" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="productSearchByName.aspx.cs" Inherits="NewGUI.productSearchByName" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,7 @@
 </head>
 <body>
    <!--================ Start Header Menu Area =================-->
-    <form id="form1" runat="server">
+    <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -158,7 +158,7 @@
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
             <div class="row">
-               <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+               <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder>
             </div>
           </section>
           <!-- End Best Seller -->

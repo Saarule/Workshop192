@@ -13,13 +13,13 @@ namespace NewGUI {
     public partial class checkout {
         
         /// <summary>
-        /// form2 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// FirstNameTextBox control.
@@ -67,6 +67,15 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox StreetTextBox;
         
         /// <summary>
+        /// ZipcodeTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ZipcodeTextBox;
+        
+        /// <summary>
         /// CreditCardNumberTextBox control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,33 @@ namespace NewGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox CreditCardNumberTextBox;
+        
+        /// <summary>
+        /// CreditCardYearTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CreditCardYearTextBox;
+        
+        /// <summary>
+        /// CreditCardMonthTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CreditCardMonthTextBox;
+        
+        /// <summary>
+        /// CreditCardHolderTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CreditCardHolderTextBox;
         
         /// <summary>
         /// DigitsBehindCardTextBox control.
@@ -92,5 +128,14 @@ namespace NewGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ValidUntilTextBox;
+        
+        /// <summary>
+        /// BuyNowButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BuyNowButton1;
     }
 }

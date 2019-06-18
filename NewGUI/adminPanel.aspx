@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="myCart.aspx.cs" Inherits="NewGUI.myCart" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="adminPanel.aspx.cs" Inherits="NewGUI.adminPanel" %>
 
 <!DOCTYPE html>
-<html lang="en" runat="server">
-<head>
+<html lang="en">
+<head runat="server">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Cart</title>
+  <title>Admin Shop</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -21,11 +21,12 @@
 </head>
 <body>
   <!--================ Start Header Menu Area =================-->
-    <form id="form1" runat="server">
+    <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
+          <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -34,32 +35,37 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item active"><a class="nav-link" href="indexLoginUser.html">Home</a></li>
-              <li class="nav-item submenu dropdown">
+              <li class="nav-item"><a class="nav-link" href="indexLoginUser.aspx">Home</a></li>
+              <li class="nav-item active submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
-                  <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="products.aspx">Browse Products</a></li>
-                  <li class="nav-item"><a class="nav-link" href="myCart.aspx">My Cart</a></li>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
+                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
+                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+                  <li class="nav-item"><a class="nav-link" href="products.aspx">Browse products</a></li>
                 </ul>
-				</li>
-
-				<li class="nav-item submenu dropdown">
+							</li>
+							<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li>
+                 <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
+                 <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
+                 <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
                 </ul>
               </li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
 
-           <ul class="nav-shop">
-                <a href="mycart.aspx" class="notification">
-                <span>Inbox</span>
-                <span class="badge">3</span>
-                 </a>
-
-              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
+            <ul class="nav-shop">
+              <li class="nav-item"><button><i class="ti-search"></i></button></li>
+              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -68,75 +74,45 @@
   </header>
 	<!--================ End Header Menu Area =================-->
 
-
-  <!--================Cart Area =================-->
-  <section class="cart_area">
-      <div class="container">
-          <div class="cart_inner">
-              <div class="table-responsive">
-                  <table class="table">
-                      <thead>
-                          <tr>
-                              <th scope="col">Product</th>
-                              <th scope="col">Price</th>
-                              <th scope="col">Quantity</th>
-                              <th scope="col">Total</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          
-                          <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder>
-                          <tr class="bottom_button">
-                              <td>
-                                  <a class="button" href="#">Update Cart</a>
-                              </td>
-                              <td>
-
-                              </td>
-                              <td>
-
-                              </td>
-                              
-                          </tr>
-                          <tr>
-                              <td>
-
-                              </td>
-                              <td>
-
-                              </td>
-                              <td>
-                                  <h5>Subtotal</h5>
-                              </td>
-                              <td>
-                                  <h5>$2160.00</h5>
-                              </td>
-                          </tr>
-                          
-                          <tr class="out_button_area">
-                              <td class="d-none-l">
-
-                              </td>
-                              <td class="">
-
-                              </td>
-                              <td>
-
-                              </td>
-                              <td>
-                                  <div class="checkout_btn_inner d-flex align-items-center">
-                                      <a class="gray_btn" href="products.aspx">Continue Shopping</a>
-                                       <asp:Button ID="ProceedToCheckOutButton" runat="server" class="primary-btn ml-2" Text="Proceed to checkout" OnClick="ProceedToCheckOutButton1_Click" />
-                                  </div>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
+  <!--================Order Details Area =================-->
+  <section class="order_details section-margin--small">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Remove User</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Enter Username:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="UserToRemove" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+              <tr>
+                <td><asp:Button ID="UserToRemoveButton1" runat="server" class="button button-register w-100" Text="Add Product" OnClick="UserToRemoveButton1_Click" /></td>
+              </tr>
+            </table>
           </div>
+        </div>
+
+
+
+
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">User list</h3>
+            <table class="order-rable">
+              <tr>
+                  <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
+    </div>
   </section>
-  <!--================End Cart Area =================-->
+  <!--================End Order Details Area =================-->
+
 
 <!--================ Start footer Area  =================-->	
 	<footer class="footer">
@@ -179,7 +155,6 @@
 	<!--================ End footer Area  =================-->
 
 
-
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="vendors/skrollr.min.js"></script>
@@ -188,6 +163,6 @@
   <script src="vendors/jquery.ajaxchimp.min.js"></script>
   <script src="vendors/mail-script.js"></script>
   <script src="js/main.js"></script>
-</form>
+        </form>
 </body>
 </html>

@@ -13,5 +13,22 @@ namespace NewGUI
         {
 
         }
+        protected void BuyNowButton1_Click(object sender, EventArgs e)
+        {
+            string name = FirstNameTextBox.Text + LastNameTextBox.Text;
+            string addressToDeliver = CountryTextBox.Text + CityTextBox.Text + StreetTextBox.Text;
+            /*
+            bool ans = CommunicationLayer.Controllers.ProductsController.ProcessOfBuying(null,HttpContext.Current.Session.SessionID, name , addressToDeliver);
+            if (ans)
+            {
+                Response.Redirect("confirmation.aspx");
+                Response.Write("<script>alert('Successful Purchase');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Purchase failed');</script>");
+            }
+            */
+        }
     }
 }
