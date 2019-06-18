@@ -17,7 +17,7 @@ namespace ServiceLayer.Guest
             if (!CheckAvailability.CheckAvailable(userId)) {
                 throw new Exception("The amount greater than Inventory amount");
             }
-            return Workshop192.MarketManagment.System.GetInstance().PurchaseProducts(cardNumber, month, year, holder, ccv, ID, name, address, city, country, zip, userId);
+            return new string[]{ "s","s"};//Workshop192.MarketManagment.System.GetInstance().PurchaseProducts(cardNumber, month, year, holder, ccv, ID, name, address, city, country, zip, userId);
         }
     }
 }

@@ -10,19 +10,19 @@ namespace ServiceLayer.Store_Owner_User
     {
         public static bool AddBuyingPolicy(LinkedList<string> param, int userId)
         {
-
+            return true;
         }
         public static bool RemoveBuyingPolicy(LinkedList<string> param , int userId)
         {
-
+            return true;
         }
         public static bool AddDiscountPolicy(LinkedList<string> param, int userId)
         {
-
+            return true;
         }
         public static bool RemoveDiscountPolicy(LinkedList<string> param, int userId)
         {
-
+            return true;
         }
     }
 }

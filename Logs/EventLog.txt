@@ -350,3 +350,17 @@
 06/17/2019 00:35:33  A guest added product [1] [1] of store [store1] to their multi cart
 06/17/2019 00:35:33  A guest added product [2] [1] of store [store1] to their multi cart
 06/17/2019 00:35:33  A guest added product [3] [1] of store [store2] to their multi cart
+06/18/2019 19:21:19  orel Logged In
+06/18/2019 19:43:31  orel Logged In
+06/18/2019 19:43:31  nati Logged In
+06/18/2019 19:43:31  orel added user nati as a manager in store [victory] with the following privileges System.Boolean[]
+06/18/2019 19:43:31  orel added user saar as a manager in store [victory] with the following privileges System.Boolean[]
+06/18/2019 19:43:31  orel Logged In
+06/18/2019 19:43:31  nati Logged In
+06/18/2019 19:43:31  orel Logged In
+06/18/2019 19:43:31  nati Logged In
+06/18/2019 19:43:31  orel Logged In
+06/18/2019 19:43:31  nati Logged In
+06/18/2019 19:43:31  orel initiated the owner adding proccess to user nati for store [victory]
+06/18/2019 19:43:31  nati Is now a owner of store [victory]
+06/18/2019 19:43:31  orel initiated the owner adding proccess to user saar for store [victory]
