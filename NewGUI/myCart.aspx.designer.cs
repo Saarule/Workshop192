@@ -10,7 +10,7 @@
 namespace NewGUI {
     
     
-    public partial class products {
+    public partial class myCart {
         
         /// <summary>
         /// form1 control.
@@ -22,30 +22,30 @@ namespace NewGUI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SearchTextBox control.
+        /// PlaceHolder3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchTextBox;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder3;
         
         /// <summary>
-        /// SearchButton1 control.
+        /// PlaceHolder4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton1;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder4;
         
         /// <summary>
-        /// PlaceHolder2 control.
+        /// ProceedToCheckOutButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder2;
+        protected global::System.Web.UI.WebControls.Button ProceedToCheckOutButton;
     }
 }

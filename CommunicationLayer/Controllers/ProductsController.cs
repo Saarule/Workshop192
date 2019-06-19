@@ -17,7 +17,7 @@ namespace CommunicationLayer.Controllers
             return ServiceLayer.RegisteredUser.OpenStore.openStore(storename, userID);
         }
 
-        public LinkedList<LinkedList<string>> DisplayCart(string SessionID)
+        public static LinkedList<LinkedList<string>> DisplayCart(string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
 

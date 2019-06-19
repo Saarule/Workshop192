@@ -1,17 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="NewGUI.WebForm1" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="productPage.aspx.cs" Inherits="NewGUI.productPage" %>
 
 <!DOCTYPE html>
-<html lang="en">
-<head runat="server">
+<html lang="en" runat="server">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Home - LoggedInUser</title>
+  <title>Product Page</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
 	<link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
   <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
   <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
   <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!--================ Start Header Menu Area =================-->
+	 <!--================ Start Header Menu Area =================-->
     <form id="form1" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -66,61 +66,47 @@
     </div>
   </header>
 	<!--================ End Header Menu Area =================-->
+	
 
-  <main class="site-main">
-    
-    <!--================ Hero banner start =================-->
-    <section class="hero-banner">
-      <div class="container">
-        <div class="row no-gutters align-items-center pt-60px">
-          <div class="col-5 d-none d-sm-block">
-            <div class="hero-banner__img">
-              <img class="img-fluid" src="img/home/hero-banner.png" alt="">
+
+  <!--================Single Product Area =================-->
+	<div class="product_image_area">
+		<div class="container">
+			<div class="row s_product_inner">
+				<div class="col-lg-6">
+					<div class="owl-carousel owl-theme s_Product_carousel">
+						<div class="single-prd-item">
+							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
+						</div>
+						<!-- <div class="single-prd-item">
+							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
+						</div>
+						<div class="single-prd-item">
+							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
+						</div> -->
+					</div>
+				</div>
+                <div class="col-lg-5 offset-lg-1">
+					<div class="s_product_text">
+                <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+                                   <table class='order-rable'>
+                                    <tr>
+                                    <td>Enter amount to buy:</td>
+                                    </tr>
+                                    <tr>
+                                    <td><asp:TextBox id='ProductAmountTextBox' runat='server' placeholder='1' class='form-control' type='text' Text="1"></asp:TextBox></td>
+                                    </tr>
+                                    </table>
+                                     <p></p>
+                                <asp:Button ID ='Button5' class='button primary-btn' runat = 'server' Text='Add to Cart' OnClick='AddToCartButton1_Click'/>
             </div>
-          </div>
-          <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
-            <div class="hero-banner__content">
-              <h4>Shop is fun</h4>
-              <h1>Browse Our Premium Product</h1>
-              <p>Us which over of signs divide dominion deep fill bring they're meat beho upon own earth without morning over third. Their male dry. They are great appear whose land fly grass.</p>
-              <a class="button button-hero" href="products.aspx">Browse Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--================ Hero banner start =================-->
+                    </div>
+                    </div>
+			</div>
+		</div>
+	</div>
+	<!--================End Single Product Area =================-->
 
-    <!--================ Hero Carousel start =================-->
-    <section class="section-margin mt-0">
-      <div class="owl-carousel owl-theme hero-carousel">
-        <div class="hero-carousel__slide">
-          <img src="img/home/hero-slide1.png" alt="" class="img-fluid">
-          <a href="#" class="hero-carousel__slideOverlay">
-            <h3>Wireless Headphone</h3>
-            <p>Accessories Item</p>
-          </a>
-        </div>
-        <div class="hero-carousel__slide">
-          <img src="img/home/hero-slide2.png" alt="" class="img-fluid">
-          <a href="#" class="hero-carousel__slideOverlay">
-            <h3>Wireless Headphone</h3>
-            <p>Accessories Item</p>
-          </a>
-        </div>
-        <div class="hero-carousel__slide">
-          <img src="img/home/hero-slide3.png" alt="" class="img-fluid">
-          <a href="#" class="hero-carousel__slideOverlay">
-            <h3>Wireless Headphone</h3>
-            <p>Accessories Item</p>
-          </a>
-        </div>
-      </div>
-    </section>
-    <!--================ Hero Carousel end =================-->
-
-
-  </main>
 <!--================ Start footer Area  =================-->	
 	<footer class="footer">
 		<div class="footer-area">
@@ -160,6 +146,8 @@
 		</div>
 	</footer>
 	<!--================ End footer Area  =================-->
+
+
 
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>

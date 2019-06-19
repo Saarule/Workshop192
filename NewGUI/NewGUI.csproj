@@ -76,18 +76,40 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminPanel.aspx" />
+    <Content Include="checkout.aspx" />
     <Content Include="indexLoginUser.aspx" />
     <Content Include="login.aspx" />
     <Content Include="manageStorePanel.aspx" />
+    <Content Include="myCart.aspx" />
     <Content Include="ownStorePanel.aspx" />
+    <Content Include="policiesPanel.aspx" />
+    <Content Include="productPage.aspx" />
     <Content Include="products.aspx" />
+    <Content Include="productSearchByName.aspx" />
     <Content Include="register.aspx" />
     <Content Include="storeOwnerDashboard.aspx" />
     <Content Include="userDashboard.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="index.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminPanel.aspx.cs">
+      <DependentUpon>adminPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminPanel.aspx.designer.cs">
+      <DependentUpon>adminPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="indexLoginUser.aspx.cs">
       <DependentUpon>indexLoginUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,6 +131,13 @@
     <Compile Include="manageStorePanel.aspx.designer.cs">
       <DependentUpon>manageStorePanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="myCart.aspx.cs">
+      <DependentUpon>myCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myCart.aspx.designer.cs">
+      <DependentUpon>myCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ownStorePanel.aspx.cs">
       <DependentUpon>ownStorePanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -116,12 +145,33 @@
     <Compile Include="ownStorePanel.aspx.designer.cs">
       <DependentUpon>ownStorePanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="policiesPanel.aspx.cs">
+      <DependentUpon>policiesPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="policiesPanel.aspx.designer.cs">
+      <DependentUpon>policiesPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productPage.aspx.cs">
+      <DependentUpon>productPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productPage.aspx.designer.cs">
+      <DependentUpon>productPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="products.aspx.cs">
       <DependentUpon>products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="products.aspx.designer.cs">
       <DependentUpon>products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productSearchByName.aspx.cs">
+      <DependentUpon>productSearchByName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productSearchByName.aspx.designer.cs">
+      <DependentUpon>productSearchByName.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="index.aspx.cs">
@@ -161,6 +211,10 @@
     <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
       <Project>{3460562a-e8d6-4335-b018-4875640959bf}</Project>
       <Name>ServiceLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Workshop192\DomainLayer.csproj">
+      <Project>{0db1192a-15dd-405e-8f42-fe910f491968}</Project>
+      <Name>DomainLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

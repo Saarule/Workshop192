@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ownStorePanel.aspx.cs" Inherits="NewGUI.ownStorePanel" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="adminPanel.aspx.cs" Inherits="NewGUI.adminPanel" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Own Store Panel</title>
+  <title>Admin Shop</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -26,6 +26,7 @@
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
+          <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -39,8 +40,12 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="products.aspx">Browse Products</a></li>
-                  <li class="nav-item"><a class="nav-link" href="myCart.aspx">My Cart</a></li>
+                  <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
+                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
+                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+                  <li class="nav-item"><a class="nav-link" href="products.aspx">Browse products</a></li>
                 </ul>
 							</li>
 							<li class="nav-item submenu dropdown">
@@ -54,15 +59,13 @@
                  <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
                 </ul>
               </li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
 
-           <ul class="nav-shop">
-                <a href="mycart.aspx" class="notification">
-                <span>Inbox</span>
-                <span class="badge">3</span>
-                 </a>
-
-              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
+            <ul class="nav-shop">
+              <li class="nav-item"><button><i class="ti-search"></i></button></li>
+              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -76,7 +79,7 @@
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">
-					<h1>Store Owner Panel</h1>
+					<h1>Admin Panel</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
           </nav>
 				</div>
@@ -89,79 +92,36 @@
   <section class="order_details section-margin--small">
     <div class="container">
       <div class="row mb-5">
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
-            <h3 class="billing-title">Add Store Manager</h3>
+            <h3 class="billing-title">Remove User</h3>
             <table class="order-rable">
               <tr>
-                <td>Enter store manager username:</td>
+                <td>Enter Username:</td>
               </tr>
                 <tr>
-                    <td><asp:TextBox id="StoreManagerToAddTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
+                    <td><asp:TextBox id="UserToRemove" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
                 </tr>
-                 <tr>
-                <td>Privileges:</td>
-              </tr>
-                   <tr>
-                          <td><asp:CheckBox ID="AddProductCheckBox" runat="server" Text="  Add Product" /></td>  
-                   </tr>
-                   <tr>
-                          <td><asp:CheckBox ID="RemoveProductCheckBox" runat="server" Text="  Remove Product" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="EditProductCheckBox" runat="server" Text="  Edit Product" /></td>  
-                   </tr>
-                      <tr>
-                          <td><asp:CheckBox ID="AddDiscountPolicyCheckBox" runat="server" Text="  Add discount policy" /></td>  
-                   </tr>
-                      <tr>
-                          <td><asp:CheckBox ID="AddSellingPolicyCheckBox" runat="server" Text="  Add selling policy" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="RemoveDiscountPolicyCheckBox" runat="server" Text="  Remove discount policy" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="RemoveSellingPolicyCheckBox" runat="server" Text="  Remove selling policy" /></td>  
-                   </tr>
               <tr>
-                <td><asp:Button ID="Button5" runat="server" class="button button-register w-100" Text="Add Store Manager" OnClick="AddStoreManagerButton1_Click" /></td>
+                <td><asp:Button ID="UserToRemoveButton1" runat="server" class="button button-register w-100" Text="Add Product" OnClick="UserToRemoveButton1_Click" /></td>
               </tr>
             </table>
           </div>
         </div>
+
+
+
+
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
-            <h3 class="billing-title">Remove Store Manager</h3>
+            <h3 class="billing-title">User list</h3>
             <table class="order-rable">
               <tr>
-                <td>Enter store manager username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreManagerToRemoveTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button9" runat="server" class="button button-register w-100" Text="Remove Store Manager" OnClick="RemoveStoreManagerButton1_Click" /></td>
+                  <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
               </tr>
             </table>
           </div>
         </div>
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Add Store Owner</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter store owner username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreOwnerTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button2" runat="server" class="button button-register w-100" Text="Add Store Owner" OnClick="AddStoreOwnerButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-   
       </div>
     </div>
   </section>
@@ -207,6 +167,7 @@
 		</div>
 	</footer>
 	<!--================ End footer Area  =================-->
+
 
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>

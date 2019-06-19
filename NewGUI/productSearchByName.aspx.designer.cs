@@ -10,16 +10,16 @@
 namespace NewGUI {
     
     
-    public partial class products {
+    public partial class productSearchByName {
         
         /// <summary>
-        /// form1 control.
+        /// form2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
         /// SearchTextBox control.
@@ -40,12 +40,12 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.Button SearchButton1;
         
         /// <summary>
-        /// PlaceHolder2 control.
+        /// PlaceHolder3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder2;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder3;
     }
 }
