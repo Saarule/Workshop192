@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!--================ Start Header Menu Area =================-->
+ <!--================ Start Header Menu Area =================-->
     <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -39,8 +39,8 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="products.aspx">Browse Products</a></li>
-                  <li class="nav-item"><a class="nav-link" href="myCart.aspx">My Cart</a></li>
+                  <li class="nav-item"><a class="nav-link" href="productsAsUser.aspx">Browse Products</a></li>
+                  <li class="nav-item"><a class="nav-link" href="myCartAsUser.aspx">My Cart</a></li>
                 </ul>
 							</li>
 							<li class="nav-item submenu dropdown">
@@ -57,12 +57,12 @@
             </ul>
 
            <ul class="nav-shop">
-                <a href="mycart.aspx" class="notification">
+                <a href="mycartAsUser.aspx" class="notification">
                 <span>Inbox</span>
                 <span class="badge">3</span>
                  </a>
 
-              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -70,6 +70,7 @@
     </div>
   </header>
 	<!--================ End Header Menu Area =================-->
+
 
 <!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
@@ -151,6 +152,22 @@
                 </tr>
                 <tr>
                     <td><asp:Button ID="Button3" runat="server" class="button button-register w-100" Text="Own Store Panel" OnClick="OwnStoreButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Manage Policies</h3>
+            <table class="order-rable">
+                <tr>
+                <td>Enter store name:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="StoreToManagePoliciesTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Button ID="ManagePolicies" runat="server" class="button button-register w-100" Text="Own Store Panel" OnClick="ManagePoliciesButton1_Click" /></td>
               </tr>
             </table>
           </div>

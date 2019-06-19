@@ -81,3 +81,4 @@
 06/19/2019 17:54:28  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
 06/19/2019 17:54:28  nati Tried declining a non existent user as a store owner
 06/19/2019 17:54:28  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list
+06-19-2019 23:50:22  saar Tried adding a non existent user as a store manager

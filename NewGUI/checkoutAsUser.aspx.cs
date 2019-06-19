@@ -8,13 +8,9 @@ using Workshop192;
 
 namespace NewGUI
 {
-    public partial class checkout : System.Web.UI.Page
+    public partial class checkoutAsUser : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-        protected void BuyNowButton1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -39,7 +35,7 @@ namespace NewGUI
 
                 if (transcationPayId != "-1" && transcationSupplyId != "-1")
                 {
-                    Response.Redirect("confirmation.aspx?PayID={transcationPayId}&SupplyID={transcationSupplyId} ");
+                    Response.Redirect("confirmationAsUser.aspx?PayID={transcationPayId}&SupplyID={transcationSupplyId} ");
                     Response.Write("<script>alert('Successful Purchase');</script>");
                 }
                 else
@@ -51,7 +47,6 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
-
         }
     }
 }

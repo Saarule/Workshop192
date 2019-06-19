@@ -42,6 +42,8 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch(Exception )
+            { }
 
 
         }
@@ -141,72 +143,6 @@ namespace NewGUI
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
 
-        }
-
-        protected void AddStoreManagerButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string storeManagerName = StoreManagerToAddTextBox.Text;
-                bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeManagerName, null);
-                if (ans)
-                {
-                    Response.Write("<script>alert('succesfully added Store Manager');</script>");
-                    Response.Redirect("manageStorePanel.aspx?storeName=" + storeName);
-                }
-                else
-                {
-                    Response.Write("<script>alert('There was error when adding the Store Manager');</script>");
-                }
-            }
-            catch (ErrorMessageException exception)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
-            }
-
-        }
-        protected void RemoveStoreManagerButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string storeManagerName = StoreManagerToRemoveTextBox.Text;
-                bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeManagerName, null);
-                if (ans)
-                {
-                    Response.Write("<script>alert('succesfully removed Store Manager');</script>");
-                    Response.Redirect("manageStorePanel.aspx?storeName=" + storeName);
-                }
-                else
-                {
-                    Response.Write("<script>alert('There was error when removing the Store Manager');</script>");
-                }
-            }
-            catch (ErrorMessageException exception)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
-            }
-
-        }
-        protected void AddStoreOwnerButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string storeOwnerName = StoreOwnerTextBox.Text;
-                bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeOwnerName, null);
-                if (ans)
-                {
-                    Response.Write("<script>alert('succesfully added Store Owner');</script>");
-                    Response.Redirect("manageStorePanel.aspx?storeName=" + storeName);
-                }
-                else
-                {
-                    Response.Write("<script>alert('There was error when adding the Store Owner');</script>");
-                }
-            }
-            catch (ErrorMessageException exception)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
-            }
         }
 
     }

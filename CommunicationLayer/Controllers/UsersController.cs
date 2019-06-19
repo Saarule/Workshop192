@@ -114,16 +114,16 @@ namespace CommunicationLayer.Controllers
             return ServiceLayer.RegisteredUser.GetRoles.getRoles(userID);
         }
 
-        public static bool IsOwner(string SessionID)
+        public static bool IsOwnerOfStore(string SessionID,string storename)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsOwner(userID);
+            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsOwner(userID,storename);
         }
 
-        public static bool IsManager(string SessionID)
+        public static bool IsManagerOfStore(string SessionID,string storename)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsManager(userID);
+            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsManager(userID, storename);
         }
     }
 }

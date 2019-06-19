@@ -65,7 +65,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully added Store Manager');</script>");
-                    Response.Redirect("manageStorePanel.aspx");
+                    Response.Redirect("ownStorePanel.aspx");
                 }
                 else
                 {
@@ -83,11 +83,11 @@ namespace NewGUI
             try
             {
                 string storeManagerName = StoreManagerToRemoveTextBox.Text;
-                bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeManagerName, null);
+                bool ans = CommunicationLayer.Controllers.UsersController.RemoveStoreManger(HttpContext.Current.Session.SessionID, storeName, storeManagerName);
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully removed Store Manager');</script>");
-                    Response.Redirect("manageStorePanel.aspx");
+                    Response.Redirect("ownStorePanel.aspx");
                 }
                 else
                 {
@@ -105,11 +105,11 @@ namespace NewGUI
             try
             {
                 string storeOwnerName = StoreOwnerTextBox.Text;
-                bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreManager(HttpContext.Current.Session.SessionID, storeName, storeOwnerName, null);
+                bool ans = CommunicationLayer.Controllers.UsersController.AssignStoreOwner(HttpContext.Current.Session.SessionID, storeName, storeOwnerName);
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully added Store Owner');</script>");
-                    Response.Redirect("manageStorePanel.aspx");
+                    Response.Redirect("owmStorePanel.aspx");
                 }
                 else
                 {

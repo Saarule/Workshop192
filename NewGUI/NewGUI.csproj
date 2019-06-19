@@ -78,14 +78,19 @@
   <ItemGroup>
     <Content Include="adminPanel.aspx" />
     <Content Include="checkout.aspx" />
+    <Content Include="checkoutAsUser.aspx" />
+    <Content Include="confirmation.aspx" />
+    <Content Include="confirmationAsUser.aspx" />
     <Content Include="indexLoginUser.aspx" />
     <Content Include="login.aspx" />
     <Content Include="manageStorePanel.aspx" />
     <Content Include="myCart.aspx" />
+    <Content Include="myCartAsUser.aspx" />
     <Content Include="ownStorePanel.aspx" />
     <Content Include="policiesPanel.aspx" />
     <Content Include="productPage.aspx" />
     <Content Include="products.aspx" />
+    <Content Include="productsAsUser.aspx" />
     <Content Include="productSearchByName.aspx" />
     <Content Include="register.aspx" />
     <Content Include="storeOwnerDashboard.aspx" />
@@ -109,6 +114,27 @@
     </Compile>
     <Compile Include="checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkoutAsUser.aspx.cs">
+      <DependentUpon>checkoutAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkoutAsUser.aspx.designer.cs">
+      <DependentUpon>checkoutAsUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="confirmation.aspx.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmation.aspx.designer.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="confirmationAsUser.aspx.cs">
+      <DependentUpon>confirmationAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmationAsUser.aspx.designer.cs">
+      <DependentUpon>confirmationAsUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="indexLoginUser.aspx.cs">
       <DependentUpon>indexLoginUser.aspx</DependentUpon>
@@ -138,6 +164,13 @@
     <Compile Include="myCart.aspx.designer.cs">
       <DependentUpon>myCart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="myCartAsUser.aspx.cs">
+      <DependentUpon>myCartAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myCartAsUser.aspx.designer.cs">
+      <DependentUpon>myCartAsUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ownStorePanel.aspx.cs">
       <DependentUpon>ownStorePanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -165,6 +198,13 @@
     </Compile>
     <Compile Include="products.aspx.designer.cs">
       <DependentUpon>products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productsAsUser.aspx.cs">
+      <DependentUpon>productsAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productsAsUser.aspx.designer.cs">
+      <DependentUpon>productsAsUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="productSearchByName.aspx.cs">
       <DependentUpon>productSearchByName.aspx</DependentUpon>

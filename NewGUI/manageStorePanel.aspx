@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!--================ Start Header Menu Area =================-->
+ <!--================ Start Header Menu Area =================-->
     <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -39,8 +39,8 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="products.aspx">Browse Products</a></li>
-                  <li class="nav-item"><a class="nav-link" href="myCart.aspx">My Cart</a></li>
+                  <li class="nav-item"><a class="nav-link" href="productsAsUser.aspx">Browse Products</a></li>
+                  <li class="nav-item"><a class="nav-link" href="myCartAsUser.aspx">My Cart</a></li>
                 </ul>
 							</li>
 							<li class="nav-item submenu dropdown">
@@ -57,12 +57,12 @@
             </ul>
 
            <ul class="nav-shop">
-                <a href="mycart.aspx" class="notification">
+                <a href="mycartAsUser.aspx" class="notification">
                 <span>Inbox</span>
                 <span class="badge">3</span>
                  </a>
 
-              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>

@@ -10,7 +10,7 @@
 namespace NewGUI {
     
     
-    public partial class userDashboard {
+    public partial class confirmationAsUser {
         
         /// <summary>
         /// form2 control.
@@ -22,39 +22,21 @@ namespace NewGUI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// SendButton1 control.
+        /// PlaceHolder3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SendButton1;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder3;
         
         /// <summary>
-        /// StoreNameTextBox control.
+        /// PlaceHolder4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StoreNameTextBox;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// PlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder4;
     }
 }
