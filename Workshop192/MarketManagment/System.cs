@@ -103,7 +103,7 @@ namespace Workshop192.MarketManagment
             ResetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
             return true;
         }
-
+        
         public bool CheckProductsAvailability(MultiCart multiCart)
         {
             foreach (Cart cart in multiCart.GetCarts())

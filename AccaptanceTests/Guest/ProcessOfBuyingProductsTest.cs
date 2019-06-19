@@ -61,27 +61,27 @@ namespace AccaptanceTests.Guest
         [Test]
         public void BuyingLoggedInUserTest()
         {
-            //Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(1111114444,UserId_Orel,"orel kakon","hadekel 2"), true);
+            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts("1111114444","11","2019","avi-levi","222","208883399","avi","hadkel 6","beit shemesh","israel","99933",UserId_Orel), true);
         }
         [Test]
         public void BuyingNotRegisteredUserTest()
         {
-            //Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(22222, UserId_Nati, "Nati kalontar", "shlomo 2"), true);
+            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts("1111114444", "11", "2019", "avi-levi", "222", "208883399", "avi", "hadkel 6", "beit shemesh", "israel", "99933", UserId_Nati), false);
         }
         [Test]
         public void BuyingEmptyListcartTest() 
         {
-            //Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(3333, UserId_Saar, "Saar mashehu", "lalalend 6"), true);
+            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts("1111114444","11","2019","avi-levi","222","208883399","avi","hadkel 6","beit shemesh","israel","99933",UserId_Orel), true);
         }
         public void BuyingFailed_Because_Product_isnot_Availabe_Test()
         {
-           //ManageProducts.ManageProduct(UserId_Orel, -1, "Hummus","Salad",10,50,"Mega","add");
+            ManageProducts.ManageProduct(UserId_Orel, -1, "Hummus","Salad",10,50,"Mega","add");
 
             SaveProductToCart.SaveProduct(7,UserId_Orel,40);
             SaveProductToCart.SaveProduct(7, UserId_Nati, 40);
 
-            //Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(22222, UserId_Nati, "Nati kalontar", "shlomo 2"), true);
-            //Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts(1111, UserId_Orel, "orel kakon", "hadekel 2"), false);
+            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts("1111114444", "11", "2019", "avi-levi", "222", "208883399", "avi", "hadkel 6", "beit shemesh", "israel", "99933", UserId_Nati), true);
+            Assert.AreEqual(ProcessOfBuyingProducts.ProcessBuyingProducts("1111114444", "11", "2019", "avi-levi", "222", "208883399", "avi", "hadkel 6", "beit shemesh", "israel", "99933", UserId_Orel), false);
 
 
         }

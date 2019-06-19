@@ -143,28 +143,28 @@ namespace CommunicationLayer.Controllers
             //EDIT SUPPORT: meantime just "delete" if want to edit num of units form products need to delete and add how many he wants again.  
             return ServiceLayer.Guest.WatchAndEdit.Edit(option, productID, userID);
         } 
-        public static bool AddBuyingPolicy(LinkedList<string> param ,string SessionID)
+        public static bool AddBuyingPolicy(LinkedList<string> param ,string store ,string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.ManagePolicies.AddBuyingPolicy(param, userID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.AddBuyingPolicy(param,store, userID);
         }
 
-        public static bool RemoveBuyingPolicy(LinkedList<string> param, string SessionID)
+        public static bool RemoveBuyingPolicy(string store,int productId, string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.ManagePolicies.RemoveBuyingPolicy(param, userID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.RemoveBuyingPolicy(store, productId,userID);
         }
 
-        public static bool AddDiscountPolicy(LinkedList<string> param, string SessionID)
+        public static bool AddDiscountPolicy(LinkedList<string> param,string store , int discount, string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.ManagePolicies.AddDiscountPolicy(param, userID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.AddDiscountPolicy(param,store,discount, userID);
         }
 
-        public static bool RemoveDiscountPolicy(LinkedList<string> param, string SessionID)
+        public static bool RemoveDiscountPolicy(string store,int productId,string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.ManagePolicies.RemoveDiscountPolicy(param, userID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.RemoveDiscountPolicy(store, productId, userID);
         }
     }
 }
