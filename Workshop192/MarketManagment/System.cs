@@ -75,7 +75,7 @@ namespace Workshop192.MarketManagment
             multiCarts[multiCartId] = new MultiCart();
         }
 
-        public bool PurchaseProducts(int accountId, int userId, string name, string address)
+        public bool PurchaseProducts(int userId, int cardNumber, int month, int year, string holder, int ccv, int id, string name, string address, string city, string country, int zip)
         {
             int multiCartId = UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart();
             RemoveProductsFromStore(GetMultiCart(multiCartId));
@@ -90,12 +90,12 @@ namespace Workshop192.MarketManagment
                 throw e;
             }
             int sum = SumOfCartPrice(userId);
-            if (!moneyCollectionSystem.CollectFromAccount(accountId, sum))
+            if (moneyCollectionSystem.CollectFromAccount(cardNumber, month, year, holder, ccv, id) == -1)
             {
                 ReturnProductsToStore(GetMultiCart(multiCartId));
                 throw new ErrorMessageException("Cant connect to Money Collection System");
             }
-            if (!deliverySystem.Deliver(name, address, GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart())))
+            if (deliverySystem.Deliver(name, address, city, country, zip) == -1)
             {
                 ReturnProductsToStore(GetMultiCart(multiCartId));
                 throw new ErrorMessageException("Cant connect to Delivery System");
@@ -140,10 +140,10 @@ namespace Workshop192.MarketManagment
             MultiCart multiCart = GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
             foreach (Cart cart in multiCart.GetCarts())
             {
-                if (!cart.GetStore().CheckSellingPolicies(userId, cart))
+                if (!cart.GetStore().CheckSellingPolicy(userId, cart))
                     return false;
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
-                    if (!productAmount.Key.CheckSellingPolicies(userId, cart))
+                    if (!productAmount.Key.CheckSellingPolicy(userId, cart))
                         return false;
             }
             return true;

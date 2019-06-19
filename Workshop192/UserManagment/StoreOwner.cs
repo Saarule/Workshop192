@@ -144,13 +144,13 @@ namespace Workshop192.UserManagment
             throw new ErrorMessageException("The given user is not a store manager this user appointed");
         }
 
-        public bool AddDiscountPolicy(PolicyComponent policy, int discount, int productId)
+        public bool AddDiscountPolicy(LinkedList<string> policy, int discount)
         {
-            if (productId == 0)
+            if (Int32.Parse(policy.ElementAt(2)) == 0)
                 MarketManagment.System.GetInstance().GetStore(store).AddDiscountPolicy(policy, discount);
             else
                 foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
-                    if (productAmount.Key.GetId().Equals(productId))
+                    if (productAmount.Key.GetId().Equals(Int32.Parse(policy.ElementAt(2))))
                     {
                         productAmount.Key.AddDiscountPolicy(policy, discount);
                         return true;
@@ -158,13 +158,13 @@ namespace Workshop192.UserManagment
             throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
-        public bool AddSellingPolicy(PolicyComponent policy, int productId)
+        public bool AddSellingPolicy(LinkedList<string> policy)
         {
-            if (productId == 0)
+            if (Int32.Parse(policy.ElementAt(2)) == 0)
                 MarketManagment.System.GetInstance().GetStore(store).AddSellingPolicy(policy);
             else
                 foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
-                    if (productAmount.Key.GetId().Equals(productId))
+                    if (productAmount.Key.GetId().Equals(Int32.Parse(policy.ElementAt(2))))
                     {
                         productAmount.Key.AddSellingPolicy(policy);
                         return true;
@@ -172,28 +172,28 @@ namespace Workshop192.UserManagment
             throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
-        public bool RemoveDiscountPolicy(int policyId, int productId)
+        public bool RemoveDiscountPolicy(int productId)
         {
             if (productId == 0)
-                return MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy(policyId);
+                return MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy();
             else
                 foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
                     if (productAmount.Key.GetId().Equals(productId))
                     {
-                        return productAmount.Key.RemoveDiscountPolicy(policyId);
+                        return productAmount.Key.RemoveDiscountPolicy();
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
-        public bool RemoveSellingPolicy(int policyId, int productId)
+        public bool RemoveSellingPolicy(int productId)
         {
             if (productId == 0)
-                return MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy(policyId);
+                return MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy();
             else
                 foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
                     if (productAmount.Key.GetId().Equals(productId))
                     {
-                        return productAmount.Key.RemoveSellingPolicy(policyId);
+                        return productAmount.Key.RemoveSellingPolicy();
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
         }

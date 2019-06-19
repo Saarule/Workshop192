@@ -133,32 +133,32 @@ namespace Workshop192.UserManagment
             return info.DeclineOwner(store, user);
         }
 
-        public bool AddDiscountPolicy(string store, PolicyComponent policy, int discount, int productId)
+        public bool AddDiscountPolicy(string store, LinkedList<string> policy, int discount)
         {
             if (!IsLoggedIn())
                 throw new ErrorMessageException("Can't add discount policy while not logged in");
-            return info.AddDiscountPolicy(store, policy, discount, productId);
+            return info.AddDiscountPolicy(store, policy, discount);
         }
 
-        public bool AddSellingPolicy(string store, PolicyComponent policy, int productId)
+        public bool AddSellingPolicy(string store, LinkedList<string> policy)
         {
             if (!IsLoggedIn())
                 throw new ErrorMessageException("Can't add selling policy while not logged in");
-            return info.AddSellingPolicy(store, policy, productId);
+            return info.AddSellingPolicy(store, policy);
         }
 
-        public bool RemoveDiscountPolicy(string store, int policyId, int productId)
+        public bool RemoveDiscountPolicy(string store, int productId)
         {
             if (!IsLoggedIn())
                 throw new ErrorMessageException("Can't remove discount policy while not logged in");
-            return info.RemoveDiscountPolicy(store, policyId, productId);
+            return info.RemoveDiscountPolicy(store, productId);
         }
 
-        public bool RemoveSellingPolicy(string store, int policyId, int productId)
+        public bool RemoveSellingPolicy(string store, int productId)
         {
             if (!IsLoggedIn())
                 throw new ErrorMessageException("Can't remove selling policy while not logged in");
-            return info.RemoveSellingPolicy(store, policyId, productId);
+            return info.RemoveSellingPolicy(store, productId);
         }
 
         public bool AddStoreManager(string store, UserInfo user, bool[] privileges)

@@ -12,8 +12,8 @@ namespace Workshop192.MarketManagment
         private string name;
         private string category;
         private int price;
-        private LinkedList<Tuple<PolicyComponent, int>> discountPolicies;
-        private LinkedList<PolicyComponent> sellingPolicies;
+        private Tuple<PolicyComponent, int> discountPolicy;
+        private PolicyComponent sellingPolicy;
 
         public Product(int Id, string name, string category, int price)
         {
@@ -21,8 +21,8 @@ namespace Workshop192.MarketManagment
             this.name = name;
             this.category = category;
             this.price = price;
-            discountPolicies = new LinkedList<Tuple<PolicyComponent, int>>();
-            sellingPolicies = new LinkedList<PolicyComponent>();
+            discountPolicy = null;
+            sellingPolicy = null;
         }
 
         public void EditProduct(string name, string category, int price)
@@ -32,53 +32,97 @@ namespace Workshop192.MarketManagment
             this.price = price;
         }
 
-        public void AddDiscountPolicy(PolicyComponent policy, int discount)
+        public void AddDiscountPolicy(LinkedList<string> policy, int discount)
         {
-            discountPolicies.AddLast(new Tuple<PolicyComponent, int>(policy, discount));
+            PolicyComponent tmp1 = CreatePolicy(policy);
+            if (discountPolicy == null)
+            {
+                discountPolicy = new Tuple<PolicyComponent, int>(tmp1, discount);
+                return;
+            }
+            PolicyComponent tmp2 = discountPolicy.Item1;
+            switch (policy.ElementAt(1))
+            {
+                case "And":
+                    discountPolicy = new Tuple<PolicyComponent, int>(new PolicyCompositeAnd(tmp1, tmp2), discount);
+                    break;
+                case "Or":
+                    discountPolicy = new Tuple<PolicyComponent, int>(new PolicyCompositeOr(tmp1, tmp2), discount);
+                    break;
+                case "Xor":
+                    discountPolicy = new Tuple<PolicyComponent, int>(new PolicyCompositeXor(tmp1, tmp2), discount);
+                    break;
+                default:
+                    throw new ErrorMessageException("Syntax Error in given discount policy");
+            }
         }
 
-        public void AddSellingPolicy(PolicyComponent policy)
+        public void AddSellingPolicy(LinkedList<string> policy)
         {
-            sellingPolicies.AddLast(policy);
+            PolicyComponent tmp1 = CreatePolicy(policy);
+            if (sellingPolicy == null)
+            {
+                sellingPolicy = tmp1;
+                return;
+            }
+            PolicyComponent tmp2 = sellingPolicy;
+            switch (policy.ElementAt(1))
+            {
+                case "And":
+                    sellingPolicy = new PolicyCompositeAnd(tmp1, tmp2);
+                    break;
+                case "Or":
+                    sellingPolicy = new PolicyCompositeOr(tmp1, tmp2);
+                    break;
+                case "Xor":
+                    sellingPolicy = new PolicyCompositeXor(tmp1, tmp2);
+                    break;
+                default:
+                    throw new ErrorMessageException("Syntax Error in given selling policy");
+            }
         }
 
-        public bool RemoveDiscountPolicy(int policyId)
+        public bool RemoveDiscountPolicy()
         {
-            if (discountPolicies.Count <= policyId)
-                throw new ErrorMessageException("Discount Policy Id doesn't exists");
-            return discountPolicies.Remove(discountPolicies.ElementAt(policyId));
+            if (discountPolicy == null)
+                throw new ErrorMessageException("Can't Remove non existing discount policy");
+            discountPolicy = null;
+            return true;
         }
 
-        public bool RemoveSellingPolicy(int policyId)
+        public bool RemoveSellingPolicy()
         {
-            if (sellingPolicies.Count <= policyId)
-                throw new ErrorMessageException("Selling Policy Id doesn't exists");
-            return sellingPolicies.Remove(sellingPolicies.ElementAt(policyId));
+            if (sellingPolicy == null)
+                throw new ErrorMessageException("Can't Remove non existing selling policy");
+            sellingPolicy = null;
+            return true;
         }
 
         public void SetDiscountMinimum(int userId, Cart cart)
         {
-            foreach (Tuple<PolicyComponent, int> policy in discountPolicies)
-                if (policy.Item1.Validate(userId, cart))
+            if (discountPolicy == null)
+                return;
+            if (discountPolicy.Item1.Validate(userId, cart))
+            {
+                int sum = 0;
+                foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
                 {
-                    int sum = 0;
-                    foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
-                    {
-                        if (productAmount.Key.Equals(this))
-                            sum += productAmount.Key.price * productAmount.Value * (100 - policy.Item2) / 100;
-                        else
-                            sum += productAmount.Key.price * productAmount.Value;
-                    }
-                    if (sum < cart.GetCartSum())
-                        cart.SetSum(sum);
+                    if (productAmount.Key.Equals(this))
+                        sum += productAmount.Key.price * productAmount.Value * (100 - discountPolicy.Item2) / 100;
+                    else
+                        sum += productAmount.Key.price * productAmount.Value;
                 }
+                if (sum < cart.GetCartSum())
+                    cart.SetSum(sum);
+            }
         }
 
-        public bool CheckSellingPolicies(int userId, Cart cart)
+        public bool CheckSellingPolicy(int userId, Cart cart)
         {
-            foreach (PolicyComponent policy in sellingPolicies)
-                if (!policy.Validate(userId, cart))
-                    throw new ErrorMessageException("Selling Policy of product Id [" + Id + "] fails");
+            if (sellingPolicy == null)
+                return true;
+            if (!sellingPolicy.Validate(userId, cart))
+                throw new ErrorMessageException("Selling Policy of product Id [" + Id + "] fails");
             return true;
         }
 
@@ -102,14 +146,34 @@ namespace Workshop192.MarketManagment
             return price;
         }
 
-        public LinkedList<Tuple<PolicyComponent, int>> GetDiscountPolicies()
+        public Tuple<PolicyComponent, int> GetDiscountPolicy()
         {
-            return discountPolicies;
+            return discountPolicy;
         }
 
-        public LinkedList<PolicyComponent> GetSellingPolicies()
+        public PolicyComponent GetSellingPolicy()
         {
-            return sellingPolicies;
+            return sellingPolicy;
+        }
+
+        private PolicyComponent CreatePolicy(LinkedList<string> policy)
+        {
+            PolicyComponent createdPolicy = null;
+            switch (policy.ElementAt(0))
+            {
+                case "Ban":
+                    createdPolicy = new PolicyLeafBannedUser(policy.ElementAt(3));
+                    break;
+                case "Max":
+                    createdPolicy = new PolicyLeafMaximumAmount(Int32.Parse(policy.ElementAt(3)), Int32.Parse(policy.ElementAt(4)));
+                    break;
+                case "Min":
+                    createdPolicy = new PolicyLeafMinimumAmount(Int32.Parse(policy.ElementAt(3)), Int32.Parse(policy.ElementAt(4)));
+                    break;
+                default:
+                    throw new ErrorMessageException("Syntax Error in given policy");
+            }
+            return createdPolicy;
         }
     }
 }

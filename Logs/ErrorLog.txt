@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 06/17/2019 00:35:31  A guest tried to open a store but failed
 06/17/2019 00:35:31  saar Tried removing products from store [Victory] without privileges
 06/17/2019 00:35:31  orel Tried adding a non existent user as a store manager
@@ -24,3 +25,17 @@
 06/17/2019 00:35:33  A guest tried to remove a store manager but failed
 06/17/2019 00:35:33  A guest tried to add a remove a user but failed
 06/18/2019 19:21:59  orel Tried adding a non existent user as a store manager
+=======
+06/19/2019 14:15:53  admin tried making asd an admin but the given user is already an admin
+06/19/2019 14:15:53  A guest tried to accept a store owner but failed
+06/19/2019 14:15:53  A guest tried to add a product but failed
+06/19/2019 14:15:53  A guest tried to add a store manager but failed
+06/19/2019 14:15:53  A guest tried to add a store owner but failed
+06/19/2019 14:15:53  A guest tried to decline a store owner but failed
+06/19/2019 14:15:53  A guest tried to edit a product of store but failed
+06/19/2019 14:15:53  user Tried to Log In a second time
+06/19/2019 14:15:53  A guest tried to open a store but failed
+06/19/2019 14:15:53  A guest tried to remove a product from store but failed
+06/19/2019 14:15:53  A guest tried to remove a store manager but failed
+06/19/2019 14:15:53  A guest tried to add a remove a user but failed
+>>>>>>> PolicyBranch

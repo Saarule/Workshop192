@@ -21,8 +21,8 @@ namespace DomainLayerUnitTests.MarketManagment
             Store store = new Store("Temp Store");
             cart = new Cart(store);
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().CreateUser();
-            truePolicy = new PolicyLeafUserName("", "==");
-            falsePolicy = new PolicyLeafUserName("user", "==");
+            truePolicy = new PolicyLeafBannedUser("user");
+            falsePolicy = new PolicyLeafBannedUser("");
         }
 
         [Test]

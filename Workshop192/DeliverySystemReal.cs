@@ -9,9 +9,9 @@ namespace Workshop192
 {
     public class DeliverySystemReal : DeliverySystemInterface
     {
-        public bool Deliver(string name, string address, MultiCart multiCart)
+        public int Deliver(string name, string address, string city, string country, int zip)
         {
-            return true;
+            return new Random().Next(10000, 100000);
         }
     }
 }

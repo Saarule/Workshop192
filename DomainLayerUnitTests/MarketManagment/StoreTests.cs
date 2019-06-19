@@ -94,11 +94,14 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void SetDiscountMinimum_SetDiscountSuccesfully_ReturnsTrue()
         {
+            LinkedList<string> discountPolicy = new LinkedList<string>();
+            discountPolicy.AddLast("Ban");
+            discountPolicy.AddLast("And");
+            discountPolicy.AddLast("0");
+            discountPolicy.AddLast("user");
             store.AddProducts(product2, 10);
             cart.AddProductsToCart(2, 10);
-            store.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 20);
-            store.AddDiscountPolicy(new PolicyLeafUserName("user", "=="), 90);
-            store.AddDiscountPolicy(new PolicyLeafUserName("user", "!="), 50);
+            store.AddDiscountPolicy(discountPolicy, 50);
             cart.SetSum();
             store.SetDiscountMinimum(1, cart);
             Assert.AreEqual(100, cart.GetCartSum());
@@ -107,18 +110,25 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void CheckSellingPolicies_AllPoliciesPass_ReturnsTrue()
         {
-            store.AddSellingPolicy(new PolicyLeafUserName("", "=="));
-            store.AddSellingPolicy(new PolicyLeafUserName("user", "!="));
-            Assert.IsTrue(store.CheckSellingPolicies(1, cart));
+            LinkedList<string> sellingPolicy = new LinkedList<string>();
+            sellingPolicy.AddLast("Ban");
+            sellingPolicy.AddLast("And");
+            sellingPolicy.AddLast("0");
+            sellingPolicy.AddLast("user");
+            store.AddSellingPolicy(sellingPolicy);
+            Assert.IsTrue(store.CheckSellingPolicy(1, cart));
         }
 
         [Test]
         public void CheckSellingPolicies_NotAllPoliciesPass_ReturnsFalse()
         {
-            store.AddSellingPolicy(new PolicyLeafUserName("", "=="));
-            store.AddSellingPolicy(new PolicyLeafUserName("user", "!="));
-            store.AddSellingPolicy(new PolicyLeafProductAmount(product1, ">", 10));
-            Assert.Throws<ErrorMessageException>(() => store.CheckSellingPolicies(1, cart));
+            LinkedList<string> sellingPolicy = new LinkedList<string>();
+            sellingPolicy.AddLast("Ban");
+            sellingPolicy.AddLast("And");
+            sellingPolicy.AddLast("0");
+            sellingPolicy.AddLast("");
+            store.AddSellingPolicy(sellingPolicy);
+            Assert.Throws<ErrorMessageException>(() => store.CheckSellingPolicy(1, cart));
         }
 
         [TearDown]
