@@ -152,7 +152,7 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
-            Assert.IsTrue(system.PurchaseProducts(1, 1, 1, 2020, "", 111, 1111111, "", "", "", "", 111));
+            Assert.AreNotEqual(new Tuple<int, int>(-1, -1), system.PurchaseProducts(1, 1, 1, 2020, "", 111, 1111111, "", "", "", "", 111));
             Assert.AreEqual(5, store1.GetInventory()[product1]);
             Assert.AreEqual(5, store1.GetInventory()[product2]);
             Assert.AreEqual(5, store2.GetInventory()[product3]);
@@ -166,7 +166,7 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
-            Assert.Throws<ErrorMessageException>(() => system.PurchaseProducts(1, 1, 1, 2020, "", 111, 1111111, "", "", "", "", 111));
+            Assert.AreEqual(-1, system.PurchaseProducts(1, 1, 1, 2020, "", 111, 1111111, "", "", "", "", 111).Item1);
             Assert.AreEqual(10, store1.GetInventory()[product1]);
             Assert.AreEqual(10, store1.GetInventory()[product2]);
             Assert.AreEqual(10, store2.GetInventory()[product3]);

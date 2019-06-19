@@ -75,14 +75,15 @@ namespace Workshop192.MarketManagment
             multiCarts[multiCartId] = new MultiCart();
         }
 
-        public bool PurchaseProducts(int userId, int cardNumber, int month, int year, string holder, int ccv, int id, string name, string address, string city, string country, int zip)
+        public Tuple<int, int> PurchaseProducts(int userId, int cardNumber, int month, int year, string holder, int ccv, int id, string name, string address, string city, string country, int zip)
         {
+            int collection, delivery;
             int multiCartId = UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart();
             RemoveProductsFromStore(GetMultiCart(multiCartId));
             try
             {
                 if (!CheckSellingPolicies(userId))
-                    return false;
+                    throw new ErrorMessageException("Not All selling policies pass");
             }
             catch (ErrorMessageException e)
             {
@@ -90,18 +91,15 @@ namespace Workshop192.MarketManagment
                 throw e;
             }
             int sum = SumOfCartPrice(userId);
-            if (moneyCollectionSystem.CollectFromAccount(cardNumber, month, year, holder, ccv, id) == -1)
+            collection = moneyCollectionSystem.CollectFromAccount(cardNumber, month, year, holder, ccv, id);
+            if (collection == -1)
             {
                 ReturnProductsToStore(GetMultiCart(multiCartId));
-                throw new ErrorMessageException("Cant connect to Money Collection System");
+                return new Tuple<int, int>(-1, -1);
             }
-            if (deliverySystem.Deliver(name, address, city, country, zip) == -1)
-            {
-                ReturnProductsToStore(GetMultiCart(multiCartId));
-                throw new ErrorMessageException("Cant connect to Delivery System");
-            }
+            delivery = deliverySystem.Deliver(name, address, city, country, zip);
             ResetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
-            return true;
+            return new Tuple<int, int>(collection, delivery);
         }
 
         public bool CheckProductsAvailability(MultiCart multiCart)
