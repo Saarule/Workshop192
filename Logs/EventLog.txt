@@ -2468,3 +2468,6 @@
 06-20-2019 01:32:08  o Logged In
 06-20-2019 01:32:32  o Added Product [1] [kkkk] [kk] [20] [200] as a owner of store [store]
 06-20-2019 01:32:42  o added product [1] [120] of store [store] to their multi cart
+06-20-2019 01:56:20  A new user was registered admin admin11
+06-20-2019 01:58:02  A new user was registered admin admin11
+06-20-2019 02:09:00  A new user was registered admin admin11

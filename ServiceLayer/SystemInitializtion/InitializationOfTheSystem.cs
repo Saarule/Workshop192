@@ -11,7 +11,7 @@ using ServiceLayer.Store_Owner_User;
 using ServiceLayer.SystemInitializtion;
 using System.IO;
 
-namespace ServiceLayer
+namespace ServiceLayer.SystemInitializtion
 {
     public class InitializationOfTheSystem
     {   
