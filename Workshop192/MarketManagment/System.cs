@@ -75,7 +75,7 @@ namespace Workshop192.MarketManagment
             multiCarts[multiCartId] = new MultiCart();
         }
 
-        public Tuple<int, int> PurchaseProducts(int userId, int cardNumber, int month, int year, string holder, int ccv, int id, string name, string address, string city, string country, int zip)
+        public Tuple<int, int> PurchaseProducts(int userId, string cardNumber, string month, string year, string holder, string ccv, string id, string name, string address, string city, string country, string zip)
         {
             int collection, delivery;
             int multiCartId = UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart();

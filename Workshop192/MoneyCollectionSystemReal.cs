@@ -10,7 +10,7 @@ namespace Workshop192
     {
         public MoneyCollectionSystemReal() { }
 
-        public int CollectFromAccount(int cardNumber, int month, int year, string holder, int ccv, int id)
+        public int CollectFromAccount(string cardNumber, string month, string year, string holder, string ccv, string id)
         {
             return new Random().Next(10000, 100000);
         }

@@ -15,7 +15,7 @@ namespace Workshop192
             this.real = real;
         }
 
-        public int CollectFromAccount(int cardNumber, int month, int year, string holder, int ccv, int id)
+        public int CollectFromAccount(string cardNumber, string month, string year, string holder, string ccv, string id)
         {
             if (real == null)
                 return -1;

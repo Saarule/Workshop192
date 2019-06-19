@@ -9,7 +9,7 @@ namespace Workshop192
 {
     public class DeliverySystemReal : DeliverySystemInterface
     {
-        public int Deliver(string name, string address, string city, string country, int zip)
+        public int Deliver(string name, string address, string city, string country, string zip)
         {
             return new Random().Next(10000, 100000);
         }

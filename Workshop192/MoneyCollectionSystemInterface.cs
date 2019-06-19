@@ -8,6 +8,6 @@ namespace Workshop192
 {
     public interface MoneyCollectionSystemInterface
     {
-        int CollectFromAccount(int cardNumber, int month, int year, string holder, int ccv, int id);
+        int CollectFromAccount(string cardNumber, string month, string year, string holder, string ccv, string id);
     }
 }
