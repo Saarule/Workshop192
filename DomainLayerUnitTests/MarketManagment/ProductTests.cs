@@ -44,7 +44,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             LinkedList<string> policy = new LinkedList<string>();
             policy.AddLast("Ban");
-            policy.AddLast("And");
+            policy.AddLast("AND");
             policy.AddLast("1");
             policy.AddLast("user");
             product.AddDiscountPolicy(policy, 50);
@@ -58,7 +58,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             LinkedList<string> policy = new LinkedList<string>();
             policy.AddLast("Ban");
-            policy.AddLast("And");
+            policy.AddLast("AND");
             policy.AddLast("1");
             policy.AddLast("user");
             product.AddSellingPolicy(policy);
@@ -70,13 +70,13 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             LinkedList<string> policy = new LinkedList<string>();
             policy.AddLast("Ban");
-            policy.AddLast("And");
+            policy.AddLast("AND");
             policy.AddLast("1");
             policy.AddLast("user");
             product.AddSellingPolicy(policy);
             policy = new LinkedList<string>();
             policy.AddLast("Max");
-            policy.AddLast("And");
+            policy.AddLast("AND");
             policy.AddLast("1");
             policy.AddLast("0");
             policy.AddLast("2");

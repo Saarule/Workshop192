@@ -43,13 +43,13 @@ namespace Workshop192.MarketManagment
             PolicyComponent tmp2 = discountPolicy.Item1;
             switch (policy.ElementAt(1))
             {
-                case "And":
+                case "AND":
                     discountPolicy = new Tuple<PolicyComponent, int>(new PolicyCompositeAnd(tmp1, tmp2), discount);
                     break;
-                case "Or":
+                case "OR":
                     discountPolicy = new Tuple<PolicyComponent, int>(new PolicyCompositeOr(tmp1, tmp2), discount);
                     break;
-                case "Xor":
+                case "XOR":
                     discountPolicy = new Tuple<PolicyComponent, int>(new PolicyCompositeXor(tmp1, tmp2), discount);
                     break;
                 default:
@@ -68,13 +68,13 @@ namespace Workshop192.MarketManagment
             PolicyComponent tmp2 = sellingPolicy;
             switch (policy.ElementAt(1))
             {
-                case "And":
+                case "AND":
                     sellingPolicy = new PolicyCompositeAnd(tmp1, tmp2);
                     break;
-                case "Or":
+                case "OR":
                     sellingPolicy = new PolicyCompositeOr(tmp1, tmp2);
                     break;
-                case "Xor":
+                case "XOR":
                     sellingPolicy = new PolicyCompositeXor(tmp1, tmp2);
                     break;
                 default:

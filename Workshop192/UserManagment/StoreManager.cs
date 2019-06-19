@@ -75,7 +75,10 @@ namespace Workshop192.UserManagment
                 throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
             }
             if (Int32.Parse(policy.ElementAt(2)) == 0)
+            {
                 MarketManagment.System.GetInstance().GetStore(store).AddDiscountPolicy(policy, discount);
+                return true;
+            }
             else
                 foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
                     if (productAmount.Key.GetId().Equals(Int32.Parse(policy.ElementAt(2))))
@@ -94,7 +97,10 @@ namespace Workshop192.UserManagment
                 throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
             }
             if (Int32.Parse(policy.ElementAt(2)) == 0)
+            {
                 MarketManagment.System.GetInstance().GetStore(store).AddSellingPolicy(policy);
+                return true;
+            }
             else
                 foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
                     if (productAmount.Key.GetId().Equals(Int32.Parse(policy.ElementAt(2))))

@@ -36,5 +36,12 @@ namespace Workshop192.MarketManagment
                 amount += productAmount.Value;
             return amount;
         }
+
+        public override string ToString()
+        {
+            if (productId == 0)
+                return "(Maximum Amount Of Products in cart is " + amount + ")";
+            return "(Maximum Amount Of Product Id [" + productId + "] in cart is " + amount + ")";
+        }
     }
 }

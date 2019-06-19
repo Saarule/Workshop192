@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
-using Product = CommunicationLayer.Models.Product.Product;
 
 namespace CommunicationLayer.Controllers
 {
@@ -100,6 +99,17 @@ namespace CommunicationLayer.Controllers
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
             return ServiceLayer.Store_Owner_User.ManagePolicies.RemoveDiscountPolicy(store, productId, userID);
+        }
+
+        public static string GetPolicyOfStore(string storeName)
+        {
+            LinkedList<string> ret = ServiceLayer.Store_Owner_User.GetPolicies.GetPoliciesOfStore(storeName);
+            string RET = "";
+            for (int i = 0; i < ret.Count; i++)
+            {
+                RET = RET + ret.ElementAt(i) + "\n";
+            }
+            return RET;
         }
     }
 }
