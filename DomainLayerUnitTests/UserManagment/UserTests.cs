@@ -106,25 +106,25 @@ namespace DomainLayerUnitTests.UserManagment
         [Test]
         public void AddDiscountPolicy_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.Throws<ErrorMessageException>(() => user.AddDiscountPolicy("", new PolicyLeafUserName("", "=="), 10, 0));
+            Assert.Throws<ErrorMessageException>(() => user.AddDiscountPolicy("", new LinkedList<string>(), 10));
         }
 
         [Test]
         public void AddSellingPolicy_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.Throws<ErrorMessageException>(() => user.AddSellingPolicy("", new PolicyLeafUserName("", "=="), 0));
+            Assert.Throws<ErrorMessageException>(() => user.AddSellingPolicy("", new LinkedList<string>()));
         }
 
         [Test]
         public void RemoveDiscountPolicy_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.Throws<ErrorMessageException>(() => user.RemoveDiscountPolicy("", 1, 1));
+            Assert.Throws<ErrorMessageException>(() => user.RemoveDiscountPolicy("", 1));
         }
 
         [Test]
         public void RemoveSellingPolicy_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.Throws<ErrorMessageException>(() => user.RemoveSellingPolicy("", 1, 1));
+            Assert.Throws<ErrorMessageException>(() => user.RemoveSellingPolicy("", 1));
         }
 
         [Test]

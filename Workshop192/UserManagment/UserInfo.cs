@@ -117,47 +117,47 @@ namespace Workshop192.UserManagment
             return s.DeclineOwner(user);
         }
 
-        public bool AddDiscountPolicy(string store, PolicyComponent policy, int discount, int productId)
+        public bool AddDiscountPolicy(string store, LinkedList<string> policy, int discount)
         {
             StoreOwner owner = GetOwner(store);
             StoreManager manager = GetManager(store);
             if (owner != null)
-                return owner.AddDiscountPolicy(policy, discount, productId);
+                return owner.AddDiscountPolicy(policy, discount);
             if (manager != null)
-                return manager.AddDiscountPolicy(policy, discount, productId);
+                return manager.AddDiscountPolicy(policy, discount);
             throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
         }
 
-        public bool AddSellingPolicy(string store, PolicyComponent policy, int productId)
+        public bool AddSellingPolicy(string store, LinkedList<string> policy)
         {
             StoreOwner owner = GetOwner(store);
             StoreManager manager = GetManager(store);
             if (owner != null)
-                return owner.AddSellingPolicy(policy, productId);
+                return owner.AddSellingPolicy(policy);
             if (manager != null)
-                return manager.AddSellingPolicy(policy, productId);
+                return manager.AddSellingPolicy(policy);
             throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
         }
 
-        public bool RemoveDiscountPolicy(string store, int policyId, int productId)
+        public bool RemoveDiscountPolicy(string store, int productId)
         {
             StoreOwner owner = GetOwner(store);
             StoreManager manager = GetManager(store);
             if (owner != null)
-                return owner.RemoveDiscountPolicy(policyId, productId);
+                return owner.RemoveDiscountPolicy(productId);
             if (manager != null)
-                return manager.RemoveDiscountPolicy(policyId, productId);
+                return manager.RemoveDiscountPolicy(productId);
             throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
         }
 
-        public bool RemoveSellingPolicy(string store, int policyId, int productId)
+        public bool RemoveSellingPolicy(string store, int productId)
         {
             StoreOwner owner = GetOwner(store);
             StoreManager manager = GetManager(store);
             if (owner != null)
-                return owner.RemoveSellingPolicy(policyId, productId);
+                return owner.RemoveSellingPolicy(productId);
             if (manager != null)
-                return manager.RemoveSellingPolicy(policyId, productId);
+                return manager.RemoveSellingPolicy(productId);
             throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
         }
 

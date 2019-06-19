@@ -67,8 +67,9 @@
     <Compile Include="MarketManagment\PolicyCompositeAnd.cs" />
     <Compile Include="MarketManagment\PolicyCompositeOr.cs" />
     <Compile Include="MarketManagment\PolicyCompositeXor.cs" />
-    <Compile Include="MarketManagment\PolicyLeafProductAmount.cs" />
-    <Compile Include="MarketManagment\PolicyLeafUserName.cs" />
+    <Compile Include="MarketManagment\PolicyLeafBannedUser.cs" />
+    <Compile Include="MarketManagment\PolicyLeafMaximumAmount.cs" />
+    <Compile Include="MarketManagment\PolicyLeafMinimumAmount.cs" />
     <Compile Include="MarketManagment\Product.cs" />
     <Compile Include="MarketManagment\Store.cs" />
     <Compile Include="MarketManagment\System.cs" />

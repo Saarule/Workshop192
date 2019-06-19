@@ -10,9 +10,9 @@ namespace Workshop192
     {
         public MoneyCollectionSystemReal() { }
 
-        public bool CollectFromAccount(int accountId, int amount)
+        public int CollectFromAccount(int cardNumber, int month, int year, string holder, int ccv, int id)
         {
-            return true;
+            return new Random().Next(10000, 100000);
         }
     }
 }

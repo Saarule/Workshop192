@@ -41,9 +41,16 @@ namespace Workshop192.UserManagment
         public bool RegisterUser(string userName, string password)
         {
             if (passwords.ContainsKey(userName) || userName.Equals(""))
+            {
+                Logger.GetInstance().WriteToErrorLog("A user failed to register " + userName + " " + password);
                 throw new ErrorMessageException("user name already exists");
+            }
             if (!Security.Security.CheckPasswordSecurity(password))
+            {
+                Logger.GetInstance().WriteToErrorLog("A user failed to register " + userName + " " + password);
                 throw new ErrorMessageException("password is too weak");
+            }
+            Logger.GetInstance().WriteToEventLog("A new user was registered " + userName + " " + password);
             passwords.Add(userName, password);
             userInfos.Add(userName, new UserInfo(userName));
             return true;

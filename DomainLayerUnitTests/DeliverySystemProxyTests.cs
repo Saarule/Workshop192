@@ -17,14 +17,14 @@ namespace DomainLayerUnitTests
         public void Deliver_ConnectedToRealDeliverySystem_ReturnsTrue()
         {
             proxy = new DeliverySystemProxy(new DeliverySystemReal());
-            Assert.IsTrue(proxy.Deliver("Me", "Here", null));
+            Assert.AreNotEqual(-1, proxy.Deliver("Me", "Here", "", "", 1));
         }
 
         [Test]
         public void Deliver_NotConnectedToRealDeliverySystem_ReturnsFalse()
         {
             proxy = new DeliverySystemProxy(null);
-            Assert.IsFalse(proxy.Deliver("Me", "Here", null));
+            Assert.AreEqual(-1, proxy.Deliver("Me", "Here", "", "", 1));
         }
     }
 }

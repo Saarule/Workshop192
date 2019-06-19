@@ -22,6 +22,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            LinkedList<string> policy = new LinkedList<string>();
             system = Workshop192.MarketManagment.System.GetInstance();
             AllRegisteredUsers.GetInstance().CreateUser();
             user = AllRegisteredUsers.GetInstance().GetUser(1);
@@ -37,21 +38,17 @@ namespace DomainLayerUnitTests.MarketManagment
             store1.AddProducts(product2, 10);
             store2.AddProducts(product3, 10);
             store2.AddProducts(product4, 10);
-            product1.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 50);
-            product1.AddDiscountPolicy(new PolicyLeafUserName("user", "!="), 30);
-            product2.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 70);
-            product1.AddSellingPolicy(new PolicyLeafUserName("", "=="));
-            product1.AddSellingPolicy(new PolicyLeafProductAmount(product1, ">", 1));
-            product2.AddSellingPolicy(new PolicyLeafUserName("user", "!="));
-            store1.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 50);
-            store1.AddDiscountPolicy(new PolicyLeafProductAmount(null, ">=", 10), 70);
-            store1.AddSellingPolicy(new PolicyLeafUserName("", "=="));
-            store1.AddSellingPolicy(new PolicyLeafProductAmount(null, ">=", 3));
-            product3.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 30);
-            product4.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 80);
-            product3.AddSellingPolicy(new PolicyLeafUserName("", "=="));
-            store2.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 30);
-            store2.AddSellingPolicy(new PolicyLeafUserName("", "=="));
+            policy.AddLast("Ban"); policy.AddLast("And"); policy.AddLast("1"); policy.AddLast("user");
+            product1.AddDiscountPolicy(policy, 50);
+            policy = new LinkedList<string>();
+            policy.AddLast("Min"); policy.AddLast("And"); policy.AddLast("1"); policy.AddLast("0"); policy.AddLast("5");
+            product1.AddSellingPolicy(policy);
+            policy = new LinkedList<string>();
+            policy.AddLast("Min"); policy.AddLast("And"); policy.AddLast("0"); policy.AddLast("0"); policy.AddLast("5");
+            store1.AddSellingPolicy(policy);
+            policy = new LinkedList<string>();
+            policy.AddLast("Max"); policy.AddLast("And"); policy.AddLast("0"); policy.AddLast("0"); policy.AddLast("50");
+            store1.AddSellingPolicy(policy);
         }
 
         [Test]
@@ -73,14 +70,14 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
-            Assert.AreEqual(235, system.SumOfCartPrice(1));
+            Assert.AreEqual(475, system.SumOfCartPrice(1));
         }
 
         [Test]
         public void CheckSellingPolicies_AllPoliciesPass_ReturnsTrue()
         {
-            user.AddProductsToMultiCart("store1", 1, 2);
-            user.AddProductsToMultiCart("store1", 2, 1);
+            user.AddProductsToMultiCart("store1", 1, 7);
+            user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 1);
             user.AddProductsToMultiCart("store2", 4, 1);
             Assert.IsTrue(system.CheckSellingPolicies(1));
@@ -155,7 +152,7 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
-            Assert.IsTrue(system.PurchaseProducts(1, 1, "Ben", "Here"));
+            Assert.IsTrue(system.PurchaseProducts(1, 1, 1, 2020, "", 111, 1111111, "", "", "", "", 111));
             Assert.AreEqual(5, store1.GetInventory()[product1]);
             Assert.AreEqual(5, store1.GetInventory()[product2]);
             Assert.AreEqual(5, store2.GetInventory()[product3]);
@@ -169,7 +166,7 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
-            Assert.Throws<ErrorMessageException>(() => system.PurchaseProducts(1, 1, "Ben", "Here"));
+            Assert.Throws<ErrorMessageException>(() => system.PurchaseProducts(1, 1, 1, 2020, "", 111, 1111111, "", "", "", "", 111));
             Assert.AreEqual(10, store1.GetInventory()[product1]);
             Assert.AreEqual(10, store1.GetInventory()[product2]);
             Assert.AreEqual(10, store2.GetInventory()[product3]);
