@@ -9,6 +9,6 @@ namespace Workshop192
 {
     public interface DeliverySystemInterface
     {
-        int Deliver(string name, string address, string city, string country, int zip);
+        int Deliver(string name, string address, string city, string country, string zip);
     }
 }

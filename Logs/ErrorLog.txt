@@ -38,6 +38,7 @@
 06/19/2019 14:15:53  A guest tried to remove a product from store but failed
 06/19/2019 14:15:53  A guest tried to remove a store manager but failed
 06/19/2019 14:15:53  A guest tried to add a remove a user but failed
+
 >>>>>>> PolicyBranch
 06/19/2019 14:58:32  A user failed to register orel 11111
 06/19/2019 14:58:32  A user failed to register orel 5555
@@ -65,4 +66,4 @@
 06/19/2019 14:58:37  A guest tried to open a store but failed
 06/19/2019 14:58:37  A guest tried to remove a product from store but failed
 06/19/2019 14:58:37  A guest tried to remove a store manager but failed
-06/19/2019 14:58:37  A guest tried to add a remove a user but failed
+06/19/2019 14:58:37  A guest tried to add a remove a user but failed

@@ -481,6 +481,351 @@
 06/19/2019 14:15:53  A new user was registered user 123456
 06/19/2019 14:15:53  A new user was registered user 123456
 06/19/2019 14:15:53  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  user Logged In
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [1] [7] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [4] [1] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [2] [1] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [4] [1] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [1] [5] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [3] [5] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [4] [5] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [1] [5] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [3] [5] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [4] [5] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [1] [5] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [3] [5] of store [store2] to their multi cart
+06/19/2019 15:22:57  A guest added product [4] [5] of store [store2] to their multi cart
+06/19/2019 15:22:57  A new user was registered admin admin12
+06/19/2019 15:22:57  A new user was registered asd 12345567
+06/19/2019 15:22:57  A new user was registered asdf 111111111
+06/19/2019 15:22:57  A new user was registered qwe 111222434
+06/19/2019 15:22:57  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/19/2019 15:22:57  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/19/2019 15:22:57  qwe Is now a owner of store [tmp]
+06/19/2019 15:22:57  admin made user asd an admin
+06/19/2019 15:22:57  A new user was registered admin admin12
+06/19/2019 15:22:57  A new user was registered asd 12345567
+06/19/2019 15:22:57  A new user was registered asdf 111111111
+06/19/2019 15:22:57  A new user was registered qwe 111222434
+06/19/2019 15:22:57  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/19/2019 15:22:57  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/19/2019 15:22:57  qwe Is now a owner of store [tmp]
+06/19/2019 15:22:57  admin made user asd an admin
+06/19/2019 15:22:57  A new user was registered admin admin12
+06/19/2019 15:22:57  A new user was registered asd 12345567
+06/19/2019 15:22:57  A new user was registered asdf 111111111
+06/19/2019 15:22:57  A new user was registered qwe 111222434
+06/19/2019 15:22:57  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/19/2019 15:22:57  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/19/2019 15:22:57  qwe Is now a owner of store [tmp]
+06/19/2019 15:22:57  admin removed user asd as an admin
+06/19/2019 15:22:57  A new user was registered user1 1234567
+06/19/2019 15:22:57  A new user was registered user2 1234567
+06/19/2019 15:22:57  A new user was registered user3 1234567
+06/19/2019 15:22:57  user1 Logged In
+06/19/2019 15:22:57  user2 Logged In
+06/19/2019 15:22:57  user3 Logged In
+06/19/2019 15:22:57  user1 Added Product [1] [] [] [1] [1] as a owner of store [store]
+06/19/2019 15:22:57  A new user was registered user1 1234567
+06/19/2019 15:22:57  A new user was registered user2 1234567
+06/19/2019 15:22:57  A new user was registered user3 1234567
+06/19/2019 15:22:57  user1 Logged In
+06/19/2019 15:22:57  user2 Logged In
+06/19/2019 15:22:57  user3 Logged In
+06/19/2019 15:22:57  user1 Added Product [1] [] [] [1] [1] as a owner of store [store]
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [2] [1] of store [store1] to their multi cart
+06/19/2019 15:22:57  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  user Logged In
+06/19/2019 15:22:57  user added product [1] [3] of store [store] to their multi cart
+06/19/2019 15:22:57  user Logged Out
+06/19/2019 15:22:57  user Logged In
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  user Logged In
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  user Logged In
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  user Logged In
+06/19/2019 15:22:57  user Logged Out
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:57  A new user was registered user 123456
+06/19/2019 15:22:58  A new user was registered user 123456
+06/19/2019 15:22:58  A new user was registered user 123456
+06/19/2019 15:22:58  A new user was registered user 123456
+06/19/2019 15:22:58  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:22:58  A guest added product [2] [1] of store [store1] to their multi cart
+06/19/2019 15:22:58  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 15:22:58  A new user was registered user 123456
+06/19/2019 15:22:58  A new user was registered user 123456
+06/19/2019 15:22:58  A new user was registered user 123456
+06/19/2019 15:22:58  A new user was registered user 123456
+06/19/2019 15:24:15  A new user was registered user 123456
+06/19/2019 15:24:15  user Logged In
+06/19/2019 15:24:15  A new user was registered user 123456
+06/19/2019 15:24:15  A new user was registered user 123456
+06/19/2019 15:24:15  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [1] [7] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [4] [1] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [2] [1] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [4] [1] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [1] [5] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [3] [5] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [4] [5] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [1] [5] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [3] [5] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [4] [5] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 15:24:15  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 15:24:15  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 15:24:16  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:24:16  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 15:24:16  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 15:24:16  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 15:24:16  A guest added product [1] [5] of store [store1] to their multi cart
+06/19/2019 15:24:16  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 15:24:16  A guest added product [3] [5] of store [store2] to their multi cart
+06/19/2019 15:24:16  A guest added product [4] [5] of store [store2] to their multi cart
+06/19/2019 15:24:16  A new user was registered admin admin12
+06/19/2019 15:24:16  A new user was registered asd 12345567
+06/19/2019 15:24:16  A new user was registered asdf 111111111
+06/19/2019 15:24:16  A new user was registered qwe 111222434
+06/19/2019 15:24:16  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/19/2019 15:24:16  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/19/2019 15:24:16  qwe Is now a owner of store [tmp]
+06/19/2019 15:24:16  admin made user asd an admin
+06/19/2019 15:24:16  A new user was registered admin admin12
+06/19/2019 15:24:16  A new user was registered asd 12345567
+06/19/2019 15:24:16  A new user was registered asdf 111111111
+06/19/2019 15:24:16  A new user was registered qwe 111222434
+06/19/2019 15:24:16  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/19/2019 15:24:16  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/19/2019 15:24:16  qwe Is now a owner of store [tmp]
+06/19/2019 15:24:16  admin made user asd an admin
+06/19/2019 15:24:16  A new user was registered admin admin12
+06/19/2019 15:24:16  A new user was registered asd 12345567
+06/19/2019 15:24:16  A new user was registered asdf 111111111
+06/19/2019 15:24:16  A new user was registered qwe 111222434
+06/19/2019 15:24:16  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/19/2019 15:24:16  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/19/2019 15:24:16  qwe Is now a owner of store [tmp]
+06/19/2019 15:24:16  admin removed user asd as an admin
+06/19/2019 15:24:16  A new user was registered user1 1234567
+06/19/2019 15:24:16  A new user was registered user2 1234567
+06/19/2019 15:24:16  A new user was registered user3 1234567
+06/19/2019 15:24:16  user1 Logged In
+06/19/2019 15:24:16  user2 Logged In
+06/19/2019 15:24:16  user3 Logged In
+06/19/2019 15:24:16  user1 Added Product [1] [] [] [1] [1] as a owner of store [store]
+06/19/2019 15:24:16  A new user was registered user1 1234567
+06/19/2019 15:24:16  A new user was registered user2 1234567
+06/19/2019 15:24:16  A new user was registered user3 1234567
+06/19/2019 15:24:16  user1 Logged In
+06/19/2019 15:24:16  user2 Logged In
+06/19/2019 15:24:16  user3 Logged In
+06/19/2019 15:24:16  user1 Added Product [1] [] [] [1] [1] as a owner of store [store]
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:24:16  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:24:16  A guest added product [2] [1] of store [store1] to their multi cart
+06/19/2019 15:24:16  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  user Logged In
+06/19/2019 15:24:16  user added product [1] [3] of store [store] to their multi cart
+06/19/2019 15:24:16  user Logged Out
+06/19/2019 15:24:16  user Logged In
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  user Logged In
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  user Logged In
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  user Logged In
+06/19/2019 15:24:16  user Logged Out
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 15:24:16  A guest added product [2] [1] of store [store1] to their multi cart
+06/19/2019 15:24:16  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 15:24:16  A new user was registered user 123456
+06/19/2019 16:35:30  A new user was registered user 123456
+06/19/2019 16:35:30  user Logged In
+06/19/2019 16:35:30  A new user was registered user 123456
+06/19/2019 16:35:30  A new user was registered user 123456
+06/19/2019 16:35:30  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [1] [7] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [4] [1] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [2] [1] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [4] [1] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [1] [5] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [3] [5] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [4] [5] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [1] [5] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [3] [5] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [4] [5] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [2] [2] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [3] [3] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [4] [4] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [1] [5] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [2] [5] of store [store1] to their multi cart
+06/19/2019 16:35:30  A guest added product [3] [5] of store [store2] to their multi cart
+06/19/2019 16:35:30  A guest added product [4] [5] of store [store2] to their multi cart
+06/19/2019 16:35:30  A new user was registered admin admin12
+06/19/2019 16:35:31  A new user was registered asd 12345567
+06/19/2019 16:35:31  A new user was registered asdf 111111111
+06/19/2019 16:35:31  A new user was registered qwe 111222434
+06/19/2019 16:35:31  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/19/2019 16:35:31  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/19/2019 16:35:31  qwe Is now a owner of store [tmp]
+06/19/2019 16:35:31  admin made user asd an admin
+06/19/2019 16:35:31  A new user was registered admin admin12
+06/19/2019 16:35:31  A new user was registered asd 12345567
+06/19/2019 16:35:31  A new user was registered asdf 111111111
+06/19/2019 16:35:31  A new user was registered qwe 111222434
+06/19/2019 16:35:31  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/19/2019 16:35:31  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/19/2019 16:35:31  qwe Is now a owner of store [tmp]
+06/19/2019 16:35:31  admin made user asd an admin
+06/19/2019 16:35:31  A new user was registered admin admin12
+06/19/2019 16:35:31  A new user was registered asd 12345567
+06/19/2019 16:35:31  A new user was registered asdf 111111111
+06/19/2019 16:35:31  A new user was registered qwe 111222434
+06/19/2019 16:35:31  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/19/2019 16:35:31  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/19/2019 16:35:31  qwe Is now a owner of store [tmp]
+06/19/2019 16:35:31  admin removed user asd as an admin
+06/19/2019 16:35:31  A new user was registered user1 1234567
+06/19/2019 16:35:31  A new user was registered user2 1234567
+06/19/2019 16:35:31  A new user was registered user3 1234567
+06/19/2019 16:35:31  user1 Logged In
+06/19/2019 16:35:31  user2 Logged In
+06/19/2019 16:35:31  user3 Logged In
+06/19/2019 16:35:31  user1 Added Product [1] [] [] [1] [1] as a owner of store [store]
+06/19/2019 16:35:31  A new user was registered user1 1234567
+06/19/2019 16:35:31  A new user was registered user2 1234567
+06/19/2019 16:35:31  A new user was registered user3 1234567
+06/19/2019 16:35:31  user1 Logged In
+06/19/2019 16:35:31  user2 Logged In
+06/19/2019 16:35:31  user3 Logged In
+06/19/2019 16:35:31  user1 Added Product [1] [] [] [1] [1] as a owner of store [store]
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 16:35:31  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 16:35:31  A guest added product [2] [1] of store [store1] to their multi cart
+06/19/2019 16:35:31  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  user Logged In
+06/19/2019 16:35:31  user added product [1] [3] of store [store] to their multi cart
+06/19/2019 16:35:31  user Logged Out
+06/19/2019 16:35:31  user Logged In
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  user Logged In
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  user Logged In
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  user Logged In
+06/19/2019 16:35:31  user Logged Out
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A guest added product [1] [1] of store [store1] to their multi cart
+06/19/2019 16:35:31  A guest added product [2] [1] of store [store1] to their multi cart
+06/19/2019 16:35:31  A guest added product [3] [1] of store [store2] to their multi cart
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
+06/19/2019 16:35:31  A new user was registered user 123456
 >>>>>>> PolicyBranch
 06/19/2019 14:58:31  A new user was registered admin admin11
 06/19/2019 14:58:31  admin Logged In

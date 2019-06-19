@@ -16,7 +16,7 @@ namespace Workshop192
             this.real = real;
         }
 
-        public int Deliver(string name, string address, string city, string country, int zip)
+        public int Deliver(string name, string address, string city, string country, string zip)
         {
             if (real == null)
                 return -1;
