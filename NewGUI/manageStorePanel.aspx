@@ -71,6 +71,21 @@
   </header>
 	<!--================ End Header Menu Area =================-->
 
+
+<!-- ================ start banner area ================= -->	
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Store Manager Panel</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+<!-- ================ end banner area ================= -->
+
   <!--================Order Details Area =================-->
   <section class="order_details section-margin--small">
     <div class="container">

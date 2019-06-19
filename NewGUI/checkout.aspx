@@ -69,7 +69,19 @@
   </header>
 	<!--================ End Header Menu Area =================-->
 
-  
+  <!-- ================ start banner area ================= -->	
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Checkout</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+<!-- ================ end banner area ================= -->
   
   <!--================Checkout Area =================-->
   <section class="checkout_area section-margin--small">

@@ -21,5 +21,46 @@ namespace NewGUI
         {
 
         }
+        protected void MinimumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void MaximumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void MinimumAmountToBuyFromStoreButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void MaximumAmountToBuyFromStoreButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void UserToBanFromStoreButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void CountryToBanFromStoreButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void DiscountMinimumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void DiscountMaximumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void DiscountMinimumAmountToBuyFromStoreButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void DiscountMaximumAmountToBuyFromStoreButton1_Click(object sender, EventArgs e)
+        {
+
+        } 
+            
     }
 }

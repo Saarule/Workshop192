@@ -166,3 +166,13 @@
 06-18-2019 18:32:25  saar Logged In
 06-18-2019 18:33:00  saar Added Product [1] [milk] [hgg] [533] [43] as a owner of store [store]
 06-18-2019 18:34:20  saar added product [1] [2] of store [store] to their multi cart
+06-19-2019 02:16:10  saar Logged In
+06-19-2019 02:17:57  saar Added Product [1] [Milk] [Grocery] [20] [100] as a owner of store [NoyStore]
+06-19-2019 02:18:33  saar Added Product [2] [Bread] [Grocery] [30] [150] as a owner of store [NoyStore]
+06-19-2019 02:18:54  saar added product [1] [3] of store [NoyStore] to their multi cart
+06-19-2019 02:19:17  saar added product [2] [5] of store [NoyStore] to their multi cart
+06-19-2019 15:34:38  saar Logged In
+06-19-2019 15:37:23  saar Added Product [1] [Milk] [Grocery] [30] [120] as a owner of store [store1]
+06-19-2019 15:37:38  saar Added Product [2] [Bread] [Greocery] [20] [300] as a owner of store [store1]
+06-19-2019 15:37:51  saar added product [1] [4] of store [store1] to their multi cart
+06-19-2019 15:38:07  saar added product [2] [5] of store [store1] to their multi cart

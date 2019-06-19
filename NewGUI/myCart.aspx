@@ -68,6 +68,19 @@
   </header>
 	<!--================ End Header Menu Area =================-->
 
+  	<!-- ================ start banner area ================= -->	
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>My Cart</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+	<!-- ================ end banner area ================= -->
 
   <!--================Cart Area =================-->
   <section class="cart_area">
@@ -109,7 +122,7 @@
                                   <h5>Subtotal</h5>
                               </td>
                               <td>
-                                  <h5>$2160.00</h5>
+                                  <h5>$<asp:PlaceHolder ID="PlaceHolder4" runat="server"></asp:PlaceHolder></h5>
                               </td>
                           </tr>
                           
