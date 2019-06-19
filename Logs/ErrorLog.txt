@@ -66,4 +66,18 @@
 06/19/2019 14:58:37  A guest tried to open a store but failed
 06/19/2019 14:58:37  A guest tried to remove a product from store but failed
 06/19/2019 14:58:37  A guest tried to remove a store manager but failed
-06/19/2019 14:58:37  A guest tried to add a remove a user but failed
+06/19/2019 14:58:37  A guest tried to add a remove a user but failed06/19/2019 17:54:26  A user failed to register orel 11111
+06/19/2019 17:54:26  A user failed to register orel 5555
+06/19/2019 17:54:27  A guest tried to open a store but failed
+06/19/2019 17:54:27  saar Tried removing products from store [Victory] without privileges
+06/19/2019 17:54:27  orel Tried adding a non existent user as a store manager
+06/19/2019 17:54:27  orel tried adding user nati as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 17:54:27  orel tried adding user saar as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 17:54:27  orel Tried Making a non existent user store owner
+06/19/2019 17:54:28  nati Tried Making a non existent user store owner
+06/19/2019 17:54:28  orel tried adding user nati as a owner but the given user is already a owner/manager of store [Victory]
+06/19/2019 17:54:28  orel tried adding user saar as a owner but the given user is already a apending owner of store [Victory]
+06/19/2019 17:54:28  nati Tried accepting a non existent user as a store owner
+06/19/2019 17:54:28  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 17:54:28  nati Tried declining a non existent user as a store owner
+06/19/2019 17:54:28  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list

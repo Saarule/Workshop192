@@ -1509,3 +1509,705 @@
 06/19/2019 15:02:20  orel added product [5] [10] of store [Mega] to their multi cart
 06/19/2019 15:02:20  A guest added product [3] [10] of store [victory] to their multi cart
 06/19/2019 15:02:20  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:46:42  A new user was registered admin admin11
+06/19/2019 17:46:42  A new user was registered orel 123456
+06/19/2019 17:46:42  orel Logged In
+06/19/2019 17:46:42  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:46:42  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:46:42  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:46:42  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:46:42  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:46:42  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:46:42  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:46:42  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:46:42  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:46:42  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:46:42  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:46:42  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:46:43  A new user was registered admin admin11
+06/19/2019 17:46:43  A new user was registered orel 123456
+06/19/2019 17:46:43  orel Logged In
+06/19/2019 17:46:43  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:46:43  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:46:43  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:46:43  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:46:43  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:46:43  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:46:43  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:46:43  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:46:43  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:46:43  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:46:43  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:46:43  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:46:43  A new user was registered admin admin11
+06/19/2019 17:46:43  A new user was registered orel 123456
+06/19/2019 17:46:43  orel Logged In
+06/19/2019 17:46:43  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:46:43  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:46:43  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:46:43  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:46:43  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:46:43  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:46:43  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:46:43  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:46:43  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:46:43  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:46:43  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:46:43  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:14  A new user was registered admin admin11
+06/19/2019 17:51:14  A new user was registered orel 123456
+06/19/2019 17:51:14  orel Logged In
+06/19/2019 17:51:14  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:51:14  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:51:14  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:51:14  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:51:14  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:51:14  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:51:14  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:51:14  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:51:14  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:14  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:14  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:51:14  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:14  A new user was registered admin admin11
+06/19/2019 17:51:14  A new user was registered orel 123456
+06/19/2019 17:51:14  orel Logged In
+06/19/2019 17:51:14  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:51:14  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:51:14  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:51:14  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:51:14  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:51:14  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:51:14  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:51:14  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:51:14  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:14  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:14  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:51:14  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:14  A new user was registered admin admin11
+06/19/2019 17:51:14  A new user was registered orel 123456
+06/19/2019 17:51:14  orel Logged In
+06/19/2019 17:51:14  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:51:14  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:51:14  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:51:14  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:51:14  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:51:14  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:51:14  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:51:14  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:51:14  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:14  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:14  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:51:14  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:50  A new user was registered admin admin11
+06/19/2019 17:51:50  A new user was registered orel 123456
+06/19/2019 17:51:50  orel Logged In
+06/19/2019 17:51:50  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:51:50  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:51:50  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:51:50  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:51:50  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:51:50  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:51:50  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:51:50  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:51:50  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:50  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:50  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:51:50  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:50  A new user was registered admin admin11
+06/19/2019 17:51:50  A new user was registered orel 123456
+06/19/2019 17:51:50  orel Logged In
+06/19/2019 17:51:50  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:51:50  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:51:50  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:51:50  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:51:50  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:51:50  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:51:50  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:51:50  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:51:50  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:50  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:50  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:51:50  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:50  A new user was registered admin admin11
+06/19/2019 17:51:50  A new user was registered orel 123456
+06/19/2019 17:51:50  orel Logged In
+06/19/2019 17:51:50  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:51:50  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:51:50  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:51:51  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:51:51  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:51:51  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:51:51  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:51:51  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:51:51  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:51  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:51:51  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:51:51  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:11  A new user was registered admin admin11
+06/19/2019 17:54:11  A new user was registered orel 123456
+06/19/2019 17:54:11  orel Logged In
+06/19/2019 17:54:11  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:11  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:11  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:54:11  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:54:11  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:54:11  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:54:11  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:54:11  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:54:11  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:11  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:11  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:54:11  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:11  A new user was registered admin admin11
+06/19/2019 17:54:11  A new user was registered orel 123456
+06/19/2019 17:54:11  orel Logged In
+06/19/2019 17:54:11  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:11  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:11  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:54:11  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:54:11  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:54:11  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:54:11  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:54:11  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:54:11  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:11  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:11  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:54:11  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:11  A new user was registered admin admin11
+06/19/2019 17:54:11  A new user was registered orel 123456
+06/19/2019 17:54:11  orel Logged In
+06/19/2019 17:54:11  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:11  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:11  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:54:11  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:54:11  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:54:11  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:54:11  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:54:11  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:54:11  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:11  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:11  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:54:11  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  admin Logged In
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  A new user was registered nati 123456
+06/19/2019 17:54:25  admin removed user orel as an admin
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  admin Logged In
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  A new user was registered nati 123456
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  admin Logged In
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  A new user was registered nati 123456
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  admin Logged In
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  A new user was registered nati 123456
+06/19/2019 17:54:25  admin removed user orel as an admin
+06/19/2019 17:54:25  admin removed user nati as an admin
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  orel Logged In
+06/19/2019 17:54:25  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel added product [1] [20] of store [victory] to their multi cart
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  orel Logged In
+06/19/2019 17:54:25  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel added product [1] [40] of store [victory] to their multi cart
+06/19/2019 17:54:25  orel edited product [1] to: [white bread] [bread] [10] [30] as owner of store [victory]
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  orel Logged In
+06/19/2019 17:54:25  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  orel Logged In
+06/19/2019 17:54:25  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  orel Logged In
+06/19/2019 17:54:25  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  orel Logged In
+06/19/2019 17:54:25  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:25  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  orel Logged In
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:25  A new user was registered orel 123456
+06/19/2019 17:54:25  orel Logged In
+06/19/2019 17:54:25  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:54:26  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:54:26  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:54:26  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:26  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:26  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:54:26  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:54:26  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:54:26  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:26  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:26  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/19/2019 17:54:26  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/19/2019 17:54:26  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/19/2019 17:54:26  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  orel added product [4] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:26  orel added product [5] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:26  A guest added product [3] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  A guest added product [6] [10] of store [Mega] to their multi cart
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 11111
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered nati 5555555
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 5555555
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:26  A guest added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel added product [1] [5] of store [victory] to their multi cart
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/19/2019 17:54:26  A new user was registered admin admin11
+06/19/2019 17:54:26  A new user was registered orel 123456
+06/19/2019 17:54:26  orel Logged In
+06/19/2019 17:54:26  orel Added Product [1] [black bread] [bread] [10] [100] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [2] [black bread] [bread] [15] [100] as a owner of store [victory]
+06/19/2019 17:54:26  orel Added Product [3] [cutted bread] [bread] [20] [100] as a owner of store [Rami-Levi]
+06/19/2019 17:54:26  orel Added Product [4] [brown bread] [bread] [25] [100] as a owner of store [Rami-Levi]
+06/19/2019 17:54:26  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:54:26  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:54:27  orel removed product [1] from their multi cart
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  orel Added Product [1] [black bread] [bread] [10] [100] as a owner of store [victory]
+06/19/2019 17:54:27  orel Added Product [2] [black bread] [bread] [15] [100] as a owner of store [victory]
+06/19/2019 17:54:27  orel Added Product [3] [cutted bread] [bread] [20] [100] as a owner of store [Rami-Levi]
+06/19/2019 17:54:27  orel Added Product [4] [brown bread] [bread] [25] [100] as a owner of store [Rami-Levi]
+06/19/2019 17:54:27  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:54:27  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:54:27  orel added product [3] [15] of store [Rami-Levi] to their multi cart
+06/19/2019 17:54:27  orel added product [4] [20] of store [Rami-Levi] to their multi cart
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  orel Added Product [1] [black bread] [bread] [10] [100] as a owner of store [victory]
+06/19/2019 17:54:27  orel Added Product [2] [black bread] [bread] [15] [100] as a owner of store [victory]
+06/19/2019 17:54:27  orel Added Product [3] [cutted bread] [bread] [20] [100] as a owner of store [Rami-Levi]
+06/19/2019 17:54:27  orel Added Product [4] [brown bread] [bread] [25] [100] as a owner of store [Rami-Levi]
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  orel Added Product [1] [black bread] [bread] [10] [100] as a owner of store [victory]
+06/19/2019 17:54:27  orel Added Product [2] [black bread] [bread] [15] [100] as a owner of store [victory]
+06/19/2019 17:54:27  orel Added Product [3] [cutted bread] [bread] [20] [100] as a owner of store [Rami-Levi]
+06/19/2019 17:54:27  orel Added Product [4] [brown bread] [bread] [25] [100] as a owner of store [Rami-Levi]
+06/19/2019 17:54:27  orel added product [1] [10] of store [victory] to their multi cart
+06/19/2019 17:54:27  orel added product [2] [10] of store [victory] to their multi cart
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 111111
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  orel Logged Out
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 111111
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  orel Logged Out
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 111111
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered nati 1111111
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 111111
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 12345123
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 12345123
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 12345123
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 12345123
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 123456
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:27  saar Added Product [1] [Milki] [dairy products] [10] [50] as a manager of store [Victory]
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 123456
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:27  saar Added Product [1] [Milki] [dairy products] [10] [50] as a manager of store [Victory]
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 123456
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  A new user was registered nati 123456
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 123456
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  A new user was registered nati 123456
+06/19/2019 17:54:27  orel added user nati as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 123456
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  A new user was registered nati 123456
+06/19/2019 17:54:27  nati Logged In
+06/19/2019 17:54:27  orel added user nati as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 123456
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  A new user was registered nati 123456
+06/19/2019 17:54:27  orel added user nati as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 123456
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  A new user was registered nati 123456
+06/19/2019 17:54:27  nati Logged In
+06/19/2019 17:54:27  orel initiated the owner adding proccess to user nati for store [Victory]
+06/19/2019 17:54:27  nati Is now a owner of store [Victory]
+06/19/2019 17:54:27  nati added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:27  A new user was registered orel 123456
+06/19/2019 17:54:27  orel Logged In
+06/19/2019 17:54:27  A new user was registered saar 123456
+06/19/2019 17:54:27  saar Logged In
+06/19/2019 17:54:27  A new user was registered nati 123456
+06/19/2019 17:54:27  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  saar Logged In
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [Victory]
+06/19/2019 17:54:28  nati Is now a owner of store [Victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  saar Logged In
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [Victory]
+06/19/2019 17:54:28  nati Is now a owner of store [Victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  saar Logged In
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [Victory]
+06/19/2019 17:54:28  nati Is now a owner of store [Victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  saar Logged In
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [Victory]
+06/19/2019 17:54:28  nati Is now a owner of store [Victory]
+06/19/2019 17:54:28  nati initiated the owner adding proccess to user saar for store [Victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [victory]
+06/19/2019 17:54:28  nati Is now a owner of store [victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [victory]
+06/19/2019 17:54:28  nati Is now a owner of store [victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [victory]
+06/19/2019 17:54:28  nati Is now a owner of store [victory]
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user saar for store [victory]
+06/19/2019 17:54:28  nati accepted user saar as a owner in store [victory]
+06/19/2019 17:54:28  saar Is now a owner of store [victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [victory]
+06/19/2019 17:54:28  nati Is now a owner of store [victory]
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user saar for store [victory]
+06/19/2019 17:54:28  nati accepted user saar as a owner in store [victory]
+06/19/2019 17:54:28  saar Is now a owner of store [victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [victory]
+06/19/2019 17:54:28  nati Is now a owner of store [victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [victory]
+06/19/2019 17:54:28  nati Is now a owner of store [victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [victory]
+06/19/2019 17:54:28  nati Is now a owner of store [victory]
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user saar for store [victory]
+06/19/2019 17:54:28  nati declined user saar as a owner in store [victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user nati for store [victory]
+06/19/2019 17:54:28  nati Is now a owner of store [victory]
+06/19/2019 17:54:28  orel initiated the owner adding proccess to user saar for store [victory]
+06/19/2019 17:54:28  nati declined user saar as a owner in store [victory]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:28  orel added user nati as a manager in store [victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:28  orel added user saar as a manager in store [victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:28  A new user was registered admin admin11
+06/19/2019 17:54:28  A new user was registered orel 123456
+06/19/2019 17:54:28  A new user was registered nati 123456
+06/19/2019 17:54:28  A new user was registered saar 123456
+06/19/2019 17:54:28  orel Logged In
+06/19/2019 17:54:28  nati Logged In
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  A new user was registered nati 123456
+06/19/2019 17:54:29  A new user was registered saar 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  nati Logged In
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  A new user was registered nati 123456
+06/19/2019 17:54:29  A new user was registered saar 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  nati Logged In
+06/19/2019 17:54:29  orel initiated the owner adding proccess to user nati for store [victory]
+06/19/2019 17:54:29  nati Is now a owner of store [victory]
+06/19/2019 17:54:29  orel initiated the owner adding proccess to user saar for store [victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:29  orel removed Product [1] as a owner of store [victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:29  orel removed Product [1] as a owner of store [victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:29  orel removed Product [1] as a owner of store [victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  orel Added Product [1] [Cheese] [dairy products] [10] [50] as a owner of store [victory]
+06/19/2019 17:54:29  orel edited product [1] to: [Cheese] [dairy products] [20] [60] as owner of store [victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  A new user was registered saar 123456
+06/19/2019 17:54:29  saar Logged In
+06/19/2019 17:54:29  A new user was registered nati 123456
+06/19/2019 17:54:29  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:29  orel removed appointed manager saar of store [Victory]
+06/19/2019 17:54:29  orel tried removing user saar from the store managers but the given user wasn't a manager of store [Victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  A new user was registered saar 123456
+06/19/2019 17:54:29  saar Logged In
+06/19/2019 17:54:29  A new user was registered nati 123456
+06/19/2019 17:54:29  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:29  A new user was registered ben 123456
+06/19/2019 17:54:29  orel initiated the owner adding proccess to user nati for store [Victory]
+06/19/2019 17:54:29  nati Is now a owner of store [Victory]
+06/19/2019 17:54:29  nati Logged In
+06/19/2019 17:54:29  nati added user ben as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:29  orel tried removing user ben from the store managers but the given user wasn't a manager of store [Victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  A new user was registered saar 123456
+06/19/2019 17:54:29  saar Logged In
+06/19/2019 17:54:29  A new user was registered nati 123456
+06/19/2019 17:54:29  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:29  A new user was registered ben 123456
+06/19/2019 17:54:29  orel initiated the owner adding proccess to user nati for store [Victory]
+06/19/2019 17:54:29  nati Is now a owner of store [Victory]
+06/19/2019 17:54:29  nati Logged In
+06/19/2019 17:54:29  nati added user ben as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:29  nati removed appointed manager ben of store [Victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  A new user was registered saar 123456
+06/19/2019 17:54:29  saar Logged In
+06/19/2019 17:54:29  A new user was registered nati 123456
+06/19/2019 17:54:29  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:29  A new user was registered ben 123456
+06/19/2019 17:54:29  orel tried removing user ben from the store managers but the given user wasn't a manager of store [Victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered orel 123456
+06/19/2019 17:54:29  orel Logged In
+06/19/2019 17:54:29  A new user was registered saar 123456
+06/19/2019 17:54:29  saar Logged In
+06/19/2019 17:54:29  A new user was registered nati 123456
+06/19/2019 17:54:29  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/19/2019 17:54:29  orel removed appointed manager saar of store [Victory]
+06/19/2019 17:54:29  A new user was registered admin admin11
+06/19/2019 17:54:29  A new user was registered U1 123456
+06/19/2019 17:54:29  A new user was registered U2 123456
+06/19/2019 17:54:29  A new user was registered U11 123456
+06/19/2019 17:54:29  A new user was registered U12 123456
+06/19/2019 17:54:29  A new user was registered U13 123456
+06/19/2019 17:54:29  U11 Logged In
+06/19/2019 17:54:29  U11 Logged Out
