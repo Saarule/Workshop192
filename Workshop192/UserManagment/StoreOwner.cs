@@ -149,7 +149,10 @@ namespace Workshop192.UserManagment
         public bool AddDiscountPolicy(LinkedList<string> policy, int discount)
         {
             if (Int32.Parse(policy.ElementAt(2)) == 0)
+            {
                 MarketManagment.System.GetInstance().GetStore(store).AddDiscountPolicy(policy, discount);
+                return true;
+            }
             else
                 foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
                     if (productAmount.productId.Equals(Int32.Parse(policy.ElementAt(2))))
@@ -162,8 +165,11 @@ namespace Workshop192.UserManagment
 
         public bool AddSellingPolicy(LinkedList<string> policy)
         {
-            if (Int32.Parse(policy.ElementAt(2)) == 0)
+            if (int.Parse(policy.ElementAt(2)) == 0)
+            {
                 MarketManagment.System.GetInstance().GetStore(store).AddSellingPolicy(policy);
+                return true;
+            }
             else
                 foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
                     if (productAmount.productId.Equals(Int32.Parse(policy.ElementAt(2))))

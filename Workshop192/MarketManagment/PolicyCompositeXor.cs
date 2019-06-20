@@ -21,5 +21,9 @@ namespace Workshop192.MarketManagment
         {
             return left.Validate(userId, cart) ^ right.Validate(userId, cart);
         }
+        public override string ToString()
+        {
+            return "(" + left.ToString() + " Xor " + right.ToString() + ")";
+        }
     }
 }

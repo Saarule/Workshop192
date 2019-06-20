@@ -1,3 +1,31 @@
+<<<<<<< HEAD
+06/17/2019 00:35:31  A guest tried to open a store but failed
+06/17/2019 00:35:31  saar Tried removing products from store [Victory] without privileges
+06/17/2019 00:35:31  orel Tried adding a non existent user as a store manager
+06/17/2019 00:35:31  orel tried adding user nati as a manager but the given user is already a owner/manager of store [Victory]
+06/17/2019 00:35:31  orel tried adding user saar as a manager but the given user is already a owner/manager of store [Victory]
+06/17/2019 00:35:31  orel Tried Making a non existent user store owner
+06/17/2019 00:35:31  nati Tried Making a non existent user store owner
+06/17/2019 00:35:31  orel tried adding user nati as a owner but the given user is already a owner/manager of store [Victory]
+06/17/2019 00:35:31  orel tried adding user saar as a owner but the given user is already a apending owner of store [Victory]
+06/17/2019 00:35:31  nati Tried accepting a non existent user as a store owner
+06/17/2019 00:35:31  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/17/2019 00:35:31  nati Tried declining a non existent user as a store owner
+06/17/2019 00:35:31  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/17/2019 00:35:32  admin tried making asd an admin but the given user is already an admin
+06/17/2019 00:35:33  A guest tried to accept a store owner but failed
+06/17/2019 00:35:33  A guest tried to add a product but failed
+06/17/2019 00:35:33  A guest tried to add a store manager but failed
+06/17/2019 00:35:33  A guest tried to add a store owner but failed
+06/17/2019 00:35:33  A guest tried to decline a store owner but failed
+06/17/2019 00:35:33  A guest tried to edit a product of store but failed
+06/17/2019 00:35:33  user Tried to Log In a second time
+06/17/2019 00:35:33  A guest tried to open a store but failed
+06/17/2019 00:35:33  A guest tried to remove a product from store but failed
+06/17/2019 00:35:33  A guest tried to remove a store manager but failed
+06/17/2019 00:35:33  A guest tried to add a remove a user but failed
+06/18/2019 19:21:59  orel Tried adding a non existent user as a store manager
+=======
 06/19/2019 14:15:53  admin tried making asd an admin but the given user is already an admin
 06/19/2019 14:15:53  A guest tried to accept a store owner but failed
 06/19/2019 14:15:53  A guest tried to add a product but failed
@@ -10,6 +38,7 @@
 06/19/2019 14:15:53  A guest tried to remove a product from store but failed
 06/19/2019 14:15:53  A guest tried to remove a store manager but failed
 06/19/2019 14:15:53  A guest tried to add a remove a user but failed
+<<<<<<< HEAD
 06/19/2019 15:22:57  admin tried making asd an admin but the given user is already an admin
 06/19/2019 15:22:57  A guest tried to accept a store owner but failed
 06/19/2019 15:22:57  A guest tried to add a product but failed
@@ -118,3 +147,208 @@
 06/20/2019 07:52:54  A guest tried to remove a product from store but failed
 06/20/2019 07:52:54  A guest tried to remove a store manager but failed
 06/20/2019 07:52:54  A guest tried to add a remove a user but failed
+=======
+
+>>>>>>> PolicyBranch
+06/19/2019 14:58:32  A user failed to register orel 11111
+06/19/2019 14:58:32  A user failed to register orel 5555
+06/19/2019 14:58:33  A guest tried to open a store but failed
+06/19/2019 14:58:33  saar Tried removing products from store [Victory] without privileges
+06/19/2019 14:58:33  orel Tried adding a non existent user as a store manager
+06/19/2019 14:58:34  orel tried adding user nati as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 14:58:34  orel tried adding user saar as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 14:58:34  orel Tried Making a non existent user store owner
+06/19/2019 14:58:34  nati Tried Making a non existent user store owner
+06/19/2019 14:58:34  orel tried adding user nati as a owner but the given user is already a owner/manager of store [Victory]
+06/19/2019 14:58:34  orel tried adding user saar as a owner but the given user is already a apending owner of store [Victory]
+06/19/2019 14:58:34  nati Tried accepting a non existent user as a store owner
+06/19/2019 14:58:34  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 14:58:35  nati Tried declining a non existent user as a store owner
+06/19/2019 14:58:35  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 14:58:36  admin tried making asd an admin but the given user is already an admin
+06/19/2019 14:58:37  A guest tried to accept a store owner but failed
+06/19/2019 14:58:37  A guest tried to add a product but failed
+06/19/2019 14:58:37  A guest tried to add a store manager but failed
+06/19/2019 14:58:37  A guest tried to add a store owner but failed
+06/19/2019 14:58:37  A guest tried to decline a store owner but failed
+06/19/2019 14:58:37  A guest tried to edit a product of store but failed
+06/19/2019 14:58:37  user Tried to Log In a second time
+06/19/2019 14:58:37  A guest tried to open a store but failed
+06/19/2019 14:58:37  A guest tried to remove a product from store but failed
+06/19/2019 14:58:37  A guest tried to remove a store manager but failed
+06/19/2019 14:58:37  A guest tried to add a remove a user but failed06/19/2019 17:54:26  A user failed to register orel 11111
+06/19/2019 17:54:26  A user failed to register orel 5555
+06/19/2019 17:54:27  A guest tried to open a store but failed
+06/19/2019 17:54:27  saar Tried removing products from store [Victory] without privileges
+06/19/2019 17:54:27  orel Tried adding a non existent user as a store manager
+06/19/2019 17:54:27  orel tried adding user nati as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 17:54:27  orel tried adding user saar as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 17:54:27  orel Tried Making a non existent user store owner
+06/19/2019 17:54:28  nati Tried Making a non existent user store owner
+06/19/2019 17:54:28  orel tried adding user nati as a owner but the given user is already a owner/manager of store [Victory]
+06/19/2019 17:54:28  orel tried adding user saar as a owner but the given user is already a apending owner of store [Victory]
+06/19/2019 17:54:28  nati Tried accepting a non existent user as a store owner
+06/19/2019 17:54:28  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 17:54:28  nati Tried declining a non existent user as a store owner
+06/19/2019 17:54:28  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list
+<<<<<<< HEAD
+06/19/2019 18:22:35  A user failed to register orel 11111
+06/19/2019 18:22:35  A user failed to register orel 5555
+06/19/2019 18:22:36  A guest tried to open a store but failed
+06/19/2019 18:22:36  saar Tried removing products from store [Victory] without privileges
+06/19/2019 18:22:36  orel Tried adding a non existent user as a store manager
+06/19/2019 18:22:37  orel tried adding user nati as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 18:22:37  orel tried adding user saar as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 18:22:37  orel Tried Making a non existent user store owner
+06/19/2019 18:22:37  nati Tried Making a non existent user store owner
+06/19/2019 18:22:37  orel tried adding user nati as a owner but the given user is already a owner/manager of store [Victory]
+06/19/2019 18:22:37  orel tried adding user saar as a owner but the given user is already a apending owner of store [Victory]
+06/19/2019 18:22:37  nati Tried accepting a non existent user as a store owner
+06/19/2019 18:22:38  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 18:22:38  nati Tried declining a non existent user as a store owner
+06/19/2019 18:22:38  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 18:22:40  admin tried making asd an admin but the given user is already an admin
+06/19/2019 18:22:40  A guest tried to accept a store owner but failed
+06/19/2019 18:22:40  A guest tried to add a product but failed
+06/19/2019 18:22:40  A guest tried to add a store manager but failed
+06/19/2019 18:22:40  A guest tried to add a store owner but failed
+06/19/2019 18:22:40  A guest tried to decline a store owner but failed
+06/19/2019 18:22:40  A guest tried to edit a product of store but failed
+06/19/2019 18:22:40  user Tried to Log In a second time
+06/19/2019 18:22:40  A guest tried to open a store but failed
+06/19/2019 18:22:40  A guest tried to remove a product from store but failed
+06/19/2019 18:22:40  A guest tried to remove a store manager but failed
+06/19/2019 18:22:40  A guest tried to add a remove a user but failed
+06/19/2019 18:53:01  A user failed to register orel 1234
+06/19/2019 19:04:24  A user failed to register orel 11111
+06/19/2019 19:04:24  A user failed to register orel 5555
+06/19/2019 19:04:25  A guest tried to open a store but failed
+06/19/2019 19:04:25  saar Tried removing products from store [Victory] without privileges
+06/19/2019 19:04:25  orel Tried adding a non existent user as a store manager
+06/19/2019 19:04:25  orel tried adding user nati as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 19:04:25  orel tried adding user saar as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 19:04:25  orel Tried Making a non existent user store owner
+06/19/2019 19:04:25  nati Tried Making a non existent user store owner
+06/19/2019 19:04:25  orel tried adding user nati as a owner but the given user is already a owner/manager of store [Victory]
+06/19/2019 19:04:25  orel tried adding user saar as a owner but the given user is already a apending owner of store [Victory]
+06/19/2019 19:04:26  nati Tried accepting a non existent user as a store owner
+06/19/2019 19:04:26  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 19:04:26  nati Tried declining a non existent user as a store owner
+06/19/2019 19:04:26  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 19:04:28  admin tried making asd an admin but the given user is already an admin
+06/19/2019 19:04:28  A guest tried to accept a store owner but failed
+06/19/2019 19:04:28  A guest tried to add a product but failed
+06/19/2019 19:04:28  A guest tried to add a store manager but failed
+06/19/2019 19:04:28  A guest tried to add a store owner but failed
+06/19/2019 19:04:28  A guest tried to decline a store owner but failed
+06/19/2019 19:04:28  A guest tried to edit a product of store but failed
+06/19/2019 19:04:28  user Tried to Log In a second time
+06/19/2019 19:04:29  A guest tried to open a store but failed
+06/19/2019 19:04:29  A guest tried to remove a product from store but failed
+06/19/2019 19:04:29  A guest tried to remove a store manager but failed
+06/19/2019 19:04:29  A guest tried to add a remove a user but failed
+06/19/2019 19:40:41  OREL tried adding user OREL as a manager but the given user is already a owner/manager of store [store1]
+06/19/2019 20:35:01  orel Tried adding a non existent user as a store manager
+06/19/2019 20:43:47  A user failed to register orel 11111
+06/19/2019 20:43:47  A user failed to register orel 5555
+06/19/2019 20:43:48  A guest tried to open a store but failed
+06/19/2019 20:43:48  saar Tried removing products from store [Victory] without privileges
+06/19/2019 20:43:48  orel Tried adding a non existent user as a store manager
+06/19/2019 20:43:49  orel tried adding user nati as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 20:43:49  orel tried adding user saar as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 20:43:49  orel Tried Making a non existent user store owner
+06/19/2019 20:43:49  nati Tried Making a non existent user store owner
+06/19/2019 20:43:49  orel tried adding user nati as a owner but the given user is already a owner/manager of store [Victory]
+06/19/2019 20:43:49  orel tried adding user saar as a owner but the given user is already a apending owner of store [Victory]
+06/19/2019 20:43:49  nati Tried accepting a non existent user as a store owner
+06/19/2019 20:43:49  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 20:43:50  nati Tried declining a non existent user as a store owner
+06/19/2019 20:43:50  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 20:43:52  admin tried making asd an admin but the given user is already an admin
+06/19/2019 20:43:52  A guest tried to accept a store owner but failed
+06/19/2019 20:43:52  A guest tried to add a product but failed
+06/19/2019 20:43:52  A guest tried to add a store manager but failed
+06/19/2019 20:43:52  A guest tried to add a store owner but failed
+06/19/2019 20:43:52  A guest tried to decline a store owner but failed
+06/19/2019 20:43:52  A guest tried to edit a product of store but failed
+06/19/2019 20:43:52  user Tried to Log In a second time
+06/19/2019 20:43:52  A guest tried to open a store but failed
+06/19/2019 20:43:52  A guest tried to remove a product from store but failed
+06/19/2019 20:43:52  A guest tried to remove a store manager but failed
+06/19/2019 20:43:52  A guest tried to add a remove a user but failed
+06/19/2019 20:46:06  admin tried making asd an admin but the given user is already an admin
+06/19/2019 20:46:07  A guest tried to accept a store owner but failed
+06/19/2019 20:46:07  A guest tried to add a product but failed
+06/19/2019 20:46:07  A guest tried to add a store manager but failed
+06/19/2019 20:46:07  A guest tried to add a store owner but failed
+06/19/2019 20:46:07  A guest tried to decline a store owner but failed
+06/19/2019 20:46:07  A guest tried to edit a product of store but failed
+06/19/2019 20:46:07  user Tried to Log In a second time
+06/19/2019 20:46:07  A guest tried to open a store but failed
+06/19/2019 20:46:07  A guest tried to remove a product from store but failed
+06/19/2019 20:46:07  A guest tried to remove a store manager but failed
+06/19/2019 20:46:07  A guest tried to add a remove a user but failed
+06/19/2019 20:46:31  A user failed to register orel 11111
+06/19/2019 20:46:31  A user failed to register orel 5555
+06/19/2019 20:46:32  A guest tried to open a store but failed
+06/19/2019 20:46:32  saar Tried removing products from store [Victory] without privileges
+06/19/2019 20:46:32  orel Tried adding a non existent user as a store manager
+06/19/2019 20:46:33  orel tried adding user nati as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 20:46:33  orel tried adding user saar as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 20:46:33  orel Tried Making a non existent user store owner
+06/19/2019 20:46:33  nati Tried Making a non existent user store owner
+06/19/2019 20:46:33  orel tried adding user nati as a owner but the given user is already a owner/manager of store [Victory]
+06/19/2019 20:46:33  orel tried adding user saar as a owner but the given user is already a apending owner of store [Victory]
+06/19/2019 20:46:33  nati Tried accepting a non existent user as a store owner
+06/19/2019 20:46:33  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 20:46:34  nati Tried declining a non existent user as a store owner
+06/19/2019 20:46:34  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 20:46:36  admin tried making asd an admin but the given user is already an admin
+06/19/2019 20:46:36  A guest tried to accept a store owner but failed
+06/19/2019 20:46:36  A guest tried to add a product but failed
+06/19/2019 20:46:36  A guest tried to add a store manager but failed
+06/19/2019 20:46:36  A guest tried to add a store owner but failed
+06/19/2019 20:46:36  A guest tried to decline a store owner but failed
+06/19/2019 20:46:36  A guest tried to edit a product of store but failed
+06/19/2019 20:46:37  user Tried to Log In a second time
+06/19/2019 20:46:37  A guest tried to open a store but failed
+06/19/2019 20:46:37  A guest tried to remove a product from store but failed
+06/19/2019 20:46:37  A guest tried to remove a store manager but failed
+06/19/2019 20:46:37  A guest tried to add a remove a user but failed
+06/19/2019 20:49:20  A user failed to register orel 11111
+06/19/2019 20:49:20  A user failed to register orel 5555
+06/19/2019 20:49:21  A guest tried to open a store but failed
+06/19/2019 20:49:21  saar Tried removing products from store [Victory] without privileges
+06/19/2019 20:49:21  orel Tried adding a non existent user as a store manager
+06/19/2019 20:49:22  orel tried adding user nati as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 20:49:22  orel tried adding user saar as a manager but the given user is already a owner/manager of store [Victory]
+06/19/2019 20:49:22  orel Tried Making a non existent user store owner
+06/19/2019 20:49:22  nati Tried Making a non existent user store owner
+06/19/2019 20:49:22  orel tried adding user nati as a owner but the given user is already a owner/manager of store [Victory]
+06/19/2019 20:49:22  orel tried adding user saar as a owner but the given user is already a apending owner of store [Victory]
+06/19/2019 20:49:22  nati Tried accepting a non existent user as a store owner
+06/19/2019 20:49:22  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 20:49:23  nati Tried declining a non existent user as a store owner
+06/19/2019 20:49:23  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list
+06/19/2019 20:49:25  admin tried making asd an admin but the given user is already an admin
+06/19/2019 20:49:25  A guest tried to accept a store owner but failed
+06/19/2019 20:49:25  A guest tried to add a product but failed
+06/19/2019 20:49:25  A guest tried to add a store manager but failed
+06/19/2019 20:49:26  A guest tried to add a store owner but failed
+06/19/2019 20:49:26  A guest tried to decline a store owner but failed
+06/19/2019 20:49:26  A guest tried to edit a product of store but failed
+06/19/2019 20:49:26  user Tried to Log In a second time
+06/19/2019 20:49:26  A guest tried to open a store but failed
+06/19/2019 20:49:26  A guest tried to remove a product from store but failed
+06/19/2019 20:49:26  A guest tried to remove a store manager but failed
+06/19/2019 20:49:26  A guest tried to add a remove a user but failed
+06/20/2019 01:24:25  A user failed to register nati 123456
+06/20/2019 01:25:18  A user failed to register nati 123456
+06/20/2019 03:02:20  A user failed to register A1 123456
+=======
+06-19-2019 23:50:22  saar Tried adding a non existent user as a store manager
+>>>>>>> NewestGUI
+06/20/2019 06:40:21  A user failed to register A1 123456
+06/20/2019 06:40:25  A user failed to register A1 123456
+06/20/2019 06:42:39  A user failed to register A1 123456
+>>>>>>> fixBugging

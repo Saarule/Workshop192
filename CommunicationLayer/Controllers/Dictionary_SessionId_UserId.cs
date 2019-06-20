@@ -25,6 +25,10 @@ namespace CommunicationLayer.Controllers
             return instance;
         }
 
+        public static string GetUserName(int userID)
+        {
+            return CreateAndGetUser.GetUserName(userID);
+        }
 
 
         public int Get_UserId_From_Dictionary(string SessionId)

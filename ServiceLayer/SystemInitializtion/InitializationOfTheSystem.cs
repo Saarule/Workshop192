@@ -10,8 +10,11 @@ using ServiceLayer.RegisteredUser;
 using ServiceLayer.Store_Owner_User;
 using ServiceLayer.SystemInitializtion;
 using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Collections.Specialized;
 
-namespace ServiceLayer
+namespace ServiceLayer.SystemInitializtion
 {
     public class InitializationOfTheSystem
     {   
@@ -19,10 +22,25 @@ namespace ServiceLayer
         public void Initalize(string Path) {
             Workshop192.MarketManagment.System MarketSystem = Workshop192.MarketManagment.System.GetInstance();
             Workshop192.UserManagment.AllRegisteredUsers UserSystem = Workshop192.UserManagment.AllRegisteredUsers.GetInstance();
+            string URL = "https://cs-bgu-wsep.herokuapp.com";
+            var postContent = new Dictionary<string, string>{
+            { "action_type", "handshake" },
+            };
+            using (var wb = new WebClient())
+            {
+                var data = new NameValueCollection();
+                data["action_type"] = "handshake";
+                var response = wb.UploadValues(URL, "POST", data);
+                string responseInString = Encoding.UTF8.GetString(response);
+                if (!responseInString.Equals("OK"))
+                {
+                    throw new Exception("Connect to External Systems Faild");
+                }
+            }
             MarketSystem.ConnectMoneyCollectionSystem(ConnectExternalMoneyCollectionSystems());
             MarketSystem.ConnectDeliverySystem(ConnectExternalDeliverySystems());
-            UserSystem.RegisterUser("admin", "admin11");
-            UserSystem.GetUserInfo("admin", "admin11").SetAdmin();
+            UserSystem.RegisterUser("A1", "123456");
+            UserSystem.GetUserInfo("A1", "123456").SetAdmin();
 
             if(Path != null)
             {

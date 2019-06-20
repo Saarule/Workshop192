@@ -38,16 +38,16 @@ namespace DomainLayerUnitTests.MarketManagment
             store1.AddProducts(product2, 10);
             store2.AddProducts(product3, 10);
             store2.AddProducts(product4, 10);
-            policy.AddLast("Ban"); policy.AddLast("And"); policy.AddLast("1"); policy.AddLast("user");
+            policy.AddLast("Ban"); policy.AddLast("AND"); policy.AddLast("1"); policy.AddLast("user");
             product1.AddDiscountPolicy(policy, 50);
             policy = new LinkedList<string>();
-            policy.AddLast("Min"); policy.AddLast("And"); policy.AddLast("1"); policy.AddLast("0"); policy.AddLast("5");
+            policy.AddLast("Min"); policy.AddLast("AND"); policy.AddLast("1"); policy.AddLast("0"); policy.AddLast("5");
             product1.AddSellingPolicy(policy);
             policy = new LinkedList<string>();
-            policy.AddLast("Min"); policy.AddLast("And"); policy.AddLast("0"); policy.AddLast("0"); policy.AddLast("5");
+            policy.AddLast("Min"); policy.AddLast("AND"); policy.AddLast("0"); policy.AddLast("0"); policy.AddLast("5");
             store1.AddSellingPolicy(policy);
             policy = new LinkedList<string>();
-            policy.AddLast("Max"); policy.AddLast("And"); policy.AddLast("0"); policy.AddLast("0"); policy.AddLast("50");
+            policy.AddLast("Max"); policy.AddLast("AND"); policy.AddLast("0"); policy.AddLast("0"); policy.AddLast("50");
             store1.AddSellingPolicy(policy);
         }
 

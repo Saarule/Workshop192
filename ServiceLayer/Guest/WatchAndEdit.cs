@@ -22,7 +22,6 @@ namespace ServiceLayer.Guest
                     product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetName()+"");
                     product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetCategory()+"");
                     product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetPrice()+"");
-                    product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetId()+"");
                     product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetProducts().ElementAt(j).Value+"");
                     product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetStore().GetName());
                     products.AddLast(product);

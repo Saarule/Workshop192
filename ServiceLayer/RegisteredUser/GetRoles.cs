@@ -11,6 +11,7 @@ namespace ServiceLayer.RegisteredUser
         public static LinkedList<LinkedList<string>> getRoles(int userID)
         {
             LinkedList<LinkedList<string>> Roles = new LinkedList<LinkedList<string>>();
+
             if (Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetStoreOwners() != null)
             {
                 for (int i = 0; i < Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(userID).GetInfo().GetStoreOwners().Count; i++)
@@ -31,7 +32,9 @@ namespace ServiceLayer.RegisteredUser
                     Roles.AddLast(toAdd);
                 }
             }
+
             return Roles;
         }
+
     }
 }

@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CreateWorld.cs" />
     <Compile Include="Controllers\Dictionary_SessionId_UserId.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -95,7 +96,7 @@
     </Compile>
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Notifications\Notifications.cs" />
+    <Compile Include="NotificationsHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +112,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Notications\Notications.csproj">
+      <Project>{ea384dcf-22c6-4b00-a72f-7b7dc46ff4a8}</Project>
+      <Name>Notications</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
       <Project>{3460562a-e8d6-4335-b018-4875640959bf}</Project>
       <Name>ServiceLayer</Name>

@@ -4,77 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
-using Product = CommunicationLayer.Models.Product.Product;
+using ServiceLayer.Store_Owner_User;
 
 namespace CommunicationLayer.Controllers
 {
     public class ProductsController : ApiController
     {
-        /* SAAR VERSION
-        List<Product> products = new List<Product>
-        {
-            new Product { Id = 1, Name = "Tomato", Category = "Groceries", Price = 1 },
-            new Product { Id = 2, Name = "Apple", Category = "Groceries", Price = 3.75M },
-            new Product { Id = 3, Name = "Orange", Category = "Groceries", Price = 16.98M },
-            new Product { Id = 4, Name = "Laptop", Category = "Hardware", Price = 4 },
-            new Product { Id = 5, Name = "TV", Category = "Hardware", Price = 32.75M },
-            new Product { Id = 6, Name = "DiskOnKey", Category = "Hardware", Price = 116.79M },
-            new Product { Id = 7, Name = "Doll", Category = "Toys", Price = 132 },
-            new Product { Id = 8, Name = "Yo-yo", Category = "Toys", Price = 311.25M },
-            new Product { Id = 9, Name = "Spiderman", Category = "Toys", Price = 155.99M },
-            new Product { Id = 10, Name = "Orange", Category = "Groceries", Price = 17.98M }
-        };
-
-        public static LinkedList<LinkedList<string>> GetProductsOfCart(int userNum)
-        {
-            return ServiceLayer.Guest.WatchAndEdit.Watch(userNum);
-        }
-
-        //Get: api/products
-        public IEnumerable<Product> GetAllProducts()
-        {
-            return products;
-        }
-
-        //Get: api/products/5
-        public IHttpActionResult GetProduct(int id)
-        {
-            var product = products.FirstOrDefault((p) => p.Id == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-            return Ok(product);
-        }
-
-        [Route("api/products/getProductsByName/{name}")]
-        [HttpGet]
-        public List<Product> GetProductsByName(String name)
-        {
-            List<Product> list = new List<Product>();
-            foreach(var p in products)
-            {
-                if(p.Name.ToLower() == name.ToLower())
-                {
-                    list.Add(p);
-                }
-            }
-            return list;
-        }
-
-        public static bool DeleteFromCart(int userNum, int v)
-        {
-            throw new NotImplementedException();
-        }
-
-        //Post: api/products
-        public void Post(Product product)
-        {
-            products.Add(product);
-        }
-        */
-
-
         public static bool OpenStore(string storename ,string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
@@ -82,7 +17,7 @@ namespace CommunicationLayer.Controllers
             return ServiceLayer.RegisteredUser.OpenStore.openStore(storename, userID);
         }
 
-        public LinkedList<LinkedList<string>> DisplayCart(string SessionID)
+        public static LinkedList<LinkedList<string>> DisplayCart(string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
 
@@ -92,7 +27,6 @@ namespace CommunicationLayer.Controllers
         public static bool SaveToCart(string SessionID, int productID , int amount)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-
             return ServiceLayer.Guest.SaveProductToCart.SaveProduct(productID,userID,amount);
         }
 
@@ -102,18 +36,23 @@ namespace CommunicationLayer.Controllers
             return result;
         }
 
+        public static LinkedList<string> SearchProductsByID(int productId)
+        {
+            LinkedList<string> result = ServiceLayer.Guest.SearchProducts.SearchById(productId);
+            return result;
+        }
+
         public static bool ManageProducts(string SessionID, int productID, string name, string category, int price, int amount, string store, string option)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-
             return ServiceLayer.Store_Owner_User.ManageProducts.ManageProduct(userID,productID,name,category,price,amount,store,option);
         }
 
-        public static bool ProcessOfBuying(int AcountID, string SessionID, string Name,string AddresToDelivery)
+        public static string[] ProcessOfBuying(string cardNumber, string month, string year, string holder, string ccv, string ID, string name, string address, string city, string country, string zip, string SessionID)
         {
+            // THE function return number that represent transactionID !!
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-
-            return ServiceLayer.Guest.ProcessOfBuyingProducts.ProcessBuyingProducts(AcountID,userID,Name,AddresToDelivery);
+            return ServiceLayer.Guest.ProcessOfBuyingProducts.ProcessBuyingProducts(cardNumber,month,year,holder,ccv,ID,name,address,city,country,zip,userID);
         }
 
         public static LinkedList<LinkedList<string>> FilterProducts(string input , LinkedList<LinkedList<string>> toFilter,string option)
@@ -127,6 +66,10 @@ namespace CommunicationLayer.Controllers
         {
             return ServiceLayer.Store_Owner_User.AllProductInStore.GetAllProducts(storeName);
         }
+        public static LinkedList<LinkedList<string>> GetAllProducts()
+        {
+            return ServiceLayer.Store_Owner_User.AllProductInStore.GetAll();
+        }
 
         public static bool EditCart(string option, int productID, string SessionID)
         {
@@ -134,6 +77,50 @@ namespace CommunicationLayer.Controllers
 
             //EDIT SUPPORT: meantime just "delete" if want to edit num of units form products need to delete and add how many he wants again.  
             return ServiceLayer.Guest.WatchAndEdit.Edit(option, productID, userID);
+        } 
+        public static bool AddBuyingPolicy(LinkedList<string> param ,string store ,string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.AddBuyingPolicy(param,store, userID);
+        }
+
+        public static bool RemoveBuyingPolicy(string store,int productId, string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.RemoveBuyingPolicy(store, productId,userID);
+        }
+
+        public static bool AddDiscountPolicy(LinkedList<string> param,string store , int discount, string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.AddDiscountPolicy(param,store,discount, userID);
+        }
+
+        public static bool RemoveDiscountPolicy(string store,int productId,string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.ManagePolicies.RemoveDiscountPolicy(store, productId, userID);
+        }
+
+        public static string GetPolicyOfStore(string storeName)
+        {
+            LinkedList<string> ret = ServiceLayer.Store_Owner_User.GetPolicies.GetPoliciesOfStore(storeName);
+            string RET = "";
+            for (int i = 0; i < ret.Count; i++)
+            {
+                RET = RET + ret.ElementAt(i) + "\n";
+            }
+            return RET;
+        }
+
+        public static int CancelPay(string transactionID)
+        {
+            return ServiceLayer.Guest.CancelOrders.CancelPay(transactionID);
+        }
+
+        public static int CancelDelivery(string transactionID)
+        {
+            return ServiceLayer.Guest.CancelOrders.CancelDelivery(transactionID);
         }
     }
 }

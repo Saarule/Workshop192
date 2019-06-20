@@ -27,7 +27,12 @@ namespace Workshop192.UserManagment
                 userInfos[info.userName] = info;
             }*/
         }
-
+        
+        public LinkedList<string> GetAllUserNames()
+        {
+            return new LinkedList<string>(passwords.Keys);
+            
+        }
         public static AllRegisteredUsers GetInstance()
         {
             if (instance == null)

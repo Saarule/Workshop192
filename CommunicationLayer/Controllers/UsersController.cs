@@ -65,7 +65,6 @@ namespace CommunicationLayer.Controllers
         public static bool IsAdmin(string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-
             return ServiceLayer.Admin.IsAdmin.isAdmin(userID);
         }
 
@@ -112,9 +111,19 @@ namespace CommunicationLayer.Controllers
         public static LinkedList<LinkedList<string>> GetRoles(string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-
             return ServiceLayer.RegisteredUser.GetRoles.getRoles(userID);
         }
 
+        public static bool IsOwnerOfStore(string SessionID,string storename)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsOwner(userID,storename);
+        }
+
+        public static bool IsManagerOfStore(string SessionID,string storename)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsManager(userID, storename);
+        }
     }
 }
