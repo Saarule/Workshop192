@@ -21,6 +21,11 @@ namespace Workshop192.UserManagment
             userInfos = new Dictionary<string, UserInfo>();
             userId = 0;
             users = new Dictionary<int, User>();
+            /*foreach (UserInfo info in DbCommerce.GetInstance().GetUserInfos())
+            {
+                passwords[info.userName] = info.password;
+                userInfos[info.userName] = info;
+            }*/
         }
 
         public static AllRegisteredUsers GetInstance()
@@ -52,7 +57,7 @@ namespace Workshop192.UserManagment
             }
             Logger.GetInstance().WriteToEventLog("A new user was registered " + userName + " " + password);
             passwords.Add(userName, password);
-            userInfos.Add(userName, new UserInfo(userName));
+            userInfos.Add(userName, new UserInfo(userName, password));
             return true;
         }
 

@@ -22,15 +22,15 @@ namespace Workshop192.MarketManagment
         public bool AddProductsToCart(int productId, int amount)
         {
             Product product = null;
-            foreach (KeyValuePair<Product, int> productAmount in store.GetInventory())
-                if (productAmount.Key.GetId().Equals(productId))
+            foreach (ProductAmountInventory productAmount in store.GetInventory())
+                if (productAmount.productId.Equals(productId))
                 {
-                    product = productAmount.Key;
+                    product = productAmount.product;
                     break;
                 }
             if (product == null)
                 throw new ErrorMessageException("Product Id dosen't exist in store");
-            if ((store.GetInventory()[product] < amount) || ( CheckExsit(productId) && (products[product] + amount > store.GetInventory()[product])))
+            if ((store.GetProductAmount(product).amount < amount) || ( CheckExsit(productId) && (products[product] + amount > store.GetProductAmount(product).amount)))
                 throw new ErrorMessageException("Product has less than the given amount");
             if (CheckExsit(productId))
                 products[product] += amount;

@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="DeliverySystemProxyTests.cs" />
     <Compile Include="MarketManagment\CartTests.cs" />
-    <Compile Include="MarketManagment\InventoryTests.cs" />
     <Compile Include="MarketManagment\MultiCartTests.cs" />
     <Compile Include="MarketManagment\PolicyCompositeTests.cs" />
     <Compile Include="MarketManagment\PolicyLeafBannedUserTests.cs" />

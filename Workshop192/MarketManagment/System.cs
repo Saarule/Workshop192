@@ -25,6 +25,10 @@ namespace Workshop192.MarketManagment
             stores = new LinkedList<Store>();
             moneyCollectionSystem = new MoneyCollectionSystemProxy(null);
             deliverySystem = new DeliverySystemProxy(null);
+            /*stores = DbCommerce.GetInstance().GetStores();
+            foreach (UserManagment.UserInfo info in DbCommerce.GetInstance().GetUserInfos())
+                if (info.GetMultiCart() > multiCartId)
+                    multiCartId = info.GetMultiCart();*/
         }
 
         public static System GetInstance()
@@ -67,7 +71,11 @@ namespace Workshop192.MarketManagment
 
         public MultiCart GetMultiCart(int multiCartId)
         {
-            return multiCarts[multiCartId];
+            if (multiCarts.ContainsKey(multiCartId))
+                return multiCarts[multiCartId];
+            MultiCart multiCart = new MultiCart();
+            multiCarts[multiCartId] = multiCart;
+            return multiCart;
         }
 
         public void ResetMultiCart(int multiCartId)
@@ -108,9 +116,9 @@ namespace Workshop192.MarketManagment
             {
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
                 {
-                    if (!cart.GetStore().GetInventory().ContainsKey(productAmount.Key))
+                    if (cart.GetStore().GetProductAmount(productAmount.Key) == null)
                         throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesn't exist anymore");
-                    if (cart.GetStore().GetInventory()[productAmount.Key] < productAmount.Value)
+                    if (cart.GetStore().GetProductAmount(productAmount.Key).amount < productAmount.Value)
                         throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesn't have the given amount in store");
                     if (GetStore(cart.GetStore().GetName()) == null)
                         throw new ErrorMessageException("Store [" + cart.GetStore().GetName() + "] no longer exists");
@@ -130,7 +138,7 @@ namespace Workshop192.MarketManagment
         {
             foreach (Cart cart in multiCart.GetCarts())
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
-                    cart.GetStore().GetInventory()[productAmount.Key] += productAmount.Value;
+                    cart.GetStore().GetProductAmount(productAmount.Key).amount += productAmount.Value;
         }
 
         public bool CheckSellingPolicies(int userId)

@@ -9,15 +9,17 @@ namespace Workshop192.UserManagment
 {
     public class UserInfo
     {
-        private string userName;
-        private Admin admin;
-        private LinkedList<StoreOwner> storeOwners;
-        private LinkedList<StoreManager> storeManagers;
-        private int multiCartId;
+        public string userName { get; set; }
+        public string password { get; set; }
+        public virtual Admin admin { get; set; }
+        public virtual LinkedList<StoreOwner> storeOwners { get; set; }
+        public virtual LinkedList<StoreManager> storeManagers { get; set; }
+        public int multiCartId { get; set; }
 
-        public UserInfo(string userName)
+        public UserInfo(string userName, string password)
         {
             this.userName = userName;
+            this.password = password;
             admin = null;
             storeOwners = new LinkedList<StoreOwner>();
             storeManagers = new LinkedList<StoreManager>();
@@ -193,6 +195,11 @@ namespace Workshop192.UserManagment
         public string GetUserName()
         {
             return userName;
+        }
+
+        public string GetPassword()
+        {
+            return password;
         }
 
         public bool IsAdmin()

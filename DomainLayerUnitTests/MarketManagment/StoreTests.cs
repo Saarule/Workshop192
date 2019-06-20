@@ -34,7 +34,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             Assert.IsTrue(store.AddProducts(product2, 5));
             Assert.AreEqual(2, store.GetInventory().Count);
-            Assert.AreEqual(5, store.GetInventory()[product2]);
+            Assert.AreEqual(5, store.GetProductAmount(product2).amount);
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             Assert.Throws<ErrorMessageException>(() => store.AddProducts(product1, 5));
             Assert.AreEqual(1, store.GetInventory().Count);
-            Assert.AreEqual(10, store.GetInventory()[product1]);
+            Assert.AreEqual(10, store.GetProductAmount(product1).amount);
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             Assert.IsTrue(store.RemoveProducts(product1, 2));
             Assert.AreEqual(1, store.GetInventory().Count);
-            Assert.AreEqual(8, store.GetInventory()[product1]);
+            Assert.AreEqual(8, store.GetProductAmount(product1).amount);
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             Assert.Throws<ErrorMessageException>(() => store.RemoveProducts(product2, 2));
             Assert.AreEqual(1, store.GetInventory().Count);
-            Assert.AreEqual(10, store.GetInventory()[product1]);
+            Assert.AreEqual(10, store.GetProductAmount(product1).amount);
         }
 
         [Test]
@@ -80,7 +80,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             Assert.IsTrue(store.EditProduct(product1.GetId(), "c", "c", 3, 30));
             Assert.AreEqual(1, store.GetInventory().Count);
-            Assert.AreEqual(30, store.GetInventory()[product1]);
+            Assert.AreEqual(30, store.GetProductAmount(product1).amount);
         }
 
         [Test]
@@ -88,7 +88,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             Assert.Throws<ErrorMessageException>(() => store.EditProduct(product2.GetId(), "c", "c", 3, 30));
             Assert.AreEqual(1, store.GetInventory().Count);
-            Assert.AreEqual(10, store.GetInventory()[product1]);
+            Assert.AreEqual(10, store.GetProductAmount(product1).amount);
         }
 
         [Test]

@@ -9,14 +9,16 @@ namespace Workshop192.UserManagment
 {
     public class StoreOwner
     {
-        private UserInfo user;
-        private string store;
-        private StoreOwnersOfStore storeOwners;
-        private LinkedList<StoreManager> appointedManagers;
-        private LinkedList<UserInfo> pendingUsers;
+        public string userName { get; set; }
+        public virtual UserInfo user { get; set; }
+        public string store { get; set; }
+        public virtual StoreOwnersOfStore storeOwners { get; set; }
+        public virtual LinkedList<StoreManager> appointedManagers { get; set; }
+        public string pendingUsers { get; set; }
 
         public StoreOwner(UserInfo user, string store, StoreOwnersOfStore storeOwners)
         {
+            userName = user.GetUserName();
             this.user = user;
             this.store = store;
             if (storeOwners != null)
@@ -27,7 +29,7 @@ namespace Workshop192.UserManagment
             else
                 this.storeOwners = new StoreOwnersOfStore(this);
             appointedManagers = new LinkedList<StoreManager>();
-            pendingUsers = new LinkedList<UserInfo>();
+            pendingUsers = null;
         }
 
         public bool AddProducts(Product product, int amount)
@@ -68,15 +70,15 @@ namespace Workshop192.UserManagment
                 throw new ErrorMessageException("The given user is already a store owner/manager in the store");
             }
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
-                if (owner.GetUser().Equals(user) || owner.pendingUsers.Contains(user))
+                if (owner.GetUser().Equals(user) || owner.GetPendingUsers().Contains(user))
                 {
                     Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried adding user " + user.GetUserName() + " as a owner but the given user is already a apending owner of store [" + store + "]");
                     throw new ErrorMessageException("The given user is already a pending owner");
                 }
             Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " initiated the owner adding proccess to user " + user.GetUserName() + " for store [" + store + "]");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
-                owner.pendingUsers.AddLast(user);
-            pendingUsers.Remove(user);
+                owner.pendingUsers += "$" + user.GetUserName();
+            pendingUsers.Replace(user.GetUserName(), "");
             if (storeOwners.GetStoreOwners().Count == 1)
                 AddOwnerFinal(user);
             return true;
@@ -90,15 +92,15 @@ namespace Workshop192.UserManagment
 
         public bool AcceptOwner(UserInfo user)
         {
-            if (!pendingUsers.Contains(user))
+            if (!GetPendingUsers().Contains(user))
             {
                 Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried accepting user " + user.GetUserName() + " as a owner of store [" + store + "] but the given user wasn't on their pending list");
                 throw new ErrorMessageException("The given user isn't in your pending users list");
             }
-            pendingUsers.Remove(user);
+            pendingUsers.Replace(user.GetUserName(), "");
             Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " accepted user " + user.GetUserName() + " as a owner in store [" + store + "]");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
-                if (owner.pendingUsers.Contains(user))
+                if (owner.GetPendingUsers().Contains(user))
                     return true;
             AddOwnerFinal(user);
             return true;
@@ -106,14 +108,14 @@ namespace Workshop192.UserManagment
 
         public bool DeclineOwner(UserInfo user)
         {
-            if (!pendingUsers.Contains(user))
+            if (!GetPendingUsers().Contains(user))
             {
                 Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried declining user " + user.GetUserName() + " as a owner of store [" + store + "] but the given user wasn't on their pending list");
                 throw new ErrorMessageException("The given user isn't in your pending users list");
             }
             Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " declined user " + user.GetUserName() + " as a owner in store [" + store + "]");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
-                owner.pendingUsers.Remove(user);
+                owner.pendingUsers.Replace(user.GetUserName(), "");
             return true;
         }
 
@@ -149,10 +151,10 @@ namespace Workshop192.UserManagment
             if (Int32.Parse(policy.ElementAt(2)) == 0)
                 MarketManagment.System.GetInstance().GetStore(store).AddDiscountPolicy(policy, discount);
             else
-                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
-                    if (productAmount.Key.GetId().Equals(Int32.Parse(policy.ElementAt(2))))
+                foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.productId.Equals(Int32.Parse(policy.ElementAt(2))))
                     {
-                        productAmount.Key.AddDiscountPolicy(policy, discount);
+                        productAmount.product.AddDiscountPolicy(policy, discount);
                         return true;
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
@@ -163,10 +165,10 @@ namespace Workshop192.UserManagment
             if (Int32.Parse(policy.ElementAt(2)) == 0)
                 MarketManagment.System.GetInstance().GetStore(store).AddSellingPolicy(policy);
             else
-                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
-                    if (productAmount.Key.GetId().Equals(Int32.Parse(policy.ElementAt(2))))
+                foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.productId.Equals(Int32.Parse(policy.ElementAt(2))))
                     {
-                        productAmount.Key.AddSellingPolicy(policy);
+                        productAmount.product.AddSellingPolicy(policy);
                         return true;
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
@@ -177,10 +179,10 @@ namespace Workshop192.UserManagment
             if (productId == 0)
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy();
             else
-                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
-                    if (productAmount.Key.GetId().Equals(productId))
+                foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.productId.Equals(productId))
                     {
-                        return productAmount.Key.RemoveDiscountPolicy();
+                        return productAmount.product.RemoveDiscountPolicy();
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
         }
@@ -190,10 +192,10 @@ namespace Workshop192.UserManagment
             if (productId == 0)
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy();
             else
-                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
-                    if (productAmount.Key.GetId().Equals(productId))
+                foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.productId.Equals(productId))
                     {
-                        return productAmount.Key.RemoveSellingPolicy();
+                        return productAmount.product.RemoveSellingPolicy();
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
         }
@@ -240,13 +242,15 @@ namespace Workshop192.UserManagment
         {
             return appointedManagers;
         }
-        public LinkedList<string> GetPendingUsers() {
-            LinkedList<string> result = new LinkedList<string>();
-            for(int i = 0; i < pendingUsers.Count; i++)
+
+        public LinkedList<UserInfo> GetPendingUsers() {
+            LinkedList<UserInfo> users = new LinkedList<UserInfo>();
+            if (pendingUsers != null)
             {
-                result.AddLast(pendingUsers.ElementAt(i).GetUserName());
+                foreach (string str in pendingUsers.Split('$'))
+                    users.AddLast(AllRegisteredUsers.GetInstance().GetUserInfo(str));
             }
-            return result;
+            return users;
         }
     }
 }

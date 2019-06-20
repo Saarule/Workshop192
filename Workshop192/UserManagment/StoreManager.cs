@@ -9,22 +9,31 @@ namespace Workshop192.UserManagment
 {
     public class StoreManager
     {
-        private bool[] privileges;
-        private UserInfo user;
-        private string store;
-        private StoreOwner owner;
+        public bool p0 { get; set; }
+        public bool p1 { get; set; }
+        public bool p2 { get; set; }
+        public bool p3 { get; set; }
+        public bool p4 { get; set; }
+        public bool p5 { get; set; }
+        public bool p6 { get; set; }
+        public virtual UserInfo user { get; set; }
+        public string store { get; set; }
+        public string owner { get; set; }
+        public string userName { get; set; }
 
         public StoreManager(UserInfo user, string store, bool[] privileges, StoreOwner owner)
         {
-            this.privileges = privileges;
+            p0 = privileges[0]; p1 = privileges[1]; p2 = privileges[2]; p3 = privileges[3];
+            p4 = privileges[4]; p5 = privileges[5]; p6 = privileges[6];
             this.user = user;
             this.store = store;
-            this.owner = owner;
+            this.owner = owner.userName;
+            userName = user.GetUserName();
         }
 
         public bool AddProducts(Product product, int amount)
         {
-            if (privileges[0])
+            if (p0)
             {
                 if (MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount))
                 {
@@ -39,7 +48,7 @@ namespace Workshop192.UserManagment
 
         public bool RemoveProductFromInventory(int productId)
         {
-            if (privileges[1])
+            if (p1)
             {
                 if (MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId))
                 {
@@ -54,7 +63,7 @@ namespace Workshop192.UserManagment
 
         public bool EditProduct(int productId, string name, string category, int price, int amount)
         {
-            if (privileges[2])
+            if (p2)
             {
                 if (MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount))
                 {
@@ -69,7 +78,7 @@ namespace Workshop192.UserManagment
 
         public bool AddDiscountPolicy(LinkedList<string> policy, int discount)
         {
-            if (!privileges[3])
+            if (!p3)
             {
                 Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried adding discount policy to store [" + store + "] without privileges");
                 throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
@@ -77,10 +86,10 @@ namespace Workshop192.UserManagment
             if (Int32.Parse(policy.ElementAt(2)) == 0)
                 MarketManagment.System.GetInstance().GetStore(store).AddDiscountPolicy(policy, discount);
             else
-                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
-                    if (productAmount.Key.GetId().Equals(Int32.Parse(policy.ElementAt(2))))
+                foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.productId.Equals(Int32.Parse(policy.ElementAt(2))))
                     {
-                        productAmount.Key.AddDiscountPolicy(policy, discount);
+                        productAmount.product.AddDiscountPolicy(policy, discount);
                         return true;
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
@@ -88,7 +97,7 @@ namespace Workshop192.UserManagment
 
         public bool AddSellingPolicy(LinkedList<string> policy)
         {
-            if (!privileges[4])
+            if (!p4)
             {
                 Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried adding selling policy to store [" + store + "] without privileges");
                 throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
@@ -96,10 +105,10 @@ namespace Workshop192.UserManagment
             if (Int32.Parse(policy.ElementAt(2)) == 0)
                 MarketManagment.System.GetInstance().GetStore(store).AddSellingPolicy(policy);
             else
-                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
-                    if (productAmount.Key.GetId().Equals(Int32.Parse(policy.ElementAt(2))))
+                foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.productId.Equals(Int32.Parse(policy.ElementAt(2))))
                     {
-                        productAmount.Key.AddSellingPolicy(policy);
+                        productAmount.product.AddSellingPolicy(policy);
                         return true;
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
@@ -107,7 +116,7 @@ namespace Workshop192.UserManagment
 
         public bool RemoveDiscountPolicy(int productId)
         {
-            if (!privileges[5])
+            if (!p5)
             {
                 Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried removing discount policy of store [" + store + "] without privileges");
                 throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
@@ -115,17 +124,17 @@ namespace Workshop192.UserManagment
             if (productId == 0)
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy();
             else
-                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
-                    if (productAmount.Key.GetId().Equals(productId))
+                foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.productId.Equals(productId))
                     {
-                        return productAmount.Key.RemoveDiscountPolicy();
+                        return productAmount.product.RemoveDiscountPolicy();
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
         }
 
         public bool RemoveSellingPolicy(int productId)
         {
-            if (!privileges[6])
+            if (!p6)
             {
                 Logger.GetInstance().WriteToErrorLog(user.GetUserName() + " Tried removing selling policy of store [" + store + "] without privileges");
                 throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
@@ -133,10 +142,10 @@ namespace Workshop192.UserManagment
             if (productId == 0)
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy();
             else
-                foreach (KeyValuePair<Product, int> productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
-                    if (productAmount.Key.GetId().Equals(productId))
+                foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
+                    if (productAmount.productId.Equals(productId))
                     {
-                        return productAmount.Key.RemoveSellingPolicy();
+                        return productAmount.product.RemoveSellingPolicy();
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
         }
@@ -144,7 +153,7 @@ namespace Workshop192.UserManagment
         public void RemoveSelf()
         {
             user.GetStoreManagers().Remove(this);
-            owner.GetAppointedManagers().Remove(this);
+            GetOwner().GetAppointedManagers().Remove(this);
         }
 
         public UserInfo GetUser()
@@ -159,12 +168,12 @@ namespace Workshop192.UserManagment
 
         public bool[] GetPrivileges()
         {
-            return privileges;
+            return new bool[] { p0, p1, p2, p3, p4, p5, p6 };
         }
 
         public StoreOwner GetOwner()
         {
-            return owner;
+            return AllRegisteredUsers.GetInstance().GetUserInfo(owner).GetOwner(store);
         }
     }
 }

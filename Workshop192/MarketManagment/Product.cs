@@ -8,12 +8,12 @@ namespace Workshop192.MarketManagment
 {
     public class Product
     {
-        private int Id;
-        private string name;
-        private string category;
-        private int price;
-        private Tuple<PolicyComponent, int> discountPolicy;
-        private PolicyComponent sellingPolicy;
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string category { get; set; }
+        public int price { get; set; }
+        public virtual Tuple<PolicyComponent, int> discountPolicy { get; set; }
+        public virtual PolicyComponent sellingPolicy { get; set; }
 
         public Product(int Id, string name, string category, int price)
         {

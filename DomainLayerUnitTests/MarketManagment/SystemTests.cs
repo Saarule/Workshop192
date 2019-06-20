@@ -101,10 +101,10 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store2", 3, 3);
             user.AddProductsToMultiCart("store2", 4, 4);
             system.RemoveProductsFromStore(system.GetMultiCart(user.GetMultiCart()));
-            Assert.AreEqual(9, store1.GetInventory()[product1]);
-            Assert.AreEqual(8, store1.GetInventory()[product2]);
-            Assert.AreEqual(7, store2.GetInventory()[product3]);
-            Assert.AreEqual(6, store2.GetInventory()[product4]);
+            Assert.AreEqual(9, store1.GetProductAmount(product1).amount);
+            Assert.AreEqual(8, store1.GetProductAmount(product2).amount);
+            Assert.AreEqual(7, store2.GetProductAmount(product3).amount);
+            Assert.AreEqual(6, store2.GetProductAmount(product4).amount);
         }
 
         [Test]
@@ -116,10 +116,10 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store2", 4, 4);
             system.RemoveProductsFromStore(system.GetMultiCart(user.GetMultiCart()));
             system.ReturnProductsToStore(system.GetMultiCart(user.GetMultiCart()));
-            Assert.AreEqual(10, store1.GetInventory()[product1]);
-            Assert.AreEqual(10, store1.GetInventory()[product2]);
-            Assert.AreEqual(10, store2.GetInventory()[product3]);
-            Assert.AreEqual(10, store2.GetInventory()[product4]);
+            Assert.AreEqual(10, store1.GetProductAmount(product1).amount);
+            Assert.AreEqual(10, store1.GetProductAmount(product2).amount);
+            Assert.AreEqual(10, store2.GetProductAmount(product3).amount);
+            Assert.AreEqual(10, store2.GetProductAmount(product4).amount);
         }
 
         [Test]
@@ -153,10 +153,10 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
             Assert.AreNotEqual(new Tuple<int, int>(-1, -1), system.PurchaseProducts(1, "", "", "", "", "", "", "", "", "", "", ""));
-            Assert.AreEqual(5, store1.GetInventory()[product1]);
-            Assert.AreEqual(5, store1.GetInventory()[product2]);
-            Assert.AreEqual(5, store2.GetInventory()[product3]);
-            Assert.AreEqual(5, store2.GetInventory()[product4]);
+            Assert.AreEqual(5, store1.GetProductAmount(product1).amount);
+            Assert.AreEqual(5, store1.GetProductAmount(product2).amount);
+            Assert.AreEqual(5, store2.GetProductAmount(product3).amount);
+            Assert.AreEqual(5, store2.GetProductAmount(product4).amount);
         }
 
         [Test]
@@ -167,10 +167,10 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
             Assert.AreEqual(-1, system.PurchaseProducts(1, "", "", "", "", "", "", "", "", "", "", "").Item1);
-            Assert.AreEqual(10, store1.GetInventory()[product1]);
-            Assert.AreEqual(10, store1.GetInventory()[product2]);
-            Assert.AreEqual(10, store2.GetInventory()[product3]);
-            Assert.AreEqual(10, store2.GetInventory()[product4]);
+            Assert.AreEqual(10, store1.GetProductAmount(product1).amount);
+            Assert.AreEqual(10, store1.GetProductAmount(product2).amount);
+            Assert.AreEqual(10, store2.GetProductAmount(product3).amount);
+            Assert.AreEqual(10, store2.GetProductAmount(product4).amount);
         }
 
         [TearDown]
