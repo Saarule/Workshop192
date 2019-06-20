@@ -21,7 +21,7 @@ namespace AccaptanceTests.Admin
             System.Initalize(null);
 
             UserId_Admin = CreateAndGetUser.CreateUser();
-            LogIn.Login("admin", "admin11",UserId_Admin);
+            LogIn.Login("A1", "123456",UserId_Admin);
             
             UserId_Orel = CreateAndGetUser.CreateUser();
             Register.Registration("orel", "123456",UserId_Orel);
