@@ -11,14 +11,14 @@
         }
         .auto-style2 {
             z-index: 1;
-            left: 217px;
-            top: 132px;
+            left: 216px;
+            top: 58px;
             background-color : red;
             color:black;
             font-size:64px;
             position: absolute;
-            height: 398px;
-            width: 591px;
+            height: 580px;
+            width: 875px;
         }
     </style>
 </head>

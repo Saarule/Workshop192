@@ -204,5 +204,14 @@ namespace Workshop192.MarketManagment
         {
             return stores;
         }
+
+        public int CancelPay(string transactionID)
+        {
+            return moneyCollectionSystem.CancelPay(transactionID);
+        }
+        public int CancelDelivery(string transactionID)
+        {
+            return deliverySystem.CancelDelivery(transactionID);
+        }
     }
 }

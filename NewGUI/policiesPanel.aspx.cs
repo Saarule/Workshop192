@@ -112,6 +112,7 @@ namespace NewGUI
                 LinkedList<string> parameters = new LinkedList<string>();
                 parameters.AddLast("Ban");
                 parameters.AddLast(selectedCompositon);
+                parameters.AddLast("0");
                 parameters.AddLast(userNameToBan);
                 parameters.AddLast("user");
                 CommunicationLayer.Controllers.ProductsController.AddBuyingPolicy(parameters, storeName, HttpContext.Current.Session.SessionID);
@@ -131,6 +132,7 @@ namespace NewGUI
                 LinkedList<string> parameters = new LinkedList<string>();
                 parameters.AddLast("Ban");
                 parameters.AddLast(selectedCompositon);
+                parameters.AddLast("0");
                 parameters.AddLast(countryNameToBan);
                 parameters.AddLast("country");
                 CommunicationLayer.Controllers.ProductsController.AddBuyingPolicy(parameters, storeName, HttpContext.Current.Session.SessionID);
@@ -258,6 +260,13 @@ namespace NewGUI
             }
         }
         
+        protected void ShowPolicies(object sender , EventArgs e)
+        {
+            string ret = CommunicationLayer.Controllers.ProductsController.GetPolicyOfStore(storeName);
+            string message = "alert('" + ret + "');";
+            
+            Response.Write("<script>"+message+"</script>"); //need to fix ! not alert 
 
+        }
     }
 }

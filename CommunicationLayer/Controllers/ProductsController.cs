@@ -112,5 +112,15 @@ namespace CommunicationLayer.Controllers
             }
             return RET;
         }
+
+        public static int CancelPay(string transactionID)
+        {
+            return ServiceLayer.Guest.CancelOrders.CancelPay(transactionID);
+        }
+
+        public static int CancelDelivery(string transactionID)
+        {
+            return ServiceLayer.Guest.CancelOrders.CancelDelivery(transactionID);
+        }
     }
 }

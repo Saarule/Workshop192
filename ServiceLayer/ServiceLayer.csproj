@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Admin\IsAdmin.cs" />
     <Compile Include="Admin\RemoveUserFromSystem.cs" />
+    <Compile Include="Guest\CancelOrders.cs" />
     <Compile Include="Guest\CheckAvailability.cs" />
     <Compile Include="Guest\CreateAndGetUser.cs" />
     <Compile Include="Guest\FilterProducts.cs" />

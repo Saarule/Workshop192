@@ -21,5 +21,12 @@ namespace Workshop192
                 return -1;
             return real.CollectFromAccount(cardNumber, month, year, holder, ccv, id);
         }
+
+        public int CancelPay(string transactionPayId)
+        {
+            if (real == null)
+                return -1;
+            return real.CancelPay(transactionPayId);
+        }
     }
 }

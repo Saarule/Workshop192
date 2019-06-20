@@ -16,8 +16,15 @@ namespace NewGUI
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            CommunicationLayer.Controllers.CreateWorld.Init();
-            Response.Redirect("index.aspx");
+            try
+            {
+                CommunicationLayer.Controllers.CreateWorld.Init();
+                Response.Redirect("index.aspx");
+            }
+            catch (Exception ee)
+            {
+                Response.Write("<script>alert('"+ee.Message+"');</script>");
+            }
         }
     }
 }

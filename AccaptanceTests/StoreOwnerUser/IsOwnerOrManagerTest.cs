@@ -12,7 +12,7 @@ using ServiceLayer.SystemInitializtion;
 using Workshop192;
 
 namespace AccaptanceTests.StoreOwnerUser
-{
+{   /*
     [TestFixture]
     public class IsOwnerOrManagerTest
     {
@@ -74,5 +74,5 @@ namespace AccaptanceTests.StoreOwnerUser
             Assert.AreEqual(IsOwnerOrManage.IsManager(UserId_Nati), false);
         }
 
-    }
+    }*/
 }

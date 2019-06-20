@@ -238,3 +238,6 @@
 =======
 06-19-2019 23:50:22  saar Tried adding a non existent user as a store manager
 >>>>>>> NewestGUI
+06/20/2019 06:40:21  A user failed to register A1 123456
+06/20/2019 06:40:25  A user failed to register A1 123456
+06/20/2019 06:42:39  A user failed to register A1 123456
