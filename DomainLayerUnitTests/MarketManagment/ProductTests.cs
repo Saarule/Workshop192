@@ -19,6 +19,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().CreateUser();
             store = new Store("temp");
             cart = new Cart(store);
@@ -87,6 +88,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             Workshop192.MarketManagment.System.Reset();
             Workshop192.UserManagment.AllRegisteredUsers.Reset();
         }

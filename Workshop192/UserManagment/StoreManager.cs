@@ -38,6 +38,7 @@ namespace Workshop192.UserManagment
                 if (MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount))
                 {
                     Logger.GetInstance().WriteToEventLog(user.GetUserName() + " Added Product [" + product.GetId() + "] [" + product.GetName() + "] [" + product.GetCategory() + "] [" + product.GetPrice() + "] [" + amount + "] as a manager of store [" + store + "]");
+                    DbCommerce.GetInstance().SaveDb();
                     return true;
                 }
                 return false;
@@ -53,6 +54,7 @@ namespace Workshop192.UserManagment
                 if (MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId))
                 {
                     Logger.GetInstance().WriteToEventLog(user.GetUserName() + " removed Product [" + productId  + "] as a manager of store [" + store + "]");
+                    DbCommerce.GetInstance().SaveDb();
                     return true;
                 }
                 return false;
@@ -68,6 +70,7 @@ namespace Workshop192.UserManagment
                 if (MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount))
                 {
                     Logger.GetInstance().WriteToEventLog(user.GetUserName() + " edited product [" + productId + "] to: [" + name + "] [" + category + "] [" + price + "] [" + amount + "] as manager of store [" + store + "]");
+                    DbCommerce.GetInstance().SaveDb();
                     return true;
                 }
                 return false;
@@ -93,6 +96,7 @@ namespace Workshop192.UserManagment
                     if (productAmount.productId.Equals(Int32.Parse(policy.ElementAt(2))))
                     {
                         productAmount.product.AddDiscountPolicy(policy, discount);
+                        DbCommerce.GetInstance().SaveDb();
                         return true;
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
@@ -128,12 +132,16 @@ namespace Workshop192.UserManagment
                 throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
             }
             if (productId == 0)
-                return MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy();
+            {
+                MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy();
+                return true;
+            }
             else
                 foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
                     if (productAmount.productId.Equals(productId))
                     {
-                        return productAmount.product.RemoveDiscountPolicy();
+                        productAmount.product.RemoveDiscountPolicy();
+                        return true;
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
         }
@@ -146,12 +154,16 @@ namespace Workshop192.UserManagment
                 throw new ErrorMessageException("This manager dosen't have the privilege to preform the given action");
             }
             if (productId == 0)
-                return MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy();
+            {
+                MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy();
+                return true;
+            }
             else
                 foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
                     if (productAmount.productId.Equals(productId))
                     {
-                        return productAmount.product.RemoveSellingPolicy();
+                        productAmount.product.RemoveSellingPolicy();
+                        return true;
                     }
             throw new ErrorMessageException("Given product id doesn't exist in store");
         }

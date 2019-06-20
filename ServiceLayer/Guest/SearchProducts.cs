@@ -19,17 +19,17 @@ namespace ServiceLayer.Guest
             for (int i = 0; i < AllStores.Count; i++)
             {
                 CurrentStore = AllStores.ElementAt(i);
-                Dictionary< Product , int > ProductsPerStore = CurrentStore.GetInventory();
+                LinkedList<ProductAmountInventory> ProductsPerStore = CurrentStore.GetInventory();
                 for (int j = 0; j < ProductsPerStore.Count; j++)
                 {
-                    if (ProductsPerStore.ElementAt(j).Key.GetName().Contains(input))
+                    if (ProductsPerStore.ElementAt(j).product.GetName().Contains(input))
                     {
                         LinkedList<string> toAdd = new LinkedList<string>();
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetId() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetName() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetCategory() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetPrice() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Value + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).product.GetId() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).product.GetName() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).product.GetCategory() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).product.GetPrice() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).amount + "");
                         toAdd.AddLast(CurrentStore.GetName());
                         FoundProducts.AddLast(toAdd);
                     }
@@ -48,16 +48,16 @@ namespace ServiceLayer.Guest
             for (int i = 0; i < AllStores.Count && toKeep; i++)
             {
                 CurrentStore = AllStores.ElementAt(i);
-                Dictionary<Product, int> ProductsPerStore = CurrentStore.GetInventory();
+                LinkedList<ProductAmountInventory> ProductsPerStore = CurrentStore.GetInventory();
                 for (int j = 0; j < ProductsPerStore.Count && toKeep; j++)
                 {
-                    if (ProductsPerStore.ElementAt(j).Key.GetId().Equals(productId))
+                    if (ProductsPerStore.ElementAt(j).product.GetId().Equals(productId))
                     {
-                        toRet.AddLast(ProductsPerStore.ElementAt(j).Key.GetId() + "");
-                        toRet.AddLast(ProductsPerStore.ElementAt(j).Key.GetName() + "");
-                        toRet.AddLast(ProductsPerStore.ElementAt(j).Key.GetCategory() + "");
-                        toRet.AddLast(ProductsPerStore.ElementAt(j).Key.GetPrice() + "");
-                        toRet.AddLast(ProductsPerStore.ElementAt(j).Value + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).product.GetId() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).product.GetName() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).product.GetCategory() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).product.GetPrice() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).amount + "");
                         toRet.AddLast(CurrentStore.GetName());
                         toKeep = false;
                     }

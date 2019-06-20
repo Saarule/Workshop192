@@ -17,12 +17,12 @@ namespace ServiceLayer.Store_Owner_User
                 str.AddLast("Store Name: "+ storeName+ " ; Selling Policy: " +store.GetSellingPolicy().ToString());
             if (store.GetDiscountPolicy() != null)
                 str.AddLast("Store Name: " + storeName + " ; Discount Policy: " +store.GetDiscountPolicy().Item1.ToString() + ", " + store.GetDiscountPolicy().Item2);
-            foreach (KeyValuePair<Product, int> productAmount in store.GetInventory())
+            foreach (ProductAmountInventory productAmount in store.GetInventory())
             {
-                if (productAmount.Key.GetSellingPolicy() != null)
-                    str.AddLast("Product Id: " + productAmount.Key.GetId() + " ; Selling Policy: " + productAmount.Key.GetSellingPolicy().ToString());
-                if (productAmount.Key.GetDiscountPolicy() != null)
-                    str.AddLast("Product Id: " + productAmount.Key.GetId() + " ; Discount Policy: " + productAmount.Key.GetDiscountPolicy().Item1.ToString() + ", " + productAmount.Key.GetDiscountPolicy().Item2);
+                if (productAmount.product.GetSellingPolicy() != null)
+                    str.AddLast("Product Id: " + productAmount.product.GetId() + " ; Selling Policy: " + productAmount.product.GetSellingPolicy().ToString());
+                if (productAmount.product.GetDiscountPolicy() != null)
+                    str.AddLast("Product Id: " + productAmount.product.GetId() + " ; Discount Policy: " + productAmount.product.GetDiscountPolicy().Item1.ToString() + ", " + productAmount.product.GetDiscountPolicy().Item2);
             }
             return str;
         }

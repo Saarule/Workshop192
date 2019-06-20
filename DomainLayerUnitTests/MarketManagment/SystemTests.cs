@@ -22,6 +22,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             LinkedList<string> policy = new LinkedList<string>();
             system = Workshop192.MarketManagment.System.GetInstance();
             AllRegisteredUsers.GetInstance().CreateUser();
@@ -176,6 +177,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             system = Workshop192.MarketManagment.System.Reset();
             AllRegisteredUsers.Reset();
         }

@@ -9,6 +9,7 @@ using ServiceLayer;
 using ServiceLayer.Guest;
 using ServiceLayer.Store_Owner_User;
 using ServiceLayer.RegisteredUser;
+using Workshop192;
 
 namespace AccaptanceTests.StoreOwnerUser
 {
@@ -20,6 +21,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
 
             InitializationOfTheSystem System = new InitializationOfTheSystem();
             System.Initalize(null);
@@ -35,6 +37,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             SystemReset.Reset();
         }
         [Test]

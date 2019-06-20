@@ -37,6 +37,7 @@ namespace Workshop192.UserManagment
             if (MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount))
             {
                 Logger.GetInstance().WriteToEventLog(user.GetUserName() + " Added Product [" + product.GetId() + "] [" + product.GetName() + "] [" + product.GetCategory() + "] [" + product.GetPrice() + "] [" + amount + "] as a owner of store [" + store + "]");
+                DbCommerce.GetInstance().SaveDb();
                 return true;
             }
             return false;
@@ -47,6 +48,7 @@ namespace Workshop192.UserManagment
             if (MarketManagment.System.GetInstance().GetStore(store).RemoveProductFromInventory(productId))
             {
                 Logger.GetInstance().WriteToEventLog(user.GetUserName() + " removed Product [" + productId + "] as a owner of store [" + store + "]");
+                DbCommerce.GetInstance().SaveDb();
                 return true;
             }
             return false;
@@ -57,6 +59,7 @@ namespace Workshop192.UserManagment
             if (MarketManagment.System.GetInstance().GetStore(store).EditProduct(productId, name, category, price, amount))
             {
                 Logger.GetInstance().WriteToEventLog(user.GetUserName() + " edited product [" + productId + "] to: [" + name + "] [" + category + "] [" + price + "] [" + amount + "] as owner of store [" + store + "]");
+                DbCommerce.GetInstance().SaveDb();
                 return true;
             }
             return false;
@@ -81,6 +84,7 @@ namespace Workshop192.UserManagment
             pendingUsers.Replace(user.GetUserName(), "");
             if (storeOwners.GetStoreOwners().Count == 1)
                 AddOwnerFinal(user);
+            DbCommerce.GetInstance().SaveDb();
             return true;
         }
 
@@ -97,12 +101,16 @@ namespace Workshop192.UserManagment
                 Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried accepting user " + user.GetUserName() + " as a owner of store [" + store + "] but the given user wasn't on their pending list");
                 throw new ErrorMessageException("The given user isn't in your pending users list");
             }
-            pendingUsers.Replace(user.GetUserName(), "");
+            pendingUsers = pendingUsers.Replace(user.GetUserName(), "");
             Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " accepted user " + user.GetUserName() + " as a owner in store [" + store + "]");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
                 if (owner.GetPendingUsers().Contains(user))
+                {
+                    DbCommerce.GetInstance().SaveDb();
                     return true;
+                }
             AddOwnerFinal(user);
+            DbCommerce.GetInstance().SaveDb();
             return true;
         }
 
@@ -115,7 +123,8 @@ namespace Workshop192.UserManagment
             }
             Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " declined user " + user.GetUserName() + " as a owner in store [" + store + "]");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
-                owner.pendingUsers.Replace(user.GetUserName(), "");
+                owner.pendingUsers = owner.pendingUsers.Replace(user.GetUserName(), "");
+            DbCommerce.GetInstance().SaveDb();
             return true;
         }
 
@@ -130,6 +139,7 @@ namespace Workshop192.UserManagment
             StoreManager manager = new StoreManager(user, store, privileges, this);
             user.GetStoreManagers().AddLast(manager);
             appointedManagers.AddLast(manager);
+            DbCommerce.GetInstance().SaveDb();
             return true;
         }
 
@@ -140,6 +150,7 @@ namespace Workshop192.UserManagment
                 {
                     Logger.GetInstance().WriteToEventLog(user.GetUserName() + " removed appointed manager " + child.GetUserName() + " of store [" + store + "]");
                     manager.RemoveSelf();
+                    DbCommerce.GetInstance().SaveDb();
                     return true;
                 }
             Logger.GetInstance().WriteToEventLog(user.GetUserName() + " tried removing user " + child.GetUserName() + " from the store managers but the given user wasn't a manager of store [" + store + "]");
@@ -183,7 +194,9 @@ namespace Workshop192.UserManagment
         public bool RemoveDiscountPolicy(int productId)
         {
             if (productId == 0)
+            {
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy();
+            }
             else
                 foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
                     if (productAmount.productId.Equals(productId))
@@ -196,7 +209,9 @@ namespace Workshop192.UserManagment
         public bool RemoveSellingPolicy(int productId)
         {
             if (productId == 0)
+            {
                 return MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy();
+            }
             else
                 foreach (ProductAmountInventory productAmount in MarketManagment.System.GetInstance().GetStore(store).GetInventory())
                     if (productAmount.productId.Equals(productId))

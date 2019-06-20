@@ -18,6 +18,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             Store store = new Store("newStore");
             product = new Product(1, "air", "element", 5);
             store.AddProducts(product, 4);
@@ -73,6 +74,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void SetSum_SuccesfulySetsTheFullPriceOfAllProducts_ReturnsTrue()
         {
+            DbCommerce.GetInstance().EndTests();
             cart.AddProductsToCart(1, 2);
             cart.SetSum();
             Assert.AreEqual(10, cart.GetCartSum());

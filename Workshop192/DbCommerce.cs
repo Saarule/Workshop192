@@ -63,13 +63,41 @@ namespace Workshop192
         public DbSet<UserInfo> users { get; set; }
         public DbSet<Store> stores { get; set; }
 
+        public void AddUserInfo(UserInfo info)
+        {
+            if (forTests)
+                return;
+            users.Add(info);
+            SaveChanges();
+        }
+
+        public void RemoveUserInfo(UserInfo info)
+        {
+            if (forTests)
+                return;
+            users.Remove(info);
+            SaveChanges();
+        }
+
+        public void AddStore(Store store)
+        {
+            if (forTests)
+                return;
+            stores.Add(store);
+            SaveChanges();
+        }
+
         public LinkedList<UserInfo> GetUserInfos()
         {
             if (forTests)
                 return new LinkedList<UserInfo>();
             LinkedList<UserInfo> userInfos = new LinkedList<UserInfo>();
-            foreach (UserInfo info in users)
-                userInfos.AddLast(info);
+            try
+            {
+                foreach (UserInfo info in users)
+                    userInfos.AddLast(info);
+            }
+            catch { }
             return userInfos;
         }
 
@@ -78,8 +106,12 @@ namespace Workshop192
             if (forTests)
                 return new LinkedList<Store>();
             LinkedList<Store> stores = new LinkedList<Store>();
-            foreach (Store store in this.stores)
-                stores.AddLast(store);
+            try
+            {
+                foreach (Store store in this.stores)
+                    stores.AddLast(store);
+            }
+            catch { }
             return stores;
         }
 

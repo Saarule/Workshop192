@@ -31,6 +31,7 @@ namespace Workshop192.UserManagment
             if (IsAdmin())
                 throw new ErrorMessageException("This user is already admin");
             admin = new Admin(this);
+            DbCommerce.GetInstance().SaveDb();
             return true;
         }
 
@@ -51,6 +52,7 @@ namespace Workshop192.UserManagment
             {
                 Notifications.Notification.GetInstance().SendMessageToUser(AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(i), "the shop " + storeName + " was opened now!");
             }
+            DbCommerce.GetInstance().SaveDb();
             return true;
         }
 

@@ -22,6 +22,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             InitializationOfTheSystem System = new InitializationOfTheSystem();
             System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
@@ -38,6 +39,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             //TODO
             SystemReset.Reset();       
         }

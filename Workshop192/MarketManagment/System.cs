@@ -25,10 +25,10 @@ namespace Workshop192.MarketManagment
             stores = new LinkedList<Store>();
             moneyCollectionSystem = new MoneyCollectionSystemProxy(null);
             deliverySystem = new DeliverySystemProxy(null);
-            /*stores = DbCommerce.GetInstance().GetStores();
+            stores = DbCommerce.GetInstance().GetStores();
             foreach (UserManagment.UserInfo info in DbCommerce.GetInstance().GetUserInfos())
                 if (info.GetMultiCart() > multiCartId)
-                    multiCartId = info.GetMultiCart();*/
+                    multiCartId = info.GetMultiCart();
         }
 
         public static System GetInstance()
@@ -197,7 +197,10 @@ namespace Workshop192.MarketManagment
 
         public void OpenStore(string storeName)
         {
-            stores.AddLast(new Store(storeName));
+            Store store = new Store(storeName);
+            stores.AddLast(store);
+            DbCommerce.GetInstance().AddStore(store);
+            DbCommerce.GetInstance().SaveDb();
         }
 
         public Store GetStore(string storeName)

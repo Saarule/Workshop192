@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using ServiceLayer;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.SystemInitialization
 {
@@ -12,11 +13,13 @@ namespace AccaptanceTests.SystemInitialization
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             System = new InitializationOfTheSystem();
         }
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             SystemReset.Reset();
         }
         [TestCase]

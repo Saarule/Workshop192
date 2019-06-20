@@ -21,6 +21,7 @@ namespace AccaptanceTests.Guest
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             InitializationOfTheSystem System = new InitializationOfTheSystem();
             System.Initalize(null);
             UserId_Orel = CreateAndGetUser.CreateUser();
@@ -40,6 +41,7 @@ namespace AccaptanceTests.Guest
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             SystemReset.Reset();
         }
         [Test]
