@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="myCart.aspx.cs" Inherits="NewGUI.myCart" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="confirmation.aspx.cs" Inherits="NewGUI.confirmation" %>
 
 <!DOCTYPE html>
-<html lang="en" runat="server">
-<head>
+<html lang="en">
+<head runat="server">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Cart</title>
+  <title>Confirmation</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -26,7 +26,6 @@
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -35,11 +34,11 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item active"><a class="nav-link" href="index.aspx">Home</a></li>
+              <li class="nav-item active"><a class="nav-link" href="indexLoginUser.aspx">Home</a></li>
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
-                <ul class="dropdown-menu">
+                  <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="products.aspx">Browse Products</a></li>
                   <li class="nav-item"><a class="nav-link" href="myCart.aspx">My Cart</a></li>
                 </ul>
@@ -49,14 +48,12 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="login.aspx">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="register.aspx">Register</a></li>
+                  <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
                 </ul>
               </li>
-              
             </ul>
 
-            <ul class="nav-shop">
+           <ul class="nav-shop">
                 <a href="mycart.aspx" class="notification">
                 <span>Inbox</span>
                 <span class="badge">3</span>
@@ -70,13 +67,13 @@
     </div>
   </header>
 	<!--================ End Header Menu Area =================-->
-
-  	<!-- ================ start banner area ================= -->	
+  
+	<!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">
-					<h1>My Cart</h1>
+					<h1>Order Confirmation</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
           </nav>
 				</div>
@@ -84,80 +81,38 @@
     </div>
 	</section>
 	<!-- ================ end banner area ================= -->
-
-  <!--================Cart Area =================-->
-  <section class="cart_area">
-      <div class="container">
-          <div class="cart_inner">
-              <div class="table-responsive">
-                  <table class="table">
-                      <thead>
-                          <tr>
-                              <th scope="col">Product</th>
-                              <th scope="col">Price</th>
-                              <th scope="col">Quantity</th>
-                              <th scope="col">Total</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          
-                          <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder>
-                          <tr class="bottom_button">
-                              <td>
-                                  <div class="input-group filter-bar-search">
-                  <asp:TextBox id="ProductToRemoveTextBox" runat="server" placeholder="Product ID" type="text"></asp:TextBox>
-                <div class="input-group-append">
-                    <asp:Button ID="RemoveButton1" runat="server" class="button button-register w-100" text="Remove Product" OnClick="RemoveProductButton1_Click" />
-                </div>
-              </div>
-                              </td>
-                              <td>
-
-                              </td>
-                              <td>
-
-                              </td>
-                              
-                          </tr>
-                          <tr>
-                              <td>
-
-                              </td>
-                              <td>
-
-                              </td>
-                              <td>
-                                  <h5>Subtotal</h5>
-                              </td>
-                              <td>
-                                  <h5>$<asp:PlaceHolder ID="PlaceHolder4" runat="server"></asp:PlaceHolder></h5>
-                              </td>
-                          </tr>
-                          
-                          <tr class="out_button_area">
-                              <td class="d-none-l">
-
-                              </td>
-                              <td class="">
-
-                              </td>
-                              <td>
-
-                              </td>
-                              <td>
-                                  <div class="checkout_btn_inner d-flex align-items-center">
-                                      <a class="gray_btn" href="products.aspx">Continue Shopping</a>
-                                       <asp:Button ID="ProceedToCheckOutButton" runat="server" class="primary-btn ml-2" Text="Proceed to checkout" OnClick="ProceedToCheckOutButton1_Click" />
-                                  </div>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
+  
+  <!--================Order Details Area =================-->
+  <section class="order_details section-margin--small">
+    <div class="container">
+      <p class="text-center billing-alert">Thank you. Your order has been received.</p>
+      <div class="row mb-5">
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Transaction Supply ID</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Order number</td>
+                <td>: <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder></td>
+              </tr>
+            </table>
           </div>
-      </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Transaction Payment ID</h3>
+            <table class="order-rable">
+              <tr>
+                <td>Transaction number</td>
+                  <td>: <asp:PlaceHolder ID="PlaceHolder4" runat="server"></asp:PlaceHolder></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+    </div>
   </section>
-  <!--================End Cart Area =================-->
+  <!--================End Order Details Area =================-->
+
 
 <!--================ Start footer Area  =================-->	
 	<footer class="footer">
@@ -209,6 +164,6 @@
   <script src="vendors/jquery.ajaxchimp.min.js"></script>
   <script src="vendors/mail-script.js"></script>
   <script src="js/main.js"></script>
-</form>
+        </form>
 </body>
 </html>

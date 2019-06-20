@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ownStorePanel.aspx.cs" Inherits="NewGUI.ownStorePanel" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="myCartAsUser.aspx.cs" Inherits="NewGUI.myCartAsUser" %>
 
 <!DOCTYPE html>
-<html lang="en">
-<head runat="server">
+<html lang="en" runat="server">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Own Store Panel</title>
+  <title>My Cart</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <!--================ Start Header Menu Area =================-->
+   <!--================ Start Header Menu Area =================-->
     <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -57,12 +57,12 @@
             </ul>
 
            <ul class="nav-shop">
-                <a href="mycartAsUser.aspx" class="notification">
+                <a href="mycart.aspx" class="notification">
                 <span>Inbox</span>
                 <span class="badge">3</span>
                  </a>
 
-              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -71,102 +71,93 @@
   </header>
 	<!--================ End Header Menu Area =================-->
 
-<!-- ================ start banner area ================= -->	
+  	<!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">
-					<h1>Store Owner Panel</h1>
+					<h1>My Cart</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
           </nav>
 				</div>
 			</div>
     </div>
 	</section>
-<!-- ================ end banner area ================= -->
+	<!-- ================ end banner area ================= -->
 
-  <!--================Order Details Area =================-->
-  <section class="order_details section-margin--small">
-    <div class="container">
-      <div class="row mb-5">
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Add Store Manager</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter store manager username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreManagerToAddTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-                 <tr>
-                <td>Privileges:</td>
-              </tr>
-                   <tr>
-                          <td><asp:CheckBox ID="AddProductCheckBox" runat="server" Text="  Add Product" /></td>  
-                   </tr>
-                   <tr>
-                          <td><asp:CheckBox ID="RemoveProductCheckBox" runat="server" Text="  Remove Product" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="EditProductCheckBox" runat="server" Text="  Edit Product" /></td>  
-                   </tr>
-                      <tr>
-                          <td><asp:CheckBox ID="AddDiscountPolicyCheckBox" runat="server" Text="  Add discount policy" /></td>  
-                   </tr>
-                      <tr>
-                          <td><asp:CheckBox ID="AddSellingPolicyCheckBox" runat="server" Text="  Add selling policy" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="RemoveDiscountPolicyCheckBox" runat="server" Text="  Remove discount policy" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="RemoveSellingPolicyCheckBox" runat="server" Text="  Remove selling policy" /></td>  
-                   </tr>
-              <tr>
-                <td><asp:Button ID="Button5" runat="server" class="button button-register w-100" Text="Add Store Manager" OnClick="AddStoreManagerButton1_Click" /></td>
-              </tr>
-            </table>
+  <!--================Cart Area =================-->
+  <section class="cart_area">
+      <div class="container">
+          <div class="cart_inner">
+              <div class="table-responsive">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th scope="col">Product</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col">Total</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          
+                          <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder>
+                          <tr class="bottom_button">
+                              <td>
+                                  <div class="input-group filter-bar-search">
+                  <asp:TextBox id="ProductToRemoveTextBox" runat="server" placeholder="Product ID" type="text"></asp:TextBox>
+                <div class="input-group-append">
+                    <asp:Button ID="RemoveButton1" runat="server" class="button button-register w-100" text="Remove Product" OnClick="RemoveProductButton1_Click" />
+                </div>
+              </div>
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+
+                              </td>
+                              
+                          </tr>
+                          <tr>
+                              <td>
+
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+                                  <h5>Subtotal</h5>
+                              </td>
+                              <td>
+                                  <h5>$<asp:PlaceHolder ID="PlaceHolder4" runat="server"></asp:PlaceHolder></h5>
+                              </td>
+                          </tr>
+                          
+                          <tr class="out_button_area">
+                              <td class="d-none-l">
+
+                              </td>
+                              <td class="">
+
+                              </td>
+                              <td>
+
+                              </td>
+                              <td>
+                                  <div class="checkout_btn_inner d-flex align-items-center">
+                                      <a class="gray_btn" href="productsAsUser.aspx">Continue Shopping</a>
+                                      <a class="primary-btn ml-2" href="checkoutAsUser.aspx">Continue Shopping</a>
+                                  </div>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
           </div>
-        </div>
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Remove Store Manager</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter store manager username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreManagerToRemoveTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button9" runat="server" class="button button-register w-100" Text="Remove Store Manager" OnClick="RemoveStoreManagerButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Add Store Owner</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter store owner username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreOwnerTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button2" runat="server" class="button button-register w-100" Text="Add Store Owner" OnClick="AddStoreOwnerButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-   
       </div>
-    </div>
   </section>
-  <!--================End Order Details Area =================-->
-
+  <!--================End Cart Area =================-->
 
 <!--================ Start footer Area  =================-->	
 	<footer class="footer">
@@ -208,6 +199,8 @@
 	</footer>
 	<!--================ End footer Area  =================-->
 
+
+
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="vendors/skrollr.min.js"></script>
@@ -216,6 +209,6 @@
   <script src="vendors/jquery.ajaxchimp.min.js"></script>
   <script src="vendors/mail-script.js"></script>
   <script src="js/main.js"></script>
-        </form>
+</form>
 </body>
 </html>

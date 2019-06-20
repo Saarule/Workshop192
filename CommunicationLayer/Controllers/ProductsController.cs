@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using ServiceLayer.Store_Owner_User;
 
 namespace CommunicationLayer.Controllers
 {

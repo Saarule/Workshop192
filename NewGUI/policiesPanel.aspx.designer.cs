@@ -49,13 +49,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox ProductMinimumAmountTextBox;
         
         /// <summary>
-        /// compositionTypeMinimumProductAmount control.
+        /// compositionType1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList compositionTypeMinimumProductAmount;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType1;
         
         /// <summary>
         /// MinimumAmountToBuyFromProductButton1 control.
@@ -94,13 +94,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox ProductMaximumAmountTextBox;
         
         /// <summary>
-        /// DropDownList2 control.
+        /// compositionType2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType2;
         
         /// <summary>
         /// MaximumAmountToBuyFromProductButton1 control.
@@ -112,13 +112,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.Button MaximumAmountToBuyFromProductButton1;
         
         /// <summary>
-        /// MinimumStoreNameTextBox control.
+        /// MinimumStoreProductIDTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MinimumStoreNameTextBox;
+        protected global::System.Web.UI.WebControls.TextBox MinimumStoreProductIDTextBox;
         
         /// <summary>
         /// MinimumStoreAmountTextBox control.
@@ -130,13 +130,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox MinimumStoreAmountTextBox;
         
         /// <summary>
-        /// DropDownList3 control.
+        /// compositionType3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType3;
         
         /// <summary>
         /// MinimumAmountToBuyFromStoreButton1 control.
@@ -148,13 +148,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.Button MinimumAmountToBuyFromStoreButton1;
         
         /// <summary>
-        /// MaximumStoreNameTextBox control.
+        /// MaximumStoreProductIDTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MaximumStoreNameTextBox;
+        protected global::System.Web.UI.WebControls.TextBox MaximumStoreProductIDTextBox;
         
         /// <summary>
         /// MaximumStoreAmountTextBox control.
@@ -166,13 +166,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox MaximumStoreAmountTextBox;
         
         /// <summary>
-        /// DropDownList4 control.
+        /// compositionType4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType4;
         
         /// <summary>
         /// MaximumAmountToBuyFromStoreButton1 control.
@@ -193,13 +193,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox UserNameToBanTextBox;
         
         /// <summary>
-        /// DropDownList5 control.
+        /// compositionType5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType5;
         
         /// <summary>
         /// UserToBanFromStoreButton1 control.
@@ -220,13 +220,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox CountryToBanTextBox;
         
         /// <summary>
-        /// DropDownList6 control.
+        /// compositionType6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList6;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType6;
         
         /// <summary>
         /// CountryToBanFromStoreButton1 control.
@@ -236,6 +236,24 @@ namespace NewGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button CountryToBanFromStoreButton1;
+        
+        /// <summary>
+        /// IdOfProductToRemoveItsSellingPolicyTextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox IdOfProductToRemoveItsSellingPolicyTextBox1;
+        
+        /// <summary>
+        /// RemoveSellingPolicyButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button RemoveSellingPolicyButton1;
         
         /// <summary>
         /// DiscountMinimumProductIdTextBox1 control.
@@ -274,13 +292,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox DiscountMinimumProductInPercentage;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// compositionType7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType7;
         
         /// <summary>
         /// Button1 control.
@@ -328,13 +346,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox DiscountMaximumProductInPercentage;
         
         /// <summary>
-        /// DropDownList7 control.
+        /// compositionType8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList7;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType8;
         
         /// <summary>
         /// Button2 control.
@@ -346,13 +364,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// DiscountMinimumStoreNameTextBox control.
+        /// DiscountMinimumStoreProductIDTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DiscountMinimumStoreNameTextBox;
+        protected global::System.Web.UI.WebControls.TextBox DiscountMinimumStoreProductIDTextBox;
         
         /// <summary>
         /// DiscountMinimumStoreAmountTextBox control.
@@ -373,13 +391,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox DiscountMinimumStoreInPercentage;
         
         /// <summary>
-        /// DropDownList8 control.
+        /// compositionType9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList8;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType9;
         
         /// <summary>
         /// Button3 control.
@@ -391,13 +409,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.Button Button3;
         
         /// <summary>
-        /// DiscountMaximumStoreNameTextBox control.
+        /// DiscountMaximumStoreProductIDTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DiscountMaximumStoreNameTextBox;
+        protected global::System.Web.UI.WebControls.TextBox DiscountMaximumStoreProductIDTextBox;
         
         /// <summary>
         /// DiscountMaximumStoreAmountTextBox control.
@@ -418,13 +436,13 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.TextBox DiscountMaximumStoreInPercentage;
         
         /// <summary>
-        /// DropDownList9 control.
+        /// compositionType10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList9;
+        protected global::System.Web.UI.WebControls.DropDownList compositionType10;
         
         /// <summary>
         /// Button4 control.
@@ -434,5 +452,23 @@ namespace NewGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button4;
+        
+        /// <summary>
+        /// IdOfProductToRemoveItsDiscountPolicyTextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox IdOfProductToRemoveItsDiscountPolicyTextBox1;
+        
+        /// <summary>
+        /// RemoveDiscountPolicyButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button RemoveDiscountPolicyButton1;
     }
 }

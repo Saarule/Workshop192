@@ -2388,6 +2388,7 @@
 06-19-2019 15:37:51  saar added product [1] [4] of store [store1] to their multi cart
 06-19-2019 15:38:07  saar added product [2] [5] of store [store1] to their multi cart
 >>>>>>> addMoreAcceptanceTests
+<<<<<<< HEAD
 06/19/2019 18:22:34  A new user was registered admin admin11
 06/19/2019 18:22:34  admin Logged In
 06/19/2019 18:22:34  A new user was registered orel 123456
@@ -5922,3 +5923,85 @@
 06/20/2019 03:41:29  A new user was registered b 11111
 06/20/2019 03:41:35  b Logged In
 06/20/2019 03:41:46  b added product [1] [200] of store [S] to their multi cart
+=======
+06-19-2019 20:52:18  A new user was registered saar 123456
+06-19-2019 20:52:24  saar Logged In
+06-19-2019 20:53:57  saar Added Product [1] [MILK] [GROCERY] [120] [30] as a owner of store [store1]
+06-19-2019 20:54:05  saar Added Product [2] [VR] [SFG] [314] [413] as a owner of store [store1]
+06-19-2019 20:54:19  saar added product [1] [3] of store [store1] to their multi cart
+06-19-2019 20:54:25  saar added product [2] [5] of store [store1] to their multi cart
+06-19-2019 21:53:52  A new user was registered saar 123456
+06-19-2019 21:59:54  A new user was registered saar 123456
+06-19-2019 22:00:01  saar Logged In
+06-19-2019 22:01:36  saar Added Product [1] [milk] [hh] [123] [2] as a owner of store [store1]
+06-19-2019 22:01:42  saar Added Product [2] [gfgf] [gg] [32] [2] as a owner of store [store1]
+06-19-2019 22:01:49  saar added product [1] [1] of store [store1] to their multi cart
+06-19-2019 22:01:55  saar added product [2] [1] of store [store1] to their multi cart
+06-19-2019 22:13:44  A new user was registered saar 123456
+06-19-2019 22:13:50  saar Logged In
+06-19-2019 22:14:08  saar Added Product [1] [milk] [jk] [120] [40] as a owner of store [store1]
+06-19-2019 22:14:16  saar Added Product [2] [fs] [re] [45] [65] as a owner of store [store1]
+06-19-2019 22:14:22  saar added product [1] [1] of store [store1] to their multi cart
+06-19-2019 22:15:57  A new user was registered saar 123456
+06-19-2019 22:16:03  saar Logged In
+06-19-2019 22:16:53  A new user was registered saar 123456
+06-19-2019 22:16:59  saar Logged In
+06-19-2019 22:17:23  saar Added Product [1] [milk] [fs] [32] [23] as a owner of store [store]
+06-19-2019 22:17:27  saar added product [1] [1] of store [store] to their multi cart
+06-19-2019 22:18:57  saar added product [1] [1] of store [store] to their multi cart
+06-19-2019 22:26:15  A new user was registered saar 123456
+06-19-2019 22:26:25  saar Logged In
+06-19-2019 22:27:10  saar Added Product [1] [milk] [fjh] [123] [32] as a owner of store [store]
+06-19-2019 22:27:25  saar Added Product [2] [hgf] [dh] [34] [43] as a owner of store [store]
+06-19-2019 22:27:34  saar added product [1] [3] of store [store] to their multi cart
+06-19-2019 22:27:43  saar added product [2] [5] of store [store] to their multi cart
+06-19-2019 22:27:47  saar removed product [2] from their multi cart
+06-19-2019 22:29:12  A new user was registered saar 123456
+06-19-2019 22:29:18  saar Logged In
+06-19-2019 22:29:56  saar Added Product [1] [milk] [hgf] [123] [32] as a owner of store [store]
+06-19-2019 22:30:03  saar Added Product [2] [dhg] [fhd] [423] [32] as a owner of store [store]
+06-19-2019 22:30:14  saar added product [1] [2] of store [store] to their multi cart
+06-19-2019 22:30:22  saar added product [2] [4] of store [store] to their multi cart
+06-19-2019 22:30:29  saar removed product [2] from their multi cart
+06-19-2019 22:30:36  saar removed product [1] from their multi cart
+06-19-2019 23:54:51  A new user was registered saar 123456
+06-19-2019 23:55:01  A new user was registered orel 123456
+06-19-2019 23:55:07  saar Logged In
+06-19-2019 23:55:31  saar added user orel as a manager in store [store] with the following privileges System.Boolean[]
+06-19-2019 23:56:19  A new user was registered saar 123456
+06-19-2019 23:56:27  A new user was registered orel 123456
+06-19-2019 23:56:34  saar Logged In
+06-19-2019 23:58:11  A new user was registered saar 123456
+06-19-2019 23:58:19  saar Logged In
+06-19-2019 23:58:25  saar Logged Out
+06-19-2019 23:58:35  A new user was registered orel 123456
+06-19-2019 23:58:41  saar Logged In
+06-19-2019 23:59:07  saar added user orel as a manager in store [store] with the following privileges System.Boolean[]
+06-20-2019 00:08:00  A new user was registered saar 123456
+06-20-2019 00:08:07  saar Logged In
+06-20-2019 00:19:35  A new user was registered saar 123456
+06-20-2019 00:19:42  saar Logged In
+06-20-2019 00:27:46  A new user was registered saar 123456
+06-20-2019 00:27:55  saar Logged In
+06-20-2019 00:31:07  A new user was registered saar 123456
+06-20-2019 00:31:14  saar Logged In
+06-20-2019 00:57:34  A new user was registered saar 123456
+06-20-2019 00:57:43  saar Logged In
+06-20-2019 00:59:39  A new user was registered saar 123456
+06-20-2019 00:59:45  saar Logged In
+06-20-2019 01:04:47  A new user was registered orel 12345
+06-20-2019 01:04:56  orel Logged In
+06-20-2019 01:17:45  A new user was registered saar 123456
+06-20-2019 01:17:51  saar Logged In
+06-20-2019 01:21:03  A new user was registered saar 123456
+06-20-2019 01:21:10  saar Logged In
+06-20-2019 01:28:26  A new user was registered orel 123456
+06-20-2019 01:28:41  orel Logged In
+06-20-2019 01:29:19  orel Added Product [1] [milk] [drink] [12] [100] as a owner of store [store1]
+06-20-2019 01:29:31  orel Logged Out
+06-20-2019 01:29:42  A guest added product [1] [20] of store [store1] to their multi cart
+06-20-2019 01:32:02  A new user was registered o 12345
+06-20-2019 01:32:08  o Logged In
+06-20-2019 01:32:32  o Added Product [1] [kkkk] [kk] [20] [200] as a owner of store [store]
+06-20-2019 01:32:42  o added product [1] [120] of store [store] to their multi cart
+>>>>>>> NewestGUI

@@ -88,14 +88,61 @@ namespace NewGUI
         }
         protected void ManageStoreButton1_Click(object sender, EventArgs e)
         {
-            String storeNameToManage = StoreToManageTextBox.Text; 
-            Response.Redirect("manageStorePanel.aspx?storeName="+storeNameToManage);
+            try
+            {
+                String storeNameToManage = StoreToManageTextBox.Text;
+                if (CommunicationLayer.Controllers.UsersController.IsManagerOfStore(HttpContext.Current.Session.SessionID,storeNameToManage) || CommunicationLayer.Controllers.UsersController.IsOwnerOfStore(HttpContext.Current.Session.SessionID, storeNameToManage))
+                {
+                    Response.Redirect("manageStorePanel.aspx?storeName=" + storeNameToManage);
+                }
+                else
+                {
+                    Response.Write("<script>alert('You are not store manager of that store!');</script>");
+                }
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
         protected void OwnStoreButton1_Click(object sender, EventArgs e)
         {
-            String storeNameToOwn = StoreToOwnTextBox.Text;
-            Response.Redirect("ownStorePanel.aspx?storeName=" + storeNameToOwn);
+            try
+            {
+                String storeNameToOwn = StoreToOwnTextBox.Text;
+                if (CommunicationLayer.Controllers.UsersController.IsOwnerOfStore(HttpContext.Current.Session.SessionID,storeNameToOwn))
+                {
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeNameToOwn);
+                }
+                else
+                {
+                    Response.Write("<script>alert('You are not store owner of that store!');</script>");
+                }
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
-        
+        protected void ManagePoliciesButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String storeNameToManage = StoreToManagePoliciesTextBox.Text;
+                if (CommunicationLayer.Controllers.UsersController.IsManagerOfStore(HttpContext.Current.Session.SessionID,storeNameToManage) || CommunicationLayer.Controllers.UsersController.IsOwnerOfStore(HttpContext.Current.Session.SessionID, storeNameToManage))
+                {
+                    Response.Redirect("policiesPanel.aspx?storeName=" + storeNameToManage);
+                }
+                else
+                {
+                    Response.Write("<script>alert('You are not store manager of that store!');</script>");
+                }
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+        }
+
     }
 }

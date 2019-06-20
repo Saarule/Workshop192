@@ -9,7 +9,7 @@ using Workshop192;
 
 namespace NewGUI
 {
-    public partial class myCart : System.Web.UI.Page
+    public partial class myCartAsUser : System.Web.UI.Page
     {
         StringBuilder tableProducts3 = new StringBuilder();
         LinkedList<LinkedList<string>> products3 = new LinkedList<LinkedList<string>>();
@@ -92,4 +92,3 @@ namespace NewGUI
         }
     }
 }
- 

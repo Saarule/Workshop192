@@ -81,6 +81,7 @@
 06/19/2019 17:54:28  nati tried accepting user saar as a owner of store [victory] but the given user wasn't on their pending list
 06/19/2019 17:54:28  nati Tried declining a non existent user as a store owner
 06/19/2019 17:54:28  nati tried declining user saar as a owner of store [victory] but the given user wasn't on their pending list
+<<<<<<< HEAD
 06/19/2019 18:22:35  A user failed to register orel 11111
 06/19/2019 18:22:35  A user failed to register orel 5555
 06/19/2019 18:22:36  A guest tried to open a store but failed
@@ -234,3 +235,6 @@
 06/20/2019 01:24:25  A user failed to register nati 123456
 06/20/2019 01:25:18  A user failed to register nati 123456
 06/20/2019 03:02:20  A user failed to register A1 123456
+=======
+06-19-2019 23:50:22  saar Tried adding a non existent user as a store manager
+>>>>>>> NewestGUI

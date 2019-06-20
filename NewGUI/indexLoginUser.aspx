@@ -19,8 +19,8 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!--================ Start Header Menu Area =================-->
-    <form id="form1" runat="server">
+    <!--================ Start Header Menu Area =================-->
+    <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -33,32 +33,35 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item active"><a class="nav-link" href="indexLoginUser.html">Home</a></li>
-              <li class="nav-item submenu dropdown">
+              <li class="nav-item"><a class="nav-link" href="indexLoginUser.aspx">Home</a></li>
+              <li class="nav-item active submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
-                  <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="products.aspx">Browse Products</a></li>
-                  <li class="nav-item"><a class="nav-link" href="myCart.aspx">My Cart</a></li>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="productsAsUser.aspx">Browse Products</a></li>
+                  <li class="nav-item"><a class="nav-link" href="myCartAsUser.aspx">My Cart</a></li>
                 </ul>
-				</li>
-
-				<li class="nav-item submenu dropdown">
+							</li>
+							<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li>
+                 <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
+                 <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
+                 <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
                 </ul>
               </li>
             </ul>
               
            <ul class="nav-shop">
-                
+                <a href="mycartAsUser.aspx" class="notification">
                 <span>Inbox</span>
                 <span class="badge">3</span>
                  
 
-              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -83,7 +86,7 @@
               <h4>Shop is fun</h4>
               <h1>Browse Our Premium Product</h1>
               <p>Us which over of signs divide dominion deep fill bring they're meat beho upon own earth without morning over third. Their male dry. They are great appear whose land fly grass.</p>
-              <a class="button button-hero" href="products.aspx">Browse Now</a>
+              <a class="button button-hero" href="productsAsUser.aspx">Browse Now</a>
             </div>
           </div>
         </div>

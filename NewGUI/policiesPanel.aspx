@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!--================ Start Header Menu Area =================-->
+ <!--================ Start Header Menu Area =================-->
     <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -40,8 +40,8 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="products.aspx">Browse Products</a></li>
-                  <li class="nav-item"><a class="nav-link" href="myCart.aspx">My Cart</a></li>
+                  <li class="nav-item"><a class="nav-link" href="productsAsUser.aspx">Browse Products</a></li>
+                  <li class="nav-item"><a class="nav-link" href="myCartAsUser.aspx">My Cart</a></li>
                 </ul>
 							</li>
 							<li class="nav-item submenu dropdown">
@@ -58,12 +58,12 @@
             </ul>
 
            <ul class="nav-shop">
-                <a href="mycart.aspx" class="notification">
+                <a href="mycartAsUser.aspx" class="notification">
                 <span>Inbox</span>
                 <span class="badge">3</span>
                  </a>
 
-              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -71,6 +71,7 @@
     </div>
   </header>
 	<!--================ End Header Menu Area =================-->
+
 
   	<!-- ================ start Selling policies banner area ================= -->	
 	<section class="blog-banner-area" id="category">
@@ -86,7 +87,7 @@
 	</section>
 	<!-- ================ end Selling policies banner area ================= -->
   
-  <!--================Checkout Area 1=================-->
+  <!--================Policies Area 1=================-->
  
         <section class="order_details section-margin--small">
     <div class="container">
@@ -114,7 +115,7 @@
                 <tr>
                     <td>
 
-               <asp:DropDownList id="compositionTypeMinimumProductAmount"
+               <asp:DropDownList id="compositionType1"
                     AutoPostBack="True"
                     runat="server">
 
@@ -159,7 +160,7 @@
                 <tr>
                     <td>
 
-               <asp:DropDownList id="DropDownList2"
+               <asp:DropDownList id="compositionType2"
                     AutoPostBack="True"
                     runat="server">
 
@@ -186,10 +187,10 @@
             <h5 class="billing-title">Minimum Amount to buy from Store Policy:</h5>
             <table class="order-rable">
                 <tr>
-                <td>Enter store name and Amount:</td>
+                <td>Enter product ID and Amount:</td>
               </tr>
                 <tr>
-                    <td><asp:TextBox id="MinimumStoreNameTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                    <td><asp:TextBox id="MinimumStoreProductIDTextBox" runat="server" placeholder="Product ID" class="form-control" type="text"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td><asp:TextBox id="MinimumStoreAmountTextBox" runat="server" placeholder="Minimum Amount" class="form-control" type="text"></asp:TextBox></td>
@@ -201,7 +202,7 @@
                 <tr>
                     <td>
 
-               <asp:DropDownList id="DropDownList3"
+               <asp:DropDownList id="compositionType3"
                     AutoPostBack="True"
                     runat="server">
 
@@ -228,10 +229,10 @@
             <h5 class="billing-title">Maximum Amount to buy from Store Policy:</h5>
             <table class="order-rable">
                 <tr>
-                <td>Enter store name and Amount:</td>
+                <td>Enter product ID and Amount:</td>
               </tr>
                 <tr>
-                    <td><asp:TextBox id="MaximumStoreNameTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                    <td><asp:TextBox id="MaximumStoreProductIDTextBox" runat="server" placeholder="Product ID" class="form-control" type="text"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td><asp:TextBox id="MaximumStoreAmountTextBox" runat="server" placeholder="Maximum Amount" class="form-control" type="text"></asp:TextBox></td>
@@ -243,7 +244,7 @@
                 <tr>
                     <td>
 
-               <asp:DropDownList id="DropDownList4"
+               <asp:DropDownList id="compositionType4"
                     AutoPostBack="True"
                     runat="server">
 
@@ -282,7 +283,7 @@
                 <tr>
                     <td>
 
-               <asp:DropDownList id="DropDownList5"
+               <asp:DropDownList id="compositionType5"
                     AutoPostBack="True"
                     runat="server">
 
@@ -321,7 +322,7 @@
                 <tr>
                     <td>
 
-               <asp:DropDownList id="DropDownList6"
+               <asp:DropDownList id="compositionType6"
                     AutoPostBack="True"
                     runat="server">
 
@@ -343,10 +344,28 @@
           </div>
         </div>
 
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h5 class="billing-title">Remove Selling Policiy:</h5>
+            <table class="order-rable">
+                <tr>
+                <td>Enter Product ID to remove its policy:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="IdOfProductToRemoveItsSellingPolicyTextBox1" runat="server" placeholder="Product ID" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+
+              <tr>
+                <td><asp:Button ID="RemoveSellingPolicyButton1" runat="server" class="button button-register w-100" Text="Remove Policy" OnClick="RemoveSellingPolicyButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
        </div>
       </div>
   </section>
-  <!--================End Checkout Area 1=================-->
+  <!--================End Policies Area 1=================-->
 
 <!-- ================ start Discount policies banner area ================= -->	
 	<section class="blog-banner-area" id="category">
@@ -363,7 +382,7 @@
 	</section>
 	<!-- ================ end Discount policies banner area ================= -->
 
-          <!--================Checkout Area 2=================-->
+          <!--================Policies Area 2=================-->
  
         <section class="order_details section-margin--small">
     <div class="container">
@@ -394,7 +413,7 @@
                 <tr>
                     <td>
 
-               <asp:DropDownList id="DropDownList1"
+               <asp:DropDownList id="compositionType7"
                     AutoPostBack="True"
                     runat="server">
 
@@ -442,7 +461,7 @@
                 <tr>
                     <td>
 
-               <asp:DropDownList id="DropDownList7"
+               <asp:DropDownList id="compositionType8"
                     AutoPostBack="True"
                     runat="server">
 
@@ -469,10 +488,10 @@
             <h5 class="billing-title">Minimum Amount to buy from Store Policy:</h5>
             <table class="order-rable">
                 <tr>
-                <td>Enter store name and Amount:</td>
+                <td>Enter product ID and Amount:</td>
               </tr>
                 <tr>
-                    <td><asp:TextBox id="DiscountMinimumStoreNameTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                    <td><asp:TextBox id="DiscountMinimumStoreProductIDTextBox" runat="server" placeholder="Product ID" class="form-control" type="text"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td><asp:TextBox id="DiscountMinimumStoreAmountTextBox" runat="server" placeholder="Minimum Amount" class="form-control" type="text"></asp:TextBox></td>
@@ -487,7 +506,7 @@
                 <tr>
                     <td>
 
-               <asp:DropDownList id="DropDownList8"
+               <asp:DropDownList id="compositionType9"
                     AutoPostBack="True"
                     runat="server">
 
@@ -514,10 +533,10 @@
             <h5 class="billing-title">Maximum Amount to buy from Store Policy:</h5>
             <table class="order-rable">
                 <tr>
-                <td>Enter store name and Amount:</td>
+                <td>Enter product ID and Amount:</td>
               </tr>
                 <tr>
-                    <td><asp:TextBox id="DiscountMaximumStoreNameTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                    <td><asp:TextBox id="DiscountMaximumStoreProductIDTextBox" runat="server" placeholder="Product ID" class="form-control" type="text"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td><asp:TextBox id="DiscountMaximumStoreAmountTextBox" runat="server" placeholder="Maximum Amount" class="form-control" type="text"></asp:TextBox></td>
@@ -532,7 +551,7 @@
                 <tr>
                     <td>
 
-               <asp:DropDownList id="DropDownList9"
+               <asp:DropDownList id="compositionType10"
                     AutoPostBack="True"
                     runat="server">
 
@@ -554,11 +573,28 @@
           </div>
         </div>
 
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h5 class="billing-title">Remove Discount Policiy:</h5>
+            <table class="order-rable">
+                <tr>
+                <td>Enter Product ID to remove its policy:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="IdOfProductToRemoveItsDiscountPolicyTextBox1" runat="server" placeholder="Product ID" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+
+              <tr>
+                <td><asp:Button ID="RemoveDiscountPolicyButton1" runat="server" class="button button-register w-100" Text="Remove Policy" OnClick="RemoveDiscountPolicyButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
 
        </div>
       </div>
   </section>
-  <!--================End Checkout Area 2=================-->
+  <!--================End Policies Area 2=================-->
 
 <!--================ Start footer Area  =================-->	
 	<footer class="footer">
