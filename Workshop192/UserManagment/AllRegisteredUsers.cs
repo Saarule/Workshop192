@@ -22,7 +22,12 @@ namespace Workshop192.UserManagment
             userId = 0;
             users = new Dictionary<int, User>();
         }
-
+        
+        public LinkedList<string> GetAllUserNames()
+        {
+            return new LinkedList<string>(passwords.Keys);
+            
+        }
         public static AllRegisteredUsers GetInstance()
         {
             if (instance == null)

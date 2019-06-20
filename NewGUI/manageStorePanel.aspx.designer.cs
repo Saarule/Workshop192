@@ -128,10 +128,7 @@ namespace NewGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ProductAmountTextBox2;
-        protected global::System.Web.UI.WebControls.TextBox StoreManagerToRemoveTextBox;
-        protected global::System.Web.UI.WebControls.TextBox StoreManagerToAddTextBox;
-        protected global::System.Web.UI.WebControls.TextBox StoreOwnerTextBox;
-
+        
         /// <summary>
         /// Button4 control.
         /// </summary>

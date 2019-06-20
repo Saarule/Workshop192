@@ -231,3 +231,6 @@
 06/19/2019 20:49:26  A guest tried to remove a product from store but failed
 06/19/2019 20:49:26  A guest tried to remove a store manager but failed
 06/19/2019 20:49:26  A guest tried to add a remove a user but failed
+06/20/2019 01:24:25  A user failed to register nati 123456
+06/20/2019 01:25:18  A user failed to register nati 123456
+06/20/2019 03:02:20  A user failed to register A1 123456

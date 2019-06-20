@@ -80,6 +80,7 @@
     <Content Include="checkout.aspx" />
     <Content Include="indexLoginUser.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="Main.aspx" />
     <Content Include="manageStorePanel.aspx" />
     <Content Include="myCart.aspx" />
     <Content Include="ownStorePanel.aspx" />
@@ -123,6 +124,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
     <Compile Include="manageStorePanel.aspx.cs">
       <DependentUpon>manageStorePanel.aspx</DependentUpon>

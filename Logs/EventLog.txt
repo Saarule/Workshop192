@@ -5761,3 +5761,164 @@
 06/19/2019 21:06:44  A new user was registered orel 123456
 06/19/2019 21:06:44  A new user was registered nati 123456
 06/19/2019 21:06:44  orel Logged In
+06/19/2019 21:11:24  A new user was registered orel 123456
+06/19/2019 21:11:32  orel Logged In
+06/19/2019 21:12:08  orel Added Product [1] [milk] [drink] [12] [143] as a owner of store [store1]
+06/19/2019 21:12:27  orel Added Product [2] [water] [drink] [10] [23] as a owner of store [store1]
+06/19/2019 21:12:37  orel removed Product [1] as a owner of store [store1]
+06/19/2019 21:13:00  orel edited product [2] to: [water] [drinks] [8] [50] as owner of store [store1]
+06/19/2019 21:14:52  orel added product [2] [25] of store [store1] to their multi cart
+06/19/2019 21:15:10  orel added product [2] [25] of store [store1] to their multi cart
+06/19/2019 21:15:50  orel Logged Out
+06/19/2019 21:16:02  A new user was registered dan 123456
+06/19/2019 21:16:13  dan Logged In
+06/19/2019 21:16:26  dan added product [2] [7] of store [store1] to their multi cart
+06/19/2019 23:10:27  A new user was registered OREL 123456
+06/19/2019 23:10:37  OREL Logged In
+06/20/2019 00:58:40  A new user was registered nati 123456
+06/20/2019 00:58:48  nati Logged In
+06/20/2019 00:59:03  A new user was registered orel 123456
+06/20/2019 00:59:12  orel Logged In
+06/20/2019 01:02:36  A new user was registered nati 123456
+06/20/2019 01:03:07  A new user was registered orel 123456
+06/20/2019 01:03:16  orel Logged In
+06/20/2019 01:03:49  A new user was registered shalom 555555
+06/20/2019 01:03:58  shalom Logged In
+06/20/2019 01:18:13  A new user was registered nati 123456
+06/20/2019 01:18:49  A new user was registered saar 123456
+06/20/2019 01:19:01  saar Logged In
+06/20/2019 01:19:19  nati Logged In
+06/20/2019 01:22:11  A new user was registered nati 123456
+06/20/2019 01:22:19  nati Logged In
+06/20/2019 01:22:31  A new user was registered saar 123455
+06/20/2019 01:22:40  saar Logged In
+06/20/2019 01:24:43  A new user was registered moshe 123456
+06/20/2019 01:24:52  moshe Logged In
+06/20/2019 01:26:11  A new user was registered nati 123456
+06/20/2019 01:26:20  nati Logged In
+06/20/2019 01:31:22  A new user was registered nati 123456
+06/20/2019 01:31:30  nati Logged In
+06/20/2019 01:38:26  A new user was registered nati 123456
+06/20/2019 01:38:36  nati Logged In
+06/20/2019 01:41:15  A new user was registered nati 123456
+06/20/2019 01:41:25  nati Logged In
+06/20/2019 01:47:17  A new user was registered saar 123456
+06/20/2019 01:47:29  saar Logged In
+06/20/2019 01:52:37  A new user was registered nati 123456
+06/20/2019 01:52:47  nati Logged In
+06/20/2019 01:54:39  A new user was registered nati 123456
+06/20/2019 01:54:54  nati Logged In
+06/20/2019 01:55:19  A new user was registered saar 55555
+06/20/2019 01:55:26  saar Logged In
+06/20/2019 01:57:13  A new user was registered nati 123456
+06/20/2019 01:57:20  nati Logged In
+06/20/2019 01:58:08  A new user was registered lola 123456
+06/20/2019 01:58:16  lola Logged In
+06/20/2019 02:44:54  A new user was registered o 123456
+06/20/2019 02:45:01  o Logged In
+06/20/2019 02:57:45  A new user was registered A1 123456
+06/20/2019 02:58:11  A1 Logged In
+06/20/2019 03:02:19  A new user was registered A1 123456
+06/20/2019 03:02:19  A new user was registered U1 123456
+06/20/2019 03:02:19  A new user was registered U2 123456
+06/20/2019 03:02:19  A new user was registered U11 123456
+06/20/2019 03:02:19  A new user was registered U12 123456
+06/20/2019 03:02:19  A new user was registered U13 123456
+06/20/2019 03:02:19  U11 Logged In
+06/20/2019 03:02:19  U11 Logged Out
+06/20/2019 03:02:50  A new user was registered A1 123456
+06/20/2019 03:02:50  A new user was registered U1 123456
+06/20/2019 03:02:50  A new user was registered U2 123456
+06/20/2019 03:02:50  A new user was registered U11 123456
+06/20/2019 03:02:50  A new user was registered U12 123456
+06/20/2019 03:02:50  A new user was registered U13 123456
+06/20/2019 03:02:50  U11 Logged In
+06/20/2019 03:02:50  U11 Logged Out
+06/20/2019 03:03:13  U11 Logged In
+06/20/2019 03:03:59  A new user was registered A1 123456
+06/20/2019 03:03:59  A new user was registered U1 123456
+06/20/2019 03:04:00  A new user was registered U2 123456
+06/20/2019 03:04:00  A new user was registered U11 123456
+06/20/2019 03:04:00  A new user was registered U12 123456
+06/20/2019 03:04:00  A new user was registered U13 123456
+06/20/2019 03:04:00  U11 Logged In
+06/20/2019 03:04:00  U11 Logged Out
+06/20/2019 03:04:12  U11 Logged In
+06/20/2019 03:06:03  A new user was registered A1 123456
+06/20/2019 03:06:03  A new user was registered U1 123456
+06/20/2019 03:06:03  A new user was registered U2 123456
+06/20/2019 03:06:03  A new user was registered U11 123456
+06/20/2019 03:06:03  A new user was registered U12 123456
+06/20/2019 03:06:03  A new user was registered U13 123456
+06/20/2019 03:06:03  U11 Logged In
+06/20/2019 03:06:03  U11 Logged Out
+06/20/2019 03:06:12  A new user was registered A 12345
+06/20/2019 03:06:19  A Logged In
+06/20/2019 03:06:34  A Logged Out
+06/20/2019 03:06:43  A Logged In
+06/20/2019 03:07:10  A Logged Out
+06/20/2019 03:07:18  U11 Logged In
+06/20/2019 03:07:40  A new user was registered A1 123456
+06/20/2019 03:07:40  A new user was registered U1 123456
+06/20/2019 03:07:40  A new user was registered U2 123456
+06/20/2019 03:07:40  A new user was registered U11 123456
+06/20/2019 03:07:40  A new user was registered U12 123456
+06/20/2019 03:07:40  A new user was registered U13 123456
+06/20/2019 03:07:40  U11 Logged In
+06/20/2019 03:07:40  U11 Logged Out
+06/20/2019 03:07:51  U11 Logged In
+06/20/2019 03:08:34  A new user was registered A1 123456
+06/20/2019 03:08:34  A new user was registered U1 123456
+06/20/2019 03:08:34  A new user was registered U2 123456
+06/20/2019 03:08:34  A new user was registered U11 123456
+06/20/2019 03:08:34  A new user was registered U12 123456
+06/20/2019 03:08:34  A new user was registered U13 123456
+06/20/2019 03:08:34  U11 Logged In
+06/20/2019 03:08:34  U11 Logged Out
+06/20/2019 03:08:47  A new user was registered NATI 12345
+06/20/2019 03:08:56  NATI Logged In
+06/20/2019 03:09:14  NATI Logged Out
+06/20/2019 03:09:24  NATI Logged In
+06/20/2019 03:09:30  NATI Logged Out
+06/20/2019 03:09:41  U11 Logged In
+06/20/2019 03:10:50  A new user was registered A1 123456
+06/20/2019 03:10:50  A new user was registered U1 123456
+06/20/2019 03:10:50  A new user was registered U2 123456
+06/20/2019 03:10:50  A new user was registered U11 123456
+06/20/2019 03:10:50  A new user was registered U12 123456
+06/20/2019 03:10:50  A new user was registered U13 123456
+06/20/2019 03:10:50  U11 Logged In
+06/20/2019 03:10:50  U11 Logged Out
+06/20/2019 03:11:01  U11 Logged In
+06/20/2019 03:15:35  A new user was registered A1 123456
+06/20/2019 03:15:35  A new user was registered U1 123456
+06/20/2019 03:15:35  A new user was registered U2 123456
+06/20/2019 03:15:35  A new user was registered U11 123456
+06/20/2019 03:15:35  A new user was registered U12 123456
+06/20/2019 03:15:35  A new user was registered U13 123456
+06/20/2019 03:15:35  U11 Logged In
+06/20/2019 03:15:35  U11 Logged Out
+06/20/2019 03:15:46  U1 Logged In
+06/20/2019 03:25:32  A new user was registered A1 123456
+06/20/2019 03:25:32  A new user was registered U1 123456
+06/20/2019 03:25:32  A new user was registered U2 123456
+06/20/2019 03:25:32  A new user was registered U11 123456
+06/20/2019 03:25:32  A new user was registered U12 123456
+06/20/2019 03:25:32  A new user was registered U13 123456
+06/20/2019 03:25:32  U11 Logged In
+06/20/2019 03:25:38  U11 Logged Out
+06/20/2019 03:25:53  U11 Logged In
+06/20/2019 03:38:55  A new user was registered A1 123456
+06/20/2019 03:38:55  A new user was registered U1 123456
+06/20/2019 03:38:55  A new user was registered U2 123456
+06/20/2019 03:38:55  A new user was registered U11 123456
+06/20/2019 03:38:55  A new user was registered U12 123456
+06/20/2019 03:38:55  A new user was registered U13 123456
+06/20/2019 03:38:55  U11 Logged In
+06/20/2019 03:38:58  U11 Logged Out
+06/20/2019 03:39:16  A new user was registered a 11111
+06/20/2019 03:39:26  a Logged In
+06/20/2019 03:40:28  a Added Product [1] [milk] [qqq] [10] [1000] as a owner of store [S]
+06/20/2019 03:41:29  A new user was registered b 11111
+06/20/2019 03:41:35  b Logged In
+06/20/2019 03:41:46  b added product [1] [200] of store [S] to their multi cart

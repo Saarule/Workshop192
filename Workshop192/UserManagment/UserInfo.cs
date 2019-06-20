@@ -45,6 +45,10 @@ namespace Workshop192.UserManagment
                 throw new ErrorMessageException("A store with the given name already exists");
             MarketManagment.System.GetInstance().OpenStore(storeName);
             storeOwners.AddLast(new StoreOwner(this, storeName, null));
+            for(int i=0;i< AllRegisteredUsers.GetInstance().GetAllUserNames().Count; i++)
+            {
+                Notifications.Notification.GetInstance().SendMessageToUser(AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(i), "the shop " + storeName + " was opened now!");
+            }
             return true;
         }
 

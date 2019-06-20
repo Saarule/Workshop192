@@ -92,13 +92,37 @@ namespace Workshop192.MarketManagment
             }
             int sum = SumOfCartPrice(userId);
             collection = moneyCollectionSystem.CollectFromAccount(cardNumber, month, year, holder, ccv, id);
-            if (collection == -1)
+            delivery = deliverySystem.Deliver(name, address, city, country, zip);
+            if (collection == -1 || delivery==-1)
             {
                 ReturnProductsToStore(GetMultiCart(multiCartId));
                 return new Tuple<int, int>(-1, -1);
             }
-            delivery = deliverySystem.Deliver(name, address, city, country, zip);
+            try
+            {
+                MultiCart multicart = System.GetInstance().GetMultiCart(multiCartId);
+                for (int i = 0; i < multicart.GetCarts().Count; i++)
+                {
+                    string message = "the products in store" + multicart.GetCarts().ElementAt(i).GetStore().GetName() + ":\n";
+                    for (int j = 0; j < multicart.GetCarts().ElementAt(i).GetProducts().Count; j++)
+                    {
+                        message = message + " id:" + multicart.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetId() + ",name:" + multicart.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetName() + "\n";
+                    }
+                    message += "were sold\n";
+                    for (int k = 0; k < UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().Count; k++)
+                    {
+                        if (UserManagment.AllRegisteredUsers.GetInstance().GetUserInfo(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k)).GetOwner(multicart.GetCarts().ElementAt(i).GetStore().GetName()) != null)
+                            Notifications.Notification.GetInstance().SendMessageToUser(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k), message);
+                        if (UserManagment.AllRegisteredUsers.GetInstance().GetUserInfo(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k)).GetManager(multicart.GetCarts().ElementAt(i).GetStore().GetName()) != null)
+                            Notifications.Notification.GetInstance().SendMessageToUser(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k), message);
+
+                    }
+                }
+            }
+            catch (Exception) { }
+
             ResetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
+
             return new Tuple<int, int>(collection, delivery);
         }
         

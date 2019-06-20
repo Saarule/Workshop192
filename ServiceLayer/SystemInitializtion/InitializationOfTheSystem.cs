@@ -11,7 +11,7 @@ using ServiceLayer.Store_Owner_User;
 using ServiceLayer.SystemInitializtion;
 using System.IO;
 
-namespace ServiceLayer
+namespace ServiceLayer.SystemInitializtion
 {
     public class InitializationOfTheSystem
     {   
@@ -21,8 +21,8 @@ namespace ServiceLayer
             Workshop192.UserManagment.AllRegisteredUsers UserSystem = Workshop192.UserManagment.AllRegisteredUsers.GetInstance();
             MarketSystem.ConnectMoneyCollectionSystem(ConnectExternalMoneyCollectionSystems());
             MarketSystem.ConnectDeliverySystem(ConnectExternalDeliverySystems());
-            UserSystem.RegisterUser("admin", "admin11");
-            UserSystem.GetUserInfo("admin", "admin11").SetAdmin();
+            UserSystem.RegisterUser("A1", "123456");
+            UserSystem.GetUserInfo("A1", "123456").SetAdmin();
 
             if(Path != null)
             {
