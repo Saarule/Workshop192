@@ -38,7 +38,7 @@ namespace Workshop192.UserManagment
         public bool MakeAdmin(UserInfo user)
         {
             if (!IsAdmin())
-                throw new ErrorMessageException("This user doesn't have admin rights");
+                throw new ErrorMessageException("This user doesnt have admin rights");
             return admin.MakeAdmin(user);
         }
 
@@ -76,7 +76,7 @@ namespace Workshop192.UserManagment
             }
             if (manager != null)
                 return manager.AddProducts(product, amount);
-            throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+            throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
         }
 
         public bool RemoveProductFromInventory(string store, int productId)
@@ -87,7 +87,7 @@ namespace Workshop192.UserManagment
                 return owner.RemoveProductFromInventory(productId);
             if (manager != null)
                 return manager.RemoveProductFromInventory(productId);
-            throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+            throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
         }
 
         public bool EditProduct(string store, int productId, string name, string category, int price, int amount)
@@ -98,14 +98,14 @@ namespace Workshop192.UserManagment
                 return owner.EditProduct(productId, name, category, price, amount);
             if (manager != null)
                 return manager.EditProduct(productId, name, category, price, amount);
-            throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+            throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
         }
 
         public bool AddStoreOwner(string store, UserInfo user)
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
-                throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+                throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
             return s.AddOwner(user);
         }
 
@@ -113,7 +113,7 @@ namespace Workshop192.UserManagment
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
-                throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+                throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
             return s.AcceptOwner(user);
         }
 
@@ -121,7 +121,7 @@ namespace Workshop192.UserManagment
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
-                throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+                throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
             return s.DeclineOwner(user);
         }
 
@@ -133,7 +133,7 @@ namespace Workshop192.UserManagment
                 return owner.AddDiscountPolicy(policy, discount);
             if (manager != null)
                 return manager.AddDiscountPolicy(policy, discount);
-            throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+            throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
         }
 
         public bool AddSellingPolicy(string store, LinkedList<string> policy)
@@ -144,7 +144,7 @@ namespace Workshop192.UserManagment
                 return owner.AddSellingPolicy(policy);
             if (manager != null)
                 return manager.AddSellingPolicy(policy);
-            throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+            throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
         }
 
         public bool RemoveDiscountPolicy(string store, int productId)
@@ -155,7 +155,7 @@ namespace Workshop192.UserManagment
                 return owner.RemoveDiscountPolicy(productId);
             if (manager != null)
                 return manager.RemoveDiscountPolicy(productId);
-            throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+            throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
         }
 
         public bool RemoveSellingPolicy(string store, int productId)
@@ -166,14 +166,14 @@ namespace Workshop192.UserManagment
                 return owner.RemoveSellingPolicy(productId);
             if (manager != null)
                 return manager.RemoveSellingPolicy(productId);
-            throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+            throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
         }
 
         public bool AddStoreManager(string store, UserInfo user, bool[] privileges)
         {
             StoreOwner s = GetOwner(store);
             if (s == null)
-                throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+                throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
             return s.AddManager(user, privileges);
         }
 
@@ -181,15 +181,15 @@ namespace Workshop192.UserManagment
         {
             StoreOwner owner = GetOwner(store);
             if (owner == null)
-                throw new ErrorMessageException("This user isn't a store owner/manager of store [" + store + "]");
+                throw new ErrorMessageException("This user isnt a store owner/manager of store [" + store + "]");
             return owner.RemoveAppointedManager(user);
-            throw new ErrorMessageException("The given user isn't a store manager of store [" + store + "]");
+            throw new ErrorMessageException("The given user isnt a store manager of store [" + store + "]");
         }
 
         public bool RemoveUser(UserInfo user)
         {
             if (!IsAdmin())
-                throw new ErrorMessageException("This user doesn't have admin rights");
+                throw new ErrorMessageException("This user doesnt have admin rights");
             return admin.RemoveUser(user);
         }
 

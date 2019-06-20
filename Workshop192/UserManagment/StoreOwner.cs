@@ -99,7 +99,7 @@ namespace Workshop192.UserManagment
             if (!GetPendingUsers().Contains(user))
             {
                 Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried accepting user " + user.GetUserName() + " as a owner of store [" + store + "] but the given user wasn't on their pending list");
-                throw new ErrorMessageException("The given user isn't in your pending users list");
+                throw new ErrorMessageException("The given user isnt in your pending users list");
             }
             pendingUsers = pendingUsers.Replace(user.GetUserName(), "");
             Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " accepted user " + user.GetUserName() + " as a owner in store [" + store + "]");
@@ -119,7 +119,7 @@ namespace Workshop192.UserManagment
             if (!GetPendingUsers().Contains(user))
             {
                 Logger.GetInstance().WriteToErrorLog(this.user.GetUserName() + " tried declining user " + user.GetUserName() + " as a owner of store [" + store + "] but the given user wasn't on their pending list");
-                throw new ErrorMessageException("The given user isn't in your pending users list");
+                throw new ErrorMessageException("The given user isnt in your pending users list");
             }
             Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " declined user " + user.GetUserName() + " as a owner in store [" + store + "]");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
@@ -171,7 +171,7 @@ namespace Workshop192.UserManagment
                         productAmount.product.AddDiscountPolicy(policy, discount);
                         return true;
                     }
-            throw new ErrorMessageException("Given product id doesn't exist in store");
+            throw new ErrorMessageException("Given product id doesnt exist in store");
         }
 
         public bool AddSellingPolicy(LinkedList<string> policy)
@@ -188,7 +188,7 @@ namespace Workshop192.UserManagment
                         productAmount.product.AddSellingPolicy(policy);
                         return true;
                     }
-            throw new ErrorMessageException("Given product id doesn't exist in store");
+            throw new ErrorMessageException("Given product id doesnt exist in store");
         }
 
         public bool RemoveDiscountPolicy(int productId)
@@ -203,7 +203,7 @@ namespace Workshop192.UserManagment
                     {
                         return productAmount.product.RemoveDiscountPolicy();
                     }
-            throw new ErrorMessageException("Given product id doesn't exist in store");
+            throw new ErrorMessageException("Given product id doesnt exist in store");
         }
 
         public bool RemoveSellingPolicy(int productId)

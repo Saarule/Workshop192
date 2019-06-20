@@ -29,6 +29,10 @@ namespace Workshop192.MarketManagment
             foreach (UserManagment.UserInfo info in DbCommerce.GetInstance().GetUserInfos())
                 if (info.GetMultiCart() > multiCartId)
                     multiCartId = info.GetMultiCart();
+            foreach (Store store in DbCommerce.GetInstance().GetStores())
+                foreach (ProductAmountInventory productAmount in store.GetInventory())
+                    if (productAmount.productId > productId)
+                        productId = productAmount.productId;
         }
 
         public static System GetInstance()
@@ -141,9 +145,9 @@ namespace Workshop192.MarketManagment
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
                 {
                     if (cart.GetStore().GetProductAmount(productAmount.Key) == null)
-                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesn't exist anymore");
+                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesnt exist anymore");
                     if (cart.GetStore().GetProductAmount(productAmount.Key).amount < productAmount.Value)
-                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesn't have the given amount in store");
+                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesnt have the given amount in store");
                     if (GetStore(cart.GetStore().GetName()) == null)
                         throw new ErrorMessageException("Store [" + cart.GetStore().GetName() + "] no longer exists");
                 }
@@ -200,7 +204,6 @@ namespace Workshop192.MarketManagment
             Store store = new Store(storeName);
             stores.AddLast(store);
             DbCommerce.GetInstance().AddStore(store);
-            DbCommerce.GetInstance().SaveDb();
         }
 
         public Store GetStore(string storeName)

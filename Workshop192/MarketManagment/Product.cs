@@ -85,7 +85,7 @@ namespace Workshop192.MarketManagment
         public bool RemoveDiscountPolicy()
         {
             if (discountPolicy == null)
-                throw new ErrorMessageException("Can't Remove non existing discount policy");
+                throw new ErrorMessageException("Cant Remove non existing discount policy");
             discountPolicy = null;
             return true;
         }
@@ -93,7 +93,7 @@ namespace Workshop192.MarketManagment
         public bool RemoveSellingPolicy()
         {
             if (sellingPolicy == null)
-                throw new ErrorMessageException("Can't Remove non existing selling policy");
+                throw new ErrorMessageException("Cant Remove non existing selling policy");
             sellingPolicy = null;
             return true;
         }

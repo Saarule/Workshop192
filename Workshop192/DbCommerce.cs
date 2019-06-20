@@ -16,6 +16,7 @@ namespace Workshop192
 
         private DbCommerce()
         {
+            //var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
             forTests = false;
         }
 

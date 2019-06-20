@@ -9667,3 +9667,16 @@
 06/20/2019 09:08:46  A new user was registered user 123456
 06/20/2019 09:08:46  A new user was registered user 123456
 06/20/2019 09:08:46  A new user was registered user 123456
+06/20/2019 09:10:33  A new user was registered ben 123456
+06/20/2019 09:11:27  A new user was registered A1 123456
+06/20/2019 09:12:44  A new user was registered ben 123456
+06/20/2019 09:14:30  A new user was registered asd 123456
+06/20/2019 09:19:22  A new user was registered ben 123456
+06/20/2019 09:21:51  A new user was registered ben 123456
+06/20/2019 09:22:15  A new user was registered asd 123456
+06/20/2019 09:22:32  ben Logged In
+06/20/2019 09:23:31  ben Added Product [1] [Temp] [Cat] [500] [3] as a owner of store [Store]
+06/20/2019 09:27:15  A new user was registered ben 123456
+06/20/2019 09:28:23  A new user was registered ben 123456
+06/20/2019 09:29:27  A new user was registered ben 123456
+06/20/2019 09:31:48  A new user was registered ben 123456

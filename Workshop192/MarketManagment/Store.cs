@@ -26,7 +26,7 @@ namespace Workshop192.MarketManagment
         {
             foreach (ProductAmountInventory productAmount in inventory)
                 if (productAmount.productId.Equals(product.GetId()))
-                    throw new ErrorMessageException("Can't Add new existing product");
+                    throw new ErrorMessageException("Cant Add new existing product");
             inventory.AddLast(new ProductAmountInventory(this, product, amount));
             return true;
         }
@@ -49,7 +49,7 @@ namespace Workshop192.MarketManagment
                     productAmount.amount -= amount;
                     return true;
                 }
-            throw new ErrorMessageException("Can't remove non existing product");
+            throw new ErrorMessageException("Cant remove non existing product");
         }
 
         public bool RemoveProductFromInventory(int productId)
@@ -57,7 +57,7 @@ namespace Workshop192.MarketManagment
             foreach (ProductAmountInventory productAmount in inventory)
                 if (productAmount.productId.Equals(productId))
                     return inventory.Remove(productAmount);
-            throw new ErrorMessageException("Can't Remove non existing product from inventory");
+            throw new ErrorMessageException("Cant Remove non existing product from inventory");
         }
 
         public bool EditProduct(int productId, string name, string category, int price, int amount)
@@ -69,7 +69,7 @@ namespace Workshop192.MarketManagment
                     productAmount.amount = amount;
                     return true;
                 }
-            throw new ErrorMessageException("Can't edit non existing product");
+            throw new ErrorMessageException("Cant edit non existing product");
         }
 
         public void AddDiscountPolicy(LinkedList<string> policy, int discount)
@@ -125,7 +125,7 @@ namespace Workshop192.MarketManagment
         public bool RemoveDiscountPolicy()
         {
             if (discountPolicy == null)
-                throw new ErrorMessageException("Can't Remove non existing discount policy");
+                throw new ErrorMessageException("Cant Remove non existing discount policy");
             discountPolicy = null;
             return true;
         }
@@ -133,7 +133,7 @@ namespace Workshop192.MarketManagment
         public bool RemoveSellingPolicy()
         {
             if (sellingPolicy == null)
-                throw new ErrorMessageException("Can't Remove non existing selling policy");
+                throw new ErrorMessageException("Cant Remove non existing selling policy");
             sellingPolicy = null;
             return true;
         }
