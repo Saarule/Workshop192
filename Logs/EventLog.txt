@@ -9680,3 +9680,24 @@
 06/20/2019 09:28:23  A new user was registered ben 123456
 06/20/2019 09:29:27  A new user was registered ben 123456
 06/20/2019 09:31:48  A new user was registered ben 123456
+06/20/2019 10:08:00  A new user was registered ben 123456
+06/20/2019 10:09:16  A new user was registered ben 123456
+06/20/2019 10:10:53  A new user was registered ben 123456
+06/20/2019 10:11:03  ben Logged In
+06/20/2019 10:12:01  ben Added Product [1] [Water] [Drink] [5] [20] as a owner of store [Store]
+06/20/2019 10:13:35  A new user was registered ben 123456
+06/20/2019 10:14:23  A new user was registered ben 123456
+06/20/2019 10:17:45  A new user was registered ben 123456
+06/20/2019 10:26:55  A new user was registered ben 123456
+06/20/2019 10:33:13  A new user was registered ben 123456
+06/20/2019 10:36:28  A new user was registered ben 123456
+06/20/2019 10:37:13  A new user was registered A1 123456
+06/20/2019 10:37:13  A new user was registered U1 123456
+06/20/2019 10:37:13  A new user was registered U2 123456
+06/20/2019 10:37:13  A new user was registered U11 123456
+06/20/2019 10:37:13  A new user was registered U12 123456
+06/20/2019 10:37:13  A new user was registered U13 123456
+06/20/2019 10:37:13  U11 Logged In
+06/20/2019 10:37:13  U11 Logged Out
+06/20/2019 10:37:46  A1 Logged In
+06/20/2019 10:42:38  A new user was registered A1 123456
