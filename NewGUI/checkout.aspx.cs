@@ -39,17 +39,26 @@ namespace NewGUI
 
                 if (transcationPayId != "-1" && transcationSupplyId != "-1")
                 {
-                    Response.Redirect("confirmation.aspx?PayID="+transcationPayId+"&SupplyID="+transcationSupplyId);
+                    Response.Redirect("confirmation.aspx?PayID=" + transcationPayId + "&SupplyID=" + transcationSupplyId);
                     Response.Write("<script>alert('Successful Purchase');</script>");
                 }
                 else
                 {
-                    Response.Write("<script>alert('Purchase failed');</script>");
+                    if (transcationPayId == "-1" && transcationSupplyId == "-1")
+                        Response.Write("<script>alert('money system and delivery system failed');</script>");
+                    else if (transcationPayId == "-1")
+                        Response.Write("<script>alert('money system failed');</script>");
+                    else
+                        Response.Write("<script>alert('delivery system failed');</script>");
                 }
             }
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('purchase faild - error details');</script>");
             }
 
         }

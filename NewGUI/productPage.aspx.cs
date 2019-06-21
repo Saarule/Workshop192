@@ -49,7 +49,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully added product to cart');</script>");
-                    Response.Redirect("myCart.aspx");
+                    Response.Redirect("myCart.aspx"); // need to FIX
                 }
                 else
                 {

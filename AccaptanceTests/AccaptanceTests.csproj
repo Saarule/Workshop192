@@ -65,6 +65,7 @@
     <Compile Include="Guest\SaveProductToCartTest.cs" />
     <Compile Include="Guest\SearchProductsTest.cs" />
     <Compile Include="Guest\WatchAndEditTest.cs" />
+    <Compile Include="RegisteredUser\GetRolesTest.cs" />
     <Compile Include="RegisteredUser\LogOutTest.cs" />
     <Compile Include="RegisteredUser\OpenStoreTest.cs" />
     <Compile Include="StoreManagerUser\StoreManagerTriesToMakeCommandTest.cs" />

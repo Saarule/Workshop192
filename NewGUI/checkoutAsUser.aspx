@@ -131,7 +131,7 @@
                             <asp:TextBox id="IDnumberOfHolderTextBox" runat="server" placeholder="ID number of holder" class="form-control" type="text"></asp:TextBox>
                         </div>
                         <div class="text-center">
-                           <asp:Button ID="BuyNowButton1" runat="server" class="button button-paypal" Text="Buy Now" OnClick="BuyNowButton1_Click" />
+                           <asp:Button ID="BuyNowButton1" runat="server" class="button button-paypal" Text="Buy-Now" OnClick="BuyNowButton1_Click" />
                         </div>
                     </form>
                 </div>
