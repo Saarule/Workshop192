@@ -6383,3 +6383,154 @@
 06-20-2019 01:58:02  A new user was registered admin admin11
 06-20-2019 02:09:00  A new user was registered admin admin11
 >>>>>>> NewestGUI
+06/20/2019 13:11:56  A new user was registered A1 123456
+06/20/2019 13:11:56  A new user was registered U1 123456
+06/20/2019 13:11:56  A new user was registered U2 123456
+06/20/2019 13:11:56  A new user was registered U11 123456
+06/20/2019 13:11:56  A new user was registered U12 123456
+06/20/2019 13:11:56  A new user was registered U13 123456
+06/20/2019 13:11:56  U11 Logged In
+06/20/2019 13:11:56  U11 Logged Out
+06/21/2019 01:16:28  A new user was registered A1 123456
+06/21/2019 01:16:28  A new user was registered U1 123456
+06/21/2019 01:16:28  A new user was registered U2 123456
+06/21/2019 01:16:29  A new user was registered U11 123456
+06/21/2019 01:16:29  A new user was registered U12 123456
+06/21/2019 01:16:29  A new user was registered U13 123456
+06/21/2019 01:16:29  U11 Logged In
+06/21/2019 01:16:29  U11 Logged Out
+06/21/2019 01:17:49  A new user was registered hadar 1234567
+06/21/2019 01:17:57  hadar Logged In
+06/21/2019 01:18:39  hadar Added Product [1] [T-SHIRT] [CLOTHS] [30] [80] as a owner of store [ZARA]
+06/21/2019 01:18:55  hadar Added Product [2] [SKIRT] [CLOTHS] [60] [100] as a owner of store [ZARA]
+06/21/2019 01:19:24  hadar added product [2] [20] of store [ZARA] to their multi cart
+06/21/2019 01:19:47  hadar added product [1] [40] of store [ZARA] to their multi cart
+06/21/2019 15:24:56  A new user was registered A1 123456
+06/21/2019 15:24:56  A new user was registered U1 123456
+06/21/2019 15:24:56  A new user was registered U2 123456
+06/21/2019 15:24:56  A new user was registered U11 123456
+06/21/2019 15:24:56  A new user was registered U12 123456
+06/21/2019 15:24:56  A new user was registered U13 123456
+06/21/2019 15:24:56  U11 Logged In
+06/21/2019 15:24:56  U11 Logged Out
+06/21/2019 15:25:10  A new user was registered a 123456
+06/21/2019 15:25:16  a Logged In
+06/21/2019 15:25:38  a Added Product [1] [qq] [qq] [12] [111] as a owner of store [s1]
+06/21/2019 15:25:47  a added product [1] [20] of store [s1] to their multi cart
+06/21/2019 15:32:05  A new user was registered A1 123456
+06/21/2019 15:32:05  A new user was registered U1 123456
+06/21/2019 15:32:05  A new user was registered U2 123456
+06/21/2019 15:32:05  A new user was registered U11 123456
+06/21/2019 15:32:05  A new user was registered U12 123456
+06/21/2019 15:32:05  A new user was registered U13 123456
+06/21/2019 15:32:05  U11 Logged In
+06/21/2019 15:32:05  U11 Logged Out
+06/21/2019 15:33:32  A1 Logged In
+06/21/2019 15:35:07  A new user was registered A1 123456
+06/21/2019 15:35:07  A new user was registered U1 123456
+06/21/2019 15:35:07  A new user was registered U2 123456
+06/21/2019 15:35:07  A new user was registered U11 123456
+06/21/2019 15:35:07  A new user was registered U12 123456
+06/21/2019 15:35:07  A new user was registered U13 123456
+06/21/2019 15:35:07  U11 Logged In
+06/21/2019 15:35:07  U11 Logged Out
+06/21/2019 15:35:22  A1 Logged In
+06/21/2019 15:39:04  A new user was registered A1 123456
+06/21/2019 15:39:04  A new user was registered U1 123456
+06/21/2019 15:39:04  A new user was registered U2 123456
+06/21/2019 15:39:04  A new user was registered U11 123456
+06/21/2019 15:39:04  A new user was registered U12 123456
+06/21/2019 15:39:04  A new user was registered U13 123456
+06/21/2019 15:40:28  U11 Logged In
+06/21/2019 15:41:10  U11 Logged Out
+06/21/2019 15:44:41  U11 Logged In
+06/21/2019 15:51:56  A new user was registered A1 123456
+06/21/2019 15:51:56  A new user was registered U1 123456
+06/21/2019 15:51:56  A new user was registered U2 123456
+06/21/2019 15:51:56  A new user was registered U11 123456
+06/21/2019 15:51:56  A new user was registered U12 123456
+06/21/2019 15:51:56  A new user was registered U13 123456
+06/21/2019 15:53:27  U11 Logged In
+06/21/2019 15:53:32  U11 Logged Out
+06/21/2019 15:53:48  U1 Logged In
+06/21/2019 15:58:33  A new user was registered A1 123456
+06/21/2019 15:58:33  A new user was registered U1 123456
+06/21/2019 15:58:33  A new user was registered U2 123456
+06/21/2019 15:58:33  A new user was registered U11 123456
+06/21/2019 15:58:33  A new user was registered U12 123456
+06/21/2019 15:58:33  A new user was registered U13 123456
+06/21/2019 15:58:39  U11 Logged In
+06/21/2019 15:58:39  U11 Logged Out
+06/21/2019 15:58:49  A1 Logged In
+06/21/2019 16:11:02  A new user was registered A1 123456
+06/21/2019 16:11:02  A new user was registered U1 123456
+06/21/2019 16:11:02  A new user was registered U2 123456
+06/21/2019 16:11:02  A new user was registered U11 123456
+06/21/2019 16:11:02  A new user was registered U12 123456
+06/21/2019 16:11:02  A new user was registered U13 123456
+06/21/2019 16:11:11  U11 Logged In
+06/21/2019 16:11:49  A new user was registered A1 123456
+06/21/2019 16:11:49  A new user was registered U1 123456
+06/21/2019 16:11:49  A new user was registered U2 123456
+06/21/2019 16:11:49  A new user was registered U11 123456
+06/21/2019 16:11:49  A new user was registered U12 123456
+06/21/2019 16:11:49  A new user was registered U13 123456
+06/21/2019 16:12:00  A new user was registered avi 1234567
+06/21/2019 16:12:11  U11 Logged In
+06/21/2019 16:12:41  U11 Added Product [1] [WWW] [QQ] [123] [1233] as a owner of store [S2]
+06/21/2019 16:12:51  U11 added product [1] [110] of store [S2] to their multi cart
+06/21/2019 16:15:51  U11 added product [1] [1] of store [S2] to their multi cart
+06/21/2019 16:22:16  A new user was registered A1 123456
+06/21/2019 16:22:16  A new user was registered U1 123456
+06/21/2019 16:22:16  A new user was registered U2 123456
+06/21/2019 16:22:16  A new user was registered U11 123456
+06/21/2019 16:22:16  A new user was registered U12 123456
+06/21/2019 16:22:16  A new user was registered U13 123456
+06/21/2019 16:23:43  A new user was registered A 12345
+06/21/2019 16:23:54  U11 Logged In
+06/21/2019 16:24:17  U11 Added Product [1] [W] [Q] [12] [122] as a owner of store [S2]
+06/21/2019 16:25:09  U11 added product [1] [20] of store [S2] to their multi cart
+06/21/2019 16:37:45  A new user was registered A1 123456
+06/21/2019 16:37:45  A new user was registered U1 123456
+06/21/2019 16:37:45  A new user was registered U2 123456
+06/21/2019 16:37:45  A new user was registered U11 123456
+06/21/2019 16:37:45  A new user was registered U12 123456
+06/21/2019 16:37:45  A new user was registered U13 123456
+06/21/2019 16:37:55  A new user was registered a 12345
+06/21/2019 16:38:05  U11 Logged In
+06/21/2019 16:38:31  U11 Added Product [1] [OO] [OO] [12] [12] as a owner of store [S2]
+06/21/2019 16:38:56  U11 added product [1] [10] of store [S2] to their multi cart
+06/21/2019 16:43:47  A new user was registered A1 123456
+06/21/2019 16:43:47  A new user was registered U1 123456
+06/21/2019 16:43:47  A new user was registered U2 123456
+06/21/2019 16:43:47  A new user was registered U11 123456
+06/21/2019 16:43:47  A new user was registered U12 123456
+06/21/2019 16:43:47  A new user was registered U13 123456
+06/21/2019 16:43:59  A new user was registered a 12312
+06/21/2019 16:44:05  U11 Logged In
+06/21/2019 16:44:21  U11 Added Product [1] [hhh] [hhh] [38] [38] as a owner of store [S2]
+06/21/2019 16:44:30  U11 added product [1] [30] of store [S2] to their multi cart
+06/21/2019 16:45:01  U11 added product [1] [8] of store [S2] to their multi cart
+06/21/2019 16:47:10  A new user was registered A1 123456
+06/21/2019 16:47:10  A new user was registered U1 123456
+06/21/2019 16:47:10  A new user was registered U2 123456
+06/21/2019 16:47:10  A new user was registered U11 123456
+06/21/2019 16:47:10  A new user was registered U12 123456
+06/21/2019 16:47:10  A new user was registered U13 123456
+06/21/2019 16:47:25  A new user was registered a 123456
+06/21/2019 16:47:43  U11 Logged In
+06/21/2019 16:47:58  U11 Added Product [1] [jj] [jj] [10] [100] as a owner of store [S2]
+06/21/2019 17:31:46  A new user was registered A1 123456
+06/21/2019 17:31:46  A new user was registered orel 123456
+06/21/2019 17:31:46  A new user was registered nati 123456
+06/21/2019 17:31:46  orel Logged In
+06/21/2019 17:31:46  A new user was registered saar 12345123
+06/21/2019 17:31:46  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/21/2019 17:31:46  orel added user nati as a manager in store [Victory] with the following privileges System.Boolean[]
+06/21/2019 17:33:04  A new user was registered A1 123456
+06/21/2019 17:33:04  A new user was registered orel 123456
+06/21/2019 17:33:04  A new user was registered nati 123456
+06/21/2019 17:33:04  orel Logged In
+06/21/2019 17:33:04  A new user was registered saar 12345123
+06/21/2019 17:33:04  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/21/2019 17:33:04  orel added user nati as a manager in store [Victory] with the following privileges System.Boolean[]

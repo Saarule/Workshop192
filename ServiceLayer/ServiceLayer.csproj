@@ -47,12 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\GetAllUserName.cs" />
     <Compile Include="Admin\IsAdmin.cs" />
     <Compile Include="Admin\RemoveUserFromSystem.cs" />
     <Compile Include="Guest\CancelOrders.cs" />
     <Compile Include="Guest\CheckAvailability.cs" />
     <Compile Include="Guest\CreateAndGetUser.cs" />
     <Compile Include="Guest\FilterProducts.cs" />
+    <Compile Include="Guest\IsLoggedIn.cs" />
     <Compile Include="Guest\LogIn.cs" />
     <Compile Include="Guest\ProcessOfBuyingProducts.cs" />
     <Compile Include="Guest\Register.cs" />

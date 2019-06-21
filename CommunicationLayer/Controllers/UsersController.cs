@@ -125,5 +125,19 @@ namespace CommunicationLayer.Controllers
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
             return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsManager(userID, storename);
         }
+        public static bool IsLoggedIn(string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Guest.IsLoggedIn.IsLogged(userID);
+        }
+        public static LinkedList<string> GetAllUserName()
+        {
+            return ServiceLayer.Admin.GetAllUserName.GetAllUser();
+        }
+
+        public static LinkedList<LinkedList<string>> GetRolesOfStore(string storeName)
+        {
+            return ServiceLayer.RegisteredUser.GetRoles.GetRolesOfStore(storeName);
+        }
     }
 }

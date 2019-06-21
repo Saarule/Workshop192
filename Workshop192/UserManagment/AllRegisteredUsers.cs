@@ -25,8 +25,7 @@ namespace Workshop192.UserManagment
         
         public LinkedList<string> GetAllUserNames()
         {
-            return new LinkedList<string>(passwords.Keys);
-            
+            return new LinkedList<string>(passwords.Keys);     
         }
         public static AllRegisteredUsers GetInstance()
         {
@@ -87,6 +86,16 @@ namespace Workshop192.UserManagment
             if (!userInfos.ContainsKey(userName))
                 return null;
             return userInfos[userName];
+        }
+
+        public LinkedList<UserInfo> getUserInfo()
+        {
+            LinkedList<UserInfo> userInfo = new LinkedList<UserInfo>();
+            for(int i=0;i< userInfos.Count; i++)
+            {
+                userInfo.AddLast(userInfos.ElementAt(i).Value);
+            }
+            return userInfo;
         }
 
         public bool RemoveUser(UserInfo user)
