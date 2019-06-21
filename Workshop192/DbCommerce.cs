@@ -14,9 +14,10 @@ namespace Workshop192
         private static DbCommerce instance = null;
         private bool forTests;
 
-        private DbCommerce()
+        private DbCommerce() : base()
         {
-            forTests = false;
+            var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+            forTests = true;
         }
 
         public static DbCommerce GetInstance()
@@ -61,13 +62,7 @@ namespace Workshop192
         }
 
         public DbSet<UserInfo> users { get; set; }
-        public DbSet<Admin> admins { get; set; }
-        public DbSet<StoreOwner> storeOwners { get; set; }
-        public DbSet<StoreManager> storeManagers { get; set; }
-        public DbSet<StoreOwnersOfStore> owners { get; set; }
         public DbSet<Store> stores { get; set; }
-        public DbSet<ProductAmountInventory> productAmounts { get; set; }
-        public DbSet<Product> products { get; set; }
 
         public void AddUserInfo(UserInfo info)
         {

@@ -9701,3 +9701,122 @@
 06/20/2019 10:37:13  U11 Logged Out
 06/20/2019 10:37:46  A1 Logged In
 06/20/2019 10:42:38  A new user was registered A1 123456
+06/20/2019 11:28:54  A new user was registered A1 123456
+06/20/2019 11:30:26  A new user was registered ben 123456
+06/20/2019 11:42:20  A new user was registered A1 123456
+06/20/2019 11:42:42  A new user was registered ben 123456
+06/20/2019 11:59:41  A new user was registered ben 123456
+06/20/2019 12:00:36  A new user was registered ben 123456
+06/20/2019 12:03:00  A new user was registered A1 123456
+06/20/2019 12:03:36  A new user was registered ben 123456
+06/20/2019 12:03:57  A new user was registered A1 123456
+06/20/2019 12:04:17  A new user was registered ben 123456
+06/20/2019 12:05:01  A new user was registered A1 123456
+06/20/2019 12:05:27  A new user was registered ben 123456
+06/20/2019 12:06:32  A new user was registered A1 123456
+06/20/2019 12:06:52  A1 Logged In
+06/20/2019 12:07:42  A new user was registered A1 123456
+06/20/2019 12:09:48  A new user was registered A1 123456
+06/20/2019 12:09:48  A new user was registered U1 123456
+06/20/2019 12:09:48  A new user was registered U2 123456
+06/20/2019 12:09:48  A new user was registered U11 123456
+06/20/2019 12:09:48  A new user was registered U12 123456
+06/20/2019 12:09:48  A new user was registered U13 123456
+06/20/2019 12:09:48  U11 Logged In
+06/20/2019 12:09:49  U11 Logged Out
+06/20/2019 12:10:02  A new user was registered ben 123456
+06/20/2019 12:10:18  ben Logged In
+06/20/2019 12:10:58  ben Added Product [1] [Water] [Drink] [5] [30] as a owner of store [My Store]
+06/20/2019 12:13:19  A new user was registered ben 123456
+06/20/2019 12:15:44  A new user was registered A1 123456
+06/20/2019 12:15:44  A new user was registered U1 123456
+06/20/2019 12:15:44  A new user was registered U2 123456
+06/20/2019 12:15:44  A new user was registered U11 123456
+06/20/2019 12:15:44  A new user was registered U12 123456
+06/20/2019 12:15:44  A new user was registered U13 123456
+06/20/2019 12:15:44  U11 Logged In
+06/20/2019 12:15:45  U11 Logged Out
+06/20/2019 12:43:59  A new user was registered A1 123456
+06/20/2019 12:43:59  A new user was registered U1 123456
+06/20/2019 12:44:00  A new user was registered U2 123456
+06/20/2019 12:44:00  A new user was registered U11 123456
+06/20/2019 12:44:00  A new user was registered U12 123456
+06/20/2019 12:44:00  A new user was registered U13 123456
+06/20/2019 12:44:00  U11 Logged In
+06/20/2019 12:44:00  U11 Logged Out
+06/20/2019 12:44:11  A new user was registered ben 123456
+06/20/2019 12:44:17  ben Logged In
+06/20/2019 12:45:04  ben Added Product [1] [Water] [Drink] [5] [20] as a owner of store [Ztore]
+06/20/2019 12:45:29  ben edited product [1] to: [Water] [Fluid] [4] [25] as owner of store [Ztore]
+06/20/2019 13:26:41  A new user was registered A1 123456
+06/20/2019 13:26:42  A new user was registered U1 123456
+06/20/2019 13:26:42  A new user was registered U2 123456
+06/20/2019 13:26:42  A new user was registered U11 123456
+06/20/2019 13:26:42  A new user was registered U12 123456
+06/20/2019 13:26:42  A new user was registered U13 123456
+06/20/2019 13:26:42  U11 Logged In
+06/20/2019 13:26:42  U11 Logged Out
+06/20/2019 13:27:16  A new user was registered ben 123456
+06/20/2019 13:28:57  A new user was registered U3 123456
+06/20/2019 13:30:02  U1 Logged In
+06/20/2019 13:31:52  U1 added user U2 as a manager in store [s1] with the following privileges System.Boolean[]
+06/20/2019 13:32:59  U1 added user U3 as a manager in store [s1] with the following privileges System.Boolean[]
+06/20/2019 13:46:13  U1 Logged Out
+06/20/2019 13:46:23  U2 Logged In
+06/20/2019 13:47:10  U2 Added Product [1] [Beer] [Alchool] [10] [3] as a manager of store [s1]
+06/20/2019 13:47:36  U2 Added Product [2] [Wine] [Alchool] [20] [40] as a manager of store [s1]
+06/20/2019 14:06:14  U2 Logged Out
+06/20/2019 14:06:23  U3 Logged In
+06/20/2019 14:06:47  U3 Logged Out
+06/20/2019 14:07:00  U3 Logged In
+06/20/2019 14:16:49  U3 Logged Out
+06/20/2019 14:18:03  A guest added product [2] [1] of store [s1] to their multi cart
+06/20/2019 14:18:20  A guest added product [2] [5] of store [s1] to their multi cart
+06/20/2019 14:23:00  A new user was registered U2 123456
+06/20/2019 14:23:29  A new user was registered A1 123456
+06/20/2019 14:23:52  A new user was registered saar 123456
+06/20/2019 14:24:44  A new user was registered b 123456
+06/20/2019 14:26:22  A new user was registered A1 123456
+06/20/2019 14:26:22  A new user was registered U1 123456
+06/20/2019 14:26:22  A new user was registered U2 123456
+06/20/2019 14:26:22  A new user was registered U11 123456
+06/20/2019 14:26:22  A new user was registered U12 123456
+06/20/2019 14:26:22  A new user was registered U13 123456
+06/20/2019 14:26:22  U11 Logged In
+06/20/2019 14:26:22  U11 Logged Out
+06/20/2019 14:26:43  U1 Logged In
+06/20/2019 14:27:28  A new user was registered A1 123456
+06/20/2019 14:27:28  A new user was registered U1 123456
+06/20/2019 14:27:28  A new user was registered U2 123456
+06/20/2019 14:27:28  A new user was registered U11 123456
+06/20/2019 14:27:28  A new user was registered U12 123456
+06/20/2019 14:27:28  A new user was registered U13 123456
+06/20/2019 14:27:28  U11 Logged In
+06/20/2019 14:27:28  U11 Logged Out
+06/20/2019 14:27:39  A new user was registered asd 123456
+06/20/2019 14:27:51  U1 Logged In
+06/20/2019 14:28:32  U1 Added Product [1] [Wine] [Alchool] [20] [40] as a owner of store [s1]
+06/20/2019 14:29:37  U1 Logged Out
+06/20/2019 14:29:52  A guest added product [1] [5] of store [s1] to their multi cart
+06/20/2019 14:31:29  A guest added product [1] [2] of store [s1] to their multi cart
+06/20/2019 14:34:14  A new user was registered A1 123456
+06/20/2019 14:34:54  A new user was registered sa 123456
+06/20/2019 14:36:42  sa Logged In
+06/20/2019 14:38:06  sa Added Product [1] [Wine] [Alchool] [50] [40] as a owner of store [s3]
+06/20/2019 14:38:14  sa Logged Out
+06/20/2019 14:38:23  A guest added product [2] [20] of store [s3] to their multi cart
+06/20/2019 14:41:47  A guest added product [2] [5] of store [s3] to their multi cart
+06/20/2019 14:44:11  A new user was registered A1 123456
+06/20/2019 14:44:12  A new user was registered U1 123456
+06/20/2019 14:44:12  A new user was registered U2 123456
+06/20/2019 14:44:12  A new user was registered U11 123456
+06/20/2019 14:44:12  A new user was registered U12 123456
+06/20/2019 14:44:12  A new user was registered U13 123456
+06/20/2019 14:44:12  U11 Logged In
+06/20/2019 14:44:12  U11 Logged Out
+06/20/2019 14:44:22  A new user was registered ben 123456
+06/20/2019 14:44:36  A1 Logged In
+06/20/2019 14:46:23  A1 Logged Out
+06/20/2019 14:46:37  U11 Logged In
+06/20/2019 14:47:06  U11 initiated the owner adding proccess to user U13 for store [S2]
+06/20/2019 14:47:06  U13 Is now a owner of store [S2]
