@@ -45,8 +45,9 @@ namespace NewGUI
                 bool ans = CommunicationLayer.Controllers.UsersController.Logout(HttpContext.Current.Session.SessionID);
                 if (ans)
                 {
-                    Response.Redirect("index.aspx");
-                    Response.Write("<script>alert('Logout succesfuly');</script>");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Logout succesfuly');window.location ='index.aspx';", true);
+                    //Response.Redirect("index.aspx");
+                    //Response.Write("<script>alert('Logout succesfuly');</script>");
                 }
                 else
                 {
@@ -73,8 +74,13 @@ namespace NewGUI
                     bool ans = CommunicationLayer.Controllers.ProductsController.OpenStore(storeName, HttpContext.Current.Session.SessionID);
                     if (ans)
                     {
-                        Response.Write("<script>alert('succesfully opening store');</script>");
-                        Response.Redirect("storeOwnerDashboard.aspx");
+                        ScriptManager.RegisterStartupScript(this,
+                            this.GetType(),
+                            "alert",
+                            "alert('Open store succesfully');window.location ='storeOwnerDashboard.aspx';",
+                            true);
+                        //Response.Write("<script>alert('succesfully opening store');</script>");
+                        //Response.Redirect("storeOwnerDashboard.aspx");
                     }
                     else
                     {

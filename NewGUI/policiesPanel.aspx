@@ -48,8 +48,10 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="myDashboard.aspx">My Dashboard</a></li>
+
+                 <!--   <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li> -->
+
                  <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->

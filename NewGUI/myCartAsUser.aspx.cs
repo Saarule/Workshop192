@@ -83,7 +83,7 @@ namespace NewGUI
             {
                 string productID = ProductToRemoveTextBox.Text;
                 CommunicationLayer.Controllers.ProductsController.EditCart("delete", Int32.Parse(productID), HttpContext.Current.Session.SessionID);
-                Response.Redirect("myCart.aspx");
+                Response.Redirect("myCartAsUser.aspx");
             }
             catch (ErrorMessageException exception)
             {

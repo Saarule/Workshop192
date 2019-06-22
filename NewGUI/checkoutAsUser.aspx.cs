@@ -12,6 +12,11 @@ namespace NewGUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void BuyNowButton1_Click(object sender, EventArgs e)
+        {
             try
             {
 
@@ -47,6 +52,7 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+
         }
     }
 }

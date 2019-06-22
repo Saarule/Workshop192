@@ -32,9 +32,6 @@ namespace NewGUI
                     tableProducts.Append("<div class='card text-center card-product'>");
                     tableProducts.Append("<div class='card-product__img'>");
                     tableProducts.Append("<img class='card-img' src='img/product/product7.png' alt=''>");
-                    tableProducts.Append("<ul class='card-product__imgOverlay'>");
-                    tableProducts.Append("<li><button><i class='ti-shopping-cart'></i></button></li>");
-                    tableProducts.Append("</ul>");
                     tableProducts.Append("</div>");
                     tableProducts.Append("<div class='card-body'>");
                     tableProducts.Append("<p>");

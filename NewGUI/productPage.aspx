@@ -19,12 +19,13 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	 <!--================ Start Header Menu Area =================-->
+	<!--================ Start Header Menu Area =================-->
     <form id="form1" runat="server">
 	<header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -33,11 +34,11 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item active"><a class="nav-link" href="indexLoginUser.html">Home</a></li>
+              <li class="nav-item active"><a class="nav-link" href="index.aspx">Home</a></li>
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
-                  <ul class="dropdown-menu">
+                <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="products.aspx">Browse Products</a></li>
                   <li class="nav-item"><a class="nav-link" href="myCart.aspx">My Cart</a></li>
                 </ul>
@@ -47,12 +48,14 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
+                  <li class="nav-item"><a class="nav-link" href="login.aspx">Login</a></li>
+                  <li class="nav-item"><a class="nav-link" href="register.aspx">Register</a></li>
                 </ul>
               </li>
+              
             </ul>
 
-           <ul class="nav-shop">
+            <ul class="nav-shop">
                 <a href="mycart.aspx" class="notification">
                 <span>Inbox</span>
                 <span class="badge">3</span>

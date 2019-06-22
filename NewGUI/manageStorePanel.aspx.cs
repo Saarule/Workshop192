@@ -55,8 +55,14 @@ namespace NewGUI
                 bool ans = CommunicationLayer.Controllers.UsersController.Logout(HttpContext.Current.Session.SessionID);
                 if (ans)
                 {
-                    Response.Redirect("index.aspx");
-                    Response.Write("<script>alert('Logout succesfuly');</script>");
+                    ScriptManager.RegisterStartupScript(this,
+                            this.GetType(),
+                            "alert",
+                            "alert('Logout succesfuly');window.location ='index.aspx';",
+                            true);
+
+                    //Response.Redirect("index.aspx");
+                    //Response.Write("<script>alert('Logout succesfuly');</script>");
                 }
                 else
                 {
