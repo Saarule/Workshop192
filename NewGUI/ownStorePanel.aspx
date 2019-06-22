@@ -175,6 +175,28 @@
             </table>
           </div>
         </div>
+
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Manage Appointments</h3>
+            <table class="order-rable">
+                <tr>
+                <td>Enter Username:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="usernameToAppoint" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+                 
+                <tr>
+                    <td><asp:Button ID="AcceptAppointmentButton" runat="server" class="button button-register w-100" Text="Accept Appointment" OnClick="AcceptAppointmentButton1_Click" /></td>
+                    <td><asp:Button ID="DeclineAppointmentButton" runat="server" class="button button-register w-100" Text="Decline Appointment" OnClick="DeclineAppointmentButton1_Click" /></td>
+                </tr>
+                <tr>
+                    
+              </tr>
+            </table>
+          </div>
+        </div>
    
       </div>
     </div>

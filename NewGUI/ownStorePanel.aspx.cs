@@ -60,7 +60,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully added Store Manager');</script>");
-                    Response.Redirect("ownStorePanel.aspx");
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeName);
                 }
                 else
                 {
@@ -82,7 +82,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully removed Store Manager');</script>");
-                    Response.Redirect("ownStorePanel.aspx");
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeName);
                 }
                 else
                 {
@@ -104,7 +104,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully added Store Owner');</script>");
-                    Response.Redirect("owmStorePanel.aspx");
+                    Response.Redirect("owmStorePanel.aspx?storeName=" + storeName);
                 }
                 else
                 {
@@ -116,5 +116,48 @@ namespace NewGUI
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
         }
+        protected void AcceptAppointmentButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string storeOwnerName = usernameToAppoint.Text;
+                bool ans = CommunicationLayer.Controllers.UsersController.AcceptOwner(storeName, HttpContext.Current.Session.SessionID, storeOwnerName);
+                if (ans)
+                {
+                    Response.Write("<script>alert('succesfully added Store Owner');</script>");
+                    Response.Redirect("owmStorePanel.aspx?storeName=" + storeName);
+                }
+                else
+                {
+                    Response.Write("<script>alert('There was error when adding the Store Owner');</script>");
+                }
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+        }
+        protected void DeclineAppointmentButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string storeOwnerName = usernameToAppoint.Text;
+                bool ans = CommunicationLayer.Controllers.UsersController.DeclineOwner(storeName, HttpContext.Current.Session.SessionID, storeOwnerName);
+                if (ans)
+                {
+                    Response.Write("<script>alert('succesfully added Store Owner');</script>");
+                    Response.Redirect("owmStorePanel.aspx?storeName=" + storeName);
+                }
+                else
+                {
+                    Response.Write("<script>alert('There was error when declining the Store Owner');</script>");
+                }
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+        }
+
     }
 }
