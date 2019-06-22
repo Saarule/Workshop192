@@ -17,7 +17,7 @@
             color:black;
             font-size:64px;
             position: absolute;
-            height: 580px;
+            height: 550px;
             width: 875px;
         }
     </style>
