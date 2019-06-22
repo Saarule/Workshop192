@@ -19,6 +19,7 @@ namespace DomainLayerUnitTests.UserManagment
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             AllRegisteredUsers.GetInstance().CreateUser();
             AllRegisteredUsers.GetInstance().CreateUser();
             AllRegisteredUsers.GetInstance().CreateUser();
@@ -53,6 +54,7 @@ namespace DomainLayerUnitTests.UserManagment
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             AllRegisteredUsers.Reset();
             Workshop192.MarketManagment.System.Reset();
         }

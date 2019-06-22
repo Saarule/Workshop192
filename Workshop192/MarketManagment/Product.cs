@@ -8,12 +8,12 @@ namespace Workshop192.MarketManagment
 {
     public class Product
     {
-        private int Id;
-        private string name;
-        private string category;
-        private int price;
-        private Tuple<PolicyComponent, int> discountPolicy;
-        private PolicyComponent sellingPolicy;
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string category { get; set; }
+        public int price { get; set; }
+        public virtual Tuple<PolicyComponent, int> discountPolicy { get; set; }
+        public virtual PolicyComponent sellingPolicy { get; set; }
 
         public Product(int Id, string name, string category, int price)
         {
@@ -68,13 +68,13 @@ namespace Workshop192.MarketManagment
             PolicyComponent tmp2 = sellingPolicy;
             switch (policy.ElementAt(1))
             {
-                case "And":
+                case "AND":
                     sellingPolicy = new PolicyCompositeAnd(tmp1, tmp2);
                     break;
-                case "Or":
+                case "OR":
                     sellingPolicy = new PolicyCompositeOr(tmp1, tmp2);
                     break;
-                case "Xor":
+                case "XOR":
                     sellingPolicy = new PolicyCompositeXor(tmp1, tmp2);
                     break;
                 default:
@@ -85,7 +85,7 @@ namespace Workshop192.MarketManagment
         public bool RemoveDiscountPolicy()
         {
             if (discountPolicy == null)
-                throw new ErrorMessageException("Can't Remove non existing discount policy");
+                throw new ErrorMessageException("Cant Remove non existing discount policy");
             discountPolicy = null;
             return true;
         }
@@ -93,7 +93,7 @@ namespace Workshop192.MarketManagment
         public bool RemoveSellingPolicy()
         {
             if (sellingPolicy == null)
-                throw new ErrorMessageException("Can't Remove non existing selling policy");
+                throw new ErrorMessageException("Cant Remove non existing selling policy");
             sellingPolicy = null;
             return true;
         }

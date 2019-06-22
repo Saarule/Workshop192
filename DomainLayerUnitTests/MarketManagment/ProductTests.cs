@@ -19,6 +19,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().CreateUser();
             store = new Store("temp");
             cart = new Cart(store);
@@ -44,7 +45,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             LinkedList<string> policy = new LinkedList<string>();
             policy.AddLast("Ban");
-            policy.AddLast("And");
+            policy.AddLast("AND");
             policy.AddLast("1");
             policy.AddLast("user");
             product.AddDiscountPolicy(policy, 50);
@@ -58,7 +59,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             LinkedList<string> policy = new LinkedList<string>();
             policy.AddLast("Ban");
-            policy.AddLast("And");
+            policy.AddLast("AND");
             policy.AddLast("1");
             policy.AddLast("user");
             product.AddSellingPolicy(policy);
@@ -70,13 +71,13 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             LinkedList<string> policy = new LinkedList<string>();
             policy.AddLast("Ban");
-            policy.AddLast("And");
+            policy.AddLast("AND");
             policy.AddLast("1");
             policy.AddLast("user");
             product.AddSellingPolicy(policy);
             policy = new LinkedList<string>();
             policy.AddLast("Max");
-            policy.AddLast("And");
+            policy.AddLast("AND");
             policy.AddLast("1");
             policy.AddLast("0");
             policy.AddLast("2");
@@ -87,6 +88,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             Workshop192.MarketManagment.System.Reset();
             Workshop192.UserManagment.AllRegisteredUsers.Reset();
         }

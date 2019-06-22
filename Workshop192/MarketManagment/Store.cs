@@ -9,37 +9,67 @@ namespace Workshop192.MarketManagment
 {
     public class Store
     {
-        private string name;
-        private Inventory inventory;
-        private Tuple<PolicyComponent, int> discountPolicy;
-        private PolicyComponent sellingPolicy;
+        public string name { get; set; }
+        public virtual LinkedList<ProductAmountInventory> inventory { get; set; }
+        public virtual Tuple<PolicyComponent, int> discountPolicy { get; set; }
+        public virtual PolicyComponent sellingPolicy { get; set; }
 
         public Store(string name)
         {
             this.name = name;
-            inventory = new Inventory();
+            inventory = new LinkedList<ProductAmountInventory>();
             discountPolicy = null;
             sellingPolicy = null;
         }
 
         public bool AddProducts(Product product, int amount)
         {
-            return inventory.AddProducts(product, amount);
+            foreach (ProductAmountInventory productAmount in inventory)
+                if (productAmount.productId.Equals(product.GetId()))
+                    throw new ErrorMessageException("Cant Add new existing product");
+            inventory.AddLast(new ProductAmountInventory(this, product, amount));
+            return true;
+        }
+
+        public ProductAmountInventory GetProductAmount(Product product)
+        {
+            foreach (ProductAmountInventory productAmount in inventory)
+                if (productAmount.productId.Equals(product.GetId()))
+                    return productAmount;
+            return null;
         }
 
         public bool RemoveProducts(Product product, int amount)
         {
-            return inventory.RemoveProducts(product, amount);
+            foreach (ProductAmountInventory productAmount in inventory)
+                if (productAmount.productId.Equals(product.GetId()))
+                {
+                    if (productAmount.amount < amount)
+                        throw new ErrorMessageException("Amount Error");
+                    productAmount.amount -= amount;
+                    return true;
+                }
+            throw new ErrorMessageException("Cant remove non existing product");
         }
 
         public bool RemoveProductFromInventory(int productId)
         {
-            return inventory.RemoveProductFromInventory(productId);
+            foreach (ProductAmountInventory productAmount in inventory)
+                if (productAmount.productId.Equals(productId))
+                    return inventory.Remove(productAmount);
+            throw new ErrorMessageException("Cant Remove non existing product from inventory");
         }
 
         public bool EditProduct(int productId, string name, string category, int price, int amount)
         {
-            return inventory.EditProduct(productId, name, category, price, amount);
+            foreach (ProductAmountInventory productAmount in inventory)
+                if (productAmount.productId.Equals(productId))
+                {
+                    productAmount.product.EditProduct(name, category, price);
+                    productAmount.amount = amount;
+                    return true;
+                }
+            throw new ErrorMessageException("Cant edit non existing product");
         }
 
         public void AddDiscountPolicy(LinkedList<string> policy, int discount)
@@ -78,13 +108,13 @@ namespace Workshop192.MarketManagment
             PolicyComponent tmp2 = sellingPolicy;
             switch (policy.ElementAt(1))
             {
-                case "And":
+                case "AND":
                     sellingPolicy = new PolicyCompositeAnd(tmp1, tmp2);
                     break;
-                case "Or":
+                case "OR":
                     sellingPolicy = new PolicyCompositeOr(tmp1, tmp2);
                     break;
-                case "Xor":
+                case "XOR":
                     sellingPolicy = new PolicyCompositeXor(tmp1, tmp2);
                     break;
                 default:
@@ -95,7 +125,7 @@ namespace Workshop192.MarketManagment
         public bool RemoveDiscountPolicy()
         {
             if (discountPolicy == null)
-                throw new ErrorMessageException("Can't Remove non existing discount policy");
+                throw new ErrorMessageException("Cant Remove non existing discount policy");
             discountPolicy = null;
             return true;
         }
@@ -103,7 +133,7 @@ namespace Workshop192.MarketManagment
         public bool RemoveSellingPolicy()
         {
             if (sellingPolicy == null)
-                throw new ErrorMessageException("Can't Remove non existing selling policy");
+                throw new ErrorMessageException("Cant Remove non existing selling policy");
             sellingPolicy = null;
             return true;
         }
@@ -138,9 +168,9 @@ namespace Workshop192.MarketManagment
             return name;
         }
 
-        public Dictionary<Product, int> GetInventory()
+        public LinkedList<ProductAmountInventory> GetInventory()
         {
-            return inventory.GetAllProduct();
+            return inventory;
         }
 
         public Tuple<PolicyComponent, int> GetDiscountPolicy()

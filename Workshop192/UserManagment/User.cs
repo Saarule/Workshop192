@@ -47,7 +47,7 @@ namespace Workshop192.UserManagment
         public bool MakeAdmin(UserInfo user)
         {
             if (!IsLoggedIn())
-                throw new ErrorMessageException("Can't make admin while not logged in");
+                throw new ErrorMessageException("Cant make admin while not logged in");
             if (user == null)
             {
                 Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried Making a non existent user admin");
@@ -61,7 +61,7 @@ namespace Workshop192.UserManagment
             if (IsLoggedIn())
                 return info.OpenStore(storeName);
             Logger.GetInstance().WriteToErrorLog("A guest tried to open a store but failed");
-            throw new ErrorMessageException("Can't open store while not logged in");
+            throw new ErrorMessageException("Cant open store while not logged in");
         }
 
         public bool AddProducts(string store, Product product, int amount)
@@ -77,7 +77,7 @@ namespace Workshop192.UserManagment
             if (IsLoggedIn())
                 return info.RemoveProductFromInventory(store, productId);
             Logger.GetInstance().WriteToErrorLog("A guest tried to remove a product from store but failed");
-            throw new ErrorMessageException("Can't remove products from store while not logged in");
+            throw new ErrorMessageException("Cant remove products from store while not logged in");
         }
 
         public bool EditProduct(string store, int productId, string name, string category, int price, int amount)
@@ -85,7 +85,7 @@ namespace Workshop192.UserManagment
             if (IsLoggedIn())
                 return info.EditProduct(store, productId, name, category, price, amount);
             Logger.GetInstance().WriteToErrorLog("A guest tried to edit a product of store but failed");
-            throw new ErrorMessageException("Can't edit products while not logged in");
+            throw new ErrorMessageException("Cant edit products while not logged in");
         }
 
         public bool AddStoreOwner(string store, UserInfo user)
@@ -93,12 +93,12 @@ namespace Workshop192.UserManagment
             if (!IsLoggedIn())
             {
                 Logger.GetInstance().WriteToErrorLog("A guest tried to add a store owner but failed");
-                throw new ErrorMessageException("Can't add store owner while not logged in");
+                throw new ErrorMessageException("Cant add store owner while not logged in");
             }
             if (user == null)
             {
                 Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried Making a non existent user store owner");
-                throw new ErrorMessageException("Given user dosen't exist");
+                throw new ErrorMessageException("Given user dosent exist");
             }
             return info.AddStoreOwner(store, user);
         }
@@ -108,12 +108,12 @@ namespace Workshop192.UserManagment
             if (!IsLoggedIn())
             {
                 Logger.GetInstance().WriteToErrorLog("A guest tried to accept a store owner but failed");
-                throw new ErrorMessageException("Can't accept store owner while not logged in");
+                throw new ErrorMessageException("Cant accept store owner while not logged in");
             }
             if (user == null)
             {
                 Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried accepting a non existent user as a store owner");
-                throw new ErrorMessageException("Given user dosen't exist");
+                throw new ErrorMessageException("Given user dosent exist");
             }
             return info.AcceptOwner(store, user);
         }
@@ -123,12 +123,12 @@ namespace Workshop192.UserManagment
             if (!IsLoggedIn())
             {
                 Logger.GetInstance().WriteToErrorLog("A guest tried to decline a store owner but failed");
-                throw new ErrorMessageException("Can't decline store owner while not logged in");
+                throw new ErrorMessageException("Cant decline store owner while not logged in");
             }
             if (user == null)
             {
                 Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried declining a non existent user as a store owner");
-                throw new ErrorMessageException("Given user dosen't exist");
+                throw new ErrorMessageException("Given user dosent exist");
             }
             return info.DeclineOwner(store, user);
         }
@@ -136,28 +136,28 @@ namespace Workshop192.UserManagment
         public bool AddDiscountPolicy(string store, LinkedList<string> policy, int discount)
         {
             if (!IsLoggedIn())
-                throw new ErrorMessageException("Can't add discount policy while not logged in");
+                throw new ErrorMessageException("Cant add discount policy while not logged in");
             return info.AddDiscountPolicy(store, policy, discount);
         }
 
         public bool AddSellingPolicy(string store, LinkedList<string> policy)
         {
             if (!IsLoggedIn())
-                throw new ErrorMessageException("Can't add selling policy while not logged in");
+                throw new ErrorMessageException("Cant add selling policy while not logged in");
             return info.AddSellingPolicy(store, policy);
         }
 
         public bool RemoveDiscountPolicy(string store, int productId)
         {
             if (!IsLoggedIn())
-                throw new ErrorMessageException("Can't remove discount policy while not logged in");
+                throw new ErrorMessageException("Cant remove discount policy while not logged in");
             return info.RemoveDiscountPolicy(store, productId);
         }
 
         public bool RemoveSellingPolicy(string store, int productId)
         {
             if (!IsLoggedIn())
-                throw new ErrorMessageException("Can't remove selling policy while not logged in");
+                throw new ErrorMessageException("Cant remove selling policy while not logged in");
             return info.RemoveSellingPolicy(store, productId);
         }
 
@@ -166,12 +166,12 @@ namespace Workshop192.UserManagment
             if (!IsLoggedIn())
             {
                 Logger.GetInstance().WriteToErrorLog("A guest tried to add a store manager but failed");
-                throw new ErrorMessageException("Can't add store manager while not logged in");
+                throw new ErrorMessageException("Cant add store manager while not logged in");
             }
             if (user == null)
             {
                 Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried adding a non existent user as a store manager");
-                throw new ErrorMessageException("Given user dosen't exist");
+                throw new ErrorMessageException("Given user dosent exist");
             }
             return info.AddStoreManager(store, user, privileges);
         }
@@ -181,12 +181,12 @@ namespace Workshop192.UserManagment
             if (!IsLoggedIn())
             {
                 Logger.GetInstance().WriteToErrorLog("A guest tried to remove a store manager but failed");
-                throw new ErrorMessageException("Can't remove store manager while not logged in");
+                throw new ErrorMessageException("Cant remove store manager while not logged in");
             }
             if (user == null)
             {
                 Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried removing a non existent user as a store manager");
-                throw new ErrorMessageException("Given user dosen't exist");
+                throw new ErrorMessageException("Given user dosent exist");
             }
             return info.RemoveStoreManager(store, user);
         }
@@ -223,12 +223,12 @@ namespace Workshop192.UserManagment
             if (!IsLoggedIn())
             {
                 Logger.GetInstance().WriteToErrorLog("A guest tried to add a remove a user but failed");
-                throw new ErrorMessageException("Can't remove registered user while not logged in");
+                throw new ErrorMessageException("Cant remove registered user while not logged in");
             }
             if (user == null)
             {
                 Logger.GetInstance().WriteToErrorLog(info.GetUserName() + " Tried removing a non existent user from the system");
-                throw new ErrorMessageException("Given user dosen't exist");
+                throw new ErrorMessageException("Given user dosent exist");
             }
             return info.RemoveUser(user);
         }

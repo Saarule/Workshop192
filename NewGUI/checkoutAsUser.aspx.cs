@@ -12,11 +12,6 @@ namespace NewGUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        protected void BuyNowButton1_Click(object sender, EventArgs e)
-        {
             try
             {
 
@@ -40,19 +35,28 @@ namespace NewGUI
 
                 if (transcationPayId != "-1" && transcationSupplyId != "-1")
                 {
-                    Response.Redirect("confirmationAsUser.aspx?PayID={transcationPayId}&SupplyID={transcationSupplyId} ");
+                    Response.Redirect("confirmationAsUser.aspx?PayID=" + transcationPayId + "&SupplyID=" + transcationSupplyId);
                     Response.Write("<script>alert('Successful Purchase');</script>");
                 }
                 else
                 {
-                    Response.Write("<script>alert('Purchase failed');</script>");
+                    if (transcationPayId == "-1" && transcationSupplyId == "-1")
+                        Response.Write("<script>alert('money system and delivery system failed');</script>");
+                    else if (transcationPayId == "-1")
+                        Response.Write("<script>alert('money system failed');</script>");
+                    else
+                        Response.Write("<script>alert('delivery system failed');</script>");
                 }
             }
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
-
         }
     }
 }
+            
+        }
+
+        protected void BuyNowButton1_Click(object sender, EventArgs e)
+        {

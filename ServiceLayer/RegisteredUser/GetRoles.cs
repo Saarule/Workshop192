@@ -31,8 +31,50 @@ namespace ServiceLayer.RegisteredUser
                     Roles.AddLast(toAdd);
                 }
             }
+
             return Roles;
         }
 
+        public static LinkedList<LinkedList<string>> GetRolesOfStore(string storeName)
+        {
+            LinkedList<LinkedList<string>> roles = new LinkedList<LinkedList<string>>();
+            for (int i=0; i < Workshop192.UserManagment.AllRegisteredUsers.GetInstance().getUserInfo().Count; i++)
+            {
+                bool toStop1 = false;
+                bool toStop2 = false;
+
+                if (Workshop192.UserManagment.AllRegisteredUsers.GetInstance().getUserInfo().ElementAt(i).GetStoreOwners() != null)
+                {
+                    for (int ii = 0; !toStop1 && ii < Workshop192.UserManagment.AllRegisteredUsers.GetInstance().getUserInfo().ElementAt(i).GetStoreOwners().Count; ii++)
+                    {
+                        if (Workshop192.UserManagment.AllRegisteredUsers.GetInstance().getUserInfo().ElementAt(i).GetStoreOwners().ElementAt(ii).GetStore().Equals(storeName))
+                        {
+                            LinkedList<string> toAdd = new LinkedList<string>();
+                            toAdd.AddLast(Workshop192.UserManagment.AllRegisteredUsers.GetInstance().getUserInfo().ElementAt(i).GetUserName());
+                            toAdd.AddLast("Store Owner");
+                            roles.AddLast(toAdd);
+                            toStop1 = true;
+                        }
+                    }
+                }
+
+                if (Workshop192.UserManagment.AllRegisteredUsers.GetInstance().getUserInfo().ElementAt(i).GetStoreManagers() != null)
+                {
+                    for (int ii = 0; !toStop2 && ii < Workshop192.UserManagment.AllRegisteredUsers.GetInstance().getUserInfo().ElementAt(i).GetStoreManagers().Count; ii++)
+                    {
+                        if (Workshop192.UserManagment.AllRegisteredUsers.GetInstance().getUserInfo().ElementAt(i).GetStoreManagers().ElementAt(ii).GetStore().Equals(storeName))
+                        {
+                            LinkedList<string> toAdd = new LinkedList<string>();
+                            toAdd.AddLast(Workshop192.UserManagment.AllRegisteredUsers.GetInstance().getUserInfo().ElementAt(i).GetUserName());
+                            toAdd.AddLast("Store Manager");
+                            roles.AddLast(toAdd);
+                            toStop2 = true;
+                        }
+                    }
+                }
+
+            }
+            return roles;
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Workshop192;
 using Workshop192.MarketManagment;
 
 namespace DomainLayerUnitTests.MarketManagment
@@ -18,6 +19,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             Store store = new Store("Temp Store");
             cart = new Cart(store);
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().CreateUser();
@@ -55,6 +57,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             Workshop192.UserManagment.AllRegisteredUsers.Reset();
         }
     }

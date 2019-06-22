@@ -16,6 +16,7 @@ namespace AccaptanceTests.Guest
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             InitializationOfTheSystem System = new InitializationOfTheSystem();
             System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
@@ -26,6 +27,7 @@ namespace AccaptanceTests.Guest
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             //TODO
             SystemReset.Reset();//the opposite of initalization of the system
         }

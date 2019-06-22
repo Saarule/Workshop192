@@ -8,10 +8,12 @@ namespace Workshop192.UserManagment
 {
     public class StoreOwnersOfStore
     {
-        private LinkedList<StoreOwner> storeOwners;
+        public string store { get; set; }
+        public LinkedList<StoreOwner> storeOwners { get; set; }
 
         public StoreOwnersOfStore(StoreOwner owner)
         {
+            store = owner.GetStore();
             storeOwners = new LinkedList<StoreOwner>();
             storeOwners.AddFirst(owner);
         }

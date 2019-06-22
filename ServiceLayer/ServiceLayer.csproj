@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>ServiceLayer</RootNamespace>
     <AssemblyName>ServiceLayer</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,11 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\GetAllUserName.cs" />
     <Compile Include="Admin\IsAdmin.cs" />
     <Compile Include="Admin\RemoveUserFromSystem.cs" />
+    <Compile Include="Guest\CancelOrders.cs" />
     <Compile Include="Guest\CheckAvailability.cs" />
     <Compile Include="Guest\CreateAndGetUser.cs" />
     <Compile Include="Guest\FilterProducts.cs" />
+    <Compile Include="Guest\IsLoggedIn.cs" />
     <Compile Include="Guest\LogIn.cs" />
     <Compile Include="Guest\ProcessOfBuyingProducts.cs" />
     <Compile Include="Guest\Register.cs" />
@@ -64,6 +68,7 @@
     <Compile Include="StoreOwnerUser\AllProductInStore.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreManager.cs" />
     <Compile Include="StoreOwnerUser\AssignStoreOwner.cs" />
+    <Compile Include="StoreOwnerUser\GetPolicies.cs" />
     <Compile Include="StoreOwnerUser\HandlerRequestAppointment.cs" />
     <Compile Include="StoreOwnerUser\IsOwnerOrManage.cs" />
     <Compile Include="StoreOwnerUser\ManagePolicies.cs" />

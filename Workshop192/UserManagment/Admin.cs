@@ -8,10 +8,12 @@ namespace Workshop192.UserManagment
 {
     public class Admin
     {
-        private UserInfo user;
+        public string userName { get; set; }
+        public virtual UserInfo user { get; set; }
 
         public Admin (UserInfo user)
         {
+            userName = user.GetUserName();
             this.user = user;
         }
 

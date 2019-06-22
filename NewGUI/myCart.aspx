@@ -59,10 +59,10 @@
             <ul class="nav-shop">
                 <a href="mycart.aspx" class="notification">
                 <span>Inbox</span>
-                <span class="badge">3</span>
+                <span class="badge">0</span>
                  </a>
 
-              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="products.aspx">---</a></li>
             </ul>
           </div>
         </div>

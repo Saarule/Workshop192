@@ -21,6 +21,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
 
             InitializationOfTheSystem System = new InitializationOfTheSystem();
             System.Initalize(null);
@@ -34,6 +35,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             //TODO
             SystemReset.Reset();//the opposite of initalization of the system        
         }

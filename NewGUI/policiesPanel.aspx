@@ -593,6 +593,20 @@
           </div>
         </div>
 
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <table class="order-rable">
+                <tr>
+                <td>Show Store Policy:</td>
+              </tr>
+                
+              <tr>
+                <td><asp:Button ID="Button6" runat="server" class="button button-register w-100" Text="Show Store Policies" OnClick="ShowPolicies" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
        </div>
       </div>
   </section>

@@ -25,6 +25,14 @@ namespace Workshop192.MarketManagment
             stores = new LinkedList<Store>();
             moneyCollectionSystem = new MoneyCollectionSystemProxy(null);
             deliverySystem = new DeliverySystemProxy(null);
+            stores = DbCommerce.GetInstance().GetStores();
+            foreach (UserManagment.UserInfo info in DbCommerce.GetInstance().GetUserInfos())
+                if (info.GetMultiCart() > multiCartId)
+                    multiCartId = info.GetMultiCart();
+            foreach (Store store in DbCommerce.GetInstance().GetStores())
+                foreach (ProductAmountInventory productAmount in store.GetInventory())
+                    if (productAmount.productId > productId)
+                        productId = productAmount.productId;
         }
 
         public static System GetInstance()
@@ -67,7 +75,11 @@ namespace Workshop192.MarketManagment
 
         public MultiCart GetMultiCart(int multiCartId)
         {
-            return multiCarts[multiCartId];
+            if (multiCarts.ContainsKey(multiCartId))
+                return multiCarts[multiCartId];
+            MultiCart multiCart = new MultiCart();
+            multiCarts[multiCartId] = multiCart;
+            return multiCart;
         }
 
         public void ResetMultiCart(int multiCartId)
@@ -92,13 +104,37 @@ namespace Workshop192.MarketManagment
             }
             int sum = SumOfCartPrice(userId);
             collection = moneyCollectionSystem.CollectFromAccount(cardNumber, month, year, holder, ccv, id);
-            if (collection == -1)
+            delivery = deliverySystem.Deliver(name, address, city, country, zip);
+            if (collection == -1 || delivery==-1)
             {
                 ReturnProductsToStore(GetMultiCart(multiCartId));
                 return new Tuple<int, int>(-1, -1);
             }
-            delivery = deliverySystem.Deliver(name, address, city, country, zip);
+            try
+            {
+                MultiCart multicart = System.GetInstance().GetMultiCart(multiCartId);
+                for (int i = 0; i < multicart.GetCarts().Count; i++)
+                {
+                    string message = "the products in store" + multicart.GetCarts().ElementAt(i).GetStore().GetName() + ":\n";
+                    for (int j = 0; j < multicart.GetCarts().ElementAt(i).GetProducts().Count; j++)
+                    {
+                        message = message + " id:" + multicart.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetId() + ",name:" + multicart.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetName() + "\n";
+                    }
+                    message += "were sold\n";
+                    for (int k = 0; k < UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().Count; k++)
+                    {
+                        if (UserManagment.AllRegisteredUsers.GetInstance().GetUserInfo(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k)).GetOwner(multicart.GetCarts().ElementAt(i).GetStore().GetName()) != null)
+                            Notifications.Notification.GetInstance().SendMessageToUser(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k), message);
+                        if (UserManagment.AllRegisteredUsers.GetInstance().GetUserInfo(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k)).GetManager(multicart.GetCarts().ElementAt(i).GetStore().GetName()) != null)
+                            Notifications.Notification.GetInstance().SendMessageToUser(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k), message);
+
+                    }
+                }
+            }
+            catch (Exception) { }
+
             ResetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
+
             return new Tuple<int, int>(collection, delivery);
         }
         
@@ -108,10 +144,10 @@ namespace Workshop192.MarketManagment
             {
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
                 {
-                    if (!cart.GetStore().GetInventory().ContainsKey(productAmount.Key))
-                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesn't exist anymore");
-                    if (cart.GetStore().GetInventory()[productAmount.Key] < productAmount.Value)
-                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesn't have the given amount in store");
+                    if (cart.GetStore().GetProductAmount(productAmount.Key) == null)
+                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesnt exist anymore");
+                    if (cart.GetStore().GetProductAmount(productAmount.Key).amount < productAmount.Value)
+                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesnt have the given amount in store");
                     if (GetStore(cart.GetStore().GetName()) == null)
                         throw new ErrorMessageException("Store [" + cart.GetStore().GetName() + "] no longer exists");
                 }
@@ -130,7 +166,7 @@ namespace Workshop192.MarketManagment
         {
             foreach (Cart cart in multiCart.GetCarts())
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
-                    cart.GetStore().GetInventory()[productAmount.Key] += productAmount.Value;
+                    cart.GetStore().GetProductAmount(productAmount.Key).amount += productAmount.Value;
         }
 
         public bool CheckSellingPolicies(int userId)
@@ -165,7 +201,9 @@ namespace Workshop192.MarketManagment
 
         public void OpenStore(string storeName)
         {
-            stores.AddLast(new Store(storeName));
+            Store store = new Store(storeName);
+            stores.AddLast(store);
+            DbCommerce.GetInstance().AddStore(store);
         }
 
         public Store GetStore(string storeName)
@@ -179,6 +217,15 @@ namespace Workshop192.MarketManagment
         public LinkedList<Store> GetAllStores()
         {
             return stores;
+        }
+
+        public int CancelPay(string transactionID)
+        {
+            return moneyCollectionSystem.CancelPay(transactionID);
+        }
+        public int CancelDelivery(string transactionID)
+        {
+            return deliverySystem.CancelDelivery(transactionID);
         }
     }
 }

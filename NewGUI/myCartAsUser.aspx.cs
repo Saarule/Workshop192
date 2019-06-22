@@ -75,7 +75,7 @@ namespace NewGUI
         }
         protected void ProceedToCheckOutButton1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("checkout.aspx");
+            Response.Redirect("checkoutAsUser.aspx");
         }
         protected void RemoveProductButton1_Click(object sender, EventArgs e)
         {

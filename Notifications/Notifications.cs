@@ -37,7 +37,7 @@ namespace CommunicationLayer.Notifications
         {
             int UserId = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
 
-            string username = ServiceLayer.Guest.CreateAndGetUser.GetUserName(UserId);
+            string username = Dictionary_SessionId_UserId.GetUserName(UserId);
             LinkedList<string> messages = new LinkedList<string>();
             //create copy of list of messages
             for(int i=0;i< Message_To_Users_List[username].Count; i++)

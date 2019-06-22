@@ -47,7 +47,7 @@ namespace Workshop192.MarketManagment
                             carts.Remove(cart);
                         return true;
                     }
-            throw new ErrorMessageException("Product Doesn't exist in multi cart");
+            throw new ErrorMessageException("Product Doesnt exist in multi cart");
         }
 
         public LinkedList<Cart> GetCarts()

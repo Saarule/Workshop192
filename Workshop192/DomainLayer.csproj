@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Workshop192</RootNamespace>
     <AssemblyName>Workshop192</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
@@ -40,10 +40,17 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbCommerce.cs" />
     <Compile Include="DeliverySystemInterface.cs" />
     <Compile Include="DeliverySystemProxy.cs" />
     <Compile Include="DeliverySystemReal.cs" />
@@ -61,7 +69,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="MarketManagment\Cart.cs" />
-    <Compile Include="MarketManagment\Inventory.cs" />
+    <Compile Include="MarketManagment\ProductAmountInventory.cs" />
     <Compile Include="MarketManagment\MultiCart.cs" />
     <Compile Include="MarketManagment\PolicyComponent.cs" />
     <Compile Include="MarketManagment\PolicyCompositeAnd.cs" />
@@ -87,8 +95,16 @@
     <Compile Include="UserManagment\UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Notications\Notications.csproj">
+      <Project>{ea384dcf-22c6-4b00-a72f-7b7dc46ff4a8}</Project>
+      <Name>Notications</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

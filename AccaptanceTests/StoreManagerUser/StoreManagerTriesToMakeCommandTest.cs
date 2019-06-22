@@ -21,6 +21,7 @@ namespace AccaptanceTests.StoreManagerUser
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             InitializationOfTheSystem System = new InitializationOfTheSystem();
             System.Initalize(null);
             UserId_Orel = CreateAndGetUser.CreateUser();
@@ -36,6 +37,7 @@ namespace AccaptanceTests.StoreManagerUser
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().StartTests();
             SystemReset.Reset();
         }
         [Test]

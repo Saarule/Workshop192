@@ -23,5 +23,10 @@ namespace Workshop192.MarketManagment
                 return !userName.Equals("");
             return !UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetUserName().Equals(userName);
         }
+
+        public override string ToString()
+        {
+            return "(Banned User = " + userName + ")";
+        }
     }
 }
