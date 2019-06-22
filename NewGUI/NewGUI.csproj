@@ -88,6 +88,7 @@
     <Content Include="myCart.aspx" />
     <Content Include="myCartAsUser.aspx" />
     <Content Include="myDashboard.aspx" />
+    <Content Include="notificationsPanel.aspx" />
     <Content Include="ownStorePanel.aspx" />
     <Content Include="policiesPanel.aspx" />
     <Content Include="productPage.aspx" />
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="myDashboard.aspx.designer.cs">
       <DependentUpon>myDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="notificationsPanel.aspx.cs">
+      <DependentUpon>notificationsPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notificationsPanel.aspx.designer.cs">
+      <DependentUpon>notificationsPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="ownStorePanel.aspx.cs">
       <DependentUpon>ownStorePanel.aspx</DependentUpon>

@@ -10109,3 +10109,7 @@
 06-22-2019 18:17:55  Ben Is now a owner of store [store]
 06-22-2019 18:18:30  saar tried removing user Ben from the store managers but the given user wasn't a manager of store [store]
 06-22-2019 18:18:45  saar added user orel as a manager in store [store] with the following privileges System.Boolean[]
+06-22-2019 20:42:45  A new user was registered saar 123456
+06-22-2019 20:42:51  saar Logged In
+06-22-2019 21:55:05  A new user was registered saar 123456
+06-22-2019 21:55:13  saar Logged In

@@ -41,7 +41,7 @@ namespace NewGUI
                 }
                 tableRoles.Append("</table>");
                 PlaceHolder1.Controls.Add(new Literal { Text = tableRoles.ToString() });
-                
+
             }
             catch (ErrorMessageException exception)
             {
@@ -180,6 +180,10 @@ namespace NewGUI
         protected void adminPanelButton1_Click(object sender, EventArgs e)
         {
             Response.Redirect("adminPanel.aspx");
+        }
+        protected void ManageNotificitaionsButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("notificationsPanel.aspx");
         }
     }
 }
