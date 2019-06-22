@@ -17,7 +17,7 @@ namespace Workshop192
         private DbCommerce() : base()
         {
             var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
-            forTests = true;
+            forTests = false;
         }
 
         public static DbCommerce GetInstance()
