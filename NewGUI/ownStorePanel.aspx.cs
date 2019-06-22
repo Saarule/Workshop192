@@ -11,32 +11,27 @@ namespace NewGUI
 {
     public partial class ownStorePanel : System.Web.UI.Page
     {
-        //StringBuilder tableProducts = new StringBuilder();
-        //LinkedList<LinkedList<string>> products = new LinkedList<LinkedList<string>>();
+        StringBuilder tableRoles = new StringBuilder();
+        LinkedList<LinkedList<string>> Roles = new LinkedList<LinkedList<string>>();
         string storeName;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             storeName = Request["storeName"];
-            /*
-            products = CommunicationLayer.Controllers.ProductsController.GetProductsOfStore(storeName);
-            tableProducts.Append("<table border='1'>");
-            tableProducts.Append("<tr><th> Product ID: </th><th> Product Name: </th><th> Product Category: </th><th> Product Price: </th><th> Product Amount: </th><th> Store Name: </th>");
-            tableProducts.Append("</tr>");
-            for (int i = 0; i < products.Count; i++)
+
+            Roles = CommunicationLayer.Controllers.UsersController.GetRolesOfStore(storeName);
+            tableRoles.Append("<table border='1'>");
+            tableRoles.Append("<tr><th> UserName: </th><th> Position: </th>");
+            tableRoles.Append("</tr>");
+            for (int i = 0; i < Roles.Count; i++)
             {
-                tableProducts.Append("<tr>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(0) + "</td>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(1) + "</td>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(2) + "</td>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(3) + "</td>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(4) + "</td>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(5) + "</td>");
-                tableProducts.Append("</tr>");
+                tableRoles.Append("<tr>");
+                tableRoles.Append("<td>" + Roles.ElementAt(i).ElementAt(0) + "</td>");
+                tableRoles.Append("<td>" + Roles.ElementAt(i).ElementAt(1) + "</td>");
+                tableRoles.Append("</tr>");
             }
-            tableProducts.Append("</table>");
-            PlaceHolder1.Controls.Add(new Literal { Text = tableProducts.ToString() });
-            */
+            tableRoles.Append("</table>");
+            PlaceHolder1.Controls.Add(new Literal { Text = tableRoles.ToString() });
 
         }
 

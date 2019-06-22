@@ -147,6 +147,7 @@
             </table>
           </div>
         </div>
+
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
             <h3 class="billing-title">Add Store Owner</h3>
@@ -159,6 +160,17 @@
                 </tr>
               <tr>
                 <td><asp:Button ID="Button2" runat="server" class="button button-register w-100" Text="Add Store Owner" OnClick="AddStoreOwnerButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Store Managers/Owners:</h3>
+            <table class="order-rable">
+              <tr>
+                  <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
               </tr>
             </table>
           </div>

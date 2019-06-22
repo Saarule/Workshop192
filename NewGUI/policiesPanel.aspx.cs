@@ -14,6 +14,8 @@ namespace NewGUI
         protected void Page_Load(object sender, EventArgs e)
         {
             storeName = Request["storeName"];
+            string policiesString = CommunicationLayer.Controllers.ProductsController.GetPolicyOfStore(storeName);
+            PlaceHolder1.Controls.Add(new Literal { Text = policiesString.ToString() });
         }
 
         protected void MinimumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
@@ -260,13 +262,5 @@ namespace NewGUI
             }
         }
         
-        protected void ShowPolicies(object sender , EventArgs e)
-        {
-            string ret = CommunicationLayer.Controllers.ProductsController.GetPolicyOfStore(storeName);
-            string message = "alert('" + ret + "');";
-            
-            Response.Write("<script>"+message+"</script>"); //need to fix ! not alert 
-
-        }
     }
 }

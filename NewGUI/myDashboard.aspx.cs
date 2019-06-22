@@ -17,6 +17,17 @@ namespace NewGUI
         {
             try
             {
+
+                if (!CommunicationLayer.Controllers.UsersController.IsAdmin(HttpContext.Current.Session.SessionID))
+                {
+                    adminPanelButton.Visible = false;
+                    adminPanelButton.Enabled = false;
+                }
+                else
+                {
+                    adminPanelButton.Visible = true;
+                    adminPanelButton.Enabled = true;
+                }
                 Roles = CommunicationLayer.Controllers.UsersController.GetRoles(HttpContext.Current.Session.SessionID);
                 tableRoles.Append("<table border='1'>");
                 tableRoles.Append("<tr><th> Role: </th><th> Store Name: </th>");
@@ -30,6 +41,7 @@ namespace NewGUI
                 }
                 tableRoles.Append("</table>");
                 PlaceHolder1.Controls.Add(new Literal { Text = tableRoles.ToString() });
+                
             }
             catch (ErrorMessageException exception)
             {
@@ -164,6 +176,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+        }
+        protected void adminPanelButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("adminPanel.aspx");
         }
     }
 }

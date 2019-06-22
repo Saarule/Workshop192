@@ -10079,3 +10079,33 @@
 06/21/2019 17:33:04  orel added user nati as a manager in store [Victory] with the following privileges System.Boolean[]
 >>>>>>> moreFixes
 >>>>>>> PolicyBranch
+06-22-2019 17:15:32  A new user was registered saar 123456
+06-22-2019 17:15:42  A new user was registered fddf 123456
+06-22-2019 17:19:32  A new user was registered saar 123456
+06-22-2019 17:19:44  A new user was registered ben 1234567
+06-22-2019 17:22:00  A new user was registered saar 123455
+06-22-2019 17:22:12  A new user was registered ssds 123456
+06-22-2019 17:31:44  A new user was registered saar 123456
+06-22-2019 17:31:56  A new user was registered fff 1234567
+06-22-2019 17:36:26  A new user was registered saar 123456
+06-22-2019 17:36:33  saar Logged In
+06-22-2019 17:47:02  A new user was registered saar 123456
+06-22-2019 17:47:09  saar Logged In
+06-22-2019 17:48:04  A new user was registered saar 123456
+06-22-2019 17:48:11  saar Logged In
+06-22-2019 17:51:11  A new user was registered saar 123456
+06-22-2019 17:51:17  saar Logged In
+06-22-2019 17:57:04  A new user was registered saar 123456
+06-22-2019 17:57:11  saar Logged In
+06-22-2019 18:10:56  A new user was registered saar 123456
+06-22-2019 18:11:01  saar Logged In
+06-22-2019 18:16:11  A new user was registered saar 123456
+06-22-2019 18:16:17  saar Logged In
+06-22-2019 18:16:41  saar Logged Out
+06-22-2019 18:17:04  A new user was registered orel 123456
+06-22-2019 18:17:13  A new user was registered Ben 123456
+06-22-2019 18:17:20  saar Logged In
+06-22-2019 18:17:55  saar initiated the owner adding proccess to user Ben for store [store]
+06-22-2019 18:17:55  Ben Is now a owner of store [store]
+06-22-2019 18:18:30  saar tried removing user Ben from the store managers but the given user wasn't a manager of store [store]
+06-22-2019 18:18:45  saar added user orel as a manager in store [store] with the following privileges System.Boolean[]

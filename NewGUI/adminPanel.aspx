@@ -57,12 +57,12 @@
                 </ul>
               </li>
             </ul>
-
+              
            <ul class="nav-shop">
                 <a href="mycartAsUser.aspx" class="notification">
                 <span>Inbox</span>
                 <span class="badge">3</span>
-                 </a>
+                 
 
               <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
             </ul>
@@ -102,7 +102,7 @@
                     <td><asp:TextBox id="UserToRemove" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
                 </tr>
               <tr>
-                <td><asp:Button ID="UserToRemoveButton1" runat="server" class="button button-register w-100" Text="Add Product" OnClick="UserToRemoveButton1_Click" /></td>
+                <td><asp:Button ID="UserToRemoveButton1" runat="server" class="button button-register w-100" Text="Remove User" OnClick="UserToRemoveButton1_Click" /></td>
               </tr>
             </table>
           </div>

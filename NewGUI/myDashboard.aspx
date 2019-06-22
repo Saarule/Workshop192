@@ -158,6 +158,7 @@
             </table>
           </div>
         </div>
+
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
             <h3 class="billing-title">Manage Policies</h3>
@@ -174,6 +175,17 @@
             </table>
           </div>
         </div>
+
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <table class="order-rable">
+                <tr>
+                    <td><asp:Button ID="adminPanelButton" runat="server" class="button button-register w-100" Text="Admin Panel" OnClick="adminPanelButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
