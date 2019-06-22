@@ -370,6 +370,20 @@
           </div>
         </div>
 
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <table class="order-rable">
+                <tr>
+                <td>Store Policies:</td>
+              </tr>
+                
+              <tr>
+                  <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+              </tr>
+            </table>
+          </div>
+        </div>
+
        </div>
       </div>
   </section>
@@ -603,19 +617,7 @@
           </div>
         </div>
 
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <table class="order-rable">
-                <tr>
-                <td>Store Policies:</td>
-              </tr>
-                
-              <tr>
-                  <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-              </tr>
-            </table>
-          </div>
-        </div>
+          
 
        </div>
       </div>
