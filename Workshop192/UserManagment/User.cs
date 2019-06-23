@@ -56,7 +56,7 @@ namespace Workshop192.UserManagment
             return user.MakeAdmin(user);
         }
 
-        public bool OpenStore(string storeName)
+        public bool OpenStore(string storeName,int userId)
         {
             if (IsLoggedIn())
                 return info.OpenStore(storeName);

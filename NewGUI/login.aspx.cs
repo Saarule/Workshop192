@@ -38,8 +38,11 @@ namespace NewGUI
                     bool ans = CommunicationLayer.Controllers.UsersController.Login(Username, Password, HttpContext.Current.Session.SessionID);
                     if (ans)
                     {
-                        Response.Write("<script>alert('Successful Log in');</script>");
-                        Response.Redirect("indexLoginUser.aspx");
+                        Session["temp"] = "Temp";//Must do it in order to keep the session ID perssitent 
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Logged In Successfully');window.location ='indexLoginUser.aspx';", true);
+
+                        //Response.Write("<script>alert('Successful Log in');</script>");
+                        //Response.Redirect("indexLoginUser.aspx");
                     }
                     else
                     {

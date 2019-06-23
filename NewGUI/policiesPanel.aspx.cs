@@ -13,7 +13,23 @@ namespace NewGUI
         string storeName;
         protected void Page_Load(object sender, EventArgs e)
         {
-            storeName = Request["storeName"];
+            try
+            {
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                    return;
+                }
+
+                storeName = Request["storeName"];
+                string policiesString = CommunicationLayer.Controllers.ProductsController.GetPolicyOfStore(storeName);
+                PlaceHolder1.Controls.Add(new Literal { Text = policiesString.ToString() });
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
 
         protected void MinimumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
@@ -37,6 +53,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
         protected void MaximumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
         {
@@ -59,6 +79,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
         protected void MinimumAmountToBuyFromStoreButton1_Click(object sender, EventArgs e)
         {
@@ -79,6 +103,10 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
             }
         }
         protected void MaximumAmountToBuyFromStoreButton1_Click(object sender, EventArgs e)
@@ -101,6 +129,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
         protected void UserToBanFromStoreButton1_Click(object sender, EventArgs e)
         {
@@ -121,7 +153,16 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
+
+        /* Ban User by country - Does not need to support that functionality in this version
+         * 
+         * 
+         * 
         protected void CountryToBanFromStoreButton1_Click(object sender, EventArgs e)
         {
             try
@@ -141,7 +182,13 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
+        */
+
         protected void DiscountMinimumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
         {
             try
@@ -163,6 +210,10 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
             }
 
         }
@@ -188,6 +239,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
         protected void DiscountMinimumAmountToBuyFromStoreButton1_Click(object sender, EventArgs e)
         {
@@ -209,6 +264,10 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
             }
         }
         protected void DiscountMaximumAmountToBuyFromStoreButton1_Click(object sender, EventArgs e)
@@ -232,6 +291,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
 
 
@@ -246,6 +309,11 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
         protected void RemoveDiscountPolicyButton1_Click(object sender, EventArgs e)
         {
@@ -258,15 +326,11 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
         
-        protected void ShowPolicies(object sender , EventArgs e)
-        {
-            string ret = CommunicationLayer.Controllers.ProductsController.GetPolicyOfStore(storeName);
-            string message = "alert('" + ret + "');";
-            
-            Response.Write("<script>"+message+"</script>"); //need to fix ! not alert 
-
-        }
     }
 }

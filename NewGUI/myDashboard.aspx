@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="manageStorePanel.aspx.cs" Inherits="NewGUI.manageStorePanel" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="myDashboard.aspx.cs" Inherits="NewGUI.myDashboard" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Manage Store Panel</title>
+  <title>My Dashboard</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -79,7 +79,7 @@
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">
-					<h1>Store Manager Panel</h1>
+					<h1>My Dashboard</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
           </nav>
 				</div>
@@ -94,103 +94,31 @@
       <div class="row mb-5">
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
-            <h3 class="billing-title">Add Product</h3>
+            <h3 class="billing-title">Log Out</h3>
+            <table class="order-rable">
+                <asp:Button ID="SendButton1" runat="server" class="button button-register w-100" Text="Log Out" OnClick="LogoutButton1_Click" />
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Open Store</h3>
             <table class="order-rable">
               <tr>
-                <td>Enter product name:</td>
+                <td>Enter store name:</td>
               </tr>
                 <tr>
-                    <td><asp:TextBox id="ProductNameTextBox1" runat="server" placeholder="Product name" class="form-control" type="text"></asp:TextBox></td>
+                    <td><asp:TextBox id="StoreNameTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
                 </tr>
               <tr>
-                <tr>
-                <td>Enter product category:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="ProductCategoryTextBox" runat="server" placeholder="Category" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-                  <tr>
-                <td>Enter product price:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="ProductPriceTextBox" runat="server" placeholder="Product price" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-                 <tr>
-                <td>Enter product amount:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="ProductAmountTextBox" runat="server" placeholder="Product amount" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button3" runat="server" class="button button-register w-100" Text="Add Product" OnClick="AddProductButton1_Click" /></td>
+                <td><asp:Button ID="Button1" runat="server" class="button button-register w-100" Text="Open Store" OnClick="OpenStoreButton1_Click" /></td>
               </tr>
             </table>
           </div>
         </div>
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
-            <h3 class="billing-title">Remove Product</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter product ID:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="ProductIdToDeleteTextBox" runat="server" placeholder="Product ID" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button1" runat="server" class="button button-register w-100" Text="Remove Product" OnClick="RemoveProductButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Edit Product</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter product ID:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="ProductIdTextBox2" runat="server" placeholder="Product ID" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-                <tr>
-                <td>Enter product name:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="ProductNameTextBox2" runat="server" placeholder="Product name" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <tr>
-                <td>Enter product category:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="ProductCategoryTextBox2" runat="server" placeholder="Category" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-                  <tr>
-                <td>Enter product price:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="ProductPriceTextBox2" runat="server" placeholder="Product price" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-                 <tr>
-                <td>Enter product amount:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="ProductAmountTextBox2" runat="server" placeholder="Product amount" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button4" runat="server" class="button button-register w-100" Text="Edit Product" OnClick="EditProductButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-
-
-
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Store Products</h3>
+            <h3 class="billing-title">My Roles</h3>
             <table class="order-rable">
               <tr>
                   <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
@@ -198,11 +126,81 @@
             </table>
           </div>
         </div>
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Manage Store</h3>
+            <table class="order-rable">
+                <tr>
+                <td>Enter store name:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="StoreToManageTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Button ID="Button2" runat="server" class="button button-register w-100" Text="Manage Store Panel" OnClick="ManageStoreButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Own Store</h3>
+            <table class="order-rable">
+                <tr>
+                <td>Enter store name:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="StoreToOwnTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Button ID="Button3" runat="server" class="button button-register w-100" Text="Own Store Panel" OnClick="OwnStoreButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Manage Policies</h3>
+            <table class="order-rable">
+                <tr>
+                <td>Enter store name:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="StoreToManagePoliciesTextBox" runat="server" placeholder="Store name" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Button ID="ManagePolicies" runat="server" class="button button-register w-100" Text="Own Store Panel" OnClick="ManagePoliciesButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <table class="order-rable">
+                <tr>
+                    <td><asp:Button ID="adminPanelButton" runat="server" class="button button-register w-100" Text="Admin Panel" OnClick="adminPanelButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <table class="order-rable">
+                <tr>
+                    <td><asp:Button ID="ManageNotificitaionsButton" runat="server" class="button button-register w-100" Text="Manage Notificitaions" OnClick="ManageNotificitaionsButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </section>
   <!--================End Order Details Area =================-->
-
 
 
 <!--================ Start footer Area  =================-->	

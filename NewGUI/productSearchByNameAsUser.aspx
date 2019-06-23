@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="products.aspx.cs" Inherits="NewGUI.products" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="productSearchByNameAsUser.aspx.cs" Inherits="NewGUI.productSearchByNameAsUser" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +20,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <!--================ Start Header Menu Area =================-->
-    <form id="form1" runat="server">
+     <!--================ Start Header Menu Area =================-->
+    <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -35,29 +34,37 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item active"><a class="nav-link" href="index.aspx">Home</a></li>
-              <li class="nav-item submenu dropdown">
+              <li class="nav-item"><a class="nav-link" href="indexLoginUser.aspx">Home</a></li>
+              <li class="nav-item active submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="products.aspx">Browse Products</a></li>
-                  <li class="nav-item"><a class="nav-link" href="myCart.aspx">My Cart</a></li>
+                  <li class="nav-item"><a class="nav-link" href="productsAsUser.aspx">Browse Products</a></li>
+                  <li class="nav-item"><a class="nav-link" href="myCartAsUser.aspx">My Cart</a></li>
                 </ul>
-				</li>
-
-				<li class="nav-item submenu dropdown">
+							</li>
+							<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="login.aspx">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="register.aspx">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="myDashboard.aspx">My Dashboard</a></li>
+
+                 <!--   <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li> -->
+
+                 <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
+                 <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
+                 <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
                 </ul>
               </li>
-              
             </ul>
+              
+           <ul class="nav-shop">
+                <a href="notificationsPanel.aspx" class="notification"> 
+                <span>Inbox</span>
+                    </a>
+                 
 
-            <ul class="nav-shop">
-              <li class="nav-item"><a class="button button-header" href="myCart.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="myCartAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -156,7 +163,7 @@
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
             <div class="row">
-               <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+               <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder>
             </div>
           </section>
           <!-- End Best Seller -->

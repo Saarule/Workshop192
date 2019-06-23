@@ -9,22 +9,33 @@ using Workshop192;
 
 namespace NewGUI
 {
-    public partial class productSearchByName : System.Web.UI.Page
+    public partial class productSearchByNameAsUser : System.Web.UI.Page
     {
         StringBuilder tableProducts = new StringBuilder();
         LinkedList<LinkedList<string>> products3 = new LinkedList<LinkedList<string>>();
         string productName;
         protected void Page_Load(object sender, EventArgs e)
         {
-            productName = Request["productName"];
+
             try
             {
+
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                    return;
+                }
+
+
+                productName = Request["productName"];
+
                 string productId;
                 string productCategory;
                 string productPrice;
                 string productAmount;
                 string productStoreName;
-                
+
                 products3 = CommunicationLayer.Controllers.ProductsController.SearchProducts(productName);
 
                 for (int i = 0; i < products3.Count; i++)
@@ -40,7 +51,7 @@ namespace NewGUI
                     tableProducts.Append(productCategory);
                     tableProducts.Append("</p>");
                     productId = products3.ElementAt(i).ElementAt(0);
-                    tableProducts.Append("<h4 class='card-product__title'><a href = 'productPage.aspx?productID=" + productId + "'>");
+                    tableProducts.Append("<h4 class='card-product__title'><a href = 'productPageAsUser.aspx?productID=" + productId + "'>");
                     productName = products3.ElementAt(i).ElementAt(1);
                     tableProducts.Append(productName);
                     tableProducts.Append("</a></h4>");
@@ -64,7 +75,7 @@ namespace NewGUI
         protected void SearchButton2_Click(object sender, EventArgs e)
         {
             string productName = SearchTextBox.Text;
-            Response.Redirect("productSearchByName.aspx?productName=" + productName);
+            Response.Redirect("productSearchByNameAsUser.aspx?productName=" + productName);
 
 
         }

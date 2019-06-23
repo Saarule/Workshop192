@@ -46,8 +46,10 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="myDashboard.aspx">My Dashboard</a></li>
+
+                 <!--   <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li> -->
+
                  <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
@@ -56,12 +58,10 @@
             </ul>
               
            <ul class="nav-shop">
-                <a href="mycartAsUser.aspx" class="notification">
-                <span>Inbox</span>
-                <span class="badge">3</span>
-                 
 
-              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
+               <li class="nav-item"><a class="notification" href="notificationsPanel.aspx">Inbox </a><span class="nav-shop__circle"><asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder></span></li>
+                 
+              <li class="nav-item"><a class="button button-header" href="myCartAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -72,7 +72,7 @@
 
   <main class="site-main">
     
-    <!--================ Hero banner start =================-->
+    <!--================ Hero banner start =================--> 
     <section class="hero-banner">
       <div class="container">
         <div class="row no-gutters align-items-center pt-60px">

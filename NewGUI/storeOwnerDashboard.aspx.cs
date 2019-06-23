@@ -17,6 +17,13 @@ namespace NewGUI
         {
             try
             {
+
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                }
+
                 Roles = CommunicationLayer.Controllers.UsersController.GetRoles(HttpContext.Current.Session.SessionID);
                 tableRoles.Append("<table border='1'>");
                 tableRoles.Append("<tr><th> Role: </th><th> Store Name: </th>");
@@ -32,6 +39,10 @@ namespace NewGUI
                 PlaceHolder1.Controls.Add(new Literal { Text = tableRoles.ToString() });
             }
             catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
@@ -53,6 +64,10 @@ namespace NewGUI
                 }
             }
             catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
@@ -85,12 +100,16 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('"+exception.Message+"')", true);
             }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
         protected void ManageStoreButton1_Click(object sender, EventArgs e)
         {
             try
             {
-                String storeNameToManage = StoreToManageTextBox.Text;
+                string storeNameToManage = StoreToManageTextBox.Text;
                 if (CommunicationLayer.Controllers.UsersController.IsManagerOfStore(HttpContext.Current.Session.SessionID,storeNameToManage) || CommunicationLayer.Controllers.UsersController.IsOwnerOfStore(HttpContext.Current.Session.SessionID, storeNameToManage))
                 {
                     Response.Redirect("manageStorePanel.aspx?storeName=" + storeNameToManage);
@@ -103,6 +122,9 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
             }
         }
         protected void OwnStoreButton1_Click(object sender, EventArgs e)
@@ -123,6 +145,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
         protected void ManagePoliciesButton1_Click(object sender, EventArgs e)
         {
@@ -139,6 +165,10 @@ namespace NewGUI
                 }
             }
             catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }

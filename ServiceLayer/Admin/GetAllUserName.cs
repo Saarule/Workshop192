@@ -12,5 +12,10 @@ namespace ServiceLayer.Admin
         {
             return Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames();
         }
+        public static string getUserNameByUserId(int userId)
+        {
+            return Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetUserName();
+
+        }
     }
 }

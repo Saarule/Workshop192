@@ -45,9 +45,16 @@ namespace NewGUI
                     bool ans = CommunicationLayer.Controllers.UsersController.Register(Username, Password, HttpContext.Current.Session.SessionID);
                     if (ans)
                     {
-                        Response.Write("<script>alert('Successful Registeration');</script>");
                         Session["temp"] = "Temp";//Must do it in order to keep the session ID perssitent 
-                        Response.Redirect("index.aspx");
+                        ScriptManager.RegisterStartupScript(this, this.GetType(),"alert", "alert('Successful Registeration');window.location ='index.aspx';", true);
+
+                        /*
+                         * 
+                        //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Successful Registeration')", true);
+                        //Response.Write("<script>alert('Successful Registeration');</script>");
+                        //Response.Redirect("index.aspx");
+                        *
+                        */
                     }
                     else
                     {

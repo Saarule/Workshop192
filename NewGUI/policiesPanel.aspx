@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <!--================ Start Header Menu Area =================-->
+      <!--================ Start Header Menu Area =================-->
     <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -48,22 +48,24 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="myDashboard.aspx">My Dashboard</a></li>
+
+                 <!--   <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li> -->
+
                  <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
                 </ul>
               </li>
             </ul>
-
+              
            <ul class="nav-shop">
-                <a href="mycartAsUser.aspx" class="notification">
+                <a href="notificationsPanel.aspx" class="notification"> 
                 <span>Inbox</span>
-                <span class="badge">3</span>
-                 </a>
+                    </a>
+                 
 
-              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="myCartAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -305,44 +307,7 @@
           </div>
         </div>
 
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h5 class="billing-title">Ban Country from Store Policy:</h5>
-            <table class="order-rable">
-                <tr>
-                <td>Enter Country to Ban:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="CountryToBanTextBox" runat="server" placeholder="Country" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-            
-                 <tr>
-                <td>Compose policies:</td>
-              </tr>
-                <tr>
-                    <td>
 
-               <asp:DropDownList id="compositionType6"
-                    AutoPostBack="True"
-                    runat="server">
-
-                  <asp:ListItem Selected="True" Value="OR"> OR </asp:ListItem>
-                  <asp:ListItem Value="AND"> AND </asp:ListItem>
-                  <asp:ListItem Value="XOR"> XOR </asp:ListItem>
-
-               </asp:DropDownList>
-                
-            </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="CountryToBanFromStoreButton1" runat="server" class="button button-register w-100" Text="Add Policy" OnClick="CountryToBanFromStoreButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
 
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
@@ -357,6 +322,20 @@
 
               <tr>
                 <td><asp:Button ID="RemoveSellingPolicyButton1" runat="server" class="button button-register w-100" Text="Remove Policy" OnClick="RemoveSellingPolicyButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <table class="order-rable">
+                <tr>
+                <td>Store Policies:</td>
+              </tr>
+                
+              <tr>
+                  <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
               </tr>
             </table>
           </div>
@@ -591,19 +570,7 @@
           </div>
         </div>
 
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <table class="order-rable">
-                <tr>
-                <td>Show Store Policy:</td>
-              </tr>
-                
-              <tr>
-                <td><asp:Button ID="Button6" runat="server" class="button button-register w-100" Text="Show Store Policies" OnClick="ShowPolicies" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
+          
 
        </div>
       </div>

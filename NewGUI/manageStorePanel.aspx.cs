@@ -19,6 +19,14 @@ namespace NewGUI
         {
             try
             {
+
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                    return;
+                }
+
                 storeName = Request["storeName"];
                 products = CommunicationLayer.Controllers.ProductsController.GetProductsOfStore(storeName);
                 tableProducts.Append("<table border='1'>");
@@ -42,8 +50,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
-            catch(Exception )
-            { }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
 
 
         }
@@ -55,8 +65,14 @@ namespace NewGUI
                 bool ans = CommunicationLayer.Controllers.UsersController.Logout(HttpContext.Current.Session.SessionID);
                 if (ans)
                 {
-                    Response.Redirect("index.aspx");
-                    Response.Write("<script>alert('Logout succesfuly');</script>");
+                    ScriptManager.RegisterStartupScript(this,
+                            this.GetType(),
+                            "alert",
+                            "alert('Logout succesfuly');window.location ='index.aspx';",
+                            true);
+
+                    //Response.Redirect("index.aspx");
+                    //Response.Write("<script>alert('Logout succesfuly');</script>");
                 }
                 else
                 {
@@ -66,6 +82,10 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
             }
         }
 
@@ -93,6 +113,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
 
         protected void RemoveProductButton1_Click(object sender, EventArgs e)
@@ -114,6 +138,10 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
             }
 
         }
@@ -141,6 +169,10 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
             }
 
         }

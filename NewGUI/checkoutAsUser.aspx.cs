@@ -12,10 +12,24 @@ namespace NewGUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            try
+            {
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                    return;
+                }
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+
         }
         protected void BuyNowButton1_Click(object sender, EventArgs e)
         {
+
             try
             {
 
@@ -62,5 +76,11 @@ namespace NewGUI
             }
 
         }
+
+
+
+
     }
 }
+            
+    

@@ -18,6 +18,13 @@ namespace NewGUI
         {
             try
             {
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                    return;
+                }
+
                 string productId;
                 string productName;
                 string productCategory;
@@ -83,7 +90,7 @@ namespace NewGUI
             {
                 string productID = ProductToRemoveTextBox.Text;
                 CommunicationLayer.Controllers.ProductsController.EditCart("delete", Int32.Parse(productID), HttpContext.Current.Session.SessionID);
-                Response.Redirect("myCart.aspx");
+                Response.Redirect("myCartAsUser.aspx");
             }
             catch (ErrorMessageException exception)
             {

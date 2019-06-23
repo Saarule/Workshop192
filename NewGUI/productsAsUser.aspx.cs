@@ -18,6 +18,14 @@ namespace NewGUI
         {
             try
             {
+
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                    return;
+                }
+
                 string productId;
                 string productName;
                 string productCategory;
@@ -32,9 +40,6 @@ namespace NewGUI
                     tableProducts.Append("<div class='card text-center card-product'>");
                     tableProducts.Append("<div class='card-product__img'>");
                     tableProducts.Append("<img class='card-img' src='img/product/product7.png' alt=''>");
-                    tableProducts.Append("<ul class='card-product__imgOverlay'>");
-                    tableProducts.Append("<li><button><i class='ti-shopping-cart'></i></button></li>");
-                    tableProducts.Append("</ul>");
                     tableProducts.Append("</div>");
                     tableProducts.Append("<div class='card-body'>");
                     tableProducts.Append("<p>");
@@ -42,7 +47,7 @@ namespace NewGUI
                     tableProducts.Append(productCategory);
                     tableProducts.Append("</p>");
                     productId = products2.ElementAt(i).ElementAt(0);
-                    tableProducts.Append("<h4 class='card-product__title'><a href = 'productPage.aspx?productID=" + productId + "'>");
+                    tableProducts.Append("<h4 class='card-product__title'><a href = 'productPageAsUser.aspx?productID=" + productId + "'>");
                     productName = products2.ElementAt(i).ElementAt(1);
                     tableProducts.Append(productName);
                     tableProducts.Append("</a></h4>");
@@ -66,7 +71,7 @@ namespace NewGUI
         protected void SearchButton2_Click(object sender, EventArgs e)
         {
             string productName = SearchTextBox.Text;
-            Response.Redirect("productSearchByName.aspx?productName=" + productName);
+            Response.Redirect("productSearchByNameAsUser.aspx?productName=" + productName);
 
 
         }

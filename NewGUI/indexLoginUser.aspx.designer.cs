@@ -23,6 +23,8 @@ namespace NewGUI
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
+
 
 
     }

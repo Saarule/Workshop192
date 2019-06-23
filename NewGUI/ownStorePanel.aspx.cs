@@ -11,33 +11,61 @@ namespace NewGUI
 {
     public partial class ownStorePanel : System.Web.UI.Page
     {
-        //StringBuilder tableProducts = new StringBuilder();
-        //LinkedList<LinkedList<string>> products = new LinkedList<LinkedList<string>>();
+        StringBuilder tableRoles = new StringBuilder();
+        StringBuilder tablePending = new StringBuilder();
+        LinkedList<LinkedList<string>> Roles = new LinkedList<LinkedList<string>>();
+        LinkedList<string> PendingRequests = new LinkedList<string>();
         string storeName;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            storeName = Request["storeName"];
-            /*
-            products = CommunicationLayer.Controllers.ProductsController.GetProductsOfStore(storeName);
-            tableProducts.Append("<table border='1'>");
-            tableProducts.Append("<tr><th> Product ID: </th><th> Product Name: </th><th> Product Category: </th><th> Product Price: </th><th> Product Amount: </th><th> Store Name: </th>");
-            tableProducts.Append("</tr>");
-            for (int i = 0; i < products.Count; i++)
+            try
             {
-                tableProducts.Append("<tr>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(0) + "</td>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(1) + "</td>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(2) + "</td>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(3) + "</td>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(4) + "</td>");
-                tableProducts.Append("<td>" + products.ElementAt(i).ElementAt(5) + "</td>");
-                tableProducts.Append("</tr>");
-            }
-            tableProducts.Append("</table>");
-            PlaceHolder1.Controls.Add(new Literal { Text = tableProducts.ToString() });
-            */
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                    return;
+                }
 
+                storeName = Request["storeName"];
+
+                Roles = CommunicationLayer.Controllers.UsersController.GetRolesOfStore(storeName);
+                tableRoles.Append("<table border='1'>");
+                tableRoles.Append("<tr><th> UserName: </th><th> Position: </th>");
+                tableRoles.Append("</tr>");
+                for (int i = 0; i < Roles.Count; i++)
+                {
+                    tableRoles.Append("<tr>");
+                    tableRoles.Append("<td>" + Roles.ElementAt(i).ElementAt(0) + "</td>");
+                    tableRoles.Append("<td>" + Roles.ElementAt(i).ElementAt(1) + "</td>");
+                    tableRoles.Append("</tr>");
+                }
+                tableRoles.Append("</table>");
+                PlaceHolder1.Controls.Add(new Literal { Text = tableRoles.ToString() });
+
+                //------------------------------------------------------------------------------//
+
+                PendingRequests = CommunicationLayer.Controllers.UsersController.GetPendingList(HttpContext.Current.Session.SessionID, storeName);
+                tablePending.Append("<table border='1'>");
+                tablePending.Append("<tr><th> UserName: </th></tr>");
+                for (int i = 0; i < PendingRequests.Count; i++)
+                {
+                    tablePending.Append("<tr>");
+                    tablePending.Append("<td>" + PendingRequests.ElementAt(i) + "</td>");
+                    tablePending.Append("</tr>");
+                }
+                tablePending.Append("</table>");
+                PlaceHolder2.Controls.Add(new Literal { Text = tablePending.ToString() });
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
 
 
@@ -65,7 +93,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully added Store Manager');</script>");
-                    Response.Redirect("ownStorePanel.aspx");
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeName);
                 }
                 else
                 {
@@ -73,6 +101,10 @@ namespace NewGUI
                 }
             }
             catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
@@ -87,7 +119,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully removed Store Manager');</script>");
-                    Response.Redirect("ownStorePanel.aspx");
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeName);
                 }
                 else
                 {
@@ -95,6 +127,10 @@ namespace NewGUI
                 }
             }
             catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
@@ -109,7 +145,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully added Store Owner');</script>");
-                    Response.Redirect("owmStorePanel.aspx");
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeName);
                 }
                 else
                 {
@@ -120,6 +156,61 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
+        protected void AcceptAppointmentButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string storeOwnerName = usernameToAppoint.Text;
+                bool ans = CommunicationLayer.Controllers.UsersController.AcceptOwner(storeName, HttpContext.Current.Session.SessionID, storeOwnerName);
+                if (ans)
+                {
+                    Response.Write("<script>alert('succesfully added Store Owner');</script>");
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeName);
+                }
+                else
+                {
+                    Response.Write("<script>alert('There was error when adding the Store Owner');</script>");
+                }
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+        }
+        protected void DeclineAppointmentButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string storeOwnerName = usernameToAppoint.Text;
+                bool ans = CommunicationLayer.Controllers.UsersController.DeclineOwner(storeName, HttpContext.Current.Session.SessionID, storeOwnerName);
+                if (ans)
+                {
+                    Response.Write("<script>alert('succesfully added Store Owner');</script>");
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeName);
+                }
+                else
+                {
+                    Response.Write("<script>alert('There was error when declining the Store Owner');</script>");
+                }
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+        }
+
     }
 }

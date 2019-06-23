@@ -45,6 +45,11 @@ namespace NewGUI
                     tableProducts3.Append("</div>");
                     tableProducts3.Append("</div>");
                     tableProducts3.Append("</td>");
+
+                    tableProducts3.Append("<td>");
+                    tableProducts3.Append("<h5>" + productId + "</h5>");
+                    tableProducts3.Append("</td>");
+
                     tableProducts3.Append("<td>");
                     tableProducts3.Append("<h5>$" + productPrice + "</h5>");
                     tableProducts3.Append("</td>");
@@ -52,6 +57,7 @@ namespace NewGUI
                     tableProducts3.Append("<td>");
                     tableProducts3.Append("<h5>" + productAmount + "</h5>");
                     tableProducts3.Append("</td>");
+
                     //tableProducts3.Append("<div>");
                     //tableProducts3.Append("<td>");
                     //tableProducts3.Append("<asp:TextBox id='ProductAmountTextBox"+productId+"' runat='server' maxlength='12' placeholder='1' class='form-control' type='text' Text="+productAmount+"></asp:TextBox>");

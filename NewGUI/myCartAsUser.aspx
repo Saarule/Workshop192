@@ -47,22 +47,24 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="myDashboard.aspx">My Dashboard</a></li>
+
+                 <!--   <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li> -->
+
                  <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
                 </ul>
               </li>
             </ul>
-
+              
            <ul class="nav-shop">
-                <a href="mycart.aspx" class="notification">
+                <a href="notificationsPanel.aspx" class="notification"> 
                 <span>Inbox</span>
-                <span class="badge">3</span>
-                 </a>
+                    </a>
+                 
 
-              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="myCartAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>

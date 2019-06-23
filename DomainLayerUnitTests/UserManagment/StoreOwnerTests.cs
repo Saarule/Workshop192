@@ -19,6 +19,7 @@ namespace DomainLayerUnitTests.UserManagment
         public void SetUp()
         {
             DbCommerce.GetInstance().StartTests();
+            int user_1= AllRegisteredUsers.GetInstance().CreateUser();
             AllRegisteredUsers.GetInstance().CreateUser();
             AllRegisteredUsers.GetInstance().CreateUser();
             AllRegisteredUsers.GetInstance().CreateUser();
@@ -31,7 +32,7 @@ namespace DomainLayerUnitTests.UserManagment
             user1.LogIn(AllRegisteredUsers.GetInstance().GetUserInfo("user1"));
             user2.LogIn(AllRegisteredUsers.GetInstance().GetUserInfo("user2"));
             user3.LogIn(AllRegisteredUsers.GetInstance().GetUserInfo("user3"));
-            user1.OpenStore("store");
+            user1.OpenStore("store", user_1);
         }
 
         [Test]

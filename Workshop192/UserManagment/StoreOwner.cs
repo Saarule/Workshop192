@@ -87,6 +87,9 @@ namespace Workshop192.UserManagment
             pendingUsers = pendingUsers.Replace(user.GetUserName(), "");
             if (storeOwners.GetStoreOwners().Count == 1)
                 AddOwnerFinal(user);
+            else//push notifications to store owners for accept the appointment
+                foreach (StoreOwner owner in storeOwners.GetStoreOwners())
+                    Notifications.Notification.GetInstance().SendMessageToUser(owner.GetUser().GetUserName(), user.GetUserName() + " is waiting for you to accept his appointment to be store owner in store:" + store);
             DbCommerce.GetInstance().SaveDb();
             return true;
         }
@@ -95,6 +98,20 @@ namespace Workshop192.UserManagment
         {
             user.GetStoreOwners().AddLast(new StoreOwner(user, store, storeOwners));
             Logger.GetInstance().WriteToEventLog(user.GetUserName() + " Is now a owner of store [" + store + "]");
+            try//push notifications
+            {
+                string message = user.GetUserName() + " is added to be owner in store:" + store;
+                
+                for (int i = 0; i < storeOwners.GetStoreOwners().Count; i++)
+                {
+                    Notifications.Notification.GetInstance().SendMessageToUser(storeOwners.GetStoreOwners().ElementAt(i).GetUser().GetUserName(), message);
+                }
+                Notifications.Notification.GetInstance().SendMessageToUser(user.GetUserName(), "You assigned to be owner in store:" + store);
+
+
+            }
+            catch (Exception)
+            { }
         }
 
         public bool AcceptOwner(UserInfo user)
@@ -143,6 +160,18 @@ namespace Workshop192.UserManagment
             user.GetStoreManagers().AddLast(manager);
             appointedManagers.AddLast(manager);
             DbCommerce.GetInstance().SaveDb();
+            try {//push notifications
+                string message = user.GetUserName() + " is added to be manager in store:" + store;
+                for(int i=0;i< storeOwners.GetStoreOwners().Count; i++)
+                {
+                    Notifications.Notification.GetInstance().SendMessageToUser(storeOwners.GetStoreOwners().ElementAt(i).GetUser().GetUserName(), message);
+
+                }
+                Notifications.Notification.GetInstance().SendMessageToUser(user.GetUserName(), "you assigned to be manager in store:" + store);
+
+            }
+            catch (Exception)
+            { }
             return true;
         }
 
@@ -154,6 +183,20 @@ namespace Workshop192.UserManagment
                     Logger.GetInstance().WriteToEventLog(user.GetUserName() + " removed appointed manager " + child.GetUserName() + " of store [" + store + "]");
                     manager.RemoveSelf();
                     DbCommerce.GetInstance().SaveDb();
+                    try//push notifications
+                    {
+                        string message = child.GetUserName() + " is removed from being a manager in store:" + store;
+
+                        for (int i = 0; i < storeOwners.GetStoreOwners().Count; i++)
+                        {
+                            Notifications.Notification.GetInstance().SendMessageToUser(storeOwners.GetStoreOwners().ElementAt(i).GetUser().GetUserName(), message);
+
+                        }
+                        Notifications.Notification.GetInstance().SendMessageToUser(child.GetUserName(), "you removed from being  manager in store:" + store);
+
+                    }
+                    catch (Exception)
+                    { }
                     return true;
                 }
             Logger.GetInstance().WriteToEventLog(user.GetUserName() + " tried removing user " + child.GetUserName() + " from the store managers but the given user wasn't a manager of store [" + store + "]");
@@ -299,5 +342,7 @@ namespace Workshop192.UserManagment
             }
             return users;
         }
+
+
     }
 }

@@ -17,6 +17,9 @@ namespace Workshop192.MarketManagment
             this.right = right;
         }
 
+        public PolicyCompositeOr() //Only for Entity Framework references should be 0
+        { }
+
         public bool Validate(int userId, Cart cart)
         {
             return left.Validate(userId, cart) || right.Validate(userId, cart);

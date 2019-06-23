@@ -87,12 +87,16 @@
     <Content Include="manageStorePanel.aspx" />
     <Content Include="myCart.aspx" />
     <Content Include="myCartAsUser.aspx" />
+    <Content Include="myDashboard.aspx" />
+    <Content Include="notificationsPanel.aspx" />
     <Content Include="ownStorePanel.aspx" />
     <Content Include="policiesPanel.aspx" />
     <Content Include="productPage.aspx" />
+    <Content Include="productPageAsUser.aspx" />
     <Content Include="products.aspx" />
     <Content Include="productsAsUser.aspx" />
     <Content Include="productSearchByName.aspx" />
+    <Content Include="productSearchByNameAsUser.aspx" />
     <Content Include="register.aspx" />
     <Content Include="storeOwnerDashboard.aspx" />
     <Content Include="userDashboard.aspx" />
@@ -179,6 +183,20 @@
     <Compile Include="myCartAsUser.aspx.designer.cs">
       <DependentUpon>myCartAsUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="myDashboard.aspx.cs">
+      <DependentUpon>myDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myDashboard.aspx.designer.cs">
+      <DependentUpon>myDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="notificationsPanel.aspx.cs">
+      <DependentUpon>notificationsPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notificationsPanel.aspx.designer.cs">
+      <DependentUpon>notificationsPanel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ownStorePanel.aspx.cs">
       <DependentUpon>ownStorePanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +218,13 @@
     <Compile Include="productPage.aspx.designer.cs">
       <DependentUpon>productPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="productPageAsUser.aspx.cs">
+      <DependentUpon>productPageAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productPageAsUser.aspx.designer.cs">
+      <DependentUpon>productPageAsUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="products.aspx.cs">
       <DependentUpon>products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,6 +245,13 @@
     </Compile>
     <Compile Include="productSearchByName.aspx.designer.cs">
       <DependentUpon>productSearchByName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productSearchByNameAsUser.aspx.cs">
+      <DependentUpon>productSearchByNameAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productSearchByNameAsUser.aspx.designer.cs">
+      <DependentUpon>productSearchByNameAsUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="index.aspx.cs">
@@ -255,6 +287,10 @@
     <ProjectReference Include="..\CommunicationLayer\CommunicationLayer.csproj">
       <Project>{40af445f-d014-40a0-8cfb-eff006fab8a9}</Project>
       <Name>CommunicationLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Notications\Notications.csproj">
+      <Project>{ea384dcf-22c6-4b00-a72f-7b7dc46ff4a8}</Project>
+      <Name>Notications</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
       <Project>{3460562a-e8d6-4335-b018-4875640959bf}</Project>

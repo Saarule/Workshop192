@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!--================ Start Header Menu Area =================-->
+   <!--================ Start Header Menu Area =================-->
     <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -34,32 +34,37 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item active"><a class="nav-link" href="indexLoginUser.aspx">Home</a></li>
-              <li class="nav-item submenu dropdown">
+              <li class="nav-item"><a class="nav-link" href="indexLoginUser.aspx">Home</a></li>
+              <li class="nav-item active submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
-                  <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="products.aspx">Browse Products</a></li>
-                  <li class="nav-item"><a class="nav-link" href="myCart.aspx">My Cart</a></li>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="productsAsUser.aspx">Browse Products</a></li>
+                  <li class="nav-item"><a class="nav-link" href="myCartAsUser.aspx">My Cart</a></li>
                 </ul>
-				</li>
-
-				<li class="nav-item submenu dropdown">
+							</li>
+							<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="myDashboard.aspx">My Dashboard</a></li>
+
+                 <!--   <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li> -->
+
+                 <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
+                 <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
+                 <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
                 </ul>
               </li>
             </ul>
-
+              
            <ul class="nav-shop">
-                <a href="mycart.aspx" class="notification">
+                <a href="notificationsPanel.aspx" class="notification"> 
                 <span>Inbox</span>
-                <span class="badge">3</span>
-                 </a>
+                    </a>
+                 
 
-              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="myCartAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>

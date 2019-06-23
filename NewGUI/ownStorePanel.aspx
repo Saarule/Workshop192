@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <!--================ Start Header Menu Area =================-->
+      <!--================ Start Header Menu Area =================-->
     <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -47,22 +47,24 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Account</a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="nav-link" href="userDashboard.aspx">User Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="myDashboard.aspx">My Dashboard</a></li>
+
+                 <!--   <li class="nav-item"><a class="nav-link" href="storeOwnerDashboard.aspx">Store Owner Dashboard</a></li> -->
+
                  <!-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
                  <!-- <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li> -->
                 </ul>
               </li>
             </ul>
-
+              
            <ul class="nav-shop">
-                <a href="mycartAsUser.aspx" class="notification">
+                <a href="notificationsPanel.aspx" class="notification"> 
                 <span>Inbox</span>
-                <span class="badge">3</span>
-                 </a>
+                    </a>
+                 
 
-              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="myCartAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -145,6 +147,7 @@
             </table>
           </div>
         </div>
+
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
             <h3 class="billing-title">Add Store Owner</h3>
@@ -161,6 +164,52 @@
             </table>
           </div>
         </div>
+
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Store Managers/Owners:</h3>
+            <table class="order-rable">
+              <tr>
+                  <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Pending Store Owner requests:</h3>
+            <table class="order-rable">
+              <tr>
+                  <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Manage Appointments</h3>
+            <table class="order-rable">
+                <tr>
+                <td>Enter Username:</td>
+              </tr>
+                <tr>
+                    <td><asp:TextBox id="usernameToAppoint" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
+                </tr>
+                 
+                <tr>
+                    <td><asp:Button ID="AcceptAppointmentButton" runat="server" class="button button-register w-100" Text="Accept Appointment" OnClick="AcceptAppointmentButton1_Click" /></td>
+                    <td><asp:Button ID="DeclineAppointmentButton" runat="server" class="button button-register w-100" Text="Decline Appointment" OnClick="DeclineAppointmentButton1_Click" /></td>
+                </tr>
+                <tr>
+                    
+              </tr>
+            </table>
+          </div>
+        </div>
+
+         
    
       </div>
     </div>
