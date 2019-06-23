@@ -10231,3 +10231,7 @@
 06/23/2019 13:25:01  A guest added product [1] [5] of store [mega] to their multi cart
 06/23/2019 13:25:11  A guest added product [2] [7] of store [mega] to their multi cart
 06/23/2019 13:27:59  nati Logged In
+=======
+06-23-2019 12:49:26  A new user was registered saar 123456
+06-23-2019 12:49:32  saar Logged In
+>>>>>>> Stashed changes
