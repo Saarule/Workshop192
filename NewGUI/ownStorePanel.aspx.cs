@@ -21,6 +21,12 @@ namespace NewGUI
         {
             try
             {
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                }
+
                 storeName = Request["storeName"];
 
                 Roles = CommunicationLayer.Controllers.UsersController.GetRolesOfStore(storeName);

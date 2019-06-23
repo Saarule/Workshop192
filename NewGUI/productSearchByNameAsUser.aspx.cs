@@ -16,9 +16,19 @@ namespace NewGUI
         string productName;
         protected void Page_Load(object sender, EventArgs e)
         {
-            productName = Request["productName"];
+
             try
             {
+
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                }
+
+
+                productName = Request["productName"];
+
                 string productId;
                 string productCategory;
                 string productPrice;

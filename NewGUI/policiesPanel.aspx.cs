@@ -13,9 +13,22 @@ namespace NewGUI
         string storeName;
         protected void Page_Load(object sender, EventArgs e)
         {
-            storeName = Request["storeName"];
-            string policiesString = CommunicationLayer.Controllers.ProductsController.GetPolicyOfStore(storeName);
-            PlaceHolder1.Controls.Add(new Literal { Text = policiesString.ToString() });
+            try
+            {
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                }
+
+                storeName = Request["storeName"];
+                string policiesString = CommunicationLayer.Controllers.ProductsController.GetPolicyOfStore(storeName);
+                PlaceHolder1.Controls.Add(new Literal { Text = policiesString.ToString() });
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
 
         protected void MinimumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
