@@ -8,21 +8,14 @@ namespace Workshop192.MarketManagment
 {
     public class PolicyCompositeOr : PolicyComponent
     {
-        public virtual PolicyComponent left { get; set; }
-        public virtual PolicyComponent right { get; set; }
-        public int policyId { get; set; }
-        public string policyProductId { get; set; }
+        private PolicyComponent left;
+        private PolicyComponent right;
 
-        public PolicyCompositeOr(PolicyComponent left, PolicyComponent right, int policyId, string policyProductId)
+        public PolicyCompositeOr(PolicyComponent left, PolicyComponent right)
         {
             this.left = left;
             this.right = right;
-            this.policyId = policyId;
-            this.policyProductId = policyProductId;
         }
-
-        public PolicyCompositeOr() //Only for Entity Framework references should be 0
-        { }
 
         public bool Validate(int userId, Cart cart)
         {

@@ -43,26 +43,19 @@ namespace Workshop192.MarketManagment
             if (discountPolicy == null)
             {
                 discountPolicy = tmp1;
-                discountPolicy.policyId = -1;
                 return;
             }
             PolicyComponent tmp2 = discountPolicy;
             switch (policy.ElementAt(1))
             {
                 case "AND":
-                    discountPolicy = new PolicyCompositeAnd(tmp1, tmp2, 0, Id + "");
-                    tmp1.policyId = tmp2.policyId - 1;
-                    discountPolicy.policyId = tmp1.policyId - 1;
+                    discountPolicy = new PolicyCompositeAnd(tmp1, tmp2);
                     break;
                 case "OR":
-                    discountPolicy = new PolicyCompositeOr(tmp1, tmp2, 0, Id + "");
-                    tmp1.policyId = tmp2.policyId - 1;
-                    discountPolicy.policyId = tmp1.policyId - 1;
+                    discountPolicy = new PolicyCompositeOr(tmp1, tmp2);
                     break;
                 case "XOR":
-                    discountPolicy = new PolicyCompositeXor(tmp1, tmp2, 0, Id + "");
-                    tmp1.policyId = tmp2.policyId - 1;
-                    discountPolicy.policyId = tmp1.policyId - 1;
+                    discountPolicy = new PolicyCompositeXor(tmp1, tmp2);
                     break;
                 default:
                     throw new ErrorMessageException("Syntax Error in given discount policy");
@@ -75,26 +68,19 @@ namespace Workshop192.MarketManagment
             if (sellingPolicy == null)
             {
                 sellingPolicy = tmp1;
-                sellingPolicy.policyId = 1;
                 return;
             }
             PolicyComponent tmp2 = sellingPolicy;
             switch (policy.ElementAt(1))
             {
                 case "AND":
-                    sellingPolicy = new PolicyCompositeAnd(tmp1, tmp2, 0, Id + "");
-                    tmp1.policyId = tmp2.policyId + 1;
-                    sellingPolicy.policyId = tmp1.policyId + 1;
+                    sellingPolicy = new PolicyCompositeAnd(tmp1, tmp2);
                     break;
                 case "OR":
-                    sellingPolicy = new PolicyCompositeOr(tmp1, tmp2, 0, Id + "");
-                    tmp1.policyId = tmp2.policyId + 1;
-                    sellingPolicy.policyId = tmp1.policyId + 1;
+                    sellingPolicy = new PolicyCompositeOr(tmp1, tmp2);
                     break;
                 case "XOR":
-                    sellingPolicy = new PolicyCompositeXor(tmp1, tmp2, 0, Id + "");
-                    tmp1.policyId = tmp2.policyId + 1;
-                    sellingPolicy.policyId = tmp1.policyId + 1;
+                    sellingPolicy = new PolicyCompositeXor(tmp1, tmp2);
                     break;
                 default:
                     throw new ErrorMessageException("Syntax Error in given selling policy");
@@ -181,13 +167,13 @@ namespace Workshop192.MarketManagment
             switch (policy.ElementAt(0))
             {
                 case "Ban":
-                    createdPolicy = new PolicyLeafBannedUser(policy.ElementAt(3), 0, Id + "");
+                    createdPolicy = new PolicyLeafBannedUser(policy.ElementAt(3));
                     break;
                 case "Max":
-                    createdPolicy = new PolicyLeafMaximumAmount(Int32.Parse(policy.ElementAt(3)), Int32.Parse(policy.ElementAt(4)), 0, Id + "");
+                    createdPolicy = new PolicyLeafMaximumAmount(Int32.Parse(policy.ElementAt(3)), Int32.Parse(policy.ElementAt(4)));
                     break;
                 case "Min":
-                    createdPolicy = new PolicyLeafMinimumAmount(Int32.Parse(policy.ElementAt(3)), Int32.Parse(policy.ElementAt(4)), 0, Id + "");
+                    createdPolicy = new PolicyLeafMinimumAmount(Int32.Parse(policy.ElementAt(3)), Int32.Parse(policy.ElementAt(4)));
                     break;
                 default:
                     throw new ErrorMessageException("Syntax Error in given policy");

@@ -8,21 +8,14 @@ namespace Workshop192.MarketManagment
 {
     public class PolicyLeafMinimumAmount : PolicyComponent
     {
-        public int productId { get; set; }
-        public int amount { get; set; }
-        public int policyId { get; set; }
-        public string policyProductId { get; set; }
+        private int productId;
+        private int amount;
 
-        public PolicyLeafMinimumAmount(int productId, int amount, int policyId, string policyProductId)
+        public PolicyLeafMinimumAmount(int productId, int amount)
         {
             this.productId = productId;
             this.amount = amount;
-            this.policyId = policyId;
-            this.policyProductId = policyProductId;
         }
-
-        public PolicyLeafMinimumAmount() //Only for Entity Framework references should be 0
-        { }
 
         public bool Validate(int userId, Cart cart)
         {

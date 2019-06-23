@@ -8,19 +8,12 @@ namespace Workshop192.MarketManagment
 {
     public class PolicyLeafBannedUser : PolicyComponent
     {
-        public string userName { get; set; }
-        public int policyId { get; set; }
-        public string policyProductId { get; set; }
+        private string userName;
 
-        public PolicyLeafBannedUser(string userName, int policyId, string policyProductId)
+        public PolicyLeafBannedUser(string userName)
         {
             this.userName = userName;
-            this.policyId = policyId;
-            this.policyProductId = policyProductId;
         }
-
-        public PolicyLeafBannedUser() //Only for Entity Framework references should be 0
-        { }
 
         public bool Validate(int userId, Cart cart)
         {
