@@ -15,7 +15,7 @@ namespace GUI
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            products = CommunicationLayer.Controllers.ProductsController.getProductsOfStore((string)Session["storeName"]); //function that return all products in store
+            products = CommunicationLayer.Controllers.ProductsController.GetProductsOfStore((string)Session["storeName"]); //function that return all products in store
 
             tableProducts.Append("<table border='1'>");
             tableProducts.Append("<tr><th>Product ID:</th><th>Product Name:</th><th>Catagory:</th><th>Price:</th><th>Amount:</th><th>Store Name:</th>");
@@ -93,7 +93,7 @@ namespace GUI
                 string storeName = (string)Session["storeName"];
                 try
                 {
-                    bool ans = CommunicationLayer.Controllers.ProductsController.ManageProducts(GlobalSpecificUser.userNum, int.Parse(productid), "", "", 0, 0, storeName, "delete");
+                    bool ans = CommunicationLayer.Controllers.ProductsController.ManageProducts(HttpContext.Current.Session.SessionID, int.Parse(productid), "", "", 0, 0, storeName, "delete");
                     if (ans)
                     {
                         Response.Write("<script>alert('product delete succesfully');</script>");
@@ -134,7 +134,7 @@ namespace GUI
                 string storeName = (string)Session["storeName"];
                 try
                 {
-                    bool ans = CommunicationLayer.Controllers.ProductsController.ManageProducts(GlobalSpecificUser.userNum, int.Parse(productID), name, catagory, int.Parse(price), int.Parse(amount), storeName, "edit");
+                    bool ans = CommunicationLayer.Controllers.ProductsController.ManageProducts(HttpContext.Current.Session.SessionID, int.Parse(productID), name, catagory, int.Parse(price), int.Parse(amount), storeName, "edit");
                     if (ans)
                     {
                         Response.Write("<script>alert('product edited succesfully');</script>");

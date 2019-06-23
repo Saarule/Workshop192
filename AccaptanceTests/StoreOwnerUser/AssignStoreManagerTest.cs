@@ -8,6 +8,7 @@ using Workshop192.MarketManagment;
 using ServiceLayer.RegisteredUser;
 using Workshop192.UserManagment;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.StoreOwnerUser
 {
@@ -22,9 +23,9 @@ namespace AccaptanceTests.StoreOwnerUser
         [SetUp]
         public void SetUp()
         {
-
+            DbCommerce.GetInstance().StartTests();
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
             UserId_Saar = CreateAndGetUser.CreateUser();
@@ -40,6 +41,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             SystemReset.Reset();       
         }
         [Test]
@@ -50,20 +52,20 @@ namespace AccaptanceTests.StoreOwnerUser
         [Test]
         public void Assign_With_Wrong_Or_NotExisiting_UserNameTest()
         {//when the system check if the username exist -if not it returns null->null reference
-            Assert.AreEqual(AssignStoreManager.AsssignManager(UserId_Orel,"Victory", "wrong", privileges), false);
+            Assert.Throws<ErrorMessageException>(() => AssignStoreManager.AsssignManager(UserId_Orel,"Victory", "wrong", privileges));
         }
         [Test]
         public void DoubleAssignTest()
         {
             Assert.AreEqual(AssignStoreManager.AsssignManager(UserId_Orel, "Victory", "nati", privileges), true);
-            Assert.AreEqual(AssignStoreManager.AsssignManager(UserId_Orel, "Victory", "nati", privileges), false);
+            Assert.Throws<ErrorMessageException>(() => AssignStoreManager.AsssignManager(UserId_Orel, "Victory", "nati", privileges));
         }
         [Test]
         public void CircularAssignTest()
         {
             LogIn.Login("nati", "123456", UserId_Nati);
             Assert.AreEqual(AssignStoreManager.AsssignManager(UserId_Orel, "Victory", "nati", privileges), true);
-            Assert.AreEqual(AssignStoreManager.AsssignManager(UserId_Nati, "Victory", "orel", privileges), false);
+            Assert.Throws<ErrorMessageException>(() => AssignStoreManager.AsssignManager(UserId_Nati, "Victory", "orel", privileges));
         }
         [Test]
         public void Someone_Else_Assign_Him_To_Store_Test()
@@ -71,7 +73,7 @@ namespace AccaptanceTests.StoreOwnerUser
             LogIn.Login("nati", "123456", UserId_Nati);
             Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "nati"), true);
             Assert.AreEqual(AssignStoreManager.AsssignManager(UserId_Nati, "Victory", "saar", privileges), true);
-            Assert.AreEqual(AssignStoreManager.AsssignManager(UserId_Orel, "Victory", "saar", privileges), false);
+            Assert.Throws<ErrorMessageException>(() => AssignStoreManager.AsssignManager(UserId_Orel, "Victory", "saar", privileges));
 
         }
 

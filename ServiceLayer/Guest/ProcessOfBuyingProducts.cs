@@ -11,11 +11,18 @@ namespace ServiceLayer.Guest
     // use case 2.8 - Process of buying policy
     public class ProcessOfBuyingProducts
     {
-        public static bool ProcessBuyingProducts(int accountId, int userId, string name, string address)
+        public static string[] ProcessBuyingProducts(string cardNumber, string month, string year, string holder,
+            string ccv, string ID, string name, string address, string city, string country, string zip, int userId)
         {
-            if (!CheckAvailability.CheckAvailable(userId))
-                return false;
-            return Workshop192.MarketManagment.System.GetInstance().PurchaseProducts(accountId,userId,name,address);
+            if (!CheckAvailability.CheckAvailable(userId)) {
+                throw new Exception("The amount greater than Inventory amount");
+            }
+
+            Tuple<int , int> ret = Workshop192.MarketManagment.System.GetInstance().PurchaseProducts(userId,cardNumber, month, year, holder, ccv, ID, name, address, city, country,zip);
+            string[] Ret = new string[2];
+            Ret[0] = ret.Item1 + "";
+            Ret[1] = ret.Item2 + "";
+            return Ret;
         }
     }
 }

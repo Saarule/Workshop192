@@ -14,7 +14,7 @@ namespace GUI
         LinkedList<LinkedList<string>> products = new LinkedList<LinkedList<string>>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            products = CommunicationLayer.Controllers.ProductsController.GetProductsOfCart(GlobalSpecificUser.userNum);
+            products = CommunicationLayer.Controllers.ProductsController.GetProductsOfCart(HttpContext.Current.Session.SessionID);
             tableProducts.Append("<table border='1'>");
             tableProducts.Append("<tr><th>Product ID:</th><th>Product Name:</th><th>Catagory:</th><th>Price:</th><th>Amount:</th><th>Store Name:</th>");
             tableProducts.Append("</tr>");
@@ -45,7 +45,7 @@ namespace GUI
             }
             else
             {
-                bool ans = CommunicationLayer.Controllers.ProductsController.DeleteFromCart(GlobalSpecificUser.userNum, int.Parse(TextBox1.Text));
+                bool ans = CommunicationLayer.Controllers.ProductsController.DeleteFromCart(HttpContext.Current.Session.SessionID, int.Parse(TextBox1.Text));
             }
         }
     }

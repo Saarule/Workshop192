@@ -5,6 +5,7 @@ using ServiceLayer.Guest;
 using System;
 using Workshop192.UserManagment;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.Admin
 {
@@ -17,11 +18,12 @@ namespace AccaptanceTests.Admin
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
 
             UserId_Admin = CreateAndGetUser.CreateUser();
-            LogIn.Login("admin", "admin11",UserId_Admin);
+            LogIn.Login("A1", "123456",UserId_Admin);
             
             UserId_Orel = CreateAndGetUser.CreateUser();
             Register.Registration("orel", "123456",UserId_Orel);
@@ -31,6 +33,7 @@ namespace AccaptanceTests.Admin
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             SystemReset.Reset();
         }
         [Test]

@@ -22,7 +22,6 @@ namespace ServiceLayer.Guest
                     product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetName()+"");
                     product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetCategory()+"");
                     product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetPrice()+"");
-                    product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetId()+"");
                     product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetProducts().ElementAt(j).Value+"");
                     product.AddLast(Workshop192.MarketManagment.System.GetInstance().GetMultiCart(CreateAndGetUser.GetUser(userNum).GetMultiCart()).GetCarts().ElementAt(i).GetStore().GetName());
                     products.AddLast(product);
@@ -31,19 +30,13 @@ namespace ServiceLayer.Guest
             return products;
         }
 
-        public static bool Edit(string option, string productID, int userID)
+        public static bool Edit(string option, int productID, int userID)
         {
             if (option.Equals("delete"))
             {
-                ///return AllRegisteredUsers.GetInstance().GetUser(userID).RemoveProductFromCart();
+                return AllRegisteredUsers.GetInstance().GetUser(userID).RemoveProductFromCart(productID);
 
             }
-            else if (option.Equals("edit"))
-            {
-                ///return AllRegisteredUsers.GetInstance().GetUser(userID).();
-                ///has no support to edit from domain
-            }
-
             return false;
         }
     }

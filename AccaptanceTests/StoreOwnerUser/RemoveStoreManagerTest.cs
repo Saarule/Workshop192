@@ -8,6 +8,7 @@ using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
 using ServiceLayer.RegisteredUser;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.StoreOwnerUser
 {
@@ -26,8 +27,9 @@ namespace AccaptanceTests.StoreOwnerUser
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
             UserId_Saar = CreateAndGetUser.CreateUser();
@@ -47,6 +49,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             //TODO
             SystemReset.Reset();//the opposite of initalization of the system        
         }
@@ -62,7 +65,7 @@ namespace AccaptanceTests.StoreOwnerUser
         {//when the system check if the username exist -if not it returns null->null reference
             
             Register.Registration("ben", "123456", UserId_Ben);
-            Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel, "Victory","ben"), false);
+            Assert.Throws<ErrorMessageException>(() => RemoveStoreManager.removeStoreManager(UserId_Orel, "Victory","ben"));
         }
         [Test]
         public void Remove_Grandson_Test()
@@ -72,7 +75,7 @@ namespace AccaptanceTests.StoreOwnerUser
             LogIn.Login("nati", "123456", UserId_Nati);
             Assert.AreEqual( AssignStoreManager.AsssignManager(UserId_Nati,"Victory","ben",Privileges1),true);
 
-            Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel,"Victory", "ben"), false);
+            Assert.Throws<ErrorMessageException>(() => RemoveStoreManager.removeStoreManager(UserId_Orel,"Victory", "ben"));
         }
         [Test]
         public void Remove_Manager_Test2()
@@ -88,7 +91,7 @@ namespace AccaptanceTests.StoreOwnerUser
         public void DoubleRemoveTest()
         {
             Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel,"Victory", "saar"), true);
-            Assert.AreEqual(RemoveStoreManager.removeStoreManager(UserId_Orel, "Victory", "saar"), false);
+            Assert.Throws<ErrorMessageException>(() => RemoveStoreManager.removeStoreManager(UserId_Orel, "Victory", "saar"));
             
         }
     }

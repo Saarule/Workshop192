@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
+using Workshop192;
 
 namespace DomainLayerUnitTests.MarketManagment
 {
@@ -21,6 +22,8 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
+            LinkedList<string> policy = new LinkedList<string>();
             system = Workshop192.MarketManagment.System.GetInstance();
             AllRegisteredUsers.GetInstance().CreateUser();
             user = AllRegisteredUsers.GetInstance().GetUser(1);
@@ -36,21 +39,17 @@ namespace DomainLayerUnitTests.MarketManagment
             store1.AddProducts(product2, 10);
             store2.AddProducts(product3, 10);
             store2.AddProducts(product4, 10);
-            product1.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 50);
-            product1.AddDiscountPolicy(new PolicyLeafUserName("user", "!="), 30);
-            product2.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 70);
-            product1.AddSellingPolicy(new PolicyLeafUserName("", "=="));
-            product1.AddSellingPolicy(new PolicyLeafProductAmount(product1, ">", 1));
-            product2.AddSellingPolicy(new PolicyLeafUserName("user", "!="));
-            store1.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 50);
-            store1.AddDiscountPolicy(new PolicyLeafProductAmount(null, ">=", 10), 70);
-            store1.AddSellingPolicy(new PolicyLeafUserName("", "=="));
-            store1.AddSellingPolicy(new PolicyLeafProductAmount(null, ">=", 3));
-            product3.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 30);
-            product4.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 80);
-            product3.AddSellingPolicy(new PolicyLeafUserName("", "=="));
-            store2.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 30);
-            store2.AddSellingPolicy(new PolicyLeafUserName("", "=="));
+            policy.AddLast("Ban"); policy.AddLast("AND"); policy.AddLast("1"); policy.AddLast("user");
+            product1.AddDiscountPolicy(policy, 50);
+            policy = new LinkedList<string>();
+            policy.AddLast("Min"); policy.AddLast("AND"); policy.AddLast("1"); policy.AddLast("0"); policy.AddLast("5");
+            product1.AddSellingPolicy(policy);
+            policy = new LinkedList<string>();
+            policy.AddLast("Min"); policy.AddLast("AND"); policy.AddLast("0"); policy.AddLast("0"); policy.AddLast("5");
+            store1.AddSellingPolicy(policy);
+            policy = new LinkedList<string>();
+            policy.AddLast("Max"); policy.AddLast("AND"); policy.AddLast("0"); policy.AddLast("0"); policy.AddLast("50");
+            store1.AddSellingPolicy(policy);
         }
 
         [Test]
@@ -72,14 +71,14 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
-            Assert.AreEqual(235, system.SumOfCartPrice(1));
+            Assert.AreEqual(475, system.SumOfCartPrice(1));
         }
 
         [Test]
         public void CheckSellingPolicies_AllPoliciesPass_ReturnsTrue()
         {
-            user.AddProductsToMultiCart("store1", 1, 2);
-            user.AddProductsToMultiCart("store1", 2, 1);
+            user.AddProductsToMultiCart("store1", 1, 7);
+            user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 1);
             user.AddProductsToMultiCart("store2", 4, 1);
             Assert.IsTrue(system.CheckSellingPolicies(1));
@@ -92,7 +91,7 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store1", 2, 1);
             user.AddProductsToMultiCart("store2", 3, 1);
             user.AddProductsToMultiCart("store2", 4, 1);
-            Assert.IsFalse(system.CheckSellingPolicies(1));
+            Assert.Throws<ErrorMessageException>(() => system.CheckSellingPolicies(1));
         }
 
         [Test]
@@ -103,10 +102,10 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store2", 3, 3);
             user.AddProductsToMultiCart("store2", 4, 4);
             system.RemoveProductsFromStore(system.GetMultiCart(user.GetMultiCart()));
-            Assert.AreEqual(9, store1.GetInventory()[product1]);
-            Assert.AreEqual(8, store1.GetInventory()[product2]);
-            Assert.AreEqual(7, store2.GetInventory()[product3]);
-            Assert.AreEqual(6, store2.GetInventory()[product4]);
+            Assert.AreEqual(9, store1.GetProductAmount(product1).amount);
+            Assert.AreEqual(8, store1.GetProductAmount(product2).amount);
+            Assert.AreEqual(7, store2.GetProductAmount(product3).amount);
+            Assert.AreEqual(6, store2.GetProductAmount(product4).amount);
         }
 
         [Test]
@@ -118,10 +117,10 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store2", 4, 4);
             system.RemoveProductsFromStore(system.GetMultiCart(user.GetMultiCart()));
             system.ReturnProductsToStore(system.GetMultiCart(user.GetMultiCart()));
-            Assert.AreEqual(10, store1.GetInventory()[product1]);
-            Assert.AreEqual(10, store1.GetInventory()[product2]);
-            Assert.AreEqual(10, store2.GetInventory()[product3]);
-            Assert.AreEqual(10, store2.GetInventory()[product4]);
+            Assert.AreEqual(10, store1.GetProductAmount(product1).amount);
+            Assert.AreEqual(10, store1.GetProductAmount(product2).amount);
+            Assert.AreEqual(10, store2.GetProductAmount(product3).amount);
+            Assert.AreEqual(10, store2.GetProductAmount(product4).amount);
         }
 
         [Test]
@@ -142,19 +141,23 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store2", 3, 3);
             user.AddProductsToMultiCart("store2", 4, 4);
             store1.RemoveProductFromInventory(2);
-            Assert.IsFalse(system.CheckProductsAvailability(system.GetMultiCart(user.GetMultiCart())));
+            Assert.Throws<ErrorMessageException>(() => system.CheckProductsAvailability(system.GetMultiCart(user.GetMultiCart())));
         }
 
         [Test]
         public void PurchaseProducts_SuccesfullPurchase_ReturnsTrue()
         {
-            system.ConnectDeliverySystem(new Workshop192.DeliverySystemReal());
-            system.ConnectMoneyCollectionSystem(new Workshop192.MoneyCollectionSystemReal());
+            system.ConnectDeliverySystem(new DeliverySystemReal());
+            system.ConnectMoneyCollectionSystem(new MoneyCollectionSystemReal());
             user.AddProductsToMultiCart("store1", 1, 5);
             user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
-            Assert.IsTrue(system.PurchaseProducts(1, 1, "Ben", "Here"));
+            Assert.AreNotEqual(new Tuple<int, int>(-1, -1), system.PurchaseProducts(1, "", "", "", "", "", "", "", "", "", "", ""));
+            Assert.AreEqual(5, store1.GetProductAmount(product1).amount);
+            Assert.AreEqual(5, store1.GetProductAmount(product2).amount);
+            Assert.AreEqual(5, store2.GetProductAmount(product3).amount);
+            Assert.AreEqual(5, store2.GetProductAmount(product4).amount);
         }
 
         [Test]
@@ -164,12 +167,17 @@ namespace DomainLayerUnitTests.MarketManagment
             user.AddProductsToMultiCart("store1", 2, 5);
             user.AddProductsToMultiCart("store2", 3, 5);
             user.AddProductsToMultiCart("store2", 4, 5);
-            Assert.IsFalse(system.PurchaseProducts(1, 1, "Ben", "Here"));
+            Assert.AreEqual(-1, system.PurchaseProducts(1, "", "", "", "", "", "", "", "", "", "", "").Item1);
+            Assert.AreEqual(10, store1.GetProductAmount(product1).amount);
+            Assert.AreEqual(10, store1.GetProductAmount(product2).amount);
+            Assert.AreEqual(10, store2.GetProductAmount(product3).amount);
+            Assert.AreEqual(10, store2.GetProductAmount(product4).amount);
         }
 
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             system = Workshop192.MarketManagment.System.Reset();
             AllRegisteredUsers.Reset();
         }

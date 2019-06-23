@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DomainLayerUnitTests</RootNamespace>
     <AssemblyName>DomainLayerUnitTests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -37,10 +37,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -48,11 +50,11 @@
   <ItemGroup>
     <Compile Include="DeliverySystemProxyTests.cs" />
     <Compile Include="MarketManagment\CartTests.cs" />
-    <Compile Include="MarketManagment\InventoryTests.cs" />
     <Compile Include="MarketManagment\MultiCartTests.cs" />
     <Compile Include="MarketManagment\PolicyCompositeTests.cs" />
-    <Compile Include="MarketManagment\PolicyLeafProductAmountTests.cs" />
-    <Compile Include="MarketManagment\PolicyLeafUserNameTests.cs" />
+    <Compile Include="MarketManagment\PolicyLeafBannedUserTests.cs" />
+    <Compile Include="MarketManagment\PolicyLeafMaximumAmountTests.cs" />
+    <Compile Include="MarketManagment\PolicyLeafMinimumAmountTests.cs" />
     <Compile Include="MarketManagment\ProductTests.cs" />
     <Compile Include="MarketManagment\StoreTests.cs" />
     <Compile Include="MarketManagment\SystemTests.cs" />
@@ -79,6 +81,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

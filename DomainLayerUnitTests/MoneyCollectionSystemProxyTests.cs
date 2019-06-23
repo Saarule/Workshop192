@@ -17,14 +17,14 @@ namespace DomainLayerUnitTests
         public void CollectFromAccount_ConnectedToRealMoneyCollectionSystem_ReturnsTrue()
         {
             proxy = new MoneyCollectionSystemProxy(new MoneyCollectionSystemReal());
-            Assert.IsTrue(proxy.CollectFromAccount(6, 500));
+            Assert.AreNotEqual(-1, proxy.CollectFromAccount("", "", "", "", "", ""));
         }
 
         [Test]
         public void CollectFromAccount_NotConnectedToRealMoneyCollectionSystem_ReturnsFalse()
         {
             proxy = new MoneyCollectionSystemProxy(null);
-            Assert.IsFalse(proxy.CollectFromAccount(6, 500));
+            Assert.AreEqual(-1, proxy.CollectFromAccount("", "", "", "", "", ""));
         }
     }
 }

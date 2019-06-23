@@ -8,6 +8,7 @@ using Workshop192.MarketManagment;
 using Workshop192.UserManagment;
 using ServiceLayer.RegisteredUser;
 using ServiceLayer.SystemInitializtion;
+using Workshop192;
 
 namespace AccaptanceTests.StoreOwnerUser
 {
@@ -21,8 +22,9 @@ namespace AccaptanceTests.StoreOwnerUser
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             InitializationOfTheSystem System = new InitializationOfTheSystem();
-            System.Initalize();
+            System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
             UserId_Orel = CreateAndGetUser.CreateUser();
             UserId_Saar = CreateAndGetUser.CreateUser();
@@ -37,6 +39,7 @@ namespace AccaptanceTests.StoreOwnerUser
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             //TODO
             SystemReset.Reset();       
         }
@@ -48,20 +51,20 @@ namespace AccaptanceTests.StoreOwnerUser
         [Test]
         public void Assign_With_Wrong_Or_NotExisiting_UserNameTest()
         {//when the system check if the username exist -if not it returns null->null reference
-            Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "WrongOrNotExisting"), false);
+            Assert.Throws<ErrorMessageException>(() => AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "WrongOrNotExisting"));
         }
         [Test]
         public void DoubleAssignTest()
         {
             Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "nati"), true);
-            Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "nati"), false);
+            Assert.Throws<ErrorMessageException>(() => AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "nati"));
         }
         [Test]
         public void CircularAssignTest()
         {
             LogIn.Login("nati", "123456", UserId_Nati);
             Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "nati"), true);
-            Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Nati, "Victory", "Orel"), false);
+            Assert.Throws<ErrorMessageException>(() => AssignStoreOwner.assignStoreOwner(UserId_Nati, "Victory", "Orel"));
         }
         [Test]
         public void Someone_Else_Assign_Him_To_Store_Test()
@@ -69,7 +72,7 @@ namespace AccaptanceTests.StoreOwnerUser
             LogIn.Login("nati", "123456", UserId_Nati);
             Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "nati"), true);
             Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Nati, "Victory", "saar"), true);
-            Assert.AreEqual(AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "saar"), false);
+            Assert.Throws<ErrorMessageException>(() => AssignStoreOwner.assignStoreOwner(UserId_Orel, "Victory", "saar"));
 
         }
 

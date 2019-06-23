@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using Workshop192;
 
 namespace NewGUI
 {
@@ -18,32 +19,52 @@ namespace NewGUI
 
         protected void RegisterButton1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("--------Register Button pressed--------");
-            //TODO GenerateNewUserId();
-            if (!ConfirmPasswordTextBox.Text.Equals(PasswordTextBox.Text))
+            try
             {
-                Response.Write("<script>alert('Password Does not much!');</script>");
+                string Username = UsernameTextBox.Text;
+                string Password = PasswordTextBox.Text;
+                if (!ConfirmPasswordTextBox.Text.Equals(PasswordTextBox.Text))
+                {
+                    Response.Write("<script>alert('Password Does not much!');</script>");
+                }
+                else if (Username.Equals("") && Password.Equals(""))
+                {
+                    Response.Write("<script>alert('The fields of username and password empty');</script>");
+                }
+                else if (Username.Equals(""))
+                {
+                    Response.Write("<script>alert('The field of username empty');</script>");
+                }
+                else if (Password.Equals(""))
+                {
+                    Response.Write("<script>alert('The field of password empty');</script>");
+                }
+                else
+                {
+                    Pair pair = new Pair(Username, Password);
+                    bool ans = CommunicationLayer.Controllers.UsersController.Register(Username, Password, HttpContext.Current.Session.SessionID);
+                    if (ans)
+                    {
+                        Session["temp"] = "Temp";//Must do it in order to keep the session ID perssitent 
+                        ScriptManager.RegisterStartupScript(this, this.GetType(),"alert", "alert('Successful Registeration');window.location ='index.aspx';", true);
+
+                        /*
+                         * 
+                        //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Successful Registeration')", true);
+                        //Response.Write("<script>alert('Successful Registeration');</script>");
+                        //Response.Redirect("index.aspx");
+                        *
+                        */
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Failed Registeration');</script>");
+                    }
+                }
             }
-            else
+            catch (ErrorMessageException exception)
             {
-                string id = ServiceLayer.Guest.CreateAndGetUser.CreateUser()+"";
-                SqlConnection con = new SqlConnection("Data Source=WINDOWS-5RJ0LKM\\SQLEXPRESS;Initial Catalog=Wsep192;Integrated Security=True");
-                SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[Users]
-           ([ID]
-           ,[Username]
-           ,[Email]
-           ,[Password]
-           ,[FirstName]
-           ,[LastName]
-           ,[Address]
-           ,[PhoneNumber]
-           ,[Gender])
-     VALUES
-           ('" + id + "','" + UsernameTextBox.Text + "','" + EmailTextBox.Text + "','" + PasswordTextBox.Text + "','" + null + "','" + null + "','" + null + "','" + null + "','" + null + "')", con);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Response.Write("<script>alert('User registered successfully!')</script>");
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
         }
     }

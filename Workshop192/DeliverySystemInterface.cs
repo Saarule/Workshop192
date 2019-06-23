@@ -9,6 +9,7 @@ namespace Workshop192
 {
     public interface DeliverySystemInterface
     {
-        bool Deliver(string name, string address, MultiCart multiCart);
+        int Deliver(string name, string address, string city, string country, string zip);
+        int CancelDelivery(string transactionSupplyID);
     }
 }

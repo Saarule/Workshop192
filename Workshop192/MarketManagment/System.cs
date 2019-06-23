@@ -25,6 +25,14 @@ namespace Workshop192.MarketManagment
             stores = new LinkedList<Store>();
             moneyCollectionSystem = new MoneyCollectionSystemProxy(null);
             deliverySystem = new DeliverySystemProxy(null);
+            stores = DbCommerce.GetInstance().GetStores();
+            foreach (UserManagment.UserInfo info in DbCommerce.GetInstance().GetUserInfos())
+                if (info.GetMultiCart() > multiCartId)
+                    multiCartId = info.GetMultiCart();
+            foreach (Store store in DbCommerce.GetInstance().GetStores())
+                foreach (ProductAmountInventory productAmount in store.GetInventory())
+                    if (productAmount.productId > productId)
+                        productId = productAmount.productId;
         }
 
         public static System GetInstance()
@@ -67,39 +75,81 @@ namespace Workshop192.MarketManagment
 
         public MultiCart GetMultiCart(int multiCartId)
         {
-            return multiCarts[multiCartId];
+            if (multiCarts.ContainsKey(multiCartId))
+                return multiCarts[multiCartId];
+            MultiCart multiCart = new MultiCart();
+            multiCarts[multiCartId] = multiCart;
+            return multiCart;
         }
 
-        private void ResetMultiCart(int multiCartId)
+        public void ResetMultiCart(int multiCartId)
         {
             multiCarts[multiCartId] = new MultiCart();
         }
 
-        public bool PurchaseProducts(int accountId, int userId, string name, string address)
+        public Tuple<int, int> PurchaseProducts(int userId, string cardNumber, string month, string year, string holder, string ccv, string id, string name, string address, string city, string country, string zip)
         {
-            if (!CheckSellingPolicies(userId))
-                return false;
+            int collection, delivery;
+            int multiCartId = UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart();
+            RemoveProductsFromStore(GetMultiCart(multiCartId));
+            try
+            {
+                if (!CheckSellingPolicies(userId))
+                    throw new ErrorMessageException("Not All selling policies pass");
+            }
+            catch (ErrorMessageException e)
+            {
+                ReturnProductsToStore(GetMultiCart(multiCartId));
+                throw e;
+            }
             int sum = SumOfCartPrice(userId);
-            if (!moneyCollectionSystem.CollectFromAccount(accountId, sum))
-                return false;
-            if (!deliverySystem.Deliver(name, address, GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart())))
-                return false;
-            ResetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
-            return true;
-        }
+            collection = moneyCollectionSystem.CollectFromAccount(cardNumber, month, year, holder, ccv, id);
+            delivery = deliverySystem.Deliver(name, address, city, country, zip);
+            if (collection == -1 || delivery==-1)
+            {
+                ReturnProductsToStore(GetMultiCart(multiCartId));
+                return new Tuple<int, int>(-1, -1);
+            }
+            try
+            {
+                MultiCart multicart = System.GetInstance().GetMultiCart(multiCartId);
+                for (int i = 0; i < multicart.GetCarts().Count; i++)
+                {
+                    string message = "the products in store" + multicart.GetCarts().ElementAt(i).GetStore().GetName() + ":\n";
+                    for (int j = 0; j < multicart.GetCarts().ElementAt(i).GetProducts().Count; j++)
+                    {
+                        message = message + " id:" + multicart.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetId() + ",name:" + multicart.GetCarts().ElementAt(i).GetProducts().ElementAt(j).Key.GetName() + "\n";
+                    }
+                    message += "were sold\n";
+                    for (int k = 0; k < UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().Count; k++)
+                    {
+                        if (UserManagment.AllRegisteredUsers.GetInstance().GetUserInfo(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k)).GetOwner(multicart.GetCarts().ElementAt(i).GetStore().GetName()) != null)
+                            Notifications.Notification.GetInstance().SendMessageToUser(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k), message);
+                        if (UserManagment.AllRegisteredUsers.GetInstance().GetUserInfo(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k)).GetManager(multicart.GetCarts().ElementAt(i).GetStore().GetName()) != null)
+                            Notifications.Notification.GetInstance().SendMessageToUser(UserManagment.AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(k), message);
 
+                    }
+                }
+            }
+            catch (Exception) { }
+
+            ResetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
+
+            return new Tuple<int, int>(collection, delivery);
+        }
+        
         public bool CheckProductsAvailability(MultiCart multiCart)
         {
             foreach (Cart cart in multiCart.GetCarts())
             {
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
                 {
-                    if (!cart.GetStore().GetInventory().ContainsKey(productAmount.Key))
-                        return false;
-                    if (cart.GetStore().GetInventory()[productAmount.Key] < productAmount.Value)
-                        return false;
+                    if (cart.GetStore().GetProductAmount(productAmount.Key) == null)
+                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesnt exist anymore");
+                    if (cart.GetStore().GetProductAmount(productAmount.Key).amount < productAmount.Value)
+                        throw new ErrorMessageException("Product Id [" + productAmount.Key.GetId() + "] doesnt have the given amount in store");
                     if (GetStore(cart.GetStore().GetName()) == null)
-                        return false;
+                        throw new ErrorMessageException("Store [" + cart.GetStore().GetName() + "] no longer exists");
                 }
             }
             return true;
@@ -116,7 +166,7 @@ namespace Workshop192.MarketManagment
         {
             foreach (Cart cart in multiCart.GetCarts())
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
-                    cart.GetStore().GetInventory()[productAmount.Key] += productAmount.Value;
+                    cart.GetStore().GetProductAmount(productAmount.Key).amount += productAmount.Value;
         }
 
         public bool CheckSellingPolicies(int userId)
@@ -124,10 +174,10 @@ namespace Workshop192.MarketManagment
             MultiCart multiCart = GetMultiCart(UserManagment.AllRegisteredUsers.GetInstance().GetUser(userId).GetMultiCart());
             foreach (Cart cart in multiCart.GetCarts())
             {
-                if (!cart.GetStore().CheckSellingPolicies(userId, cart))
+                if (!cart.GetStore().CheckSellingPolicy(userId, cart))
                     return false;
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
-                    if (!productAmount.Key.CheckSellingPolicies(userId, cart))
+                    if (!productAmount.Key.CheckSellingPolicy(userId, cart))
                         return false;
             }
             return true;
@@ -151,7 +201,9 @@ namespace Workshop192.MarketManagment
 
         public void OpenStore(string storeName)
         {
-            stores.AddLast(new Store(storeName));
+            Store store = new Store(storeName);
+            stores.AddLast(store);
+            DbCommerce.GetInstance().AddStore(store);
         }
 
         public Store GetStore(string storeName)
@@ -165,6 +217,15 @@ namespace Workshop192.MarketManagment
         public LinkedList<Store> GetAllStores()
         {
             return stores;
+        }
+
+        public int CancelPay(string transactionID)
+        {
+            return moneyCollectionSystem.CancelPay(transactionID);
+        }
+        public int CancelDelivery(string transactionID)
+        {
+            return deliverySystem.CancelDelivery(transactionID);
         }
     }
 }

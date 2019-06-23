@@ -22,16 +22,16 @@ namespace Workshop192.MarketManagment
         public bool AddProductsToCart(int productId, int amount)
         {
             Product product = null;
-            foreach (KeyValuePair<Product, int> productAmount in store.GetInventory())
-                if (productAmount.Key.GetId().Equals(productId))
+            foreach (ProductAmountInventory productAmount in store.GetInventory())
+                if (productAmount.productId.Equals(productId))
                 {
-                    product = productAmount.Key;
+                    product = productAmount.product;
                     break;
                 }
             if (product == null)
-                return false;
-            if ((store.GetInventory()[product] < amount) || ( CheckExsit(productId) && (products[product] + amount > store.GetInventory()[product])))
-                return false;
+                throw new ErrorMessageException("Product Id dosent exist in store");
+            if ((store.GetProductAmount(product).amount < amount) || ( CheckExsit(productId) && (products[product] + amount > store.GetProductAmount(product).amount)))
+                throw new ErrorMessageException("Product has less than the given amount");
             if (CheckExsit(productId))
                 products[product] += amount;
             else
@@ -54,7 +54,7 @@ namespace Workshop192.MarketManagment
             foreach (KeyValuePair<Product, int> productAmount in products)
                 if (productAmount.Key.GetId().Equals(productId))
                     return products.Remove(productAmount.Key);
-            return false;
+            throw new ErrorMessageException("Product Doesnt exist in cart");
         }
 
         public void SetSum()

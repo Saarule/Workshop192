@@ -8,6 +8,7 @@ namespace Workshop192
 {
     public interface MoneyCollectionSystemInterface
     {
-        bool CollectFromAccount(int accountId, int amount);
+        int CollectFromAccount(string cardNumber, string month, string year, string holder, string ccv, string id);
+        int CancelPay(string transactionPayId);
     }
 }

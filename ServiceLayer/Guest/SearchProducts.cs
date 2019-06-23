@@ -19,17 +19,17 @@ namespace ServiceLayer.Guest
             for (int i = 0; i < AllStores.Count; i++)
             {
                 CurrentStore = AllStores.ElementAt(i);
-                Dictionary< Product , int > ProductsPerStore = CurrentStore.GetInventory();
+                LinkedList<ProductAmountInventory> ProductsPerStore = CurrentStore.GetInventory();
                 for (int j = 0; j < ProductsPerStore.Count; j++)
                 {
-                    if (ProductsPerStore.ElementAt(j).Key.GetName().Contains(input))
+                    if (ProductsPerStore.ElementAt(j).product.GetName().Contains(input))
                     {
                         LinkedList<string> toAdd = new LinkedList<string>();
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetId() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetName() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetCategory() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Key.GetPrice() + "");
-                        toAdd.AddLast(ProductsPerStore.ElementAt(j).Value + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).product.GetId() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).product.GetName() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).product.GetCategory() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).product.GetPrice() + "");
+                        toAdd.AddLast(ProductsPerStore.ElementAt(j).amount + "");
                         toAdd.AddLast(CurrentStore.GetName());
                         FoundProducts.AddLast(toAdd);
                     }
@@ -37,5 +37,34 @@ namespace ServiceLayer.Guest
             }
             return FoundProducts;
         }
+
+
+        public static LinkedList<string> SearchById(int productId)
+        {
+            Store CurrentStore;
+            LinkedList<Store> AllStores = Workshop192.MarketManagment.System.GetInstance().GetAllStores();
+            LinkedList<string> toRet = new LinkedList<string>();
+            bool toKeep = true;
+            for (int i = 0; i < AllStores.Count && toKeep; i++)
+            {
+                CurrentStore = AllStores.ElementAt(i);
+                LinkedList<ProductAmountInventory> ProductsPerStore = CurrentStore.GetInventory();
+                for (int j = 0; j < ProductsPerStore.Count && toKeep; j++)
+                {
+                    if (ProductsPerStore.ElementAt(j).product.GetId().Equals(productId))
+                    {
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).product.GetId() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).product.GetName() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).product.GetCategory() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).product.GetPrice() + "");
+                        toRet.AddLast(ProductsPerStore.ElementAt(j).amount + "");
+                        toRet.AddLast(CurrentStore.GetName());
+                        toKeep = false;
+                    }
+                }
+            }
+            return toRet; ;
+        }
+
     }
 }

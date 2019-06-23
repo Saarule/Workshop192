@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.Guest
+namespace Notications
 {
-    class BuyProductsAccordingToBuyingPolicy
+    class Program
     {
-        // not this version
+        static void Main(string[] args)
+        {
+        }
     }
 }

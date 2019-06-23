@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
-using Workshop192.UserManagment;
+using Workshop192;
 
 namespace DomainLayerUnitTests.MarketManagment
 {
@@ -18,6 +18,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             Store store = new Store("newStore");
             product = new Product(1, "air", "element", 5);
             store.AddProducts(product, 4);
@@ -44,14 +45,14 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void AddProductsToCart_AddProductToCartOverAmount_ReturnsFalse()
         {
-            Assert.IsFalse(cart.AddProductsToCart(1, 5));
+            Assert.Throws<ErrorMessageException>(() => cart.AddProductsToCart(1, 5));
             Assert.AreEqual(0, cart.GetProducts().Count);
         }
         
         [Test]
         public void AddProductsToCart_ProductNotInInventory_ReturnsFalse()
         {
-            Assert.IsFalse(cart.AddProductsToCart(3, 2));
+            Assert.Throws<ErrorMessageException>(() => cart.AddProductsToCart(3, 2));
             Assert.AreEqual(0, cart.GetProducts().Count);
         }
 
@@ -66,13 +67,14 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void RemoveProduct_RemoveNonExistingProductFromCart_ReturnsFalse()
         {
-            Assert.IsFalse(cart.RemoveProduct(1));
+            Assert.Throws<ErrorMessageException>(() => cart.RemoveProduct(1));
             Assert.AreEqual(0, cart.GetProducts().Count);
         }
 
         [Test]
         public void SetSum_SuccesfulySetsTheFullPriceOfAllProducts_ReturnsTrue()
         {
+            DbCommerce.GetInstance().EndTests();
             cart.AddProductsToCart(1, 2);
             cart.SetSum();
             Assert.AreEqual(10, cart.GetCartSum());

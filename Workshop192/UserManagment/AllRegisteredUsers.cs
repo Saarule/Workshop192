@@ -21,8 +21,17 @@ namespace Workshop192.UserManagment
             userInfos = new Dictionary<string, UserInfo>();
             userId = 0;
             users = new Dictionary<int, User>();
+            foreach (UserInfo info in DbCommerce.GetInstance().GetUserInfos())
+            {
+                passwords[info.userName] = info.password;
+                userInfos[info.userName] = info;
+            }
         }
-
+        
+        public LinkedList<string> GetAllUserNames()
+        {
+            return new LinkedList<string>(passwords.Keys);     
+        }
         public static AllRegisteredUsers GetInstance()
         {
             if (instance == null)
@@ -40,10 +49,21 @@ namespace Workshop192.UserManagment
 
         public bool RegisterUser(string userName, string password)
         {
-            if (passwords.ContainsKey(userName) || !Security.Security.CheckPasswordSecurity(password))
-                return false;
+            if (passwords.ContainsKey(userName) || userName.Equals(""))
+            {
+                Logger.GetInstance().WriteToErrorLog("A user failed to register " + userName + " " + password);
+                throw new ErrorMessageException("user name already exists");
+            }
+            if (!Security.Security.CheckPasswordSecurity(password))
+            {
+                Logger.GetInstance().WriteToErrorLog("A user failed to register " + userName + " " + password);
+                throw new ErrorMessageException("password is too weak");
+            }
+            Logger.GetInstance().WriteToEventLog("A new user was registered " + userName + " " + password);
             passwords.Add(userName, password);
-            userInfos.Add(userName, new UserInfo(userName));
+            UserInfo info = new UserInfo(userName, password);
+            userInfos.Add(userName, info);
+            DbCommerce.GetInstance().AddUserInfo(info);
             return true;
         }
 
@@ -75,6 +95,16 @@ namespace Workshop192.UserManagment
             return userInfos[userName];
         }
 
+        public LinkedList<UserInfo> getUserInfo()
+        {
+            LinkedList<UserInfo> userInfo = new LinkedList<UserInfo>();
+            for(int i=0;i< userInfos.Count; i++)
+            {
+                userInfo.AddLast(userInfos.ElementAt(i).Value);
+            }
+            return userInfo;
+        }
+
         public bool RemoveUser(UserInfo user)
         {
             while (user.GetStoreManagers().Count > 0)
@@ -83,6 +113,7 @@ namespace Workshop192.UserManagment
                 user.GetStoreOwners().First.Value.RemoveSelf();
             userInfos.Remove(user.GetUserName());
             passwords.Remove(user.GetUserName());
+            DbCommerce.GetInstance().RemoveUserInfo(user);
             return true;
         }
     }

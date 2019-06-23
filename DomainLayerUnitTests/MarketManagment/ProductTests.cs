@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
+using Workshop192;
 
 namespace DomainLayerUnitTests.MarketManagment
 {
@@ -18,6 +19,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().CreateUser();
             store = new Store("temp");
             cart = new Cart(store);
@@ -41,9 +43,12 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void SetDiscountMinimum_SetDiscountSuccesfully_ReturnsTrue()
         {
-            product.AddDiscountPolicy(new PolicyLeafUserName("", "=="), 50);
-            product.AddDiscountPolicy(new PolicyLeafUserName("user", "=="), 70);
-            product.AddDiscountPolicy(new PolicyLeafUserName("user", "!="), 30);
+            LinkedList<string> policy = new LinkedList<string>();
+            policy.AddLast("Ban");
+            policy.AddLast("AND");
+            policy.AddLast("1");
+            policy.AddLast("user");
+            product.AddDiscountPolicy(policy, 50);
             cart.SetSum();
             product.SetDiscountMinimum(1, cart);
             Assert.AreEqual(50, cart.GetCartSum());
@@ -52,23 +57,38 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void CheckSellingPolicies_AllPoliciesPass_ReturnsTrue()
         {
-            product.AddSellingPolicy(new PolicyLeafUserName("", "=="));
-            product.AddSellingPolicy(new PolicyLeafUserName("user", "!="));
-            Assert.IsTrue(product.CheckSellingPolicies(1, cart));
+            LinkedList<string> policy = new LinkedList<string>();
+            policy.AddLast("Ban");
+            policy.AddLast("AND");
+            policy.AddLast("1");
+            policy.AddLast("user");
+            product.AddSellingPolicy(policy);
+            Assert.IsTrue(product.CheckSellingPolicy(1, cart));
         }
 
         [Test]
         public void CheckSellingPolicies_NotAllPoliciesPass_ReturnsFalse()
         {
-            product.AddSellingPolicy(new PolicyLeafUserName("", "=="));
-            product.AddSellingPolicy(new PolicyLeafUserName("user", "!="));
-            product.AddSellingPolicy(new PolicyLeafProductAmount(product, ">", 10));
-            Assert.IsFalse(product.CheckSellingPolicies(1, cart));
+            LinkedList<string> policy = new LinkedList<string>();
+            policy.AddLast("Ban");
+            policy.AddLast("AND");
+            policy.AddLast("1");
+            policy.AddLast("user");
+            product.AddSellingPolicy(policy);
+            policy = new LinkedList<string>();
+            policy.AddLast("Max");
+            policy.AddLast("AND");
+            policy.AddLast("1");
+            policy.AddLast("0");
+            policy.AddLast("2");
+            product.AddSellingPolicy(policy);
+            Assert.Throws<ErrorMessageException>(() => product.CheckSellingPolicy(1, cart));
         }
 
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             Workshop192.MarketManagment.System.Reset();
             Workshop192.UserManagment.AllRegisteredUsers.Reset();
         }

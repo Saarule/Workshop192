@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NewGUI</RootNamespace>
     <AssemblyName>NewGUI</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort />
@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,22 +49,22 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -75,13 +76,78 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminPanel.aspx" />
+    <Content Include="checkout.aspx" />
+    <Content Include="checkoutAsUser.aspx" />
+    <Content Include="confirmation.aspx" />
+    <Content Include="confirmationAsUser.aspx" />
+    <Content Include="indexLoginUser.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="Main.aspx" />
+    <Content Include="manageStorePanel.aspx" />
+    <Content Include="myCart.aspx" />
+    <Content Include="myCartAsUser.aspx" />
+    <Content Include="myDashboard.aspx" />
+    <Content Include="notificationsPanel.aspx" />
+    <Content Include="ownStorePanel.aspx" />
+    <Content Include="policiesPanel.aspx" />
+    <Content Include="productPage.aspx" />
+    <Content Include="productPageAsUser.aspx" />
     <Content Include="products.aspx" />
+    <Content Include="productsAsUser.aspx" />
+    <Content Include="productSearchByName.aspx" />
+    <Content Include="productSearchByNameAsUser.aspx" />
     <Content Include="register.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="storeOwnerDashboard.aspx" />
+    <Content Include="userDashboard.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="index.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminPanel.aspx.cs">
+      <DependentUpon>adminPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminPanel.aspx.designer.cs">
+      <DependentUpon>adminPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkoutAsUser.aspx.cs">
+      <DependentUpon>checkoutAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkoutAsUser.aspx.designer.cs">
+      <DependentUpon>checkoutAsUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="confirmation.aspx.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmation.aspx.designer.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="confirmationAsUser.aspx.cs">
+      <DependentUpon>confirmationAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmationAsUser.aspx.designer.cs">
+      <DependentUpon>confirmationAsUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="indexLoginUser.aspx.cs">
+      <DependentUpon>indexLoginUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="indexLoginUser.aspx.designer.cs">
+      <DependentUpon>indexLoginUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -89,12 +155,103 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manageStorePanel.aspx.cs">
+      <DependentUpon>manageStorePanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manageStorePanel.aspx.designer.cs">
+      <DependentUpon>manageStorePanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="myCart.aspx.cs">
+      <DependentUpon>myCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myCart.aspx.designer.cs">
+      <DependentUpon>myCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="myCartAsUser.aspx.cs">
+      <DependentUpon>myCartAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myCartAsUser.aspx.designer.cs">
+      <DependentUpon>myCartAsUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="myDashboard.aspx.cs">
+      <DependentUpon>myDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myDashboard.aspx.designer.cs">
+      <DependentUpon>myDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="notificationsPanel.aspx.cs">
+      <DependentUpon>notificationsPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notificationsPanel.aspx.designer.cs">
+      <DependentUpon>notificationsPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ownStorePanel.aspx.cs">
+      <DependentUpon>ownStorePanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ownStorePanel.aspx.designer.cs">
+      <DependentUpon>ownStorePanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="policiesPanel.aspx.cs">
+      <DependentUpon>policiesPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="policiesPanel.aspx.designer.cs">
+      <DependentUpon>policiesPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productPage.aspx.cs">
+      <DependentUpon>productPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productPage.aspx.designer.cs">
+      <DependentUpon>productPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productPageAsUser.aspx.cs">
+      <DependentUpon>productPageAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productPageAsUser.aspx.designer.cs">
+      <DependentUpon>productPageAsUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="products.aspx.cs">
       <DependentUpon>products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="products.aspx.designer.cs">
       <DependentUpon>products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productsAsUser.aspx.cs">
+      <DependentUpon>productsAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productsAsUser.aspx.designer.cs">
+      <DependentUpon>productsAsUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productSearchByName.aspx.cs">
+      <DependentUpon>productSearchByName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productSearchByName.aspx.designer.cs">
+      <DependentUpon>productSearchByName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productSearchByNameAsUser.aspx.cs">
+      <DependentUpon>productSearchByNameAsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productSearchByNameAsUser.aspx.designer.cs">
+      <DependentUpon>productSearchByNameAsUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="index.aspx.cs">
@@ -111,15 +268,37 @@
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="storeOwnerDashboard.aspx.cs">
+      <DependentUpon>storeOwnerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="storeOwnerDashboard.aspx.designer.cs">
+      <DependentUpon>storeOwnerDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userDashboard.aspx.cs">
+      <DependentUpon>userDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userDashboard.aspx.designer.cs">
+      <DependentUpon>userDashboard.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommunicationLayer\CommunicationLayer.csproj">
       <Project>{40af445f-d014-40a0-8cfb-eff006fab8a9}</Project>
       <Name>CommunicationLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Notications\Notications.csproj">
+      <Project>{ea384dcf-22c6-4b00-a72f-7b7dc46ff4a8}</Project>
+      <Name>Notications</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
       <Project>{3460562a-e8d6-4335-b018-4875640959bf}</Project>
       <Name>ServiceLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Workshop192\DomainLayer.csproj">
+      <Project>{0db1192a-15dd-405e-8f42-fe910f491968}</Project>
+      <Name>DomainLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

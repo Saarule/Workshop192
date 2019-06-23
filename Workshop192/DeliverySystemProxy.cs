@@ -16,11 +16,18 @@ namespace Workshop192
             this.real = real;
         }
 
-        public bool Deliver(string name, string address, MultiCart multiCart)
+        public int CancelDelivery(string transactionSupplyID)
         {
             if (real == null)
-                return false;
-            return real.Deliver(name, address, multiCart);
+                return -1;
+            return real.CancelDelivery(transactionSupplyID);
+        }
+
+        public int Deliver(string name, string address, string city, string country, string zip)
+        {
+            if (real == null)
+                return -1;
+            return real.Deliver(name, address, city, country, zip);
         }
     }
 }

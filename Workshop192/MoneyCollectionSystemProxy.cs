@@ -15,11 +15,18 @@ namespace Workshop192
             this.real = real;
         }
 
-        public bool CollectFromAccount(int accountId, int amount)
+        public int CollectFromAccount(string cardNumber, string month, string year, string holder, string ccv, string id)
         {
             if (real == null)
-                return false;
-            return real.CollectFromAccount(accountId, amount);
+                return -1;
+            return real.CollectFromAccount(cardNumber, month, year, holder, ccv, id);
+        }
+
+        public int CancelPay(string transactionPayId)
+        {
+            if (real == null)
+                return -1;
+            return real.CancelPay(transactionPayId);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workshop192.MarketManagment;
+using Workshop192;
 
 namespace DomainLayerUnitTests.MarketManagment
 {
@@ -18,6 +19,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             store1 = new Store("store1");
             store2 = new Store("store2");
             multiCart = new MultiCart();
@@ -37,7 +39,7 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void AddProductsToMultiCart_AddProductNotFromStore_ReturnsFalse()
         {
-            Assert.IsFalse(multiCart.AddProductsToMultiCart(store1, 3, 2));
+            Assert.Throws<ErrorMessageException>(() => multiCart.AddProductsToMultiCart(store1, 3, 2));
             Assert.AreEqual(0, multiCart.GetCarts().Count);
         }
 
@@ -53,9 +55,10 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void RemoveProductFromMultiCart_RemoveNonExistingProduct_ReturnsFalse()
         {
+            DbCommerce.GetInstance().EndTests();
             multiCart.AddProductsToMultiCart(store1, 1, 2);
             multiCart.AddProductsToMultiCart(store2, 3, 2);
-            Assert.IsFalse(multiCart.RemoveProductFromMultiCart(2));
+            Assert.Throws<ErrorMessageException>(() => multiCart.RemoveProductFromMultiCart(2));
             Assert.AreEqual(2, multiCart.GetCarts().Count);
         }
     }
