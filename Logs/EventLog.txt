@@ -10126,7 +10126,15 @@
 06-22-2019 22:46:22  saar Logged In
 06-22-2019 22:59:51  A new user was registered saar 123456
 06-22-2019 22:59:59  saar Logged In
+<<<<<<< HEAD
+06/23/2019 01:02:40  A new user was registered moshe fi2rs
+06/23/2019 02:23:40  A new user was registered nati 123456
+06/23/2019 02:30:35  A new user was registered nati 123456
+06/23/2019 02:37:55  A new user was registered llll llll1
+06/23/2019 11:35:13  A new user was registered nati 123456
+=======
 06-23-2019 03:03:59  A new user was registered saar 123456
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 06/22/2019 20:49:54  A new user was registered A1 123456
@@ -11626,6 +11634,64 @@
 06/23/2019 11:23:49  U11 Logged In
 06/23/2019 11:24:11  U11 Added Product [1] [milk] [dairy] [17] [180] as a owner of store [S2]
 =======
+>>>>>>> NewestGUI
+06/23/2019 11:49:00  A new user was registered nati 123456
+06/23/2019 11:55:20  A new user was registered nati 123456
+06/23/2019 11:55:31  nati Logged In
+06/23/2019 11:57:46  A new user was registered orel 123456
+06/23/2019 11:58:00  A new user was registered nati 123456
+06/23/2019 11:58:35  nati Logged In
+06/23/2019 11:59:47  orel Logged In
+06/23/2019 12:30:06  A new user was registered nati 123456
+06/23/2019 12:30:16  nati Logged In
+06/23/2019 12:30:47  A new user was registered orel 123456
+06/23/2019 12:30:56  orel Logged In
+06/23/2019 12:35:07  nati added user orel as a manager in store [shupersal] with the following privileges System.Boolean[]
+06/23/2019 12:42:28  A new user was registered nati 123456
+06/23/2019 12:42:40  nati Logged In
+06/23/2019 12:43:06  A new user was registered orel 123456
+06/23/2019 12:43:18  orel Logged In
+06/23/2019 12:44:06  orel added user nati as a manager in store [mega] with the following privileges System.Boolean[]
+06/23/2019 12:45:07  orel tried removing user orel from the store managers but the given user wasn't a manager of store [mega]
+06/23/2019 12:45:20  orel removed appointed manager nati of store [mega]
+06/23/2019 12:48:28  A new user was registered nati 123456
+06/23/2019 12:48:40  nati Logged In
+06/23/2019 12:49:03  A new user was registered orel 123456
+06/23/2019 12:49:13  orel Logged In
+06/23/2019 12:49:34  orel added user nati as a manager in store [mega] with the following privileges System.Boolean[]
+06/23/2019 12:49:40  orel removed appointed manager nati of store [mega]
+06/23/2019 12:55:01  A new user was registered nati 123456
+06/23/2019 12:55:15  nati Logged In
+06/23/2019 12:56:00  A new user was registered orel 123456
+06/23/2019 12:56:17  orel Logged In
+06/23/2019 12:57:09  orel initiated the owner adding proccess to user nati for store [mega]
+06/23/2019 12:57:09  nati Is now a owner of store [mega]
+06/23/2019 12:58:57  nati Logged Out
+06/23/2019 12:59:07  A new user was registered saar 123456
+06/23/2019 12:59:40  orel initiated the owner adding proccess to user saar for store [mega]
+06/23/2019 13:00:42  saar Logged In
+06/23/2019 13:04:27  A new user was registered nati 123456
+06/23/2019 13:04:44  nati Logged In
+06/23/2019 13:05:07  A new user was registered orel 123456
+06/23/2019 13:05:34  nati initiated the owner adding proccess to user orel for store [mega]
+06/23/2019 13:05:34  orel Is now a owner of store [mega]
+06/23/2019 13:05:48  orel Logged In
+06/23/2019 13:06:26  orel Logged Out
+06/23/2019 13:06:36  A new user was registered saar 123456
+06/23/2019 13:06:49  nati initiated the owner adding proccess to user saar for store [mega]
+06/23/2019 13:07:01  orel Logged In
+06/23/2019 13:08:20  orel accepted user saar as a owner in store [mega]
+06/23/2019 13:08:45  nati accepted user saar as a owner in store [mega]
+06/23/2019 13:08:45  saar Is now a owner of store [mega]
+06/23/2019 13:09:16  orel Logged Out
+06/23/2019 13:09:25  saar Logged In
+06/23/2019 13:10:40  nati Logged Out
+06/23/2019 13:10:49  A new user was registered ben 123456
+06/23/2019 13:11:21  saar added user ben as a manager in store [mega] with the following privileges System.Boolean[]
+06/23/2019 13:12:15  saar Logged Out
+06/23/2019 13:12:23  ben Logged In
+>>>>>>> NewestGUI
+=======
 06-23-2019 11:01:56  A new user was registered saar 123456
 06-23-2019 11:02:05  saar Logged In
 06-23-2019 11:06:49  saar Logged Out
@@ -11665,6 +11731,7 @@
 06-23-2019 12:47:04  A new user was registered saar 123456
 06-23-2019 12:47:14  saar Logged In
 >>>>>>> NewestGUI
+<<<<<<< HEAD
 =======
 06/22/2019 18:45:08  A new user was registered User1 123456
 06/22/2019 18:45:08  A new user was registered User2 123456
@@ -16037,3 +16104,13 @@
 06/23/2019 13:30:31  A guest added product [1] [1] of store [S2] to their multi cart
 06/23/2019 13:30:52  A guest added product [1] [9] of store [S2] to their multi cart
 06/23/2019 13:34:09  A new user was registered A1 123456
+=======
+06/23/2019 13:23:08  A new user was registered nati 123456
+06/23/2019 13:23:19  nati Logged In
+06/23/2019 13:23:49  nati Added Product [1] [Milk] [dairy] [20] [40] as a owner of store [mega]
+06/23/2019 13:24:07  nati Added Product [2] [Wine] [alcohol] [40] [100] as a owner of store [mega]
+06/23/2019 13:24:27  nati Logged Out
+06/23/2019 13:25:01  A guest added product [1] [5] of store [mega] to their multi cart
+06/23/2019 13:25:11  A guest added product [2] [7] of store [mega] to their multi cart
+06/23/2019 13:27:59  nati Logged In
+>>>>>>> NewestGUI

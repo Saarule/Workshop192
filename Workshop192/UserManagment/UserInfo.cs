@@ -54,7 +54,7 @@ namespace Workshop192.UserManagment
             storeOwners.AddLast(new StoreOwner(this, storeName, null));
             for(int i=0;i< AllRegisteredUsers.GetInstance().GetAllUserNames().Count; i++)
             {
-                Notifications.Notification.GetInstance().SendMessageToUser(AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(i), "the shop " + storeName + " was opened now!");
+                Notifications.Notification.GetInstance().SendMessageToUser(AllRegisteredUsers.GetInstance().GetAllUserNames().ElementAt(i), "The shop " + storeName + " was opened now!");
             }
             DbCommerce.GetInstance().SaveDb();
             return true;
