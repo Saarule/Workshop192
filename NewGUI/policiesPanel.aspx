@@ -311,6 +311,7 @@
             </table>
           </div>
         </div>
+          <!--
 
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
@@ -329,6 +330,7 @@
                 <tr>
                     <td>
 
+             -->
                <asp:DropDownList id="compositionType6"
                     AutoPostBack="True"
                     runat="server">

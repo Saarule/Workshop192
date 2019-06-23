@@ -8,7 +8,7 @@ using Workshop192.UserManagment;
 
 namespace ServiceLayer.Store_Owner_User
 {
-    class ShowWaitingList
+    public class ShowWaitingList
     {
         public static LinkedList<string> ShowWaitingsList(int userId,string Store)
         {

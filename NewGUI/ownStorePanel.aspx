@@ -176,6 +176,17 @@
           </div>
         </div>
 
+           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Pending Store Owner requests:</h3>
+            <table class="order-rable">
+              <tr>
+                  <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+              </tr>
+            </table>
+          </div>
+        </div>
+
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
             <h3 class="billing-title">Manage Appointments</h3>
@@ -197,6 +208,8 @@
             </table>
           </div>
         </div>
+
+         
    
       </div>
     </div>
