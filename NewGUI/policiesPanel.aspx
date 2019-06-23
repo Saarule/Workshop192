@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <!--================ Start Header Menu Area =================-->
+      <!--================ Start Header Menu Area =================-->
     <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -58,14 +58,14 @@
                 </ul>
               </li>
             </ul>
-
+              
            <ul class="nav-shop">
-                <a href="mycartAsUser.aspx" class="notification">
+                <a href="notificationsPanel.aspx" class="notification"> 
                 <span>Inbox</span>
-                <span class="badge">3</span>
-                 </a>
+                    </a>
+                 
 
-              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="myCartAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -121,8 +121,7 @@
                     AutoPostBack="True"
                     runat="server">
 
-                  <asp:ListItem Selected="True" Value="">  </asp:ListItem>
-                  <asp:ListItem Value="AND"> OR </asp:ListItem>
+                  <asp:ListItem Selected="True" Value="OR"> OR </asp:ListItem>
                   <asp:ListItem Value="AND"> AND </asp:ListItem>
                   <asp:ListItem Value="XOR"> XOR </asp:ListItem>
 
@@ -167,8 +166,7 @@
                     AutoPostBack="True"
                     runat="server">
 
-                  <asp:ListItem Selected="True" Value="">  </asp:ListItem>
-                  <asp:ListItem Value="AND"> OR </asp:ListItem>
+                  <asp:ListItem Selected="True" Value="OR"> OR </asp:ListItem>
                   <asp:ListItem Value="AND"> AND </asp:ListItem>
                   <asp:ListItem Value="XOR"> XOR </asp:ListItem>
 
@@ -210,8 +208,7 @@
                     AutoPostBack="True"
                     runat="server">
 
-                  <asp:ListItem Selected="True" Value="">  </asp:ListItem>
-                  <asp:ListItem Value="AND"> OR </asp:ListItem>
+                  <asp:ListItem Selected="True" Value="OR"> OR </asp:ListItem>
                   <asp:ListItem Value="AND"> AND </asp:ListItem>
                   <asp:ListItem Value="XOR"> XOR </asp:ListItem>
 
@@ -253,8 +250,7 @@
                     AutoPostBack="True"
                     runat="server">
 
-                  <asp:ListItem Selected="True" Value="">  </asp:ListItem>
-                  <asp:ListItem Value="AND"> OR </asp:ListItem>
+                  <asp:ListItem Selected="True" Value="OR"> OR </asp:ListItem>
                   <asp:ListItem Value="AND"> AND </asp:ListItem>
                   <asp:ListItem Value="XOR"> XOR </asp:ListItem>
 
@@ -293,8 +289,7 @@
                     AutoPostBack="True"
                     runat="server">
 
-                  <asp:ListItem Selected="True" Value="">  </asp:ListItem>
-                  <asp:ListItem Value="AND"> OR </asp:ListItem>
+                  <asp:ListItem Selected="True" Value="OR"> OR </asp:ListItem>
                   <asp:ListItem Value="AND"> AND </asp:ListItem>
                   <asp:ListItem Value="XOR"> XOR </asp:ListItem>
 
@@ -312,45 +307,7 @@
           </div>
         </div>
 
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h5 class="billing-title">Ban Country from Store Policy:</h5>
-            <table class="order-rable">
-                <tr>
-                <td>Enter Country to Ban:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="CountryToBanTextBox" runat="server" placeholder="Country" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-            
-                 <tr>
-                <td>Compose policies:</td>
-              </tr>
-                <tr>
-                    <td>
 
-               <asp:DropDownList id="compositionType6"
-                    AutoPostBack="True"
-                    runat="server">
-
-                  <asp:ListItem Selected="True" Value="">  </asp:ListItem>
-                  <asp:ListItem Value="AND"> OR </asp:ListItem>
-                  <asp:ListItem Value="AND"> AND </asp:ListItem>
-                  <asp:ListItem Value="XOR"> XOR </asp:ListItem>
-
-               </asp:DropDownList>
-                
-            </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="CountryToBanFromStoreButton1" runat="server" class="button button-register w-100" Text="Add Policy" OnClick="CountryToBanFromStoreButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
 
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
@@ -439,8 +396,7 @@
                     AutoPostBack="True"
                     runat="server">
 
-                  <asp:ListItem Selected="True" Value="">  </asp:ListItem>
-                  <asp:ListItem Value="AND"> OR </asp:ListItem>
+                  <asp:ListItem Selected="True" Value="OR"> OR </asp:ListItem>
                   <asp:ListItem Value="AND"> AND </asp:ListItem>
                   <asp:ListItem Value="XOR"> XOR </asp:ListItem>
 
@@ -488,8 +444,7 @@
                     AutoPostBack="True"
                     runat="server">
 
-                  <asp:ListItem Selected="True" Value="">  </asp:ListItem>
-                  <asp:ListItem Value="AND"> OR </asp:ListItem>
+                  <asp:ListItem Selected="True" Value="OR"> OR </asp:ListItem>
                   <asp:ListItem Value="AND"> AND </asp:ListItem>
                   <asp:ListItem Value="XOR"> XOR </asp:ListItem>
 
@@ -534,8 +489,7 @@
                     AutoPostBack="True"
                     runat="server">
 
-                  <asp:ListItem Selected="True" Value="">  </asp:ListItem>
-                  <asp:ListItem Value="AND"> OR </asp:ListItem>
+                  <asp:ListItem Selected="True" Value="OR"> OR </asp:ListItem>
                   <asp:ListItem Value="AND"> AND </asp:ListItem>
                   <asp:ListItem Value="XOR"> XOR </asp:ListItem>
 
@@ -580,8 +534,7 @@
                     AutoPostBack="True"
                     runat="server">
 
-                  <asp:ListItem Selected="True" Value="">  </asp:ListItem>
-                  <asp:ListItem Value="AND"> OR </asp:ListItem>
+                  <asp:ListItem Selected="True" Value="OR"> OR </asp:ListItem>
                   <asp:ListItem Value="AND"> AND </asp:ListItem>
                   <asp:ListItem Value="XOR"> XOR </asp:ListItem>
 

@@ -569,4 +569,9 @@
 06/20/2019 13:49:53  U2 Tried adding selling policy to store [s1] without privileges
 06-22-2019 18:16:35  saar Tried removing a non existent user as a store manager
 06-22-2019 18:18:16  saar tried adding user Ben as a owner but the given user is already a owner/manager of store [store]
+<<<<<<< HEAD
 06/23/2019 12:59:55  orel tried adding user saar as a owner but the given user is already a apending owner of store [mega]
+=======
+06-23-2019 12:38:13  A user failed to register saar 123456
+06-23-2019 12:38:20  A user failed to register saar 123456
+>>>>>>> NewestGUI

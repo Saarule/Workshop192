@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <!--================ Start Header Menu Area =================-->
+      <!--================ Start Header Menu Area =================-->
     <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -57,14 +57,14 @@
                 </ul>
               </li>
             </ul>
-
+              
            <ul class="nav-shop">
-                <a href="mycartAsUser.aspx" class="notification">
+                <a href="notificationsPanel.aspx" class="notification"> 
                 <span>Inbox</span>
-                <span class="badge">3</span>
-                 </a>
+                    </a>
+                 
 
-              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="myCartAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
@@ -176,6 +176,17 @@
           </div>
         </div>
 
+           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <h3 class="billing-title">Pending Store Owner requests:</h3>
+            <table class="order-rable">
+              <tr>
+                  <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+              </tr>
+            </table>
+          </div>
+        </div>
+
           <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
             <h3 class="billing-title">Manage Appointments</h3>
@@ -197,6 +208,8 @@
             </table>
           </div>
         </div>
+
+         
    
       </div>
     </div>

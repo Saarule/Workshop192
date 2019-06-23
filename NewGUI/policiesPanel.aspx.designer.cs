@@ -211,33 +211,6 @@ namespace NewGUI {
         protected global::System.Web.UI.WebControls.Button UserToBanFromStoreButton1;
         
         /// <summary>
-        /// CountryToBanTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CountryToBanTextBox;
-        
-        /// <summary>
-        /// compositionType6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList compositionType6;
-        
-        /// <summary>
-        /// CountryToBanFromStoreButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CountryToBanFromStoreButton1;
-        
-        /// <summary>
         /// IdOfProductToRemoveItsSellingPolicyTextBox1 control.
         /// </summary>
         /// <remarks>

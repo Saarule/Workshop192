@@ -12,27 +12,55 @@ namespace NewGUI
     public partial class ownStorePanel : System.Web.UI.Page
     {
         StringBuilder tableRoles = new StringBuilder();
+        StringBuilder tablePending = new StringBuilder();
         LinkedList<LinkedList<string>> Roles = new LinkedList<LinkedList<string>>();
+        LinkedList<string> PendingRequests = new LinkedList<string>();
         string storeName;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            storeName = Request["storeName"];
-
-            Roles = CommunicationLayer.Controllers.UsersController.GetRolesOfStore(storeName);
-            tableRoles.Append("<table border='1'>");
-            tableRoles.Append("<tr><th> UserName: </th><th> Position: </th>");
-            tableRoles.Append("</tr>");
-            for (int i = 0; i < Roles.Count; i++)
+            try
             {
-                tableRoles.Append("<tr>");
-                tableRoles.Append("<td>" + Roles.ElementAt(i).ElementAt(0) + "</td>");
-                tableRoles.Append("<td>" + Roles.ElementAt(i).ElementAt(1) + "</td>");
-                tableRoles.Append("</tr>");
-            }
-            tableRoles.Append("</table>");
-            PlaceHolder1.Controls.Add(new Literal { Text = tableRoles.ToString() });
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                }
 
+                storeName = Request["storeName"];
+
+                Roles = CommunicationLayer.Controllers.UsersController.GetRolesOfStore(storeName);
+                tableRoles.Append("<table border='1'>");
+                tableRoles.Append("<tr><th> UserName: </th><th> Position: </th>");
+                tableRoles.Append("</tr>");
+                for (int i = 0; i < Roles.Count; i++)
+                {
+                    tableRoles.Append("<tr>");
+                    tableRoles.Append("<td>" + Roles.ElementAt(i).ElementAt(0) + "</td>");
+                    tableRoles.Append("<td>" + Roles.ElementAt(i).ElementAt(1) + "</td>");
+                    tableRoles.Append("</tr>");
+                }
+                tableRoles.Append("</table>");
+                PlaceHolder1.Controls.Add(new Literal { Text = tableRoles.ToString() });
+
+                //------------------------------------------------------------------------------//
+
+                PendingRequests = CommunicationLayer.Controllers.UsersController.GetPendingList(HttpContext.Current.Session.SessionID, storeName);
+                tablePending.Append("<table border='1'>");
+                tablePending.Append("<tr><th> UserName: </th></tr>");
+                for (int i = 0; i < PendingRequests.Count; i++)
+                {
+                    tablePending.Append("<tr>");
+                    tablePending.Append("<td>" + PendingRequests.ElementAt(i) + "</td>");
+                    tablePending.Append("</tr>");
+                }
+                tablePending.Append("</table>");
+                PlaceHolder2.Controls.Add(new Literal { Text = tablePending.ToString() });
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
 
 

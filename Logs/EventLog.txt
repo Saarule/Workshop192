@@ -10132,6 +10132,7 @@
 06/23/2019 11:35:13  A new user was registered nati 123456
 =======
 06-23-2019 03:03:59  A new user was registered saar 123456
+<<<<<<< HEAD
 >>>>>>> NewestGUI
 06/23/2019 11:49:00  A new user was registered nati 123456
 06/23/2019 11:55:20  A new user was registered nati 123456
@@ -10188,3 +10189,37 @@
 06/23/2019 13:11:21  saar added user ben as a manager in store [mega] with the following privileges System.Boolean[]
 06/23/2019 13:12:15  saar Logged Out
 06/23/2019 13:12:23  ben Logged In
+=======
+06-23-2019 11:01:56  A new user was registered saar 123456
+06-23-2019 11:02:05  saar Logged In
+06-23-2019 11:06:49  saar Logged Out
+06-23-2019 11:09:34  A new user was registered saar 123456
+06-23-2019 11:09:40  saar Logged In
+06-23-2019 11:16:17  A new user was registered saar 123456
+06-23-2019 11:16:24  saar Logged In
+06-23-2019 11:33:32  A new user was registered saar 123456
+06-23-2019 11:33:45  saar Logged In
+06-23-2019 11:42:23  A new user was registered saar 123456
+06-23-2019 11:42:29  saar Logged In
+06-23-2019 11:43:46  A new user was registered saar 123456
+06-23-2019 11:44:18  saar Logged In
+06-23-2019 11:44:41  saar Logged Out
+06-23-2019 11:44:52  A new user was registered orel 123456
+06-23-2019 11:44:59  saar Logged In
+06-23-2019 11:45:15  saar initiated the owner adding proccess to user orel for store [store]
+06-23-2019 11:45:15  orel Is now a owner of store [store]
+06-23-2019 11:48:40  A new user was registered saar 123456
+06-23-2019 11:48:46  saar Logged In
+06-23-2019 11:55:23  A new user was registered saar 123456
+06-23-2019 11:55:31  saar Logged In
+06-23-2019 11:57:14  A new user was registered saar 123456
+06-23-2019 11:57:22  saar Logged In
+06-23-2019 12:00:51  A new user was registered saar 123456
+06-23-2019 12:00:58  saar Logged In
+06-23-2019 12:05:17  A new user was registered saar 123456
+06-23-2019 12:05:25  saar Logged In
+06-23-2019 12:33:14  A new user was registered saar 123456
+06-23-2019 12:38:30  saar Logged In
+06-23-2019 12:47:04  A new user was registered saar 123456
+06-23-2019 12:47:14  saar Logged In
+>>>>>>> NewestGUI
