@@ -14,6 +14,8 @@ namespace ServiceLayer.Store_Owner_User
         {
             LinkedList<string> ret = new LinkedList<string>();
             string AllNames = AllRegisteredUsers.GetInstance().GetUser(userId).GetInfo().GetOwner(Store).pendingUsers;
+            if (AllNames == null)
+                AllNames = "";
             string[] names = AllNames.Split('$');
             for (int i = 0; i < names.Length; i++)
             {
