@@ -25,7 +25,7 @@ namespace DomainLayerUnitTests.MarketManagment
             Product p2 = new Product(2, "2", "2", 2);
             store.AddProducts(p1, 10);
             store.AddProducts(p2, 10);
-            cart = new Cart(store);
+            cart = new Cart(store, new MultiCart(1));
             cart.AddProductsToCart(1, 10);
             cart.AddProductsToCart(2, 10);
         }

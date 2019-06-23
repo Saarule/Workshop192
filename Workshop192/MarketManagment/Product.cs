@@ -25,6 +25,9 @@ namespace Workshop192.MarketManagment
             sellingPolicy = null;
         }
 
+        public Product() //Only for Entity Framework references should be 0
+        { }
+
         public void EditProduct(string name, string category, int price)
         {
             this.name = name;

@@ -32,6 +32,9 @@ namespace Workshop192.UserManagment
             pendingUsers = null;
         }
 
+        public StoreOwner() //Only for Entity Framework references should be 0
+        { }
+
         public bool AddProducts(Product product, int amount)
         {
             if (MarketManagment.System.GetInstance().GetStore(store).AddProducts(product, amount))
@@ -81,7 +84,7 @@ namespace Workshop192.UserManagment
             Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " initiated the owner adding proccess to user " + user.GetUserName() + " for store [" + store + "]");
             foreach (StoreOwner owner in storeOwners.GetStoreOwners())
                 owner.pendingUsers += "$" + user.GetUserName();
-            pendingUsers.Replace(user.GetUserName(), "");
+            pendingUsers = pendingUsers.Replace(user.GetUserName(), "");
             if (storeOwners.GetStoreOwners().Count == 1)
                 AddOwnerFinal(user);
             DbCommerce.GetInstance().SaveDb();

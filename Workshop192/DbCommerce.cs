@@ -48,7 +48,6 @@ namespace Workshop192
             modelBuilder.Entity<UserInfo>().HasOptional(u => u.admin).WithRequired(a => a.user);
             modelBuilder.Entity<UserInfo>().HasMany(u => u.storeOwners).WithRequired(o => o.user).HasForeignKey(o => o.userName);
             modelBuilder.Entity<UserInfo>().HasMany(u => u.storeManagers).WithRequired(m => m.user).HasForeignKey(m => m.userName);
-            //modelBuilder.Entity<StoreOwner>().HasMany(o => o.appointedManagers).WithRequired(m => m.owner);
             modelBuilder.Entity<StoreOwnersOfStore>().HasMany(os => os.storeOwners).WithRequired(o => o.storeOwners);
             modelBuilder.Entity<Product>().HasKey(p => p.Id);
             modelBuilder.Entity<Product>().Ignore(p => p.discountPolicy);
@@ -58,11 +57,20 @@ namespace Workshop192
             modelBuilder.Entity<Store>().Ignore(s => s.sellingPolicy);
             modelBuilder.Entity<ProductAmountInventory>().HasKey(pi => new { pi.storeName, pi.productId });
             modelBuilder.Entity<Store>().HasMany(s => s.inventory).WithRequired(pi => pi.store).HasForeignKey(pi => pi.storeName);
-            modelBuilder.Entity<ProductAmountInventory>().HasRequired(pi => pi.product).WithMany();
+            modelBuilder.Entity<ProductAmountInventory>().HasRequired(pi => pi.product);
+            modelBuilder.Entity<MultiCart>().HasKey(mc => mc.multiCartId);
+            modelBuilder.Entity<Cart>().HasKey(c => new { c.multiCartId, c.storeName });
+            modelBuilder.Entity<ProductAmountCart>().HasKey(pc => new { pc.multiCartId, pc.productId });
+            modelBuilder.Entity<MultiCart>().HasMany(mc => mc.carts).WithRequired(c => c.multiCart).HasForeignKey(c => c.multiCartId);
+            modelBuilder.Entity<Cart>().HasMany(c => c.productAmount).WithRequired(pa => pa.cart).HasForeignKey(pa => new { pa.multiCartId, pa.storeName });
+            modelBuilder.Entity<ProductAmountCart>().HasRequired(pa => pa.product);
         }
 
         public DbSet<UserInfo> users { get; set; }
         public DbSet<Store> stores { get; set; }
+        public DbSet<Product> products { get; set; }
+        public DbSet<MultiCart> multiCarts { get; set; }
+        public DbSet<Cart> carts { get; set; }
 
         public void AddUserInfo(UserInfo info)
         {
@@ -86,6 +94,21 @@ namespace Workshop192
                 return;
             stores.Add(store);
             SaveChanges();
+        }
+
+        public void AddMultiCart(MultiCart multiCart)
+        {
+            if (forTests)
+                return;
+            multiCarts.Add(multiCart);
+            SaveChanges();
+        }
+
+        public void RemoveCart(Cart cart)
+        {
+            if (forTests)
+                return;
+            carts.Remove(cart);
         }
 
         public LinkedList<UserInfo> GetUserInfos()
@@ -114,6 +137,52 @@ namespace Workshop192
             }
             catch { }
             return stores;
+        }
+
+        public LinkedList<MultiCart> GetMultiCarts()
+        {
+            if (forTests)
+                return new LinkedList<MultiCart>();
+            LinkedList<MultiCart> multiCarts = new LinkedList<MultiCart>();
+            try
+            {
+                foreach (MultiCart multiCart in this.multiCarts)
+                    multiCarts.AddLast(multiCart);
+            }
+            catch { }
+            return multiCarts;
+        }
+
+        public int GetProductId()
+        {
+            if (forTests)
+                return 0;
+            try
+            {
+                return products.Count();
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public int GetMultiCartId()
+        {
+            if (forTests)
+                return 0;
+            try
+            {
+                int max = 0;
+                foreach (MultiCart multiCart in multiCarts)
+                    if (max < multiCart.multiCartId)
+                        max = multiCart.multiCartId;
+                return max;
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
         public void SaveDb()

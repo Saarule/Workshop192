@@ -22,7 +22,7 @@ namespace DomainLayerUnitTests.MarketManagment
             Store store = new Store("newStore");
             product = new Product(1, "air", "element", 5);
             store.AddProducts(product, 4);
-            cart = new Cart(store);
+            cart = new Cart(store, new MultiCart(1));
         }
 
         [Test]

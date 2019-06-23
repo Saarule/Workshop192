@@ -22,7 +22,7 @@ namespace DomainLayerUnitTests.MarketManagment
             DbCommerce.GetInstance().StartTests();
             store1 = new Store("store1");
             store2 = new Store("store2");
-            multiCart = new MultiCart();
+            multiCart = new MultiCart(1);
             store1.AddProducts(new Product(1, "can", "tin", 5), 5);
             store1.AddProducts(new Product(2, "floor", "wood", 10), 10);
             store2.AddProducts(new Product(3, "nike", "shoes", 25), 5);

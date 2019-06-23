@@ -10,7 +10,7 @@ namespace Workshop192.MarketManagment
     {
         private int productId;
         private int multiCartId;
-        private Dictionary<int, MultiCart> multiCarts;
+        private LinkedList<MultiCart> multiCarts;
         private LinkedList<Store> stores;
         private MoneyCollectionSystemInterface moneyCollectionSystem;
         private DeliverySystemInterface deliverySystem;
@@ -19,20 +19,19 @@ namespace Workshop192.MarketManagment
 
         private System()
         {
-            productId = 0;
-            multiCartId = 0;
-            multiCarts = new Dictionary<int, MultiCart>();
-            stores = new LinkedList<Store>();
+            productId = DbCommerce.GetInstance().GetProductId();
+            multiCartId = DbCommerce.GetInstance().GetMultiCartId();
+            multiCarts = DbCommerce.GetInstance().GetMultiCarts();
+            stores = DbCommerce.GetInstance().GetStores();
             moneyCollectionSystem = new MoneyCollectionSystemProxy(null);
             deliverySystem = new DeliverySystemProxy(null);
-            stores = DbCommerce.GetInstance().GetStores();
-            foreach (UserManagment.UserInfo info in DbCommerce.GetInstance().GetUserInfos())
-                if (info.GetMultiCart() > multiCartId)
-                    multiCartId = info.GetMultiCart();
-            foreach (Store store in DbCommerce.GetInstance().GetStores())
-                foreach (ProductAmountInventory productAmount in store.GetInventory())
-                    if (productAmount.productId > productId)
-                        productId = productAmount.productId;
+            //foreach (UserManagment.UserInfo info in DbCommerce.GetInstance().GetUserInfos())
+            //    if (info.GetMultiCart() > multiCartId)
+            //        multiCartId = info.GetMultiCart();
+            //foreach (Store store in DbCommerce.GetInstance().GetStores())
+            //    foreach (ProductAmountInventory productAmount in store.GetInventory())
+            //        if (productAmount.productId > productId)
+            //            productId = productAmount.productId;
         }
 
         public static System GetInstance()
@@ -69,22 +68,36 @@ namespace Workshop192.MarketManagment
         public int AddNewMultiCart()
         {
             multiCartId++;
-            multiCarts.Add(multiCartId, new MultiCart());
+            multiCarts.AddLast(new MultiCart(multiCartId));
             return multiCartId;
+        }
+
+        public void AddNewMultiCartToDb(int multiCartId)
+        {
+            foreach (MultiCart multiCart in multiCarts)
+                if (multiCart.multiCartId == multiCartId)
+                {
+                    DbCommerce.GetInstance().AddMultiCart(multiCart);
+                    return;
+                }
         }
 
         public MultiCart GetMultiCart(int multiCartId)
         {
-            if (multiCarts.ContainsKey(multiCartId))
-                return multiCarts[multiCartId];
-            MultiCart multiCart = new MultiCart();
-            multiCarts[multiCartId] = multiCart;
-            return multiCart;
+            foreach (MultiCart multiCart in multiCarts)
+                if (multiCart.multiCartId == multiCartId)
+                    return multiCart;
+            return null;
         }
 
         public void ResetMultiCart(int multiCartId)
         {
-            multiCarts[multiCartId] = new MultiCart();
+            foreach (MultiCart multiCart in multiCarts)
+                if (multiCart.multiCartId == multiCartId)
+                {
+                    multiCart.ResetMultiCart();
+                    return;
+                }
         }
 
         public Tuple<int, int> PurchaseProducts(int userId, string cardNumber, string month, string year, string holder, string ccv, string id, string name, string address, string city, string country, string zip)

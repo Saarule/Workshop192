@@ -18,6 +18,9 @@ namespace Workshop192.UserManagment
             storeOwners.AddFirst(owner);
         }
 
+        public StoreOwnersOfStore() //Only for Entity Framework references should be 0
+        { }
+
         public LinkedList<StoreOwner> GetStoreOwners()
         {
             return storeOwners;

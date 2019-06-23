@@ -22,6 +22,9 @@ namespace Workshop192.MarketManagment
             sellingPolicy = null;
         }
 
+        public Store() //Only for Entity Framework references should be 0
+        { }
+
         public bool AddProducts(Product product, int amount)
         {
             foreach (ProductAmountInventory productAmount in inventory)

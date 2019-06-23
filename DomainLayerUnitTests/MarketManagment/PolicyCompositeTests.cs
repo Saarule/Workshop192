@@ -21,7 +21,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             DbCommerce.GetInstance().StartTests();
             Store store = new Store("Temp Store");
-            cart = new Cart(store);
+            cart = new Cart(store, new MultiCart(1));
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().CreateUser();
             truePolicy = new PolicyLeafBannedUser("user");
             falsePolicy = new PolicyLeafBannedUser("");
