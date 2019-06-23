@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<!--================ Start Header Menu Area =================-->
+<!--================ Start Header Menu Area =================-->
     <form id="form1" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -56,12 +56,7 @@
             </ul>
 
             <ul class="nav-shop">
-                <a href="mycart.aspx" class="notification">
-                <span>Inbox</span>
-                <span class="badge">3</span>
-                 </a>
-
-              <li class="nav-item"><a class="button button-header" href="products.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="myCart.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>

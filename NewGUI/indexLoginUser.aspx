@@ -58,12 +58,12 @@
             </ul>
               
            <ul class="nav-shop">
-                <a href="mycartAsUser.aspx" class="notification">
+                <a href="notificationsPanel.aspx" class="notification"> 
                 <span>Inbox</span>
-                <span class="badge">3</span>
+                    </a>
                  
 
-              <li class="nav-item"><a class="button button-header" href="productsAsUser.aspx">Buy Now</a></li>
+              <li class="nav-item"><a class="button button-header" href="myCartAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
         </div>
