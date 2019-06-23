@@ -10109,6 +10109,7 @@
 06-22-2019 18:17:55  Ben Is now a owner of store [store]
 06-22-2019 18:18:30  saar tried removing user Ben from the store managers but the given user wasn't a manager of store [store]
 06-22-2019 18:18:45  saar added user orel as a manager in store [store] with the following privileges System.Boolean[]
+<<<<<<< Updated upstream
 06-22-2019 20:42:45  A new user was registered saar 123456
 06-22-2019 20:42:51  saar Logged In
 06-22-2019 21:55:05  A new user was registered saar 123456
@@ -10125,3 +10126,753 @@
 06-22-2019 22:59:51  A new user was registered saar 123456
 06-22-2019 22:59:59  saar Logged In
 06-23-2019 03:03:59  A new user was registered saar 123456
+=======
+06/22/2019 20:49:54  A new user was registered A1 123456
+06/22/2019 20:50:17  A1 Logged In
+06/22/2019 20:50:40  A1 Logged Out
+06/22/2019 20:53:57  A new user was registered A 12345
+06/22/2019 20:54:34  A new user was registered A1 123456
+06/22/2019 20:54:45  A new user was registered a 12345
+06/22/2019 20:55:44  A1 Logged In
+06/22/2019 20:57:37  A new user was registered A1 123456
+06/22/2019 20:59:00  A1 Logged In
+06/22/2019 20:59:32  A new user was registered A1 123456
+06/22/2019 20:59:32  A1 Logged In
+06/22/2019 20:59:32  A new user was registered orel 123456
+06/22/2019 20:59:32  A new user was registered nati 123456
+06/22/2019 20:59:32  A1 removed user orel as an admin
+06/22/2019 20:59:48  A new user was registered A1 123456
+06/22/2019 20:59:48  A1 Logged In
+06/22/2019 20:59:48  A new user was registered orel 123456
+06/22/2019 20:59:48  A new user was registered nati 123456
+06/22/2019 20:59:48  A new user was registered A1 123456
+06/22/2019 20:59:48  A1 Logged In
+06/22/2019 20:59:48  A new user was registered orel 123456
+06/22/2019 20:59:48  A new user was registered nati 123456
+06/22/2019 20:59:49  A new user was registered A1 123456
+06/22/2019 20:59:49  A1 Logged In
+06/22/2019 20:59:49  A new user was registered orel 123456
+06/22/2019 20:59:49  A new user was registered nati 123456
+06/22/2019 20:59:49  A1 removed user orel as an admin
+06/22/2019 20:59:49  A1 removed user nati as an admin
+06/22/2019 20:59:49  A new user was registered A1 123456
+06/22/2019 20:59:49  A new user was registered orel 123456
+06/22/2019 20:59:49  orel Logged In
+06/22/2019 20:59:49  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:49  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:49  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/22/2019 20:59:49  orel added product [1] [20] of store [victory] to their multi cart
+06/22/2019 20:59:50  A new user was registered A1 123456
+06/22/2019 20:59:50  A new user was registered orel 123456
+06/22/2019 20:59:50  orel Logged In
+06/22/2019 20:59:50  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:50  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:50  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/22/2019 20:59:50  orel added product [1] [40] of store [victory] to their multi cart
+06/22/2019 20:59:50  orel edited product [1] to: [white bread] [bread] [10] [30] as owner of store [victory]
+06/22/2019 20:59:50  A new user was registered A1 123456
+06/22/2019 20:59:50  A new user was registered orel 123456
+06/22/2019 20:59:50  orel Logged In
+06/22/2019 20:59:50  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:50  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:50  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/22/2019 20:59:50  A new user was registered A1 123456
+06/22/2019 20:59:50  A new user was registered orel 123456
+06/22/2019 20:59:50  orel Logged In
+06/22/2019 20:59:50  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:51  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:51  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/22/2019 20:59:51  A new user was registered A1 123456
+06/22/2019 20:59:51  A new user was registered orel 123456
+06/22/2019 20:59:51  orel Logged In
+06/22/2019 20:59:51  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:51  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:51  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/22/2019 20:59:51  A new user was registered A1 123456
+06/22/2019 20:59:51  A new user was registered orel 123456
+06/22/2019 20:59:51  orel Logged In
+06/22/2019 20:59:51  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:51  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:51  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/22/2019 20:59:52  A new user was registered A1 123456
+06/22/2019 20:59:52  A new user was registered orel 123456
+06/22/2019 20:59:52  orel Logged In
+06/22/2019 20:59:52  A new user was registered A1 123456
+06/22/2019 20:59:52  A new user was registered orel 123456
+06/22/2019 20:59:52  orel Logged In
+06/22/2019 20:59:52  A new user was registered A1 123456
+06/22/2019 20:59:52  A new user was registered orel 123456
+06/22/2019 20:59:53  A new user was registered A1 123456
+06/22/2019 20:59:53  A new user was registered orel 123456
+06/22/2019 20:59:53  A new user was registered A1 123456
+06/22/2019 20:59:53  A new user was registered orel 123456
+06/22/2019 20:59:53  A new user was registered A1 123456
+06/22/2019 20:59:53  A new user was registered orel 123456
+06/22/2019 20:59:53  orel Logged In
+06/22/2019 20:59:53  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:53  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:53  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/22/2019 20:59:53  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/22/2019 20:59:53  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/22/2019 20:59:53  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/22/2019 20:59:54  orel added product [1] [10] of store [victory] to their multi cart
+06/22/2019 20:59:54  orel added product [2] [10] of store [victory] to their multi cart
+06/22/2019 20:59:54  orel added product [4] [10] of store [Mega] to their multi cart
+06/22/2019 20:59:54  orel added product [5] [10] of store [Mega] to their multi cart
+06/22/2019 20:59:54  A guest added product [3] [10] of store [victory] to their multi cart
+06/22/2019 20:59:54  A guest added product [6] [10] of store [Mega] to their multi cart
+06/22/2019 20:59:55  A new user was registered A1 123456
+06/22/2019 20:59:55  A new user was registered orel 123456
+06/22/2019 20:59:55  orel Logged In
+06/22/2019 20:59:55  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:55  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:55  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/22/2019 20:59:55  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/22/2019 20:59:55  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/22/2019 20:59:55  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/22/2019 20:59:55  orel added product [1] [10] of store [victory] to their multi cart
+06/22/2019 20:59:55  orel added product [2] [10] of store [victory] to their multi cart
+06/22/2019 20:59:55  orel added product [4] [10] of store [Mega] to their multi cart
+06/22/2019 20:59:55  orel added product [5] [10] of store [Mega] to their multi cart
+06/22/2019 20:59:55  A guest added product [3] [10] of store [victory] to their multi cart
+06/22/2019 20:59:55  A guest added product [6] [10] of store [Mega] to their multi cart
+06/22/2019 20:59:56  A new user was registered A1 123456
+06/22/2019 20:59:56  A new user was registered orel 123456
+06/22/2019 20:59:56  orel Logged In
+06/22/2019 20:59:56  orel Added Product [1] [white bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:56  orel Added Product [2] [black bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:56  orel Added Product [3] [chocolate] [chocolate] [11] [50] as a owner of store [victory]
+06/22/2019 20:59:56  orel Added Product [4] [milki] [dairy products] [12] [50] as a owner of store [Mega]
+06/22/2019 20:59:56  orel Added Product [5] [humus] [humus] [15] [50] as a owner of store [Mega]
+06/22/2019 20:59:56  orel Added Product [6] [water] [water] [7] [50] as a owner of store [Mega]
+06/22/2019 20:59:56  orel added product [1] [10] of store [victory] to their multi cart
+06/22/2019 20:59:56  orel added product [2] [10] of store [victory] to their multi cart
+06/22/2019 20:59:56  orel added product [4] [10] of store [Mega] to their multi cart
+06/22/2019 20:59:56  orel added product [5] [10] of store [Mega] to their multi cart
+06/22/2019 20:59:56  A guest added product [3] [10] of store [victory] to their multi cart
+06/22/2019 20:59:56  A guest added product [6] [10] of store [Mega] to their multi cart
+06/22/2019 20:59:57  A new user was registered A1 123456
+06/22/2019 20:59:57  A new user was registered orel 11111
+06/22/2019 20:59:57  A new user was registered A1 123456
+06/22/2019 20:59:57  A new user was registered nati 5555555
+06/22/2019 20:59:58  A new user was registered A1 123456
+06/22/2019 20:59:58  A new user was registered orel 5555555
+06/22/2019 20:59:58  A new user was registered A1 123456
+06/22/2019 20:59:58  A new user was registered orel 123456
+06/22/2019 20:59:58  orel Logged In
+06/22/2019 20:59:58  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:58  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:58  A new user was registered A1 123456
+06/22/2019 20:59:58  A new user was registered orel 123456
+06/22/2019 20:59:58  orel Logged In
+06/22/2019 20:59:58  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:58  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:58  A guest added product [1] [10] of store [victory] to their multi cart
+06/22/2019 20:59:59  A new user was registered A1 123456
+06/22/2019 20:59:59  A new user was registered orel 123456
+06/22/2019 20:59:59  orel Logged In
+06/22/2019 20:59:59  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:59  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:59  orel added product [1] [5] of store [victory] to their multi cart
+06/22/2019 20:59:59  A new user was registered A1 123456
+06/22/2019 20:59:59  A new user was registered orel 123456
+06/22/2019 20:59:59  orel Logged In
+06/22/2019 20:59:59  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:59  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:59  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/22/2019 20:59:59  A new user was registered A1 123456
+06/22/2019 20:59:59  A new user was registered orel 123456
+06/22/2019 20:59:59  orel Logged In
+06/22/2019 20:59:59  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 20:59:59  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 20:59:59  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/22/2019 21:00:00  A new user was registered A1 123456
+06/22/2019 21:00:00  A new user was registered orel 123456
+06/22/2019 21:00:00  orel Logged In
+06/22/2019 21:00:00  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 21:00:00  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 21:00:00  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/22/2019 21:00:00  A new user was registered A1 123456
+06/22/2019 21:00:00  A new user was registered orel 123456
+06/22/2019 21:00:00  orel Logged In
+06/22/2019 21:00:00  orel Added Product [1] [black bread] [bread] [10] [50] as a owner of store [victory]
+06/22/2019 21:00:00  orel Added Product [2] [white bread] [bread] [15] [50] as a owner of store [victory]
+06/22/2019 21:00:00  orel Added Product [3] [cutted bread] [bread] [20] [50] as a owner of store [victory]
+06/22/2019 21:00:01  A new user was registered A1 123456
+06/22/2019 21:00:01  A new user was registered orel 123456
+06/22/2019 21:00:01  orel Logged In
+06/22/2019 21:00:01  orel Added Product [1] [black bread] [bread] [10] [100] as a owner of store [victory]
+06/22/2019 21:00:01  orel Added Product [2] [black bread] [bread] [15] [100] as a owner of store [victory]
+06/22/2019 21:00:01  orel Added Product [3] [cutted bread] [bread] [20] [100] as a owner of store [Rami-Levi]
+06/22/2019 21:00:01  orel Added Product [4] [brown bread] [bread] [25] [100] as a owner of store [Rami-Levi]
+06/22/2019 21:00:01  orel added product [1] [10] of store [victory] to their multi cart
+06/22/2019 21:00:01  orel added product [2] [10] of store [victory] to their multi cart
+06/22/2019 21:00:01  orel removed product [1] from their multi cart
+06/22/2019 21:00:01  A new user was registered A1 123456
+06/22/2019 21:00:01  A new user was registered orel 123456
+06/22/2019 21:00:01  orel Logged In
+06/22/2019 21:00:01  orel Added Product [1] [black bread] [bread] [10] [100] as a owner of store [victory]
+06/22/2019 21:00:01  orel Added Product [2] [black bread] [bread] [15] [100] as a owner of store [victory]
+06/22/2019 21:00:01  orel Added Product [3] [cutted bread] [bread] [20] [100] as a owner of store [Rami-Levi]
+06/22/2019 21:00:01  orel Added Product [4] [brown bread] [bread] [25] [100] as a owner of store [Rami-Levi]
+06/22/2019 21:00:01  orel added product [1] [10] of store [victory] to their multi cart
+06/22/2019 21:00:01  orel added product [2] [10] of store [victory] to their multi cart
+06/22/2019 21:00:01  orel added product [3] [15] of store [Rami-Levi] to their multi cart
+06/22/2019 21:00:01  orel added product [4] [20] of store [Rami-Levi] to their multi cart
+06/22/2019 21:00:01  A new user was registered A1 123456
+06/22/2019 21:00:01  A new user was registered orel 123456
+06/22/2019 21:00:01  orel Logged In
+06/22/2019 21:00:01  orel Added Product [1] [black bread] [bread] [10] [100] as a owner of store [victory]
+06/22/2019 21:00:01  orel Added Product [2] [black bread] [bread] [15] [100] as a owner of store [victory]
+06/22/2019 21:00:01  orel Added Product [3] [cutted bread] [bread] [20] [100] as a owner of store [Rami-Levi]
+06/22/2019 21:00:01  orel Added Product [4] [brown bread] [bread] [25] [100] as a owner of store [Rami-Levi]
+06/22/2019 21:00:02  A new user was registered A1 123456
+06/22/2019 21:00:02  A new user was registered orel 123456
+06/22/2019 21:00:02  orel Logged In
+06/22/2019 21:00:02  orel Added Product [1] [black bread] [bread] [10] [100] as a owner of store [victory]
+06/22/2019 21:00:02  orel Added Product [2] [black bread] [bread] [15] [100] as a owner of store [victory]
+06/22/2019 21:00:02  orel Added Product [3] [cutted bread] [bread] [20] [100] as a owner of store [Rami-Levi]
+06/22/2019 21:00:02  orel Added Product [4] [brown bread] [bread] [25] [100] as a owner of store [Rami-Levi]
+06/22/2019 21:00:02  orel added product [1] [10] of store [victory] to their multi cart
+06/22/2019 21:00:02  orel added product [2] [10] of store [victory] to their multi cart
+06/22/2019 21:00:02  A new user was registered A1 123456
+06/22/2019 21:00:02  A new user was registered orel 123456
+06/22/2019 21:00:02  A new user was registered nati 123456
+06/22/2019 21:00:02  orel Logged In
+06/22/2019 21:00:02  A new user was registered saar 12345123
+06/22/2019 21:00:03  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:03  orel added user nati as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:03  A new user was registered A1 123456
+06/22/2019 21:00:03  A new user was registered orel 111111
+06/22/2019 21:00:03  orel Logged In
+06/22/2019 21:00:03  orel Logged Out
+06/22/2019 21:00:03  A new user was registered A1 123456
+06/22/2019 21:00:03  A new user was registered orel 111111
+06/22/2019 21:00:03  orel Logged In
+06/22/2019 21:00:03  orel Logged Out
+06/22/2019 21:00:04  A new user was registered A1 123456
+06/22/2019 21:00:04  A new user was registered orel 111111
+06/22/2019 21:00:04  orel Logged In
+06/22/2019 21:00:04  A new user was registered nati 1111111
+06/22/2019 21:00:04  A new user was registered A1 123456
+06/22/2019 21:00:04  A new user was registered orel 111111
+06/22/2019 21:00:04  orel Logged In
+06/22/2019 21:00:04  A new user was registered A1 123456
+06/22/2019 21:00:04  A new user was registered orel 123456
+06/22/2019 21:00:04  orel Logged In
+06/22/2019 21:00:04  A new user was registered saar 12345123
+06/22/2019 21:00:04  saar Logged In
+06/22/2019 21:00:05  A new user was registered A1 123456
+06/22/2019 21:00:05  A new user was registered orel 123456
+06/22/2019 21:00:05  orel Logged In
+06/22/2019 21:00:05  A new user was registered saar 12345123
+06/22/2019 21:00:05  saar Logged In
+06/22/2019 21:00:05  A new user was registered A1 123456
+06/22/2019 21:00:05  A new user was registered orel 123456
+06/22/2019 21:00:05  orel Logged In
+06/22/2019 21:00:05  A new user was registered saar 12345123
+06/22/2019 21:00:05  saar Logged In
+06/22/2019 21:00:06  A new user was registered A1 123456
+06/22/2019 21:00:06  A new user was registered orel 123456
+06/22/2019 21:00:06  orel Logged In
+06/22/2019 21:00:06  A new user was registered saar 12345123
+06/22/2019 21:00:06  saar Logged In
+06/22/2019 21:00:06  A new user was registered A1 123456
+06/22/2019 21:00:06  A new user was registered orel 123456
+06/22/2019 21:00:06  orel Logged In
+06/22/2019 21:00:06  A new user was registered saar 123456
+06/22/2019 21:00:06  saar Logged In
+06/22/2019 21:00:06  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:06  saar Added Product [1] [Milki] [dairy products] [10] [50] as a manager of store [Victory]
+06/22/2019 21:00:06  A new user was registered A1 123456
+06/22/2019 21:00:06  A new user was registered orel 123456
+06/22/2019 21:00:06  orel Logged In
+06/22/2019 21:00:06  A new user was registered saar 123456
+06/22/2019 21:00:06  saar Logged In
+06/22/2019 21:00:06  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:06  saar Added Product [1] [Milki] [dairy products] [10] [50] as a manager of store [Victory]
+06/22/2019 21:00:07  A new user was registered A1 123456
+06/22/2019 21:00:07  A new user was registered orel 123456
+06/22/2019 21:00:07  orel Logged In
+06/22/2019 21:00:07  A new user was registered saar 123456
+06/22/2019 21:00:07  saar Logged In
+06/22/2019 21:00:07  A new user was registered nati 123456
+06/22/2019 21:00:07  A new user was registered A1 123456
+06/22/2019 21:00:07  A new user was registered orel 123456
+06/22/2019 21:00:07  orel Logged In
+06/22/2019 21:00:07  A new user was registered saar 123456
+06/22/2019 21:00:07  saar Logged In
+06/22/2019 21:00:07  A new user was registered nati 123456
+06/22/2019 21:00:07  orel added user nati as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:08  A new user was registered A1 123456
+06/22/2019 21:00:08  A new user was registered orel 123456
+06/22/2019 21:00:08  orel Logged In
+06/22/2019 21:00:08  A new user was registered saar 123456
+06/22/2019 21:00:08  saar Logged In
+06/22/2019 21:00:08  A new user was registered nati 123456
+06/22/2019 21:00:08  nati Logged In
+06/22/2019 21:00:08  orel added user nati as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:08  A new user was registered A1 123456
+06/22/2019 21:00:08  A new user was registered orel 123456
+06/22/2019 21:00:08  orel Logged In
+06/22/2019 21:00:08  A new user was registered saar 123456
+06/22/2019 21:00:08  saar Logged In
+06/22/2019 21:00:08  A new user was registered nati 123456
+06/22/2019 21:00:08  orel added user nati as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:08  A new user was registered A1 123456
+06/22/2019 21:00:08  A new user was registered orel 123456
+06/22/2019 21:00:08  orel Logged In
+06/22/2019 21:00:08  A new user was registered saar 123456
+06/22/2019 21:00:08  saar Logged In
+06/22/2019 21:00:08  A new user was registered nati 123456
+06/22/2019 21:00:08  nati Logged In
+06/22/2019 21:00:08  orel initiated the owner adding proccess to user nati for store [Victory]
+06/22/2019 21:00:08  nati Is now a owner of store [Victory]
+06/22/2019 21:00:08  nati added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:09  A new user was registered A1 123456
+06/22/2019 21:00:09  A new user was registered orel 123456
+06/22/2019 21:00:09  orel Logged In
+06/22/2019 21:00:09  A new user was registered saar 123456
+06/22/2019 21:00:09  saar Logged In
+06/22/2019 21:00:09  A new user was registered nati 123456
+06/22/2019 21:00:09  A new user was registered A1 123456
+06/22/2019 21:00:09  A new user was registered orel 123456
+06/22/2019 21:00:09  orel Logged In
+06/22/2019 21:00:09  A new user was registered saar 123456
+06/22/2019 21:00:09  saar Logged In
+06/22/2019 21:00:09  A new user was registered nati 123456
+06/22/2019 21:00:09  orel initiated the owner adding proccess to user nati for store [Victory]
+06/22/2019 21:00:09  nati Is now a owner of store [Victory]
+06/22/2019 21:00:10  A new user was registered A1 123456
+06/22/2019 21:00:10  A new user was registered orel 123456
+06/22/2019 21:00:10  orel Logged In
+06/22/2019 21:00:10  A new user was registered saar 123456
+06/22/2019 21:00:10  saar Logged In
+06/22/2019 21:00:10  A new user was registered nati 123456
+06/22/2019 21:00:10  nati Logged In
+06/22/2019 21:00:10  orel initiated the owner adding proccess to user nati for store [Victory]
+06/22/2019 21:00:10  nati Is now a owner of store [Victory]
+06/22/2019 21:00:10  A new user was registered A1 123456
+06/22/2019 21:00:10  A new user was registered orel 123456
+06/22/2019 21:00:10  orel Logged In
+06/22/2019 21:00:10  A new user was registered saar 123456
+06/22/2019 21:00:10  saar Logged In
+06/22/2019 21:00:10  A new user was registered nati 123456
+06/22/2019 21:00:10  orel initiated the owner adding proccess to user nati for store [Victory]
+06/22/2019 21:00:10  nati Is now a owner of store [Victory]
+06/22/2019 21:00:10  A new user was registered A1 123456
+06/22/2019 21:00:10  A new user was registered orel 123456
+06/22/2019 21:00:10  orel Logged In
+06/22/2019 21:00:10  A new user was registered saar 123456
+06/22/2019 21:00:10  saar Logged In
+06/22/2019 21:00:10  A new user was registered nati 123456
+06/22/2019 21:00:10  nati Logged In
+06/22/2019 21:00:10  orel initiated the owner adding proccess to user nati for store [Victory]
+06/22/2019 21:00:10  nati Is now a owner of store [Victory]
+06/22/2019 21:00:10  nati initiated the owner adding proccess to user saar for store [Victory]
+06/22/2019 21:00:11  A new user was registered A1 123456
+06/22/2019 21:00:11  A new user was registered orel 123456
+06/22/2019 21:00:11  A new user was registered nati 123456
+06/22/2019 21:00:11  orel Logged In
+06/22/2019 21:00:11  A new user was registered A1 123456
+06/22/2019 21:00:11  A new user was registered orel 123456
+06/22/2019 21:00:11  A new user was registered nati 123456
+06/22/2019 21:00:11  orel Logged In
+06/22/2019 21:00:12  A new user was registered A1 123456
+06/22/2019 21:00:12  A new user was registered orel 123456
+06/22/2019 21:00:12  A new user was registered nati 123456
+06/22/2019 21:00:12  A new user was registered saar 123456
+06/22/2019 21:00:12  orel Logged In
+06/22/2019 21:00:12  nati Logged In
+06/22/2019 21:00:12  orel initiated the owner adding proccess to user nati for store [victory]
+06/22/2019 21:00:12  nati Is now a owner of store [victory]
+06/22/2019 21:00:12  A new user was registered A1 123456
+06/22/2019 21:00:12  A new user was registered orel 123456
+06/22/2019 21:00:12  A new user was registered nati 123456
+06/22/2019 21:00:12  A new user was registered saar 123456
+06/22/2019 21:00:12  orel Logged In
+06/22/2019 21:00:12  nati Logged In
+06/22/2019 21:00:12  orel initiated the owner adding proccess to user nati for store [victory]
+06/22/2019 21:00:12  nati Is now a owner of store [victory]
+06/22/2019 21:00:12  A new user was registered A1 123456
+06/22/2019 21:00:12  A new user was registered orel 123456
+06/22/2019 21:00:13  A new user was registered nati 123456
+06/22/2019 21:00:13  A new user was registered saar 123456
+06/22/2019 21:00:13  orel Logged In
+06/22/2019 21:00:13  nati Logged In
+06/22/2019 21:00:13  orel initiated the owner adding proccess to user nati for store [victory]
+06/22/2019 21:00:13  nati Is now a owner of store [victory]
+06/22/2019 21:00:13  orel initiated the owner adding proccess to user saar for store [victory]
+06/22/2019 21:00:13  nati accepted user saar as a owner in store [victory]
+06/22/2019 21:00:13  A new user was registered A1 123456
+06/22/2019 21:00:13  A new user was registered orel 123456
+06/22/2019 21:00:13  A new user was registered nati 123456
+06/22/2019 21:00:13  A new user was registered saar 123456
+06/22/2019 21:00:13  orel Logged In
+06/22/2019 21:00:13  nati Logged In
+06/22/2019 21:00:13  orel initiated the owner adding proccess to user nati for store [victory]
+06/22/2019 21:00:13  nati Is now a owner of store [victory]
+06/22/2019 21:00:13  orel initiated the owner adding proccess to user saar for store [victory]
+06/22/2019 21:00:13  nati accepted user saar as a owner in store [victory]
+06/22/2019 21:00:13  A new user was registered A1 123456
+06/22/2019 21:00:13  A new user was registered orel 123456
+06/22/2019 21:00:13  A new user was registered nati 123456
+06/22/2019 21:00:13  A new user was registered saar 123456
+06/22/2019 21:00:13  orel Logged In
+06/22/2019 21:00:13  nati Logged In
+06/22/2019 21:00:13  orel initiated the owner adding proccess to user nati for store [victory]
+06/22/2019 21:00:14  nati Is now a owner of store [victory]
+06/22/2019 21:00:14  A new user was registered A1 123456
+06/22/2019 21:00:14  A new user was registered orel 123456
+06/22/2019 21:00:14  A new user was registered nati 123456
+06/22/2019 21:00:14  A new user was registered saar 123456
+06/22/2019 21:00:14  orel Logged In
+06/22/2019 21:00:14  nati Logged In
+06/22/2019 21:00:14  orel initiated the owner adding proccess to user nati for store [victory]
+06/22/2019 21:00:14  nati Is now a owner of store [victory]
+06/22/2019 21:00:14  A new user was registered A1 123456
+06/22/2019 21:00:14  A new user was registered orel 123456
+06/22/2019 21:00:14  A new user was registered nati 123456
+06/22/2019 21:00:14  A new user was registered saar 123456
+06/22/2019 21:00:14  orel Logged In
+06/22/2019 21:00:14  nati Logged In
+06/22/2019 21:00:14  orel initiated the owner adding proccess to user nati for store [victory]
+06/22/2019 21:00:14  nati Is now a owner of store [victory]
+06/22/2019 21:00:14  orel initiated the owner adding proccess to user saar for store [victory]
+06/22/2019 21:00:14  nati declined user saar as a owner in store [victory]
+06/22/2019 21:00:15  A new user was registered A1 123456
+06/22/2019 21:00:15  A new user was registered orel 123456
+06/22/2019 21:00:15  A new user was registered nati 123456
+06/22/2019 21:00:15  A new user was registered saar 123456
+06/22/2019 21:00:15  orel Logged In
+06/22/2019 21:00:15  nati Logged In
+06/22/2019 21:00:15  orel initiated the owner adding proccess to user nati for store [victory]
+06/22/2019 21:00:15  nati Is now a owner of store [victory]
+06/22/2019 21:00:15  orel initiated the owner adding proccess to user saar for store [victory]
+06/22/2019 21:00:15  nati declined user saar as a owner in store [victory]
+06/22/2019 21:00:15  A new user was registered A1 123456
+06/22/2019 21:00:15  A new user was registered orel 123456
+06/22/2019 21:00:15  A new user was registered nati 123456
+06/22/2019 21:00:15  orel Logged In
+06/22/2019 21:00:15  A new user was registered A1 123456
+06/22/2019 21:00:15  A new user was registered orel 123456
+06/22/2019 21:00:15  A new user was registered nati 123456
+06/22/2019 21:00:15  orel Logged In
+06/22/2019 21:00:16  A new user was registered A1 123456
+06/22/2019 21:00:16  A new user was registered orel 123456
+06/22/2019 21:00:16  orel Logged In
+06/22/2019 21:00:16  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/22/2019 21:00:16  A new user was registered A1 123456
+06/22/2019 21:00:16  A new user was registered orel 123456
+06/22/2019 21:00:16  orel Logged In
+06/22/2019 21:00:16  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/22/2019 21:00:17  A new user was registered A1 123456
+06/22/2019 21:00:17  A new user was registered orel 123456
+06/22/2019 21:00:17  orel Logged In
+06/22/2019 21:00:17  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/22/2019 21:00:17  A new user was registered A1 123456
+06/22/2019 21:00:17  A new user was registered orel 123456
+06/22/2019 21:00:17  orel Logged In
+06/22/2019 21:00:17  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/22/2019 21:00:17  orel removed Product [1] as a owner of store [victory]
+06/22/2019 21:00:17  A new user was registered A1 123456
+06/22/2019 21:00:17  A new user was registered orel 123456
+06/22/2019 21:00:17  orel Logged In
+06/22/2019 21:00:17  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/22/2019 21:00:17  orel removed Product [1] as a owner of store [victory]
+06/22/2019 21:00:18  A new user was registered A1 123456
+06/22/2019 21:00:18  A new user was registered orel 123456
+06/22/2019 21:00:18  orel Logged In
+06/22/2019 21:00:18  orel Added Product [1] [Milk] [dairy products] [10] [50] as a owner of store [victory]
+06/22/2019 21:00:18  orel removed Product [1] as a owner of store [victory]
+06/22/2019 21:00:18  A new user was registered A1 123456
+06/22/2019 21:00:18  A new user was registered orel 123456
+06/22/2019 21:00:18  orel Logged In
+06/22/2019 21:00:18  orel Added Product [1] [Cheese] [dairy products] [10] [50] as a owner of store [victory]
+06/22/2019 21:00:18  orel edited product [1] to: [Cheese] [dairy products] [20] [60] as owner of store [victory]
+06/22/2019 21:00:18  A new user was registered A1 123456
+06/22/2019 21:00:18  A new user was registered orel 123456
+06/22/2019 21:00:18  orel Logged In
+06/22/2019 21:00:19  A new user was registered saar 123456
+06/22/2019 21:00:19  saar Logged In
+06/22/2019 21:00:19  A new user was registered nati 123456
+06/22/2019 21:00:19  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:19  orel removed appointed manager saar of store [Victory]
+06/22/2019 21:00:19  orel tried removing user saar from the store managers but the given user wasn't a manager of store [Victory]
+06/22/2019 21:00:19  A new user was registered A1 123456
+06/22/2019 21:00:19  A new user was registered orel 123456
+06/22/2019 21:00:19  orel Logged In
+06/22/2019 21:00:19  A new user was registered saar 123456
+06/22/2019 21:00:19  saar Logged In
+06/22/2019 21:00:19  A new user was registered nati 123456
+06/22/2019 21:00:19  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:19  A new user was registered ben 123456
+06/22/2019 21:00:19  orel initiated the owner adding proccess to user nati for store [Victory]
+06/22/2019 21:00:19  nati Is now a owner of store [Victory]
+06/22/2019 21:00:19  nati Logged In
+06/22/2019 21:00:19  nati added user ben as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:19  orel tried removing user ben from the store managers but the given user wasn't a manager of store [Victory]
+06/22/2019 21:00:19  A new user was registered A1 123456
+06/22/2019 21:00:19  A new user was registered orel 123456
+06/22/2019 21:00:19  orel Logged In
+06/22/2019 21:00:19  A new user was registered saar 123456
+06/22/2019 21:00:19  saar Logged In
+06/22/2019 21:00:19  A new user was registered nati 123456
+06/22/2019 21:00:19  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:19  A new user was registered ben 123456
+06/22/2019 21:00:19  orel initiated the owner adding proccess to user nati for store [Victory]
+06/22/2019 21:00:19  nati Is now a owner of store [Victory]
+06/22/2019 21:00:19  nati Logged In
+06/22/2019 21:00:19  nati added user ben as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:19  nati removed appointed manager ben of store [Victory]
+06/22/2019 21:00:20  A new user was registered A1 123456
+06/22/2019 21:00:20  A new user was registered orel 123456
+06/22/2019 21:00:20  orel Logged In
+06/22/2019 21:00:20  A new user was registered saar 123456
+06/22/2019 21:00:20  saar Logged In
+06/22/2019 21:00:20  A new user was registered nati 123456
+06/22/2019 21:00:20  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:20  A new user was registered ben 123456
+06/22/2019 21:00:20  orel tried removing user ben from the store managers but the given user wasn't a manager of store [Victory]
+06/22/2019 21:00:20  A new user was registered A1 123456
+06/22/2019 21:00:20  A new user was registered orel 123456
+06/22/2019 21:00:20  orel Logged In
+06/22/2019 21:00:20  A new user was registered saar 123456
+06/22/2019 21:00:20  saar Logged In
+06/22/2019 21:00:20  A new user was registered nati 123456
+06/22/2019 21:00:20  orel added user saar as a manager in store [Victory] with the following privileges System.Boolean[]
+06/22/2019 21:00:20  orel removed appointed manager saar of store [Victory]
+06/22/2019 21:00:21  A new user was registered A1 123456
+06/22/2019 21:00:28  A new user was registered user 123456
+06/22/2019 21:00:28  user Logged In
+06/22/2019 21:00:28  A new user was registered user 123456
+06/22/2019 21:00:28  A new user was registered user 123456
+06/22/2019 21:00:28  A guest added product [1] [1] of store [store1] to their multi cart
+06/22/2019 21:00:28  A guest added product [2] [2] of store [store1] to their multi cart
+06/22/2019 21:00:28  A guest added product [3] [3] of store [store2] to their multi cart
+06/22/2019 21:00:28  A guest added product [4] [4] of store [store2] to their multi cart
+06/22/2019 21:00:28  A guest added product [1] [1] of store [store1] to their multi cart
+06/22/2019 21:00:28  A guest added product [2] [2] of store [store1] to their multi cart
+06/22/2019 21:00:28  A guest added product [3] [3] of store [store2] to their multi cart
+06/22/2019 21:00:28  A guest added product [4] [4] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [1] [7] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [2] [5] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [3] [1] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [4] [1] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [1] [1] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [2] [1] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [3] [1] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [4] [1] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [1] [5] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [2] [5] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [3] [5] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [4] [5] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [1] [5] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [2] [5] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [3] [5] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [4] [5] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [1] [1] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [2] [2] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [3] [3] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [4] [4] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [1] [1] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [2] [2] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [3] [3] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [4] [4] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [1] [5] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [2] [5] of store [store1] to their multi cart
+06/22/2019 21:00:29  A guest added product [3] [5] of store [store2] to their multi cart
+06/22/2019 21:00:29  A guest added product [4] [5] of store [store2] to their multi cart
+06/22/2019 21:00:30  A new user was registered admin admin12
+06/22/2019 21:00:30  A new user was registered asd 12345567
+06/22/2019 21:00:30  A new user was registered asdf 111111111
+06/22/2019 21:00:30  A new user was registered qwe 111222434
+06/22/2019 21:00:30  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/22/2019 21:00:30  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/22/2019 21:00:30  qwe Is now a owner of store [tmp]
+06/22/2019 21:00:30  admin made user asd an admin
+06/22/2019 21:00:30  A new user was registered admin admin12
+06/22/2019 21:00:30  A new user was registered asd 12345567
+06/22/2019 21:00:30  A new user was registered asdf 111111111
+06/22/2019 21:00:30  A new user was registered qwe 111222434
+06/22/2019 21:00:30  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/22/2019 21:00:30  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/22/2019 21:00:30  qwe Is now a owner of store [tmp]
+06/22/2019 21:00:30  admin made user asd an admin
+06/22/2019 21:00:30  A new user was registered admin admin12
+06/22/2019 21:00:30  A new user was registered asd 12345567
+06/22/2019 21:00:30  A new user was registered asdf 111111111
+06/22/2019 21:00:30  A new user was registered qwe 111222434
+06/22/2019 21:00:30  asd added user asdf as a manager in store [tmp] with the following privileges System.Boolean[]
+06/22/2019 21:00:30  asd initiated the owner adding proccess to user qwe for store [tmp]
+06/22/2019 21:00:30  qwe Is now a owner of store [tmp]
+06/22/2019 21:00:30  admin removed user asd as an admin
+06/22/2019 21:00:30  A new user was registered user1 1234567
+06/22/2019 21:00:30  A new user was registered user2 1234567
+06/22/2019 21:00:30  A new user was registered user3 1234567
+06/22/2019 21:00:30  user1 Logged In
+06/22/2019 21:00:30  user2 Logged In
+06/22/2019 21:00:30  user3 Logged In
+06/22/2019 21:00:30  user1 Added Product [1] [] [] [1] [1] as a owner of store [store]
+06/22/2019 21:00:30  A new user was registered user1 1234567
+06/22/2019 21:00:30  A new user was registered user2 1234567
+06/22/2019 21:00:30  A new user was registered user3 1234567
+06/22/2019 21:00:30  user1 Logged In
+06/22/2019 21:00:30  user2 Logged In
+06/22/2019 21:00:30  user3 Logged In
+06/22/2019 21:00:30  user1 Added Product [1] [] [] [1] [1] as a owner of store [store]
+06/22/2019 21:00:30  A new user was registered user 123456
+06/22/2019 21:00:30  A new user was registered user 123456
+06/22/2019 21:00:30  A new user was registered user 123456
+06/22/2019 21:00:30  A new user was registered user 123456
+06/22/2019 21:00:30  A guest added product [1] [1] of store [store1] to their multi cart
+06/22/2019 21:00:30  A guest added product [1] [1] of store [store1] to their multi cart
+06/22/2019 21:00:30  A guest added product [2] [1] of store [store1] to their multi cart
+06/22/2019 21:00:30  A guest added product [3] [1] of store [store2] to their multi cart
+06/22/2019 21:00:30  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  user Logged In
+06/22/2019 21:00:31  user added product [1] [3] of store [store] to their multi cart
+06/22/2019 21:00:31  user Logged Out
+06/22/2019 21:00:31  user Logged In
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  user Logged In
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  user Logged In
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  user Logged In
+06/22/2019 21:00:31  user Logged Out
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A guest added product [1] [1] of store [store1] to their multi cart
+06/22/2019 21:00:31  A guest added product [2] [1] of store [store1] to their multi cart
+06/22/2019 21:00:31  A guest added product [3] [1] of store [store2] to their multi cart
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:00:31  A new user was registered user 123456
+06/22/2019 21:01:57  A new user was registered A1 123456
+06/22/2019 21:02:30  A new user was registered U11 1234567
+06/22/2019 21:04:40  A new user was registered A1 123456
+06/22/2019 21:05:36  A new user was registered A1 123456
+06/22/2019 21:09:09  A new user was registered A1 123456
+06/22/2019 21:09:09  A new user was registered U1 123456
+06/22/2019 21:09:09  A new user was registered U2 123456
+06/22/2019 21:09:09  A new user was registered U11 123456
+06/22/2019 21:09:09  A new user was registered U12 123456
+06/22/2019 21:09:09  A new user was registered U13 123456
+06/22/2019 21:09:09  U11 Logged In
+06/22/2019 21:09:09  U11 Logged Out
+06/22/2019 21:09:37  U11 Logged In
+06/22/2019 21:10:09  U11 Added Product [1] [milk] [q] [12] [13] as a owner of store [S2]
+06/22/2019 21:10:24  U11 added product [1] [10] of store [S2] to their multi cart
+06/22/2019 21:17:53  A new user was registered A1 123456
+06/22/2019 21:17:53  A new user was registered U1 123456
+06/22/2019 21:17:53  A new user was registered U2 123456
+06/22/2019 21:17:53  A new user was registered U11 123456
+06/22/2019 21:17:53  A new user was registered U12 123456
+06/22/2019 21:17:53  A new user was registered U13 123456
+06/22/2019 21:17:53  U11 Logged In
+06/22/2019 21:17:53  U11 Logged Out
+06/22/2019 21:18:00  U11 Logged In
+06/22/2019 21:18:09  U11 Logged Out
+06/22/2019 21:18:26  U12 Logged In
+06/22/2019 21:18:32  U12 Logged Out
+06/22/2019 21:18:41  U13 Logged In
+06/22/2019 21:18:49  U13 Logged Out
+06/23/2019 01:07:05  A new user was registered A1 123456
+06/23/2019 01:07:05  A new user was registered U1 123456
+06/23/2019 01:07:05  A new user was registered U2 123456
+06/23/2019 01:07:05  A new user was registered U11 123456
+06/23/2019 01:07:05  A new user was registered U12 123456
+06/23/2019 01:07:05  A new user was registered U13 123456
+06/23/2019 01:07:05  U11 Logged In
+06/23/2019 01:07:05  U11 Logged Out
+06/23/2019 01:08:19  A new user was registered Hadar 1234567
+06/23/2019 01:08:29  Hadar Logged In
+06/23/2019 01:09:13  Hadar Added Product [1] [skirt] [cloths] [100] [50] as a owner of store [Zara]
+06/23/2019 01:09:29  Hadar Added Product [2] [T-Shirt] [cloths] [80] [400] as a owner of store [Zara]
+06/23/2019 01:09:58  Hadar added product [1] [20] of store [Zara] to their multi cart
+06/23/2019 01:10:08  Hadar added product [2] [40] of store [Zara] to their multi cart
+06/23/2019 01:12:33  Hadar Logged Out
+06/23/2019 01:12:49  A1 Logged In
+06/23/2019 01:13:12  A1 removed user Hadar as an admin
+06/23/2019 01:13:21  A1 removed user U11 as an admin
+06/23/2019 01:13:28  A1 Logged Out
+06/23/2019 01:14:22  U12 Logged In
+06/23/2019 01:14:42  U12 Added Product [3] [bb] [bb] [55] [55] as a owner of store [aa]
+06/23/2019 01:14:46  U12 Logged Out
+06/23/2019 01:15:00  A1 Logged In
+06/23/2019 01:15:11  A1 removed user U12 as an admin
+06/23/2019 01:15:42  A1 removed user A1 as an admin
+06/23/2019 01:15:55  A1 Logged Out
+06/23/2019 02:39:44  A new user was registered A1 123456
+06/23/2019 02:39:44  A new user was registered U1 123456
+06/23/2019 02:39:44  A new user was registered U2 123456
+06/23/2019 02:39:44  A new user was registered U11 123456
+06/23/2019 02:39:44  A new user was registered U12 123456
+06/23/2019 02:39:44  A new user was registered U13 123456
+06/23/2019 02:39:44  U11 Logged In
+06/23/2019 02:39:44  U11 Logged Out
+06/23/2019 02:40:00  U1 Logged In
+06/23/2019 02:40:50  U1 Added Product [1] [MILK] [DRIN] [20] [30] as a owner of store [S1]
+06/23/2019 02:47:13  A new user was registered A1 123456
+06/23/2019 02:47:13  A new user was registered U1 123456
+06/23/2019 02:47:13  A new user was registered U2 123456
+06/23/2019 02:47:13  A new user was registered U11 123456
+06/23/2019 02:47:13  A new user was registered U12 123456
+06/23/2019 02:47:13  A new user was registered U13 123456
+06/23/2019 02:47:13  U11 Logged In
+06/23/2019 02:47:13  U11 Logged Out
+06/23/2019 02:47:22  U11 Logged In
+06/23/2019 02:47:57  U11 Added Product [1] [qq] [qq] [11] [11] as a owner of store [S2]
+06/23/2019 02:48:10  U11 removed Product [1] as a owner of store [S2]
+06/23/2019 02:48:18  U11 Added Product [2] [qq] [qqqq] [33] [55] as a owner of store [S2]
+06/23/2019 02:48:33  U11 edited product [2] to: [milk] [drinks] [3] [30] as owner of store [S2]
+06/23/2019 02:49:13  U11 added user U1 as a manager in store [S2] with the following privileges System.Boolean[]
+06/23/2019 02:50:04  U11 added user U12 as a manager in store [S2] with the following privileges System.Boolean[]
+06/23/2019 02:51:22  U11 initiated the owner adding proccess to user A1 for store [S2]
+06/23/2019 02:51:22  A1 Is now a owner of store [S2]
+06/23/2019 02:52:08  U12 Logged In
+06/23/2019 02:53:07  U12 Logged Out
+06/23/2019 02:53:23  U1 Logged In
+06/23/2019 02:53:47  U1 Added Product [4] [WATER] [DRINKS] [5] [30] as a manager of store [S2]
+06/23/2019 02:55:26  U1 added product [2] [4] of store [S2] to their multi cart
+06/23/2019 02:56:44  U1 added product [2] [4] of store [S2] to their multi cart
+06/23/2019 02:57:21  U1 added product [2] [3] of store [S2] to their multi cart
+06/23/2019 02:58:26  U1 removed product [2] from their multi cart
+06/23/2019 02:58:39  U1 added product [2] [7] of store [S2] to their multi cart
+06/23/2019 03:03:54  U1 Logged Out
+06/23/2019 03:04:03  U12 Logged In
+06/23/2019 03:04:18  U12 added product [2] [1] of store [S2] to their multi cart
+06/23/2019 03:07:05  U12 added product [4] [20] of store [S2] to their multi cart
+06/23/2019 03:07:42  U12 Logged Out
+06/23/2019 03:07:49  A guest added product [4] [20] of store [S2] to their multi cart
+06/23/2019 03:12:43  U11 added product [4] [20] of store [S2] to their multi cart
+06/23/2019 03:14:27  U11 added product [4] [10] of store [S2] to their multi cart
+06/23/2019 03:14:41  U11 added product [4] [0] of store [S2] to their multi cart
+06/23/2019 03:15:01  A guest added product [4] [29] of store [S2] to their multi cart
+06/23/2019 03:15:35  U11 Added Product [5] [jj] [jj] [55] [20] as a owner of store [jj]
+06/23/2019 03:15:46  U11 added product [5] [20] of store [jj] to their multi cart
+06/23/2019 03:15:57  U11 removed product [4] from their multi cart
+06/23/2019 03:16:09  A guest added product [5] [20] of store [jj] to their multi cart
+06/23/2019 03:18:10  U11 Logged Out
+06/23/2019 03:18:19  U13 Logged In
+06/23/2019 03:18:30  A1 Logged In
+06/23/2019 03:18:42  A1 removed user U12 as an admin
+06/23/2019 03:19:08  A1 removed user U11 as an admin
+06/23/2019 03:19:15  A1 removed user U1 as an admin
+06/23/2019 03:19:35  A1 removed user U2 as an admin
+06/23/2019 03:19:39  U13 added product [2] [1] of store [S2] to their multi cart
+06/23/2019 03:21:34  A1 removed user U13 as an admin
+06/23/2019 03:21:50  U13 added product [4] [1] of store [S2] to their multi cart
+06/23/2019 03:22:16  U13 Logged Out
+06/23/2019 03:23:27  A guest added product [2] [1] of store [S2] to their multi cart
+>>>>>>> Stashed changes

@@ -73,6 +73,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
 
         
@@ -99,6 +103,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
+            }
         }
 
         protected void RemoveProductButton1_Click(object sender, EventArgs e)
@@ -120,6 +128,10 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
             }
 
         }
@@ -147,6 +159,10 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('illegal input');</script>");
             }
 
         }
