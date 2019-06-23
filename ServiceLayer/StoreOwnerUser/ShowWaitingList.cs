@@ -13,8 +13,12 @@ namespace ServiceLayer.Store_Owner_User
         public static LinkedList<string> ShowWaitingsList(int userId,string Store)
         {
             LinkedList<string> ret = new LinkedList<string>();
-            foreach (UserInfo info in CreateAndGetUser.GetUser(userId).GetInfo().GetOwner(Store).GetPendingUsers())
-                ret.AddLast(info.GetUserName());
+            string AllNames = AllRegisteredUsers.GetInstance().GetUser(userId).GetInfo().GetOwner(Store).pendingUsers;
+            string[] names = AllNames.Split('$');
+            for (int i = 0; i < names.Length; i++)
+            {
+                ret.AddLast(names[i]);
+            }
             return ret;
         }
     }
