@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using Workshop192;
 using System.Web.UI.WebControls;
+using System.Text;
 
 namespace NewGUI
 {
@@ -24,7 +25,9 @@ namespace NewGUI
                 int userId = CommunicationLayer.Controllers.Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(HttpContext.Current.Session.SessionID);
                 string userName = CommunicationLayer.Controllers.UsersController.getUserNameByUserId(userId);
                 int numOfMessage = Notifications.Notification.GetInstance().GetNumberOfNewNotifications(userName);
-                PlaceHolder1.Controls.Add(new Literal { Text = numOfMessage.ToString() });
+                StringBuilder numOfMessageSB = new StringBuilder();
+                numOfMessageSB.Append("<p>" + numOfMessage.ToString() + "</p>");
+                PlaceHolder1.Controls.Add(new Literal { Text = numOfMessageSB.ToString()});
 
 
             }

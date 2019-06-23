@@ -58,12 +58,9 @@
             </ul>
               
            <ul class="nav-shop">
-                <a href="notificationsPanel.aspx" class="notification"> 
-                <span>Inbox</span>
-                    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-                    </a>
-                 
 
+               <li class="nav-item"><a class="notification" href="notificationsPanel.aspx">Inbox </a><span class="nav-shop__circle"><asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder></span></li>
+                 
               <li class="nav-item"><a class="button button-header" href="myCartAsUser.aspx">Buy Now</a></li>
             </ul>
           </div>
@@ -75,7 +72,7 @@
 
   <main class="site-main">
     
-    <!--================ Hero banner start =================-->
+    <!--================ Hero banner start =================--> 
     <section class="hero-banner">
       <div class="container">
         <div class="row no-gutters align-items-center pt-60px">
