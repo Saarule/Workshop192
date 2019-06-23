@@ -139,5 +139,11 @@ namespace CommunicationLayer.Controllers
         {
             return ServiceLayer.RegisteredUser.GetRoles.GetRolesOfStore(storeName);
         }
+
+        public static LinkedList<string> GetPendingList(string SessionID, string storename)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.ShowWaitingList.ShowWaitingsList(userID,storename);
+        }
     }
 }

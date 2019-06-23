@@ -10125,3 +10125,21 @@
 06-22-2019 22:59:51  A new user was registered saar 123456
 06-22-2019 22:59:59  saar Logged In
 06-23-2019 03:03:59  A new user was registered saar 123456
+06-23-2019 11:01:56  A new user was registered saar 123456
+06-23-2019 11:02:05  saar Logged In
+06-23-2019 11:06:49  saar Logged Out
+06-23-2019 11:09:34  A new user was registered saar 123456
+06-23-2019 11:09:40  saar Logged In
+06-23-2019 11:16:17  A new user was registered saar 123456
+06-23-2019 11:16:24  saar Logged In
+06-23-2019 11:33:32  A new user was registered saar 123456
+06-23-2019 11:33:45  saar Logged In
+06-23-2019 11:42:23  A new user was registered saar 123456
+06-23-2019 11:42:29  saar Logged In
+06-23-2019 11:43:46  A new user was registered saar 123456
+06-23-2019 11:44:18  saar Logged In
+06-23-2019 11:44:41  saar Logged Out
+06-23-2019 11:44:52  A new user was registered orel 123456
+06-23-2019 11:44:59  saar Logged In
+06-23-2019 11:45:15  saar initiated the owner adding proccess to user orel for store [store]
+06-23-2019 11:45:15  orel Is now a owner of store [store]
