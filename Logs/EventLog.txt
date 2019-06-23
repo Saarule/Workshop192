@@ -10223,3 +10223,11 @@
 06-23-2019 12:47:04  A new user was registered saar 123456
 06-23-2019 12:47:14  saar Logged In
 >>>>>>> NewestGUI
+06/23/2019 13:23:08  A new user was registered nati 123456
+06/23/2019 13:23:19  nati Logged In
+06/23/2019 13:23:49  nati Added Product [1] [Milk] [dairy] [20] [40] as a owner of store [mega]
+06/23/2019 13:24:07  nati Added Product [2] [Wine] [alcohol] [40] [100] as a owner of store [mega]
+06/23/2019 13:24:27  nati Logged Out
+06/23/2019 13:25:01  A guest added product [1] [5] of store [mega] to their multi cart
+06/23/2019 13:25:11  A guest added product [2] [7] of store [mega] to their multi cart
+06/23/2019 13:27:59  nati Logged In

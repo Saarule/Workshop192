@@ -11,8 +11,7 @@ namespace NewGUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
+
             try
             {
                 bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
@@ -25,7 +24,7 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
->>>>>>> NewestGUI
+
         }
         protected void Notifications_Click(object sender, EventArgs e)
         {

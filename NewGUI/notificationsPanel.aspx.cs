@@ -5,13 +5,10 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-<<<<<<< HEAD
 using Workshop192;
 
-=======
 using Workshop192;
 
->>>>>>> NewestGUI
 namespace NewGUI
 {
     public partial class notificationsPanel : System.Web.UI.Page
@@ -20,7 +17,6 @@ namespace NewGUI
         LinkedList<string> notifications = new LinkedList<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             try
             {
                 int userId = CommunicationLayer.Controllers.Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(HttpContext.Current.Session.SessionID);
@@ -39,11 +35,10 @@ namespace NewGUI
                 PlaceHolder1.Controls.Add(new Literal { Text = notificationTable.ToString() });
             }
             catch (ErrorMessageException exception)
-            {}
+            { }
             catch (Exception)
             {
-
-=======
+            }
             try
             {
                 bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
@@ -55,7 +50,6 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
->>>>>>> NewestGUI
             }
         }
     }
