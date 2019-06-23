@@ -40,7 +40,7 @@ namespace NewGUI
 
                 if (transcationPayId != "-1" && transcationSupplyId != "-1")
                 {
-                    Response.Redirect("confirmation.aspx?PayID=" + transcationPayId + "&SupplyID=" + transcationSupplyId);
+                    Response.Redirect("confirmationAsUser.aspx?PayID=" + transcationPayId + "&SupplyID=" + transcationSupplyId);
                     Response.Write("<script>alert('Successful Purchase');</script>");
                 }
                 else
