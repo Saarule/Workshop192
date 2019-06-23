@@ -57,7 +57,7 @@ namespace Workshop192.MarketManagment
 
         public void ResetMultiCart()
         {
-            while (carts.Count > 0)
+            while (carts.Count > 0 && !DbCommerce.GetInstance().forTests)
                 DbCommerce.GetInstance().RemoveCart(carts.First.Value);
             //foreach (Cart cart in carts)
             //    DbCommerce.GetInstance().RemoveCart(cart);

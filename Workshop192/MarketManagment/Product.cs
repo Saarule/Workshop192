@@ -12,7 +12,8 @@ namespace Workshop192.MarketManagment
         public string name { get; set; }
         public string category { get; set; }
         public int price { get; set; }
-        public virtual Tuple<PolicyComponent, int> discountPolicy { get; set; }
+        public int discountAmount { get; set; }
+        public virtual PolicyComponent discountPolicy { get; set; }
         public virtual PolicyComponent sellingPolicy { get; set; }
 
         public Product(int Id, string name, string category, int price)
@@ -37,23 +38,31 @@ namespace Workshop192.MarketManagment
 
         public void AddDiscountPolicy(LinkedList<string> policy, int discount)
         {
+            discountAmount = discount;
             PolicyComponent tmp1 = CreatePolicy(policy);
             if (discountPolicy == null)
             {
-                discountPolicy = new Tuple<PolicyComponent, int>(tmp1, discount);
+                discountPolicy = tmp1;
+                discountPolicy.policyId = -1;
                 return;
             }
-            PolicyComponent tmp2 = discountPolicy.Item1;
+            PolicyComponent tmp2 = discountPolicy;
             switch (policy.ElementAt(1))
             {
                 case "AND":
-                    discountPolicy = new Tuple<PolicyComponent, int>(new PolicyCompositeAnd(tmp1, tmp2), discount);
+                    discountPolicy = new PolicyCompositeAnd(tmp1, tmp2, 0, Id + "");
+                    tmp1.policyId = tmp2.policyId - 1;
+                    discountPolicy.policyId = tmp1.policyId - 1;
                     break;
                 case "OR":
-                    discountPolicy = new Tuple<PolicyComponent, int>(new PolicyCompositeOr(tmp1, tmp2), discount);
+                    discountPolicy = new PolicyCompositeOr(tmp1, tmp2, 0, Id + "");
+                    tmp1.policyId = tmp2.policyId - 1;
+                    discountPolicy.policyId = tmp1.policyId - 1;
                     break;
                 case "XOR":
-                    discountPolicy = new Tuple<PolicyComponent, int>(new PolicyCompositeXor(tmp1, tmp2), discount);
+                    discountPolicy = new PolicyCompositeXor(tmp1, tmp2, 0, Id + "");
+                    tmp1.policyId = tmp2.policyId - 1;
+                    discountPolicy.policyId = tmp1.policyId - 1;
                     break;
                 default:
                     throw new ErrorMessageException("Syntax Error in given discount policy");
@@ -66,19 +75,26 @@ namespace Workshop192.MarketManagment
             if (sellingPolicy == null)
             {
                 sellingPolicy = tmp1;
+                sellingPolicy.policyId = 1;
                 return;
             }
             PolicyComponent tmp2 = sellingPolicy;
             switch (policy.ElementAt(1))
             {
                 case "AND":
-                    sellingPolicy = new PolicyCompositeAnd(tmp1, tmp2);
+                    sellingPolicy = new PolicyCompositeAnd(tmp1, tmp2, 0, Id + "");
+                    tmp1.policyId = tmp2.policyId + 1;
+                    sellingPolicy.policyId = tmp1.policyId + 1;
                     break;
                 case "OR":
-                    sellingPolicy = new PolicyCompositeOr(tmp1, tmp2);
+                    sellingPolicy = new PolicyCompositeOr(tmp1, tmp2, 0, Id + "");
+                    tmp1.policyId = tmp2.policyId + 1;
+                    sellingPolicy.policyId = tmp1.policyId + 1;
                     break;
                 case "XOR":
-                    sellingPolicy = new PolicyCompositeXor(tmp1, tmp2);
+                    sellingPolicy = new PolicyCompositeXor(tmp1, tmp2, 0, Id + "");
+                    tmp1.policyId = tmp2.policyId + 1;
+                    sellingPolicy.policyId = tmp1.policyId + 1;
                     break;
                 default:
                     throw new ErrorMessageException("Syntax Error in given selling policy");
@@ -105,13 +121,13 @@ namespace Workshop192.MarketManagment
         {
             if (discountPolicy == null)
                 return;
-            if (discountPolicy.Item1.Validate(userId, cart))
+            if (discountPolicy.Validate(userId, cart))
             {
                 int sum = 0;
                 foreach (KeyValuePair<Product, int> productAmount in cart.GetProducts())
                 {
                     if (productAmount.Key.Equals(this))
-                        sum += productAmount.Key.price * productAmount.Value * (100 - discountPolicy.Item2) / 100;
+                        sum += productAmount.Key.price * productAmount.Value * (100 - discountAmount) / 100;
                     else
                         sum += productAmount.Key.price * productAmount.Value;
                 }
@@ -149,7 +165,7 @@ namespace Workshop192.MarketManagment
             return price;
         }
 
-        public Tuple<PolicyComponent, int> GetDiscountPolicy()
+        public PolicyComponent GetDiscountPolicy()
         {
             return discountPolicy;
         }
@@ -165,13 +181,13 @@ namespace Workshop192.MarketManagment
             switch (policy.ElementAt(0))
             {
                 case "Ban":
-                    createdPolicy = new PolicyLeafBannedUser(policy.ElementAt(3));
+                    createdPolicy = new PolicyLeafBannedUser(policy.ElementAt(3), 0, Id + "");
                     break;
                 case "Max":
-                    createdPolicy = new PolicyLeafMaximumAmount(Int32.Parse(policy.ElementAt(3)), Int32.Parse(policy.ElementAt(4)));
+                    createdPolicy = new PolicyLeafMaximumAmount(Int32.Parse(policy.ElementAt(3)), Int32.Parse(policy.ElementAt(4)), 0, Id + "");
                     break;
                 case "Min":
-                    createdPolicy = new PolicyLeafMinimumAmount(Int32.Parse(policy.ElementAt(3)), Int32.Parse(policy.ElementAt(4)));
+                    createdPolicy = new PolicyLeafMinimumAmount(Int32.Parse(policy.ElementAt(3)), Int32.Parse(policy.ElementAt(4)), 0, Id + "");
                     break;
                 default:
                     throw new ErrorMessageException("Syntax Error in given policy");

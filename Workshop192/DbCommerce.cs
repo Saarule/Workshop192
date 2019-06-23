@@ -12,7 +12,7 @@ namespace Workshop192
     public class DbCommerce : DbContext
     {
         private static DbCommerce instance = null;
-        private bool forTests;
+        public bool forTests;
 
         private DbCommerce() : base()
         {

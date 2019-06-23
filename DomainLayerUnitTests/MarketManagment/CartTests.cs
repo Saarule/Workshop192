@@ -19,10 +19,10 @@ namespace DomainLayerUnitTests.MarketManagment
         public void SetUp()
         {
             DbCommerce.GetInstance().StartTests();
-            Store store = new Store("newStore");
+            Workshop192.MarketManagment.System.GetInstance().OpenStore("newStore");
             product = new Product(1, "air", "element", 5);
-            store.AddProducts(product, 4);
-            cart = new Cart(store, new MultiCart(1));
+            Workshop192.MarketManagment.System.GetInstance().GetStore("newStore").AddProducts(product, 4);
+            cart = new Cart(Workshop192.MarketManagment.System.GetInstance().GetStore("newStore"), new MultiCart(1));
         }
 
         [Test]
@@ -74,13 +74,19 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void SetSum_SuccesfulySetsTheFullPriceOfAllProducts_ReturnsTrue()
         {
-            DbCommerce.GetInstance().EndTests();
             cart.AddProductsToCart(1, 2);
             cart.SetSum();
             Assert.AreEqual(10, cart.GetCartSum());
             cart.AddProductsToCart(1, 2);
             cart.SetSum();
             Assert.AreEqual(20, cart.GetCartSum());
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            Workshop192.MarketManagment.System.Reset();
+            DbCommerce.GetInstance().EndTests();
         }
     }
 }

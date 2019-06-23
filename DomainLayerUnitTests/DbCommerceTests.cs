@@ -46,7 +46,7 @@ namespace DomainLayerUnitTests
             //user.AddProductsToMultiCart("Store", 2, 1);
             //user.AddProductsToMultiCart("Store2", 3, 4);
             //user.AddProductsToMultiCart("Store2", 4, 2);
-            Workshop192.MarketManagment.System.GetInstance().ResetMultiCart(4);
+            //Workshop192.MarketManagment.System.GetInstance().ResetMultiCart(4);
         }
     }
 }

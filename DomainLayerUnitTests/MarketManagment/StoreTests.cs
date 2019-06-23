@@ -22,7 +22,8 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             DbCommerce.GetInstance().StartTests();
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().CreateUser();
-            store = new Store("store");
+            Workshop192.MarketManagment.System.GetInstance().OpenStore("store");
+            store = Workshop192.MarketManagment.System.GetInstance().GetStore("store");
             cart = new Cart(store, new MultiCart(1));
             product1 = new Product(1, "toaster", "cooking supplies", 15);
             product2 = new Product(2, "grenade", "weapon", 5);
@@ -135,8 +136,9 @@ namespace DomainLayerUnitTests.MarketManagment
         [TearDown]
         public void TearDown()
         {
-            DbCommerce.GetInstance().StartTests();
+            DbCommerce.GetInstance().EndTests();
             Workshop192.UserManagment.AllRegisteredUsers.Reset();
+            Workshop192.MarketManagment.System.Reset();
         }
     }
 }

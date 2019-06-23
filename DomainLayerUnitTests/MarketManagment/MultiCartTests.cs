@@ -20,8 +20,10 @@ namespace DomainLayerUnitTests.MarketManagment
         public void SetUp()
         {
             DbCommerce.GetInstance().StartTests();
-            store1 = new Store("store1");
-            store2 = new Store("store2");
+            Workshop192.MarketManagment.System.GetInstance().OpenStore("store1");
+            Workshop192.MarketManagment.System.GetInstance().OpenStore("store2");
+            store1 = Workshop192.MarketManagment.System.GetInstance().GetStore("store1");
+            store2 = Workshop192.MarketManagment.System.GetInstance().GetStore("store2");
             multiCart = new MultiCart(1);
             store1.AddProducts(new Product(1, "can", "tin", 5), 5);
             store1.AddProducts(new Product(2, "floor", "wood", 10), 10);
@@ -55,11 +57,17 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void RemoveProductFromMultiCart_RemoveNonExistingProduct_ReturnsFalse()
         {
-            DbCommerce.GetInstance().EndTests();
             multiCart.AddProductsToMultiCart(store1, 1, 2);
             multiCart.AddProductsToMultiCart(store2, 3, 2);
             Assert.Throws<ErrorMessageException>(() => multiCart.RemoveProductFromMultiCart(2));
             Assert.AreEqual(2, multiCart.GetCarts().Count);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            Workshop192.MarketManagment.System.Reset();
+            DbCommerce.GetInstance().EndTests();
         }
     }
 }

@@ -20,7 +20,8 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             DbCommerce.GetInstance().StartTests();
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().CreateUser();
-            Store store = new Store("store");
+            Workshop192.MarketManagment.System.GetInstance().OpenStore("store");
+            Store store = Workshop192.MarketManagment.System.GetInstance().GetStore("store");
             Product p1 = new Product(1, "1", "1", 1);
             Product p2 = new Product(2, "2", "2", 2);
             store.AddProducts(p1, 10);
@@ -33,28 +34,28 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void Validate_ValidateProductCorrect_ReturnsTrue()
         {
-            policy = new PolicyLeafMinimumAmount(1, 9);
+            policy = new PolicyLeafMinimumAmount(1, 9, 0, "");
             Assert.IsTrue(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_ValidateStoreCorrect_ReturnsTrue()
         {
-            policy = new PolicyLeafMinimumAmount(0, 18);
+            policy = new PolicyLeafMinimumAmount(0, 18, 0, "");
             Assert.IsTrue(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_ValidateProductIncorrect_ReturnsFalse()
         {
-            policy = new PolicyLeafMinimumAmount(1, 12);
+            policy = new PolicyLeafMinimumAmount(1, 12, 0, "");
             Assert.IsFalse(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_ValidateStoreIncorrect_ReturnsFalse()
         {
-            policy = new PolicyLeafMinimumAmount(0, 25);
+            policy = new PolicyLeafMinimumAmount(0, 25, 0, "");
             Assert.IsFalse(policy.Validate(1, cart));
         }
 
@@ -63,6 +64,7 @@ namespace DomainLayerUnitTests.MarketManagment
         {
             DbCommerce.GetInstance().EndTests();
             Workshop192.UserManagment.AllRegisteredUsers.Reset();
+            Workshop192.MarketManagment.System.Reset();
         }
     }
 }
