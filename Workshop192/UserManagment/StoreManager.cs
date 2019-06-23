@@ -92,6 +92,7 @@ namespace Workshop192.UserManagment
             if (Int32.Parse(policy.ElementAt(2)) == 0)
             {
                 MarketManagment.System.GetInstance().GetStore(store).AddDiscountPolicy(policy, discount);
+                DbCommerce.GetInstance().SaveDb();
                 return true;
             }
             else
@@ -115,6 +116,7 @@ namespace Workshop192.UserManagment
             if (Int32.Parse(policy.ElementAt(2)) == 0)
             {
                 MarketManagment.System.GetInstance().GetStore(store).AddSellingPolicy(policy);
+                DbCommerce.GetInstance().SaveDb();
                 return true;
             }
             else
@@ -122,6 +124,7 @@ namespace Workshop192.UserManagment
                     if (productAmount.productId.Equals(Int32.Parse(policy.ElementAt(2))))
                     {
                         productAmount.product.AddSellingPolicy(policy);
+                        DbCommerce.GetInstance().SaveDb();
                         return true;
                     }
             throw new ErrorMessageException("Given product id doesnt exist in store");
@@ -137,6 +140,7 @@ namespace Workshop192.UserManagment
             if (productId == 0)
             {
                 MarketManagment.System.GetInstance().GetStore(store).RemoveDiscountPolicy();
+                DbCommerce.GetInstance().SaveDb();
                 return true;
             }
             else
@@ -144,6 +148,7 @@ namespace Workshop192.UserManagment
                     if (productAmount.productId.Equals(productId))
                     {
                         productAmount.product.RemoveDiscountPolicy();
+                        DbCommerce.GetInstance().SaveDb();
                         return true;
                     }
             throw new ErrorMessageException("Given product id doesnt exist in store");
@@ -159,6 +164,7 @@ namespace Workshop192.UserManagment
             if (productId == 0)
             {
                 MarketManagment.System.GetInstance().GetStore(store).RemoveSellingPolicy();
+                DbCommerce.GetInstance().SaveDb();
                 return true;
             }
             else
@@ -166,6 +172,7 @@ namespace Workshop192.UserManagment
                     if (productAmount.productId.Equals(productId))
                     {
                         productAmount.product.RemoveSellingPolicy();
+                        DbCommerce.GetInstance().SaveDb();
                         return true;
                     }
             throw new ErrorMessageException("Given product id doesnt exist in store");

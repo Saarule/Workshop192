@@ -50,11 +50,7 @@ namespace Workshop192
             modelBuilder.Entity<UserInfo>().HasMany(u => u.storeManagers).WithRequired(m => m.user).HasForeignKey(m => m.userName);
             modelBuilder.Entity<StoreOwnersOfStore>().HasMany(os => os.storeOwners).WithRequired(o => o.storeOwners);
             modelBuilder.Entity<Product>().HasKey(p => p.Id);
-            modelBuilder.Entity<Product>().Ignore(p => p.discountPolicy);
-            modelBuilder.Entity<Product>().Ignore(p => p.sellingPolicy);
             modelBuilder.Entity<Store>().HasKey(s => s.name);
-            modelBuilder.Entity<Store>().Ignore(s => s.discountPolicy);
-            modelBuilder.Entity<Store>().Ignore(s => s.sellingPolicy);
             modelBuilder.Entity<ProductAmountInventory>().HasKey(pi => new { pi.storeName, pi.productId });
             modelBuilder.Entity<Store>().HasMany(s => s.inventory).WithRequired(pi => pi.store).HasForeignKey(pi => pi.storeName);
             modelBuilder.Entity<ProductAmountInventory>().HasRequired(pi => pi.product);
