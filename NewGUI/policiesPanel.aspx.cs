@@ -144,6 +144,11 @@ namespace NewGUI
                 Response.Write("<script>alert('illegal input');</script>");
             }
         }
+
+        /* Ban User by country - Does not need to support that functionality in this version
+         * 
+         * 
+         * 
         protected void CountryToBanFromStoreButton1_Click(object sender, EventArgs e)
         {
             try
@@ -168,6 +173,8 @@ namespace NewGUI
                 Response.Write("<script>alert('illegal input');</script>");
             }
         }
+        */
+
         protected void DiscountMinimumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
         {
             try
