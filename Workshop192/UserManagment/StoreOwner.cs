@@ -103,6 +103,8 @@ namespace Workshop192.UserManagment
                 {
                     Notifications.Notification.GetInstance().SendMessageToUser(storeOwners.GetStoreOwners().ElementAt(i).GetUser().GetUserName(), message);
                 }
+                Notifications.Notification.GetInstance().SendMessageToUser(user.GetUserName(), "You assigned to be owner in store:" + store);
+
 
             }
             catch (Exception)
@@ -162,6 +164,7 @@ namespace Workshop192.UserManagment
                     Notifications.Notification.GetInstance().SendMessageToUser(storeOwners.GetStoreOwners().ElementAt(i).GetUser().GetUserName(), message);
 
                 }
+                Notifications.Notification.GetInstance().SendMessageToUser(user.GetUserName(), "you assigned to be manager in store:" + store);
 
             }
             catch (Exception)
@@ -186,6 +189,7 @@ namespace Workshop192.UserManagment
                             Notifications.Notification.GetInstance().SendMessageToUser(storeOwners.GetStoreOwners().ElementAt(i).GetUser().GetUserName(), message);
 
                         }
+                        Notifications.Notification.GetInstance().SendMessageToUser(child.GetUserName(), "you removed from being  manager in store:" + store);
 
                     }
                     catch (Exception)

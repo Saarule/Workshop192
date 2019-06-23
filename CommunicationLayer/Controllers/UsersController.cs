@@ -36,7 +36,11 @@ namespace CommunicationLayer.Controllers
             }
             return Ok(product);
         }*/
-
+        public static string getUserNameByUserId(int userId)
+        {
+            return ServiceLayer.Admin.GetAllUserName.getUserNameByUserId(userId);
+        }
+        
         public static bool Register(string username, string password, string SessionID)
         {
             int userID=Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
