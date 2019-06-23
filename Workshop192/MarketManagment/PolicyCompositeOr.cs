@@ -13,12 +13,10 @@ namespace Workshop192.MarketManagment
         public int policyId { get; set; }
         public string policyProductId { get; set; }
 
-        public PolicyCompositeOr(PolicyComponent left, PolicyComponent right, int policyId, string policyProductId)
+        public PolicyCompositeOr(PolicyComponent left, PolicyComponent right)
         {
             this.left = left;
             this.right = right;
-            this.policyId = policyId;
-            this.policyProductId = policyProductId;
         }
 
         public PolicyCompositeOr() //Only for Entity Framework references should be 0
@@ -34,3 +32,6 @@ namespace Workshop192.MarketManagment
         }
     }
 }
+
+        private PolicyComponent left;
+        private PolicyComponent right;

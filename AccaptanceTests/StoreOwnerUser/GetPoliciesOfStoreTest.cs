@@ -49,7 +49,7 @@ namespace AccaptanceTests.StoreOwnerUser
             toAdd.AddLast("0");
             toAdd.AddLast("nati");
             ManagePolicies.AddBuyingPolicy(toAdd, "Victory", UserId_Orel);
-            Assert.NotNull( GetPolicies.GetPoliciesOfStore("Victory"));
+            Assert.NotNull(GetPolicies.GetPoliciesOfStore("Victory"));
         }
         [Test]
         public void DisplayDiscountTest()

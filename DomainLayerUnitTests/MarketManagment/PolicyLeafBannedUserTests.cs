@@ -27,14 +27,14 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void Validate_UserNotLoggedInBanned_ReturnsFalse()
         {
-            policy = new PolicyLeafBannedUser("", 0, "");
+            policy = new PolicyLeafBannedUser("");
             Assert.IsFalse(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_UserNotLoggedInNotBanned_ReturnsTrue()
         {
-            policy = new PolicyLeafBannedUser("user", 0, "");
+            policy = new PolicyLeafBannedUser("user");
             Assert.IsTrue(policy.Validate(1, cart));
         }
 
@@ -42,7 +42,7 @@ namespace DomainLayerUnitTests.MarketManagment
         public void Validate_UserLoggedInNotBanned_ReturnsTrue()
         {
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(1).LogIn(Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUserInfo("user"));
-            policy = new PolicyLeafBannedUser("user2", 0, "");
+            policy = new PolicyLeafBannedUser("user2");
             Assert.IsTrue(policy.Validate(1, cart));
         }
 
