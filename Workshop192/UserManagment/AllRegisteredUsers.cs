@@ -113,6 +113,9 @@ namespace Workshop192.UserManagment
                 user.GetStoreOwners().First.Value.RemoveSelf();
             userInfos.Remove(user.GetUserName());
             passwords.Remove(user.GetUserName());
+            foreach (KeyValuePair<int, User> u in users)
+                if (u.Value.GetInfo() != null && u.Value.GetInfo().userName == user.userName)
+                    u.Value.LogOut();
             DbCommerce.GetInstance().RemoveUserInfo(user);
             return true;
         }

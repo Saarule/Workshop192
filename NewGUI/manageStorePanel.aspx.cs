@@ -42,8 +42,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
-            catch(Exception )
-            { }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
 
 
         }

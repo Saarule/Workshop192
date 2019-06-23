@@ -116,14 +116,28 @@ namespace CommunicationLayer.Controllers
 
         public static bool IsOwnerOfStore(string SessionID,string storename)
         {
-            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsOwner(userID,storename);
+            try
+            {
+                int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+                return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsOwner(userID, storename);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public static bool IsManagerOfStore(string SessionID,string storename)
         {
-            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsManager(userID, storename);
+            try
+            {
+                int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+                return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsManager(userID, storename);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public static bool IsOwner(string SessionID)

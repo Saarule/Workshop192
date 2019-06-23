@@ -19,7 +19,7 @@ namespace Workshop192.UserManagment
 
         public bool RemoveUser(UserInfo user)
         {
-            if (AllRegisteredUsers.GetInstance().RemoveUser(user))
+            if (!user.IsAdmin() && AllRegisteredUsers.GetInstance().RemoveUser(user))
             {
                 Logger.GetInstance().WriteToEventLog(this.user.GetUserName() + " removed user " + user.GetUserName() + " as an admin");
                 return true;
