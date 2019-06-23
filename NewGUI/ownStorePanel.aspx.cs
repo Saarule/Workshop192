@@ -104,7 +104,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully added Store Owner');</script>");
-                    Response.Redirect("owmStorePanel.aspx?storeName=" + storeName);
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeName);
                 }
                 else
                 {
@@ -125,7 +125,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully added Store Owner');</script>");
-                    Response.Redirect("owmStorePanel.aspx?storeName=" + storeName);
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeName);
                 }
                 else
                 {
@@ -146,7 +146,7 @@ namespace NewGUI
                 if (ans)
                 {
                     Response.Write("<script>alert('succesfully added Store Owner');</script>");
-                    Response.Redirect("owmStorePanel.aspx?storeName=" + storeName);
+                    Response.Redirect("ownStorePanel.aspx?storeName=" + storeName);
                 }
                 else
                 {
