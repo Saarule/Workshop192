@@ -48,5 +48,9 @@ namespace Notifications
 
             return messages;
         }
+        public int GetNumberOfNewNotifications(string username)
+        {
+            return Message_To_Users_List[username].Count;
+        }
     }
 }

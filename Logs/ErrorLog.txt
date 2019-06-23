@@ -825,3 +825,4 @@
 06/23/2019 13:34:33  A user failed to register A1 123456
 =======
 >>>>>>> NewestGUI
+06/23/2019 14:51:25  A1 tried accepting user U2 as a owner of store [mega] but the given user wasn't on their pending list

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using Workshop192;
+using System.Web.UI.WebControls;
 
 namespace NewGUI
 {
@@ -18,7 +19,14 @@ namespace NewGUI
                 if (!isLoggedIn)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                    return;
                 }
+                int userId = CommunicationLayer.Controllers.Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(HttpContext.Current.Session.SessionID);
+                string userName = CommunicationLayer.Controllers.UsersController.getUserNameByUserId(userId);
+                int numOfMessage = Notifications.Notification.GetInstance().GetNumberOfNewNotifications(userName);
+                PlaceHolder1.Controls.Add(new Literal { Text = numOfMessage.ToString() });
+
+
             }
             catch (ErrorMessageException exception)
             {
@@ -26,7 +34,7 @@ namespace NewGUI
             }
 
         }
-        protected void Notifications_Click(object sender, EventArgs e)
+        /*protected void Notifications_Click(object sender, EventArgs e)
         {
             LinkedList<string> ret = CommunicationLayer.NotificationsHandler.Send_Notifications_To_Me(HttpContext.Current.Session.SessionID);
             Response.Write("<script>alert('hello');</script>");
@@ -34,6 +42,7 @@ namespace NewGUI
             {
                 Response.Write("<script>alert('"+ret.ElementAt(i) +"');</script>");
             }
-        }
+        }*/
+
     }
 }

@@ -7,8 +7,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Workshop192;
 
-using Workshop192;
-
 namespace NewGUI
 {
     public partial class notificationsPanel : System.Web.UI.Page
@@ -17,6 +15,23 @@ namespace NewGUI
         LinkedList<string> notifications = new LinkedList<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                    return;
+                }
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
+
+            }
             try
             {
                 int userId = CommunicationLayer.Controllers.Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(HttpContext.Current.Session.SessionID);
@@ -34,23 +49,15 @@ namespace NewGUI
                 notificationTable.Append("</table>");
                 PlaceHolder1.Controls.Add(new Literal { Text = notificationTable.ToString() });
             }
-            catch (ErrorMessageException exception)
-            { }
+            catch (ErrorMessageException)
+            {
+
+            }
             catch (Exception)
             {
+
             }
-            try
-            {
-                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
-                if (!isLoggedIn)
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
-                }
-            }
-            catch (ErrorMessageException exception)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
-            }
+            
         }
     }
 }

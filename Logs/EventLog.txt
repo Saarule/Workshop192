@@ -16114,3 +16114,69 @@
 06/23/2019 13:25:11  A guest added product [2] [7] of store [mega] to their multi cart
 06/23/2019 13:27:59  nati Logged In
 >>>>>>> NewestGUI
+06/23/2019 13:37:04  A new user was registered A1 123456
+06/23/2019 13:37:04  A new user was registered U1 123456
+06/23/2019 13:37:04  A new user was registered U2 123456
+06/23/2019 13:37:04  A new user was registered U11 123456
+06/23/2019 13:37:04  A new user was registered U12 123456
+06/23/2019 13:37:04  A new user was registered U13 123456
+06/23/2019 13:37:04  U11 Logged In
+06/23/2019 13:37:05  U11 Logged Out
+06/23/2019 13:37:11  U11 Logged In
+06/23/2019 13:39:31  A new user was registered A1 123456
+06/23/2019 13:39:31  A new user was registered U1 123456
+06/23/2019 13:39:31  A new user was registered U2 123456
+06/23/2019 13:39:31  A new user was registered U11 123456
+06/23/2019 13:39:31  A new user was registered U12 123456
+06/23/2019 13:39:31  A new user was registered U13 123456
+06/23/2019 13:39:31  U11 Logged In
+06/23/2019 13:39:31  U11 Logged Out
+06/23/2019 13:39:56  U11 Logged In
+06/23/2019 13:40:19  U11 Added Product [1] [Milk] [aa] [20] [40] as a owner of store [S2]
+06/23/2019 13:40:31  U11 Added Product [2] [wine] [a] [50] [100] as a owner of store [S2]
+06/23/2019 13:41:00  A guest added product [1] [5] of store [S2] to their multi cart
+06/23/2019 13:41:08  A guest added product [2] [7] of store [S2] to their multi cart
+06/23/2019 14:39:56  A new user was registered A1 123456
+06/23/2019 14:39:56  A new user was registered U1 123456
+06/23/2019 14:39:56  A new user was registered U2 123456
+06/23/2019 14:39:56  A new user was registered U11 123456
+06/23/2019 14:39:56  A new user was registered U12 123456
+06/23/2019 14:39:56  A new user was registered U13 123456
+06/23/2019 14:39:56  U11 Logged In
+06/23/2019 14:39:56  U11 Logged Out
+06/23/2019 14:40:07  A1 Logged In
+06/23/2019 14:40:51  U1 Logged In
+06/23/2019 14:43:29  U1 Logged Out
+06/23/2019 14:43:29  A1 removed user U1 as an admin
+06/23/2019 14:47:39  A new user was registered A1 123456
+06/23/2019 14:47:39  A new user was registered U1 123456
+06/23/2019 14:47:39  A new user was registered U2 123456
+06/23/2019 14:47:39  A new user was registered U11 123456
+06/23/2019 14:47:39  A new user was registered U12 123456
+06/23/2019 14:47:39  A new user was registered U13 123456
+06/23/2019 14:47:39  U11 Logged In
+06/23/2019 14:47:39  U11 Logged Out
+06/23/2019 14:48:00  A1 Logged In
+06/23/2019 14:49:39  U1 Logged In
+06/23/2019 14:50:12  A1 initiated the owner adding proccess to user U1 for store [mega]
+06/23/2019 14:50:12  U1 Is now a owner of store [mega]
+06/23/2019 14:50:54  A1 initiated the owner adding proccess to user U2 for store [mega]
+06/23/2019 14:52:08  U1 accepted user U2 as a owner in store [mega]
+06/23/2019 14:52:08  U2 Is now a owner of store [mega]
+06/23/2019 14:52:30  A1 initiated the owner adding proccess to user U13 for store [mega]
+06/23/2019 14:52:53  U1 accepted user U13 as a owner in store [mega]
+06/23/2019 14:53:03  U1 Logged Out
+06/23/2019 14:53:11  U2 Logged In
+06/23/2019 14:53:40  U2 accepted user U13 as a owner in store [mega]
+06/23/2019 14:53:40  U13 Is now a owner of store [mega]
+06/23/2019 14:53:58  U2 Logged Out
+06/23/2019 14:54:05  U13 Logged In
+06/23/2019 15:18:56  A new user was registered A1 123456
+06/23/2019 15:18:56  A new user was registered U1 123456
+06/23/2019 15:18:56  A new user was registered U2 123456
+06/23/2019 15:18:57  A new user was registered U11 123456
+06/23/2019 15:18:57  A new user was registered U12 123456
+06/23/2019 15:18:57  A new user was registered U13 123456
+06/23/2019 15:18:57  U11 Logged In
+06/23/2019 15:18:57  U11 Logged Out
+06/23/2019 15:19:12  U1 Logged In
