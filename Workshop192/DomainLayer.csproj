@@ -69,6 +69,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="MarketManagment\Cart.cs" />
+    <Compile Include="MarketManagment\ProductAmountCart.cs" />
     <Compile Include="MarketManagment\ProductAmountInventory.cs" />
     <Compile Include="MarketManagment\MultiCart.cs" />
     <Compile Include="MarketManagment\PolicyComponent.cs" />

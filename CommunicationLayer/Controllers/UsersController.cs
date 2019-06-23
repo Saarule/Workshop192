@@ -43,7 +43,7 @@ namespace CommunicationLayer.Controllers
         
         public static bool Register(string username, string password, string SessionID)
         {
-            int userID=Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
             return ServiceLayer.Guest.Register.Registration(username, password, userID);
         }
 
@@ -64,7 +64,7 @@ namespace CommunicationLayer.Controllers
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
 
-            return ServiceLayer.Admin.RemoveUserFromSystem.RemoveUser(userID,usernameToDelete);
+            return ServiceLayer.Admin.RemoveUserFromSystem.RemoveUser(userID, usernameToDelete);
         }
         public static bool IsAdmin(string SessionID)
         {
@@ -77,7 +77,7 @@ namespace CommunicationLayer.Controllers
             return ServiceLayer.Guest.CreateAndGetUser.CreateUser();
         }
 
-        public static bool AcceptOwner(string store , string SessionID , string usernameToAccept)
+        public static bool AcceptOwner(string store, string SessionID, string usernameToAccept)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
 
@@ -91,7 +91,7 @@ namespace CommunicationLayer.Controllers
             return ServiceLayer.Store_Owner_User.HandlerRequestAppointment.DeclineAppointment(store, userID, usernameToDecline);
         }
 
-        public static bool AssignStoreManager(string SessionID,string store,string usernameToAppoint,bool [] privileges)
+        public static bool AssignStoreManager(string SessionID, string store, string usernameToAppoint, bool[] privileges)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
 
@@ -118,16 +118,41 @@ namespace CommunicationLayer.Controllers
             return ServiceLayer.RegisteredUser.GetRoles.getRoles(userID);
         }
 
-        public static bool IsOwnerOfStore(string SessionID,string storename)
+        public static bool IsOwnerOfStore(string SessionID, string storename)
         {
-            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsOwner(userID,storename);
+            try
+            {
+                int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+                return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsOwner(userID, storename);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public static bool IsManagerOfStore(string SessionID,string storename)
+        public static bool IsManagerOfStore(string SessionID, string storename)
+        {
+            try
+            {
+                int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+                return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsManager(userID, storename);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static bool IsOwner(string SessionID)
         {
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsManager(userID, storename);
+            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsOwner2(userID);
+        }
+        public static bool IsManager(string SessionID)
+        {
+            int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
+            return ServiceLayer.Store_Owner_User.IsOwnerOrManage.IsManager2(userID);
         }
         public static bool IsLoggedIn(string SessionID)
         {
@@ -146,8 +171,9 @@ namespace CommunicationLayer.Controllers
 
         public static LinkedList<string> GetPendingList(string SessionID, string storename)
         {
+
             int userID = Dictionary_SessionId_UserId.GetInstance().Get_UserId_From_Dictionary(SessionID);
-            return ServiceLayer.Store_Owner_User.ShowWaitingList.ShowWaitingsList(userID,storename);
+            return ServiceLayer.Store_Owner_User.ShowWaitingList.ShowWaitingsList(userID, storename);
         }
     }
 }

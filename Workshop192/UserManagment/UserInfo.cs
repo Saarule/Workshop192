@@ -24,7 +24,11 @@ namespace Workshop192.UserManagment
             storeOwners = new LinkedList<StoreOwner>();
             storeManagers = new LinkedList<StoreManager>();
             multiCartId = MarketManagment.System.GetInstance().AddNewMultiCart();
+            MarketManagment.System.GetInstance().AddNewMultiCartToDb(multiCartId);
         }
+
+        public UserInfo() //Only for Entity Framework references should be 0
+        { }
 
         public bool SetAdmin()
         {

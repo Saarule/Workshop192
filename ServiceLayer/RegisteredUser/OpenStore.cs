@@ -13,7 +13,7 @@ namespace ServiceLayer.RegisteredUser
         // use case 3.1 - Open Store
         public static bool openStore(string storeName,int userNum)
         {
-           return CreateAndGetUser.GetUser(userNum).OpenStore(storeName);
+           return CreateAndGetUser.GetUser(userNum).OpenStore(storeName,userNum);
         }
 
     }

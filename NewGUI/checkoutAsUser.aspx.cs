@@ -18,6 +18,7 @@ namespace NewGUI
                 if (!isLoggedIn)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                    return;
                 }
             }
             catch (ErrorMessageException exception)

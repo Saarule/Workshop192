@@ -21,20 +21,20 @@ namespace DomainLayerUnitTests.MarketManagment
             DbCommerce.GetInstance().StartTests();
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().CreateUser();
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().RegisterUser("user", "123456");
-            cart = new Cart(new Store("store"));
+            cart = new Cart(new Store("store"), new MultiCart(1));
         }
 
         [Test]
         public void Validate_UserNotLoggedInBanned_ReturnsFalse()
         {
-            policy = new PolicyLeafBannedUser("");
+            policy = new PolicyLeafBannedUser("", 0, "");
             Assert.IsFalse(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_UserNotLoggedInNotBanned_ReturnsTrue()
         {
-            policy = new PolicyLeafBannedUser("user");
+            policy = new PolicyLeafBannedUser("user", 0, "");
             Assert.IsTrue(policy.Validate(1, cart));
         }
 
@@ -42,7 +42,7 @@ namespace DomainLayerUnitTests.MarketManagment
         public void Validate_UserLoggedInNotBanned_ReturnsTrue()
         {
             Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUser(1).LogIn(Workshop192.UserManagment.AllRegisteredUsers.GetInstance().GetUserInfo("user"));
-            policy = new PolicyLeafBannedUser("user2");
+            policy = new PolicyLeafBannedUser("user2", 0, "");
             Assert.IsTrue(policy.Validate(1, cart));
         }
 

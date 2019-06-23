@@ -31,6 +31,9 @@ namespace Workshop192.UserManagment
             userName = user.GetUserName();
         }
 
+        public StoreManager() //Only for Entity Framework references should be 0
+        { }
+
         public bool AddProducts(Product product, int amount)
         {
             if (p0)

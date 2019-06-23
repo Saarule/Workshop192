@@ -56,7 +56,7 @@ namespace Workshop192.UserManagment
             return user.MakeAdmin(user);
         }
 
-        public bool OpenStore(string storeName)
+        public bool OpenStore(string storeName,int userId)
         {
             if (IsLoggedIn())
                 return info.OpenStore(storeName);
@@ -199,6 +199,7 @@ namespace Workshop192.UserManagment
                     Logger.GetInstance().WriteToEventLog(info.GetUserName() + " added product [" + productId + "] [" + amount + "] of store [" + store + "] to their multi cart");
                 else
                     Logger.GetInstance().WriteToEventLog("A guest added product [" + productId + "] [" + amount + "] of store [" + store + "] to their multi cart");
+                DbCommerce.GetInstance().SaveDb();
                 return true;
             }
             return false;
@@ -213,6 +214,7 @@ namespace Workshop192.UserManagment
                         Logger.GetInstance().WriteToEventLog(info.GetUserName() + " removed product [" + productId + "] from their multi cart");
                     else
                         Logger.GetInstance().WriteToEventLog("A guest removed product [" + productId + "] from their multi cart");
+                DbCommerce.GetInstance().SaveDb();
                 return true;
             }
             return false;

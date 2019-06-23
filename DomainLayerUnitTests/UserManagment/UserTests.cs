@@ -15,10 +15,11 @@ namespace DomainLayerUnitTests.UserManagment
     {
         private User user;
         private UserInfo info;
-
+        int userId;
         [SetUp]
         public void Init()
         {
+            userId = AllRegisteredUsers.GetInstance().CreateUser(); 
             DbCommerce.GetInstance().StartTests();
             AllRegisteredUsers.GetInstance().CreateUser();
             user = AllRegisteredUsers.GetInstance().GetUser(1);
@@ -65,7 +66,7 @@ namespace DomainLayerUnitTests.UserManagment
         [Test]
         public void OpenStore_UserNotLoggedIn_ReturnsFalse()
         {
-            Assert.Throws<ErrorMessageException>(() => user.OpenStore("temp"));
+            Assert.Throws<ErrorMessageException>(() => user.OpenStore("temp",userId));
         }
 
         [Test]

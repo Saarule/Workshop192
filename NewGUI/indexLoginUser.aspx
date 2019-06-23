@@ -60,6 +60,7 @@
            <ul class="nav-shop">
                 <a href="notificationsPanel.aspx" class="notification"> 
                 <span>Inbox</span>
+                    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
                     </a>
                  
 

@@ -42,6 +42,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
 
         }
         protected void LogoutButton1_Click(object sender, EventArgs e)
@@ -60,6 +64,10 @@ namespace NewGUI
                 }
             }
             catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
@@ -92,12 +100,16 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('"+exception.Message+"')", true);
             }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
         protected void ManageStoreButton1_Click(object sender, EventArgs e)
         {
             try
             {
-                String storeNameToManage = StoreToManageTextBox.Text;
+                string storeNameToManage = StoreToManageTextBox.Text;
                 if (CommunicationLayer.Controllers.UsersController.IsManagerOfStore(HttpContext.Current.Session.SessionID,storeNameToManage) || CommunicationLayer.Controllers.UsersController.IsOwnerOfStore(HttpContext.Current.Session.SessionID, storeNameToManage))
                 {
                     Response.Redirect("manageStorePanel.aspx?storeName=" + storeNameToManage);
@@ -110,6 +122,9 @@ namespace NewGUI
             catch (ErrorMessageException exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception)
+            {
             }
         }
         protected void OwnStoreButton1_Click(object sender, EventArgs e)
@@ -130,6 +145,10 @@ namespace NewGUI
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
+            catch (Exception exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
         protected void ManagePoliciesButton1_Click(object sender, EventArgs e)
         {
@@ -146,6 +165,10 @@ namespace NewGUI
                 }
             }
             catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
+            catch (Exception exception)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
