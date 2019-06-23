@@ -34,28 +34,28 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void Validate_ValidateProductCorrect_ReturnsTrue()
         {
-            policy = new PolicyLeafMaximumAmount(1, 12, 0, "");
+            policy = new PolicyLeafMaximumAmount(1, 12);
             Assert.IsTrue(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_ValidateStoreCorrect_ReturnsTrue()
         {
-            policy = new PolicyLeafMaximumAmount(0, 25, 0, "");
+            policy = new PolicyLeafMaximumAmount(0, 25);
             Assert.IsTrue(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_ValidateProductIncorrect_ReturnsFalse()
         {
-            policy = new PolicyLeafMaximumAmount(1, 7, 0, "");
+            policy = new PolicyLeafMaximumAmount(1, 7);
             Assert.IsFalse(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_ValidateStoreIncorrect_ReturnsFalse()
         {
-            policy = new PolicyLeafMaximumAmount(0, 15, 0, "");
+            policy = new PolicyLeafMaximumAmount(0, 15);
             Assert.IsFalse(policy.Validate(1, cart));
         }
 

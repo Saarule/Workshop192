@@ -34,28 +34,28 @@ namespace DomainLayerUnitTests.MarketManagment
         [Test]
         public void Validate_ValidateProductCorrect_ReturnsTrue()
         {
-            policy = new PolicyLeafMinimumAmount(1, 9, 0, "");
+            policy = new PolicyLeafMinimumAmount(1, 9);
             Assert.IsTrue(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_ValidateStoreCorrect_ReturnsTrue()
         {
-            policy = new PolicyLeafMinimumAmount(0, 18, 0, "");
+            policy = new PolicyLeafMinimumAmount(0, 18);
             Assert.IsTrue(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_ValidateProductIncorrect_ReturnsFalse()
         {
-            policy = new PolicyLeafMinimumAmount(1, 12, 0, "");
+            policy = new PolicyLeafMinimumAmount(1, 12);
             Assert.IsFalse(policy.Validate(1, cart));
         }
 
         [Test]
         public void Validate_ValidateStoreIncorrect_ReturnsFalse()
         {
-            policy = new PolicyLeafMinimumAmount(0, 25, 0, "");
+            policy = new PolicyLeafMinimumAmount(0, 25);
             Assert.IsFalse(policy.Validate(1, cart));
         }
 
