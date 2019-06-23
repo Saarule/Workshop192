@@ -8,10 +8,8 @@ namespace Workshop192.MarketManagment
 {
     public class PolicyCompositeOr : PolicyComponent
     {
-        public virtual PolicyComponent left { get; set; }
-        public virtual PolicyComponent right { get; set; }
-        public int policyId { get; set; }
-        public string policyProductId { get; set; }
+        private PolicyComponent left;
+        private PolicyComponent right;
 
         public PolicyCompositeOr(PolicyComponent left, PolicyComponent right)
         {
@@ -32,6 +30,3 @@ namespace Workshop192.MarketManagment
         }
     }
 }
-
-        private PolicyComponent left;
-        private PolicyComponent right;

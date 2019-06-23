@@ -21,6 +21,27 @@ namespace ServiceLayer.SystemInitializtion
         // use case 1.1 - Initialization of the system
         public void Initalize(string Path)
         {
+            bool neededInit = false;
+            try
+            {
+                StreamReader sr = new StreamReader("C:\\IsInit.txt");
+                string line = sr.ReadLine();
+                sr.Close();
+                if (line == null || line.Equals(""))
+                {
+                    neededInit = true;
+                    File.WriteAllText(@"C:\\IsInit.txt", "INIT !!!");
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception )
+            {
+                
+            }
+            
             Workshop192.MarketManagment.System MarketSystem = Workshop192.MarketManagment.System.GetInstance();
             Workshop192.UserManagment.AllRegisteredUsers UserSystem = Workshop192.UserManagment.AllRegisteredUsers.GetInstance();
             string URL = "https://cs-bgu-wsep.herokuapp.com";
@@ -47,12 +68,15 @@ namespace ServiceLayer.SystemInitializtion
             }
             MarketSystem.ConnectMoneyCollectionSystem(ConnectExternalMoneyCollectionSystems());
             MarketSystem.ConnectDeliverySystem(ConnectExternalDeliverySystems());
-            UserSystem.RegisterUser("A1", "123456");
-            UserSystem.GetUserInfo("A1", "123456").SetAdmin();
-
-            if (Path != null)
+            if (neededInit)
             {
-                ReadFromStateFile(Path);
+                UserSystem.RegisterUser("A1", "123456");
+                UserSystem.GetUserInfo("A1", "123456").SetAdmin();
+
+                if (Path != null)
+                {
+                    ReadFromStateFile(Path);
+                }
             }
         }
 
