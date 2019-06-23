@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ownStorePanel.aspx.cs" Inherits="NewGUI.ownStorePanel" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="notificationsPanel.aspx.cs" Inherits="NewGUI.notificationsPanel" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Own Store Panel</title>
+  <title>Notficiations Panel</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <!--================ Start Header Menu Area =================-->
+    <!--================ Start Header Menu Area =================-->
     <form id="form2" runat="server">
 	<header class="header_area">
     <div class="main_menu">
@@ -73,12 +73,13 @@
   </header>
 	<!--================ End Header Menu Area =================-->
 
+
 <!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">
-					<h1>Store Owner Panel</h1>
+					<h1>Notficiations Panel</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
           </nav>
 				</div>
@@ -87,87 +88,13 @@
 	</section>
 <!-- ================ end banner area ================= -->
 
-  <!--================Order Details Area =================-->
+<!--================Order Details Area =================-->
   <section class="order_details section-margin--small">
     <div class="container">
       <div class="row mb-5">
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
-            <h3 class="billing-title">Add Store Manager</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter store manager username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreManagerToAddTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-                 <tr>
-                <td>Privileges:</td>
-              </tr>
-                   <tr>
-                          <td><asp:CheckBox ID="AddProductCheckBox" runat="server" Text="  Add Product" /></td>  
-                   </tr>
-                   <tr>
-                          <td><asp:CheckBox ID="RemoveProductCheckBox" runat="server" Text="  Remove Product" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="EditProductCheckBox" runat="server" Text="  Edit Product" /></td>  
-                   </tr>
-                      <tr>
-                          <td><asp:CheckBox ID="AddDiscountPolicyCheckBox" runat="server" Text="  Add discount policy" /></td>  
-                   </tr>
-                      <tr>
-                          <td><asp:CheckBox ID="AddSellingPolicyCheckBox" runat="server" Text="  Add selling policy" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="RemoveDiscountPolicyCheckBox" runat="server" Text="  Remove discount policy" /></td>  
-                   </tr>
-                     <tr>
-                          <td><asp:CheckBox ID="RemoveSellingPolicyCheckBox" runat="server" Text="  Remove selling policy" /></td>  
-                   </tr>
-              <tr>
-                <td><asp:Button ID="Button5" runat="server" class="button button-register w-100" Text="Add Store Manager" OnClick="AddStoreManagerButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Remove Store Manager</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter store manager username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreManagerToRemoveTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button9" runat="server" class="button button-register w-100" Text="Remove Store Manager" OnClick="RemoveStoreManagerButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Add Store Owner</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Enter store owner username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="StoreOwnerTextBox" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-              <tr>
-                <td><asp:Button ID="Button2" runat="server" class="button button-register w-100" Text="Add Store Owner" OnClick="AddStoreOwnerButton1_Click" /></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Store Managers/Owners:</h3>
+            <h3 class="billing-title">My Notficiations</h3>
             <table class="order-rable">
               <tr>
                   <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
@@ -175,34 +102,10 @@
             </table>
           </div>
         </div>
-
-          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Manage Appointments</h3>
-            <table class="order-rable">
-                <tr>
-                <td>Enter Username:</td>
-              </tr>
-                <tr>
-                    <td><asp:TextBox id="usernameToAppoint" runat="server" placeholder="Username" class="form-control" type="text"></asp:TextBox></td>
-                </tr>
-                 
-                <tr>
-                    <td><asp:Button ID="AcceptAppointmentButton" runat="server" class="button button-register w-100" Text="Accept Appointment" OnClick="AcceptAppointmentButton1_Click" /></td>
-                    <td><asp:Button ID="DeclineAppointmentButton" runat="server" class="button button-register w-100" Text="Decline Appointment" OnClick="DeclineAppointmentButton1_Click" /></td>
-                </tr>
-                <tr>
-                    
-              </tr>
-            </table>
-          </div>
-        </div>
-   
       </div>
     </div>
   </section>
-  <!--================End Order Details Area =================-->
-
+<!--================End Order Details Area =================-->
 
 <!--================ Start footer Area  =================-->	
 	<footer class="footer">
@@ -243,6 +146,7 @@
 		</div>
 	</footer>
 	<!--================ End footer Area  =================-->
+
 
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>

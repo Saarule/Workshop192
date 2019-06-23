@@ -128,7 +128,9 @@ namespace NewGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox StoreOwnerTextBox;
-        
+
+        protected global::System.Web.UI.WebControls.TextBox usernameToAppoint;
+
         /// <summary>
         /// Button2 control.
         /// </summary>

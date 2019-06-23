@@ -186,6 +186,17 @@
           </div>
         </div>
 
+          <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+          <div class="confirmation-card">
+            <table class="order-rable">
+                <tr>
+                    <td><asp:Button ID="ManageNotificitaionsButton" runat="server" class="button button-register w-100" Text="Manage Notificitaions" OnClick="ManageNotificitaionsButton1_Click" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </section>
