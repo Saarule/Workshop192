@@ -14,7 +14,6 @@ namespace DomainLayerUnitTests.UserManagment
     class StoreOwnerTests
     {
         private User user1, user2, user3;
-        private StoreOwner storeOwner1, storeOwner2, storeOwner3;
 
         [SetUp]
         public void SetUp()
@@ -49,6 +48,24 @@ namespace DomainLayerUnitTests.UserManagment
             user1.AddProducts("store", product, 1);
             Assert.Throws<ErrorMessageException>(() => user1.AddProducts("store", product, 1));
             Assert.AreEqual(1, Workshop192.MarketManagment.System.GetInstance().GetStore("store").GetInventory().Count);
+        }
+
+        [Test]
+        public void RemoveProductFromInventory_RemoveExistingProduct_ReturnsTrue()
+        {
+            Product product = new Product(1, "", "", 1);
+            user1.AddProducts("store", product, 1);
+            Assert.IsTrue(user1.RemoveProductFromInventory("store", 1));
+            Assert.AreEqual(0, Workshop192.MarketManagment.System.GetInstance().GetStore("store").inventory.Count);
+        }
+
+        [Test]
+        public void RemoveProductFromInventory_RemoveNonExistingProduct_ReturnsFalse()
+        {
+            Product product = new Product(1, "", "", 1);
+            user1.AddProducts("store", product, 1);
+            user1.RemoveProductFromInventory("store", 1);
+            Assert.Throws<ErrorMessageException>(() => user1.RemoveProductFromInventory("store", 1));
         }
 
         [TearDown]

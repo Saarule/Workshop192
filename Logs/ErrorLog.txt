@@ -891,3 +891,73 @@
 06/23/2019 15:36:43  A guest tried to remove a product from store but failed
 06/23/2019 15:36:43  A guest tried to remove a store manager but failed
 06/23/2019 15:36:43  A guest tried to add a remove a user but failed
+06/23/2019 16:49:09  admin tried making asd an admin but the given user is already an admin
+06/23/2019 16:49:09  A user failed to register User1 123456
+06/23/2019 16:49:09  A user failed to register User1 123456
+06/23/2019 16:49:09  A guest tried to accept a store owner but failed
+06/23/2019 16:49:09  A guest tried to add a product but failed
+06/23/2019 16:49:09  A guest tried to add a store manager but failed
+06/23/2019 16:49:09  A guest tried to add a store owner but failed
+06/23/2019 16:49:09  A guest tried to decline a store owner but failed
+06/23/2019 16:49:09  A guest tried to edit a product of store but failed
+06/23/2019 16:49:09  user Tried to Log In a second time
+06/23/2019 16:49:09  A guest tried to open a store but failed
+06/23/2019 16:49:09  A guest tried to remove a product from store but failed
+06/23/2019 16:49:09  A guest tried to remove a store manager but failed
+06/23/2019 16:49:09  A guest tried to add a remove a user but failed
+06/23/2019 16:53:03  admin tried making asd an admin but the given user is already an admin
+06/23/2019 16:53:03  A user failed to register User1 123456
+06/23/2019 16:53:03  A guest tried to accept a store owner but failed
+06/23/2019 16:53:03  A guest tried to add a product but failed
+06/23/2019 16:53:03  A guest tried to add a store manager but failed
+06/23/2019 16:53:03  A guest tried to add a store owner but failed
+06/23/2019 16:53:03  A guest tried to decline a store owner but failed
+06/23/2019 16:53:03  A guest tried to edit a product of store but failed
+06/23/2019 16:53:03  user Tried to Log In a second time
+06/23/2019 16:53:03  A guest tried to open a store but failed
+06/23/2019 16:53:03  A guest tried to remove a product from store but failed
+06/23/2019 16:53:03  A guest tried to remove a store manager but failed
+06/23/2019 16:53:03  A guest tried to add a remove a user but failed
+06/23/2019 16:53:42  User2 Tried adding products to store [Store] without privileges
+06/23/2019 16:53:42  A user failed to register User1 123456
+06/23/2019 16:54:32  admin tried making asd an admin but the given user is already an admin
+06/23/2019 16:54:32  User2 Tried adding products to store [Store] without privileges
+06/23/2019 16:54:32  A user failed to register User1 123456
+06/23/2019 16:54:32  A guest tried to accept a store owner but failed
+06/23/2019 16:54:32  A guest tried to add a product but failed
+06/23/2019 16:54:32  A guest tried to add a store manager but failed
+06/23/2019 16:54:32  A guest tried to add a store owner but failed
+06/23/2019 16:54:32  A guest tried to decline a store owner but failed
+06/23/2019 16:54:32  A guest tried to edit a product of store but failed
+06/23/2019 16:54:33  user Tried to Log In a second time
+06/23/2019 16:54:33  A guest tried to open a store but failed
+06/23/2019 16:54:33  A guest tried to remove a product from store but failed
+06/23/2019 16:54:33  A guest tried to remove a store manager but failed
+06/23/2019 16:54:33  A guest tried to add a remove a user but failed
+06/23/2019 16:55:36  admin tried making asd an admin but the given user is already an admin
+06/23/2019 16:55:36  User2 Tried adding products to store [Store] without privileges
+06/23/2019 16:55:36  A user failed to register User1 123456
+06/23/2019 16:55:36  A guest tried to accept a store owner but failed
+06/23/2019 16:55:36  A guest tried to add a product but failed
+06/23/2019 16:55:36  A guest tried to add a store manager but failed
+06/23/2019 16:55:36  A guest tried to add a store owner but failed
+06/23/2019 16:55:36  A guest tried to decline a store owner but failed
+06/23/2019 16:55:36  A guest tried to edit a product of store but failed
+06/23/2019 16:55:36  user Tried to Log In a second time
+06/23/2019 16:55:36  A guest tried to open a store but failed
+06/23/2019 16:55:36  A guest tried to remove a product from store but failed
+06/23/2019 16:55:36  A guest tried to remove a store manager but failed
+06/23/2019 16:55:36  A guest tried to add a remove a user but failed
+06/23/2019 16:58:24  admin tried making asd an admin but the given user is already an admin
+06/23/2019 16:58:24  User2 Tried adding products to store [Store] without privileges
+06/23/2019 16:58:24  A guest tried to accept a store owner but failed
+06/23/2019 16:58:24  A guest tried to add a product but failed
+06/23/2019 16:58:24  A guest tried to add a store manager but failed
+06/23/2019 16:58:24  A guest tried to add a store owner but failed
+06/23/2019 16:58:24  A guest tried to decline a store owner but failed
+06/23/2019 16:58:24  A guest tried to edit a product of store but failed
+06/23/2019 16:58:25  user Tried to Log In a second time
+06/23/2019 16:58:25  A guest tried to open a store but failed
+06/23/2019 16:58:25  A guest tried to remove a product from store but failed
+06/23/2019 16:58:25  A guest tried to remove a store manager but failed
+06/23/2019 16:58:25  A guest tried to add a remove a user but failed
