@@ -124,6 +124,11 @@ namespace NewGUI
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
         }
+
+        /* Ban User by country - Does not need to support that functionality in this version
+         * 
+         * 
+         * 
         protected void CountryToBanFromStoreButton1_Click(object sender, EventArgs e)
         {
             try
@@ -144,6 +149,8 @@ namespace NewGUI
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
             }
         }
+        */
+
         protected void DiscountMinimumAmountToBuyFromProductButton1_Click(object sender, EventArgs e)
         {
             try

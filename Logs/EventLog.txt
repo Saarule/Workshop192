@@ -10143,3 +10143,11 @@
 06-23-2019 11:44:59  saar Logged In
 06-23-2019 11:45:15  saar initiated the owner adding proccess to user orel for store [store]
 06-23-2019 11:45:15  orel Is now a owner of store [store]
+06-23-2019 11:48:40  A new user was registered saar 123456
+06-23-2019 11:48:46  saar Logged In
+06-23-2019 11:55:23  A new user was registered saar 123456
+06-23-2019 11:55:31  saar Logged In
+06-23-2019 11:57:14  A new user was registered saar 123456
+06-23-2019 11:57:22  saar Logged In
+06-23-2019 12:00:51  A new user was registered saar 123456
+06-23-2019 12:00:58  saar Logged In
