@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Workshop192;
 
 namespace NewGUI
 {
@@ -13,11 +14,26 @@ namespace NewGUI
         string transcationSupplyId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            transcationPayId = Request["PayID"];
-            transcationSupplyId = Request["SupplyID"];
+            try
+            {
 
-            PlaceHolder3.Controls.Add(new Literal { Text = transcationPayId.ToString() });
-            PlaceHolder4.Controls.Add(new Literal { Text = transcationSupplyId.ToString() });
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                }
+
+
+                transcationPayId = Request["PayID"];
+                transcationSupplyId = Request["SupplyID"];
+
+                PlaceHolder3.Controls.Add(new Literal { Text = transcationPayId.ToString() });
+                PlaceHolder4.Controls.Add(new Literal { Text = transcationSupplyId.ToString() });
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
     }
 }

@@ -13,11 +13,18 @@ namespace NewGUI
         string transcationSupplyId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            transcationPayId = Request["PayID"];
-            transcationSupplyId = Request["SupplyID"];
+            try
+            {
+                transcationPayId = Request["PayID"];
+                transcationSupplyId = Request["SupplyID"];
 
-            PlaceHolder3.Controls.Add(new Literal { Text = transcationPayId.ToString() });
-            PlaceHolder4.Controls.Add(new Literal { Text = transcationSupplyId.ToString() });
+                PlaceHolder3.Controls.Add(new Literal { Text = transcationPayId.ToString() });
+                PlaceHolder4.Controls.Add(new Literal { Text = transcationSupplyId.ToString() });
+            }
+            catch (ErrorMessageException exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + exception.Message + "')", true);
+            }
         }
     }
 }

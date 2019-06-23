@@ -19,6 +19,13 @@ namespace NewGUI
         {
             try
             {
+
+                bool isLoggedIn = CommunicationLayer.Controllers.UsersController.IsLoggedIn(HttpContext.Current.Session.SessionID);
+                if (!isLoggedIn)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You are not logged In to the system! Redirecting to index..');window.location ='index.aspx';", true);
+                }
+
                 productId = Request["productID"];
                 product = CommunicationLayer.Controllers.ProductsController.SearchProductsByID(Int32.Parse(productId));
                 string productName = product.ElementAt(1);
