@@ -8,12 +8,17 @@ namespace Workshop192.MarketManagment
 {
     public class MultiCart
     {
-        private LinkedList<Cart> carts;
+        public int multiCartId { get; set; }
+        public virtual LinkedList<Cart> carts { get; set; }
 
-        public MultiCart()
+        public MultiCart(int multiCartId)
         {
+            this.multiCartId = multiCartId;
             carts = new LinkedList<Cart>();
         }
+
+        public MultiCart() //Only for Entity Framework references should be 0
+        { }
 
         public bool AddProductsToMultiCart(Store store, int productId, int amount)
         {
@@ -22,7 +27,7 @@ namespace Workshop192.MarketManagment
             foreach (Cart cart in carts)
                 if (cart.GetStore().Equals(store))
                     return cart.AddProductsToCart(productId, amount);
-            carts.AddLast(new Cart(store));
+            carts.AddLast(new Cart(store, this));
             try
             {
                 carts.Last.Value.AddProductsToCart(productId, amount);
@@ -48,6 +53,16 @@ namespace Workshop192.MarketManagment
                         return true;
                     }
             throw new ErrorMessageException("Product Doesnt exist in multi cart");
+        }
+
+        public void ResetMultiCart()
+        {
+            while (carts.Count > 0 && !DbCommerce.GetInstance().forTests)
+                DbCommerce.GetInstance().RemoveCart(carts.First.Value);
+            //foreach (Cart cart in carts)
+            //    DbCommerce.GetInstance().RemoveCart(cart);
+            carts = new LinkedList<Cart>();
+            DbCommerce.GetInstance().SaveDb();
         }
 
         public LinkedList<Cart> GetCarts()

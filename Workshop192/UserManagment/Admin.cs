@@ -17,6 +17,9 @@ namespace Workshop192.UserManagment
             this.user = user;
         }
 
+        public Admin() //Only for Entity Framework references should be 0
+        { }
+
         public bool RemoveUser(UserInfo user)
         {
             if (!user.IsAdmin() && AllRegisteredUsers.GetInstance().RemoveUser(user))

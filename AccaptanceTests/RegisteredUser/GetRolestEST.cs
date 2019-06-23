@@ -21,6 +21,7 @@ namespace AccaptanceTests.RegisteredUser
         [SetUp]
         public void SetUp()
         {
+            DbCommerce.GetInstance().StartTests();
             InitializationOfTheSystem System = new InitializationOfTheSystem();
             System.Initalize(null);
             UserId_Nati = CreateAndGetUser.CreateUser();
@@ -37,6 +38,7 @@ namespace AccaptanceTests.RegisteredUser
         [TearDown]
         public void TearDown()
         {
+            DbCommerce.GetInstance().EndTests();
             SystemReset.Reset();
         }
         [Test]

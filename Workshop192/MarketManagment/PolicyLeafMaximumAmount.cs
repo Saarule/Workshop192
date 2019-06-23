@@ -8,14 +8,21 @@ namespace Workshop192.MarketManagment
 {
     public class PolicyLeafMaximumAmount : PolicyComponent
     {
-        private int productId;
-        private int amount;
+        public int productId { get; set; }
+        public int amount { get; set; }
+        public int policyId { get; set; }
+        public string policyProductId { get; set; }
 
-        public PolicyLeafMaximumAmount(int productId, int amount)
+        public PolicyLeafMaximumAmount(int productId, int amount, int policyId, string policyProductId)
         {
             this.productId = productId;
             this.amount = amount;
+            this.policyId = policyId;
+            this.policyProductId = policyProductId;
         }
+
+        public PolicyLeafMaximumAmount() //Only for Entity Framework references should be 0
+        { }
 
         public bool Validate(int userId, Cart cart)
         {
