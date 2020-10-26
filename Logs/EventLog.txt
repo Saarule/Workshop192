@@ -20960,3 +20960,53 @@
 06-23-2019 16:46:54  saar Logged In
 >>>>>>> master
 >>>>>>> OrelBranch
+06/23/2019 17:44:28  A new user was registered A1 123456
+06/23/2019 17:44:28  A new user was registered U1 123456
+06/23/2019 17:44:28  A new user was registered U2 123456
+06/23/2019 17:44:28  A new user was registered U11 123456
+06/23/2019 17:44:28  A new user was registered U12 123456
+06/23/2019 17:44:28  A new user was registered U13 123456
+06/23/2019 17:44:28  U11 Logged In
+06/23/2019 17:44:28  U11 Logged Out
+06/23/2019 17:46:32  U1 Logged In
+06/23/2019 17:47:59  U1 added user U2 as a manager in store [S1] with the following privileges System.Boolean[]
+06/23/2019 17:49:28  U1 Logged Out
+06/23/2019 17:49:43  A new user was registered U3 123456
+06/23/2019 17:50:08  U1 Logged In
+06/23/2019 17:50:40  U1 added user U3 as a manager in store [S1] with the following privileges System.Boolean[]
+06/23/2019 17:51:03  U1 Logged Out
+06/23/2019 17:51:13  U2 Logged In
+06/23/2019 17:51:41  U2 Added Product [1] [Beer] [Alcohol] [5] [3] as a manager of store [S1]
+06/23/2019 17:51:54  U2 Added Product [2] [Wine] [Alcohol] [7] [40] as a manager of store [S1]
+06/23/2019 17:53:43  U3 Logged In
+06/23/2019 18:01:07  A guest added product [2] [5] of store [S1] to their multi cart
+06/23/2019 18:01:44  A guest added product [2] [5] of store [S1] to their multi cart
+06/23/2019 18:02:45  A guest added product [2] [5] of store [S1] to their multi cart
+06/23/2019 18:04:38  A guest added product [2] [2] of store [S1] to their multi cart
+06/23/2019 18:05:32  U3 Logged Out
+06/23/2019 18:05:43  U2 Logged Out
+06/23/2019 18:05:51  U2 Logged In
+06/23/2019 18:06:12  U2 added product [2] [2] of store [S1] to their multi cart
+06/23/2019 18:10:32  U1 Logged In
+06/23/2019 18:11:30  U2 added product [2] [1] of store [S1] to their multi cart
+06/23/2019 18:17:35  U1 Logged Out
+06/23/2019 18:17:48  A1 Logged In
+06/23/2019 18:18:17  U2 Logged Out
+06/23/2019 18:18:17  A1 removed user U2 as an admin
+06/23/2019 18:18:43  A1 removed user U1 as an admin
+06/23/2019 18:25:02  U3 Logged In
+06/23/2019 18:25:41  U3 Logged Out
+06/23/2019 18:25:49  U3 Logged In
+06/23/2019 18:26:21  U3 Logged Out
+06/23/2019 18:26:29  U11 Logged In
+06/23/2019 18:26:59  U11 initiated the owner adding proccess to user U13 for store [S2]
+06/23/2019 18:26:59  U13 Is now a owner of store [S2]
+06/23/2019 18:27:32  U11 initiated the owner adding proccess to user U12 for store [S2]
+06/23/2019 18:27:48  U13 Logged In
+06/23/2019 18:28:31  U13 accepted user U12 as a owner in store [S2]
+06/23/2019 18:28:31  U12 Is now a owner of store [S2]
+07/03/2019 16:48:38  A new user was registered orel 12345
+07/03/2019 16:48:47  orel Logged In
+10/22/2020 18:28:43  A new user was registered aa 12345
+10/22/2020 18:28:54  aa Logged In
+10/22/2020 18:29:40  aa Added Product [3] [milk] [dairy] [10] [20] as a owner of store [oo]

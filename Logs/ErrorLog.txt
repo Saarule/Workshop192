@@ -1078,3 +1078,6 @@
 =======
 >>>>>>> DataBase
 >>>>>>> OrelBranch
+06/23/2019 17:46:08  A user failed to register U1 123456
+06/23/2019 17:48:43  U1 Tried adding a non existent user as a store manager
+06/23/2019 17:52:53  U2 Tried adding selling policy to store [S1] without privileges
